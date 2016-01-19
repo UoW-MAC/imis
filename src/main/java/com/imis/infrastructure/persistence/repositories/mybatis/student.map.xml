@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.imis.domain.repositories.StudentRepository">
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
+    
+    <resultMap type="Student" id="studentResultMap">
+        <result property="studentId" column="student_id" />
+        <result property="studentNo" column="student_no" />
+        <result property="firstName" column="first_name" />
+        <result property="middleName" column="middle_name" />
+        <result property="lastName" column="last_name" />
+        <result property="email" column="email" />
+        <result property="telephone" column="telephone" />
+        <result property="status" column="status" />
+        <result property="gender" column="gender" />
+        <result property="semsterRegistered" column="semester_registered" /> 
+        <result property="registeredYear" column="registered_year" />
+    </resultMap>
+     
+    <insert id="addStudentInfo" useGeneratedKeys="false" parameterType="Student" >
+    	<![CDATA[
+	    	insert into student(student_id,student_no,first_name,middle_name,last_name,email,telephone,status,gender,semester_registered,registered_year)
+	    	values(STUDENT_SEQ.NEXTVAL,#{studentNo},#{firstName},#{middleName},#{lastName},#{email},#{telephone},#{status},#{gender},'2015','2015')
+    	]]>
+    </insert>
+   
+</mapper>
+
