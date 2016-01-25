@@ -1,6 +1,7 @@
 package com.imis.domain.entities;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -22,10 +23,37 @@ public class Student implements Serializable {
 	private String gender;
 	private String semesterRegistered;
 	private String registeredYear;
-	private Company company;
+	private Organization organization;
 	private Position position;
 	private List<Work> workList;
 	private List<Education> educationlist;
+	private User user;
+	private Timestamp createTime;
+	private Timestamp updateTime;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Timestamp getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Timestamp createTime) {
+		this.createTime = createTime;
+	}
+
+	public Timestamp getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Timestamp updateTime) {
+		this.updateTime = updateTime;
+	}
 
 	public Long getStudentId() {
 		return studentId;
@@ -107,12 +135,12 @@ public class Student implements Serializable {
 		this.registeredYear = registeredYear;
 	}
 
-	public Company getCompany() {
-		return company;
+	public Organization getOrganization() {
+		return organization;
 	}
 
-	public void setCompany(Company company) {
-		this.company = company;
+	public void setCompany(Organization organization) {
+		this.organization = organization;
 	}
 
 	public Position getPosition() {

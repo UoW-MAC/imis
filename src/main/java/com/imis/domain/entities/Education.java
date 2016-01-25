@@ -1,6 +1,7 @@
 package com.imis.domain.entities;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 /**
  * @author william zhang
@@ -18,7 +19,21 @@ public class Education implements Serializable {
 	private String country;
 	private String date;
 	private Student student;
+	private Timestamp createTime;
+	private Timestamp updateTime;
 	
+	public Timestamp getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Timestamp createTime) {
+		this.createTime = createTime;
+	}
+	public Timestamp getUpdateTime() {
+		return updateTime;
+	}
+	public void setUpdateTime(Timestamp updateTime) {
+		this.updateTime = updateTime;
+	}
 	public Long getEducationId() {
 		return educationId;
 	}

@@ -1,6 +1,7 @@
 package com.imis.domain.entities;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 /**
  * @author william zhang
@@ -16,7 +17,24 @@ public class Work implements Serializable {
 	private String title;
 	private String duties;
 	private Student student;
+	private Timestamp createTime;
+	private Timestamp updateTime;
 	
+	public Timestamp getCreateTime() {
+		return createTime;
+	}
+	
+	public void setCreateTime(Timestamp createTime) {
+		this.createTime = createTime;
+	}
+	
+	public Timestamp getUpdateTime() {
+		return updateTime;
+	}
+	
+	public void setUpdateTime(Timestamp updateTime) {
+		this.updateTime = updateTime;
+	}
 	public Long getWorkId() {
 		return workId;
 	}
