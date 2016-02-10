@@ -139,7 +139,7 @@ public class Student implements Serializable {
 		return organization;
 	}
 
-	public void setCompany(Organization organization) {
+	public void setOrganization(Organization organization) {
 		this.organization = organization;
 	}
 

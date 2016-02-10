@@ -31,34 +31,28 @@
         <sec:intercept-url pattern="/horizontalQuery" access="ROLE_PLATFORMADMIN"/>
 
 
-        <sec:intercept-url pattern="/user-personal-center" access="ROLE_USER, ROLE_ADMIN"/>
+        <sec:intercept-url pattern="/user-center" access="ROLE_STUDENT, ROLE_ORGANIZATION, ROLE_ADMIN"/>
 
 
         <!--intercept-url pattern="/login" access="ROLE_USER, ROLE_ANONYMOUS"/-->
-        <sec:intercept-url pattern="/user-profile" access="ROLE_USER, ROLE_ADMIN"/>
-        <sec:intercept-url pattern="/user-password" access="ROLE_USER, ROLE_ADMIN"/>
-
-        <!-- user enabled="true"></user -->
-        <sec:intercept-url pattern="/user-application-form" access="ROLE_USER"/>
+        <sec:intercept-url pattern="/user-profile" access="ROLE_STUDENT, ROLE_ADMIN"/>
+        <sec:intercept-url pattern="/user-password" access="ROLE_STUDENT, ROLE_ADMIN"/>
 
         <!-- admin enabled="true"></admin -->
         <sec:intercept-url pattern="/user-management" access="ROLE_ADMIN"/>
 
-        <!--
-        <sec:custom-filter before="FORM_LOGIN_FILTER" ref="loginFilter" />
-        -->
         <sec:custom-filter before="FORM_LOGIN_FILTER" ref="loginFilter" />
 
-        <sec:form-login login-page="/project-landing"
+        <sec:form-login login-page="/home"
                     authentication-failure-url="/login-failure"
                     default-target-url="/login-success"/>
 
         <sec:logout invalidate-session="true"
-                    logout-url="/j_spring_security_logout" logout-success-url="/project-landing"/>
+                    logout-url="/j_spring_security_logout" logout-success-url="/login"/>
 
         <sec:remember-me data-source-ref="dataSource" user-service-ref="userDetailsManager"/>
 
-        <sec:session-management invalid-session-url="/project-landing"/>
+        <sec:session-management invalid-session-url="/home"/>
 
     </sec:http>
 
@@ -75,7 +69,7 @@
         <b:property name="dataSource" ref="dataSource"/>
     </b:bean>
 
-    <b:bean id="loginFilter" class="com.sannong.presentation.filter.LoginFilter">
+    <b:bean id="loginFilter" class="com.imis.presentation.filter.LoginFilter">
         <b:property name="authenticationManager" ref="authenticationManager"/>
         <b:property name="authenticationSuccessHandler">
              <!-- 自定义登录成功后的处理handler -->
@@ -123,6 +117,3 @@
 
 
 </b:beans>
-
-
-

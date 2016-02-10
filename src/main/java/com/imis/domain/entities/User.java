@@ -14,9 +14,28 @@ public class User implements Serializable{
 	private String userName;
 	private String password;
 	private String email;
-	private String role;
+	private int enabled;
+	private String salt;
+	private String authority;
 	private Timestamp createTime;
+	private Timestamp updateTime;
 	
+	public int getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
+	}
+	
+	public Timestamp getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Timestamp updateTime) {
+		this.updateTime = updateTime;
+	}
+
 	public Long getUserId() {
 		return userId;
 	}
@@ -33,13 +52,6 @@ public class User implements Serializable{
 		this.email = email;
 	}
 	
-	public String getRole() {
-		return role;
-	}
-	
-	public void setRole(String role) {
-		this.role = role;
-	}
 	
 	public Timestamp getCreateTime() {
 		return createTime;
@@ -63,6 +75,22 @@ public class User implements Serializable{
 	
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+	
+	public String getAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(String authority) {
+		this.authority = authority;
 	}
 	
 }

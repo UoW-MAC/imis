@@ -77,8 +77,9 @@
                         <div>
                             <div>Gender</div>
                             <div class="radioRow">
-                            	<span class="radioCustom"><input type="radio" name="gender" value="Male"><label>Male</label></span>
-                            	<span class="radioCustom"><input type="radio" name="gender" value="Female"><label>Female</label></span>
+                            	<span class="radioCustom"><input type="radio" name="gender" value="role_student"><label>Male</label></span>
+                            	<span class="radioCustom"><input type="radio" name="gender" value="role_organization"><label>Female</label></span>
+                            	<span class="radioCustom"><input type="radio" name="gender" value="role_admin"><label>Female</label></span>
                             </div>
                         </div>
                         <div class="row">

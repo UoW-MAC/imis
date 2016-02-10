@@ -1,7 +1,7 @@
 package com.imis.domain.valuetypes;
 
 /**
- * Created by Bright Huang on 11/29/14.
+ * Created by William Zhang 30/01/15
  */
 public enum ResponseStatus {
     /**

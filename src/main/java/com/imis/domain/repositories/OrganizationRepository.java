@@ -9,6 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Repository
 @Transactional
-public interface CompanyRepository {
+public interface OrganizationRepository {
 	
 }

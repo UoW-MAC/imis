@@ -31,7 +31,8 @@ requirejs.config({
         "jqueryJcarousel": "lib/jquery.jcarousel.min",
         "npm": "lib/npm",
         "owlCarousel": "lib/owl.carousel",
-        "respond": "lib/respond.min"
+        "respond": "lib/respond.min",
+        "ie10bug": "ie10-viewport-bug-workaround.js"
     },
     shim: {
         'bootstrap' : {
@@ -137,6 +138,10 @@ requirejs.config({
         "respond": {
             deps :['jquery'],
             exports : "respond"
+        },
+        "ie10bug": {
+        	deps :['jquery'],
+        	exports : "ie10bug"
         }
     }
 });

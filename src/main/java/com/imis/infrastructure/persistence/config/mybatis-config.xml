@@ -6,20 +6,22 @@
     </settings>
 
 	<typeAliases>
-    	<typeAlias type="com.imis.domain.entities.Company" alias="Company" />
+    	<typeAlias type="com.imis.domain.entities.Organization" alias="Organization" />
     	<typeAlias type="com.imis.domain.entities.Education" alias="Education" />
         <typeAlias type="com.imis.domain.entities.Employer" alias="Employer" />
         <typeAlias type="com.imis.domain.entities.Position" alias="Position" />
         <typeAlias type="com.imis.domain.entities.Student" alias="Student" />
         <typeAlias type="com.imis.domain.entities.Work" alias="Work" />
+        <typeAlias type="com.imis.domain.entities.User" alias="User" />
     </typeAliases>
     
     <mappers>
-    	<mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/company.map.xml"/>
+    	<mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/organization.map.xml"/>
     	<mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/education.map.xml"/>
     	<mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/employer.map.xml"/>
     	<mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/position.map.xml"/>
     	<mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/student.map.xml"/>
         <mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/work.map.xml"/>
+        <mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/user.map.xml"/>
     </mappers>
 </configuration>

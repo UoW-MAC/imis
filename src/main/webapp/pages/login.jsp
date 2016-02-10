@@ -47,7 +47,7 @@
     <div class="row">
         	<span class="col-sm-12 textAlignCenter">
           XXXXXXXXXXXXXXXXX<br/><br/>
-           XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX<br /><br />
+           Login failed<br /><br />
 						<em>XXXXXXXXXXXXXXXXXXXXXX</em><br /><br />
 						<hr/>
             <a href="project-landing" class="orange-bt">XXXXX</a>
