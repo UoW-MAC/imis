@@ -26,11 +26,23 @@ public class Student implements Serializable {
 	private Organization organization;
 	private Position position;
 	private List<Work> workList;
-	private List<Education> educationlist;
+	private List<Education> educationList;
 	private User user;
 	private Timestamp createTime;
 	private Timestamp updateTime;
 
+	public List<Education> getEducationList() {
+		return educationList;
+	}
+
+	public void setEducationList(List<Education> educationList) {
+		this.educationList = educationList;
+	}
+
+	public void setOrganization(Organization organization) {
+		this.organization = organization;
+	}
+	
 	public User getUser() {
 		return user;
 	}
@@ -139,7 +151,7 @@ public class Student implements Serializable {
 		return organization;
 	}
 
-	public void setOrganization(Organization organization) {
+	public void setCompany(Organization organization) {
 		this.organization = organization;
 	}
 
@@ -158,6 +170,7 @@ public class Student implements Serializable {
 	public void setStudentNo(Long studentNo) {
 		this.studentNo = studentNo;
 	}
+
 	public List<Work> getWorkList() {
 		return workList;
 	}
@@ -166,11 +179,5 @@ public class Student implements Serializable {
 		this.workList = workList;
 	}
 
-	public List<Education> getEducationlist() {
-		return educationlist;
-	}
 
-	public void setEducationlist(List<Education> educationlist) {
-		this.educationlist = educationlist;
-	}
 }

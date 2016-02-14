@@ -4,6 +4,13 @@
 <mapper namespace="com.imis.domain.repositories.EducationRepository">
 	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
 
-   
+    <insert id="addEducationInfo" parameterType="List" useGeneratedKeys="false" > 
+        insert into education(education_id,major,GPA,institution,country,date,student_id,create_time,update_time) 
+        values
+	    <foreach collection="list" index="index" item="item"
+	             separator=",">
+	         (SEQ_EDUCATION.NEXTVAL,#{item.major}#,#{item.GPA}#,#{item.institution}#,#{item.country}#,#{item.date}#,#{item.studentId}#{item.createTime},#{item.updateTime}) 
+	    </foreach>
+    </insert> 
 </mapper>
 

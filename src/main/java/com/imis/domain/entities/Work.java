@@ -10,9 +10,9 @@ import java.sql.Timestamp;
 public class Work implements Serializable {
 
 	private static final long serialVersionUID = -8940575215391259673L;
-	
+
 	private Long workId;
-	private String company;
+	private String organization;
 	private String dates;
 	private String title;
 	private String duties;
@@ -20,32 +20,17 @@ public class Work implements Serializable {
 	private Timestamp createTime;
 	private Timestamp updateTime;
 	
-	public Timestamp getCreateTime() {
-		return createTime;
-	}
-	
-	public void setCreateTime(Timestamp createTime) {
-		this.createTime = createTime;
-	}
-	
-	public Timestamp getUpdateTime() {
-		return updateTime;
-	}
-	
-	public void setUpdateTime(Timestamp updateTime) {
-		this.updateTime = updateTime;
-	}
 	public Long getWorkId() {
 		return workId;
 	}
 	public void setWorkId(Long workId) {
 		this.workId = workId;
 	}
-	public String getCompany() {
-		return company;
+	public String getOrganization() {
+		return organization;
 	}
-	public void setCompany(String company) {
-		this.company = company;
+	public void setOrganization(String organization) {
+		this.organization = organization;
 	}
 	public String getDates() {
 		return dates;
@@ -71,4 +56,17 @@ public class Work implements Serializable {
 	public void setStudent(Student student) {
 		this.student = student;
 	}
+	public Timestamp getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Timestamp createTime) {
+		this.createTime = createTime;
+	}
+	public Timestamp getUpdateTime() {
+		return updateTime;
+	}
+	public void setUpdateTime(Timestamp updateTime) {
+		this.updateTime = updateTime;
+	}
+
 }
