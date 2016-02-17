@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
         -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Student Pre-Internship Survey</title>
+		<title>Student Center</title>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -29,20 +29,20 @@
 	</head>
 
 	<body>
-    <jsp:include page='header.jsp'/>
-    
-    <!-- PAGE TITLE -->
-    <div class="page-title withOutTitle">    	
-    </div>
-    <!-- /PAGE TITLE -->
-    
     <!-- CONTENT SECTION -->
     <section class="contentSection">
     	<div class="container">
             <div class="row">
                 <span class="col-sm-9 rightBorder equalCol">
-                    <h3 class="borderBottom">Student Pre-Internship Survey</h3>
                     <form class="studentForm" id="studentForm" role="form" action="makeStudent" method="post">
+                        <div>
+                            <div>Semester Registered: </div>
+                            <div class="radioRow">
+                            	<span class="radioCustom"><input type="radio" name="semesterRegistered" value="fall"><label>FALL</label></span>
+                            	<span class="radioCustom"><input type="radio" name="semesterRegistered" value="winter"><label>WINTER</label></span>
+                            </div>
+                            <div>YEAR: <input type="text" class="width-200" id="registeredYear" name="registeredYear" ></div>
+                        </div>
                         <div class="row">
                             <aside class="userFormCol-1">Student ID</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="student_no" name="studentNo"></aside>
@@ -101,7 +101,6 @@
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="educationList[0].date" name="educationList[0].date"></td>
                      </tr>
                      
-                     <!--
                      <tr>
                      <td>Graduate degree(s)</td>
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="educationList[1].major" name="educationList[1].major"></aside></td>
@@ -110,25 +109,31 @@
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="educationList[1].country" name="educationList[1].country"></td>
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="educationList[1].date" name="educationList[1].date"></td>
                      </tr>
+                     
                      <tr>
                      <td><div class="userFormCol-6">Other – List any other degrees or certifications you have</div></td>
                      </tr>
+                     
                      <tr>
                      <td></td>
-                    <td><aside class="userFormCol-1"><input type="text" class="width-330"  id="educationList[2].major" name="educationList[2].major"></aside></td>
+                     <td><aside class="userFormCol-1"><input type="text" class="width-330"  id="educationList[2].major" name="educationList[2].major"></aside></td>
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="educationList[2].gpa" name="educationList[2].gpa"></td>
                      <td><aside class="userFormCol-2"><input type="text" class="width-330" id="educationList[2].institution" name="educationList[2].institution"></td>
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="educationList[2].country" name="educationList[2].country"></td>
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="educationList[2].date" name="educationList[2].date"></td>
                      </tr>
                      <tr>
-                     <td></td>
+                     <td id="educationList[3].degree" name="educationList[3].degree" value="other"></td>
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="educationList[3].major" name="educationList[3].major"></aside></td>
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="educationList[3].gpa" name="educationList[3].gpa"></td>
                      <td><aside class="userFormCol-2"><input type="text" class="width-330" id="educationList[3].institution" name="educationList[3].institution"></td>
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="educationList[3].country" name="educationList[3].country"></td>
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="educationList[3].date" name="educationList[3].date"></td>
-                     </tr> -->
+                     </tr>
+                     <input name="educationList[0].degree" type="hidden" value="undergraduate"/>
+                     <input name="educationList[1].degree" type="hidden" value="graduate"/>
+                     <input name="educationList[2].degree" type="hidden" value="other"/>
+                     <input name="educationList[3].degree" type="hidden" value="other"/>
                 </table>
                 </div>
                  <div class="table">
@@ -141,32 +146,32 @@
                      </tr>
                      
                      <tr>                    
-                     <td><aside class="userFormCol-1"><input type="text" class="width-330" id="workList[0].organization" name="workList[0].organization"></aside></td>
+                     <td><aside class="userFormCol-1"><input type="text" class="width-330" id="workList[0].organization" name="workList[0].company"></aside></td>
                      <td><aside class="userFormCol-4"><input type="text" class="width-330" id="workList[0].dates" name="workList[0].dates"></td>
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="workList[0].title" name="workList[0].title"></td>
-                     <td><aside class="userFormCol-1"><input type="text" class="width-330" id="workList[0].duties" name="workList[0].duties"></td>                                        </tr>
+                     <td><aside class="userFormCol-1"><input type="text" class="width-330" id="workList[0].duties" name="workList[0].duties"></td>
                      </tr>
                      
-                    <!-- <tr>           
-                     <td><aside class="userFormCol-1"><input type="text" class="width-330" id="workList[1].organization" name="workList[1].organization"></aside></td>
+                     <tr>           
+                     <td><aside class="userFormCol-1"><input type="text" class="width-330" id="workList[1].organization" name="workList[1].company"></aside></td>
                      <td><aside class="userFormCol-4"><input type="text" class="width-330" id="workList[1].dates" name="workList[1].dates"></td>
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="workList[1].title" name="workList[1].title"></td>
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="workList[1].duties" name="workList[1].duties"></td>                                     
                      </tr>
                      
                      <tr>
-                     <td><aside class="userFormCol-1"><input type="text" class="width-330"  id="workList[2].organization" name="workList[2].organization"></aside></td>
+                     <td><aside class="userFormCol-1"><input type="text" class="width-330"  id="workList[2].organization" name="workList[2].company"></aside></td>
                      <td><aside class="userFormCol-4"><input type="text" class="width-330" id="workList[2].dates" name="workList[2].dates"></td>
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="workList[2].title" name="workList[2].title"></td>
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="workList[2].duties" name="workList[2].duties"></td>                    
                      </tr>
                      
                      <tr>
-                     <td><aside class="userFormCol-1"><input type="text" class="width-330" id="workList[3].organization" name="workList[3].organization"></aside></td>
+                     <td><aside class="userFormCol-1"><input type="text" class="width-330" id="workList[3].organization" name="workList[3].company"></aside></td>
                      <td><aside class="userFormCol-4"><input type="text" class="width-330" id="workList[3].dates" name="workList[3].dates"></td>                   
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="workList[3].title" name="workList[3].title"></td>
                      <td><aside class="userFormCol-1"><input type="text" class="width-330" id="workList[3].duties" name="workList[3].duties"></td>
-                     </tr> -->
+                     </tr>
                 </table>
                 </div> 
                 <div class="row">
@@ -200,8 +205,6 @@
         </div>
     </section>
     <!-- /CONTENT SECTION -->
-
-    <jsp:include page='footer.jsp'/>
     <script data-main="js/app/pages/student" src="js/lib/require-2.1.15.min.js"></script>
  </body>
 </html>

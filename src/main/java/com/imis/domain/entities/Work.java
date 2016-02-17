@@ -12,12 +12,19 @@ public class Work implements Serializable {
 	private static final long serialVersionUID = -8940575215391259673L;
 
 	private Long workId;
-	private String organization;
+	private String company;
 	private String dates;
 	private String title;
 	private String duties;
 	private Student student;
 	private Timestamp createTime;
+	
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
+	}
 	private Timestamp updateTime;
 	
 	public Long getWorkId() {
@@ -25,12 +32,6 @@ public class Work implements Serializable {
 	}
 	public void setWorkId(Long workId) {
 		this.workId = workId;
-	}
-	public String getOrganization() {
-		return organization;
-	}
-	public void setOrganization(String organization) {
-		this.organization = organization;
 	}
 	public String getDates() {
 		return dates;

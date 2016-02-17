@@ -7,22 +7,22 @@ import java.sql.Timestamp;
  * @author william zhang
  *
  */
-public class Employ implements Serializable {
+public class Employment implements Serializable {
 
 	private static final long serialVersionUID = -375423964473070765L;
 	
-	private Long employId;
+	private Long employmentId;
 	private Student student;
 	private Position position;
 	private String status;
 	private Timestamp createTime;
 	private Timestamp updateTime;
 	
-	public Long getEmployId() {
-		return employId;
+	public Long getEmploymentId() {
+		return employmentId;
 	}
-	public void setEmployId(Long employId) {
-		this.employId = employId;
+	public void setEmploymentId(Long employmentId) {
+		this.employmentId = employmentId;
 	}
 	public Student getStudent() {
 		return student;

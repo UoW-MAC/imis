@@ -21,8 +21,8 @@
       <div class="row">
           <span class="col-sm-12">
               <ul>
-                  <sec:authorize ifNotGranted="ROLE_USER,ROLE_ADMIN">
-                    <li><a href="#" data-toggle="modal" data-target="#LoginModel">登录</a></li>
+                  <sec:authorize ifNotGranted="ROLE_STUDENT,ROLE_ADMIN,ROLE_ORGANIZATION">
+                    <li><a href="#" data-toggle="modal" data-target="#LoginModel"><sec:authentication property="USERNAME" /></a></li>
                   </sec:authorize>
                   <sec:authorize access="hasRole('ROLE_USER') and isAuthenticated()">
                       <li><span id="welcome"></span></li>

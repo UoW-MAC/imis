@@ -23,8 +23,8 @@
 	    	select SEQ_STUDENT.NEXTVAL from dual  
 	    </selectKey>  
     	<![CDATA[
-	    	insert into student(student_id,student_no,first_name,middle_name,last_name,email,telephone,status,gender,semester_registered,registered_year,user_id,create_time,update_time)
-	    	values(#{studentId},#{studentNo},#{firstName},#{middleName},#{lastName},#{email},#{telephone},#{status},#{gender},'2015','2015',123,#{createTime},#{updateTime})
+	    	insert into student(student_id,student_no,first_name,middle_name,last_name,email,telephone,status,gender,semester_registered,registered_year,username,create_time,update_time)
+	    	values(#{studentId},#{studentNo},#{firstName},#{middleName},#{lastName},#{email},#{telephone},#{status},#{gender},#{semesterRegistered},#{registeredYear},#{user.userName},#{createTime},#{updateTime})
     	]]>
     </insert>  
     <update id="updateStudentInfo" parameterType="Student" >

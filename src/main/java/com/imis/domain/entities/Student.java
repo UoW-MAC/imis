@@ -23,7 +23,6 @@ public class Student implements Serializable {
 	private String gender;
 	private String semesterRegistered;
 	private String registeredYear;
-	private Organization organization;
 	private Position position;
 	private List<Work> workList;
 	private List<Education> educationList;
@@ -39,10 +38,6 @@ public class Student implements Serializable {
 		this.educationList = educationList;
 	}
 
-	public void setOrganization(Organization organization) {
-		this.organization = organization;
-	}
-	
 	public User getUser() {
 		return user;
 	}
@@ -147,13 +142,6 @@ public class Student implements Serializable {
 		this.registeredYear = registeredYear;
 	}
 
-	public Organization getOrganization() {
-		return organization;
-	}
-
-	public void setCompany(Organization organization) {
-		this.organization = organization;
-	}
 
 	public Position getPosition() {
 		return position;

@@ -3,14 +3,14 @@
 
 <mapper namespace="com.imis.domain.repositories.WorkRepository">
 	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
- <insert id="addWorkInfo" parameterType="java.util.List" useGeneratedKeys="false" > 
-    insert into work(work_id,organization,dates,title,duties,student_id,create_time,update_time) 
-    values
-    <foreach collection="list" index="index" item="item"
-             separator="," open="(" close=")">
-              SEQ_WORK.NEXTVAL,#{item.organization},#{item.dates},#{item.title},#{item.duties},#{item.studentId},#{item.createTime},#{item.updateTime}
-    </foreach>
- </insert> 
+    <insert id="addWorkInfo" parameterType="java.util.List"> 
+        insert into work(work_id,company,dates,title,duties,student_id,create_time,update_time) 
+        select SEQ_WORK.NEXTVAL,A.* FROM ( 
+        <foreach collection="list" index="index" item="item" separator="UNION">
+              SELECT #{item.company},#{item.dates},#{item.title},#{item.duties},#{item.student.studentId},#{item.createTime},#{item.updateTime} FROM DUAL
+        </foreach>
+        ) A
+    </insert> 
    
 </mapper>
 

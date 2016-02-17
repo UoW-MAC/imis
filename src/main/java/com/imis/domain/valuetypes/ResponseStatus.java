@@ -7,7 +7,7 @@ public enum ResponseStatus {
     /**
      * 1000 - 1999, success status
      */
-    SUCCESS(1000, "成功"),
+    SUCCESS(1000, "success"),
     PASSWORD_UPDATED(1001, "密码已更新"),
     LOGIN_SUCCESS(1002, "登录成功"),
     NEW_PASSWORD_WAS_SENT(1003, "新密码已发送"),
@@ -15,7 +15,7 @@ public enum ResponseStatus {
     /**
      * 2000 - 2999, failure status
      */
-    FAILURE(2000, "失败"),
+    FAILURE(2000, "fail"),
     USER_NOT_FOUND(2001, "用户不存在"),
     PASSWORD_MISMATCH(2002, "密码不正确"),
     OLD_PASSWORD_MISMATCH(2003, "旧密码不匹配"),

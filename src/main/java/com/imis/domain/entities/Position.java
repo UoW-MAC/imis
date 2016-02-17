@@ -12,12 +12,21 @@ public class Position implements Serializable{
 	private static final long serialVersionUID = 6267272562976652479L;
 	
 	private Long positionId;
-	private String name;
+	private String positionName;
 	private PositionGroup positionGroup;
-    private Organization organization;
+    private Employer employer;
     private Timestamp createTime;
     private Timestamp updateTime;
+    private int positionStatus;
     
+	public int getPositionStatus() {
+		return positionStatus;
+	}
+
+	public void setPositionStatus(int positionStatus) {
+		this.positionStatus = positionStatus;
+	}
+
 	public Long getPositionId() {
 		return positionId;
 	}
@@ -26,14 +35,14 @@ public class Position implements Serializable{
 		this.positionId = positionId;
 	}
 	
-	public String getName() {
-		return name;
+	public String getPositionName() {
+		return positionName;
 	}
-	
-	public void setName(String name) {
-		this.name = name;
+
+	public void setPositionName(String positionName) {
+		this.positionName = positionName;
 	}
-	
+
 	public PositionGroup getPositionGroup() {
 		return positionGroup;
 	}
@@ -42,14 +51,14 @@ public class Position implements Serializable{
 		this.positionGroup = positionGroup;
 	}
 	
-	public Organization getOrganization() {
-		return organization;
+	public Employer getEmployer() {
+		return employer;
 	}
-	
-	public void setOrganization(Organization organization) {
-		this.organization = organization;
+
+	public void setEmployer(Employer employer) {
+		this.employer = employer;
 	}
-	
+
 	public Timestamp getCreateTime() {
 		return createTime;
 	}

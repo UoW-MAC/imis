@@ -3,7 +3,9 @@
 
 <mapper namespace="com.imis.domain.repositories.EmployerRepository">
 	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
-
+	<resultMap type="Employer" id="employerResultMap">
+		<result property="employerName" column="employer_name" />
+	</resultMap>
    
 </mapper>
 
