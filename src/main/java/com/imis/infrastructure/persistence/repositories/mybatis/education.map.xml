@@ -4,14 +4,33 @@
 <mapper namespace="com.imis.domain.repositories.EducationRepository">
 	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
 
+	<resultMap type="Education" id="educationResultMap">
+        <result property="degree" column="DEGREE" />
+        <result property="major" column="MAJOR" />
+        <result property="gpa" column="GPA" />
+        <result property="country" column="COUNTRY" />
+        <result property="institution" column="INSTITUTION" />
+        <result property="graduationDate" column="GRADUATION_DATE" />
+    </resultMap>
+
     <insert id="addEducationInfo" parameterType="List"> 
         insert into education(education_id,degree,major,gpa,institution,country,graduation_date,student_id,create_time,update_time)
         select SEQ_EDUCATION.NEXTVAL,A.* from ( 
 	    <foreach collection="list" index="index" item="item" separator="UNION">
-	         SELECT #{item.degree},#{item.major},#{item.gpa},#{item.institution},#{item.country},#{item.date},#{item.student.studentId},#{item.createTime},#{item.updateTime} FROM DUAL
+	         SELECT #{item.degree},#{item.major},#{item.gpa},#{item.institution},#{item.country},#{item.graduationDate},#{item.student.studentId},#{item.createTime},#{item.updateTime} FROM DUAL
 	    </foreach>
 	    ) A
-    </insert> 
+    </insert>   
+    
+    <update id="updateEducationInfo"  parameterType="List">
+       <foreach collection="list" item="item" index="index" open="begin" close="end;" separator=";">
+                UPDATE EDUCATION
+                <set>
+                  degree = #{degree}, major = #{major}, gpa = #{gpa}, institution = #{institution}, country = #{country}, graduation_date = #{graduation_date}
+                </set>
+                WHERE STUDENT_ID = #{studentId}  
+       </foreach>
+    </update>
     
 </mapper>
 

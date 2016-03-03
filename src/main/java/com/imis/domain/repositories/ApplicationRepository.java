@@ -1,11 +1,9 @@
 package com.imis.domain.repositories;
 
-import java.util.List;
-
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.imis.domain.entities.Education;
+import com.imis.domain.entities.Application;
 
 /**
  * @author william zhang
@@ -13,10 +11,8 @@ import com.imis.domain.entities.Education;
  */
 @Repository
 @Transactional
-public interface EducationRepository {
+public interface ApplicationRepository {
 	
-	void addEducationInfo(List<Education> educationList);
-	
-	void updateEducationInfo(List<Education> educationList);
+	void positionApply(Application application); 
 	
 }

@@ -65,12 +65,22 @@ public class StudentServiceImpl implements IStudentService {
 	}
 
 
+	public Student getStudentInfo() throws Exception {
+		
+		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String userName = userDetails.getUsername();
+		
+		Student student = studentRepository.getStudentInfo(userName);
+		
+		return student;
+	}
+
 	public void studentInfoUpdate(Student student) throws Exception {
 
 		studentRepository.updateStudentInfo(student);
 
 		workRepository.updateWorkInfo(student.getWorkList());
 
-		educationRepository.addEducationInfo(student.getEducationList());
+		educationRepository.updateEducationInfo(student.getEducationList());
 	}
 }

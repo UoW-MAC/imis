@@ -18,4 +18,6 @@ public interface StudentRepository {
 	void updateStudentInfo(Student student);
 	
 	void deleteStudentInfo(Student student);
+	
+	Student getStudentInfo(String userName);
 }

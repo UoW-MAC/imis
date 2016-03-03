@@ -14,8 +14,10 @@
         <result property="telephone" column="telephone" />
         <result property="status" column="status" />
         <result property="gender" column="gender" />
-        <result property="semsterRegistered" column="semester_registered" /> 
+        <result property="semesterRegistered" column="semester_registered" /> 
         <result property="registeredYear" column="registered_year" />
+        <collection property="workList" resultMap="com.imis.domain.repositories.WorkRepository.workResultMap" />
+        <collection property="educationList" resultMap="com.imis.domain.repositories.EducationRepository.educationResultMap" />
     </resultMap>
      
     <insert id="addStudentInfo" useGeneratedKeys="false" parameterType="Student" >
@@ -43,19 +45,12 @@
                     
     </update>
     <select id="getStudentInfo" parameterType="String" resultMap="studentResultMap">
-             SELECT ST.STUDENT_ID,
-                    ST.STUDENT_NO,
-                    ST.FIRST_NAME,
-                    ST.MIDDLE_NAME,
-                    ST.LAST_NAME,
-                    ST.EMAIL,
-                    ST.TELEPHONE,
-                    ST.STATUS,
-                    ST.GENDER,
-                    ST.SEMESTER_REGISTERED,
-                    ST.REGISTERED_YEAR
-              FROM STUDENT ST
-              WHERE ST.STUDENT_ID = #{studentId}
+    	SELECT s.STUDENT_ID, s.SEMESTER_REGISTERED, s.REGISTERED_YEAR, s.STUDENT_NO, s.FIRST_NAME, s.MIDDLE_NAME,
+        	s.LAST_NAME, s.EMAIL, s.TELEPHONE, s.STATUS, s.GENDER, e.DEGREE, e.MAJOR, e.GPA, e.INSTITUTION,
+        	e.COUNTRY, e.GRADUATION_DATE, w.COMPANY, w.TITLE, w.DUTIES, w.DATES
+        FROM STUDENT s, EDUCATION e, WORK w
+	    WHERE s.STUDENT_ID = e.STUDENT_ID AND s.STUDENT_ID = w.STUDENT_ID AND
+	   		s.username = #{userName}
     </select>
 </mapper>
 

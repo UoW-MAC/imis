@@ -14,7 +14,6 @@ requirejs.config({
         "jqueryForm": "lib/jquery-form",
         "imis" : "app/app",
         "ajaxHandler" : "app/modules/ajax-handler",
-        "questionnaire": "app/modules/questionnaire",
         "formValidator": "app/modules/form-validator",
         "selector": "app/modules/selector",
         "additionalMethods": "app/modules/additional-methods",
@@ -22,8 +21,8 @@ requirejs.config({
         "eventHandler": "app/modules/event-handler",
         "userManagement": "app/modules/user-management",
         "userApplicationForm": "app/modules/user-application-form",
-        "userPassword": "app/modules/user-password",
-        "userProfile": "app/modules/user-profile",
+        "studentProfile": "app/modules/student-profile",
+        "application": "app/modules/application",
         "custom": "app/modules/custom",
         "slider": "app/modules/slider",
         "html5shiv": "lib/html5shiv.min",
@@ -63,10 +62,6 @@ requirejs.config({
             deps : ['jquery'],
             exports : "ajaxHandler"
         },
-        "questionnaire": {
-            deps : ['handlebars'],
-            exports : "questionnaire"
-        },
         "applicants": {
             deps : ['jquery'],
             exports : "questionnaire"
@@ -99,13 +94,13 @@ requirejs.config({
             deps :['jquery'],
             exports : "userApplicationForm"
         },
-        "userPassword": {
+        "studentProfile": {
             deps :['jquery'],
-            exports : "userPassword"
+            exports : "studentProfile"
         },
-        "userProfile": {
+        "application": {
             deps :['jquery'],
-            exports : "userProfile"
+            exports : "application"
         },
         "custom": {
             deps :['jquery'],

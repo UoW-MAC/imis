@@ -13,18 +13,54 @@ public class Position implements Serializable{
 	
 	private Long positionId;
 	private String positionName;
+	private String positionDescription;
+	private String responsibilities;
+	private String requirements;
+	private String salary;
 	private PositionGroup positionGroup;
     private Employer employer;
     private Timestamp createTime;
     private Timestamp updateTime;
-    private int positionStatus;
+    private Application application;
     
-	public int getPositionStatus() {
-		return positionStatus;
+	public String getPositionDescription() {
+		return positionDescription;
 	}
 
-	public void setPositionStatus(int positionStatus) {
-		this.positionStatus = positionStatus;
+	public void setPositionDescription(String positionDescription) {
+		this.positionDescription = positionDescription;
+	}
+
+	public String getResponsibilities() {
+		return responsibilities;
+	}
+
+	public void setResponsibilities(String responsibilities) {
+		this.responsibilities = responsibilities;
+	}
+
+	public String getRequirements() {
+		return requirements;
+	}
+
+	public void setRequirements(String requirements) {
+		this.requirements = requirements;
+	}
+
+	public String getSalary() {
+		return salary;
+	}
+
+	public void setSalary(String salary) {
+		this.salary = salary;
+	}
+
+	public Application getApplication() {
+		return application;
+	}
+
+	public void setApplication(Application application) {
+		this.application = application;
 	}
 
 	public Long getPositionId() {

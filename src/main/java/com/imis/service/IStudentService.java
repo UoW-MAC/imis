@@ -7,4 +7,6 @@ public interface IStudentService {
     void studentInfoSubmit(Student student) throws Exception;
 	
     void studentInfoUpdate(Student student) throws Exception;
+    
+    Student getStudentInfo() throws Exception;
 }

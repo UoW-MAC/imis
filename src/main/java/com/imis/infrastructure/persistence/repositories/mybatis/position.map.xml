@@ -7,19 +7,37 @@
 	<resultMap type="Position" id="positionResultMap">
 		<result property="positionId" column="position_id" />
 		<result property="positionName" column="position_name" />
+		<result property="positionDescription" column="POSITION_DESCRIPTION" />
+		<result property="responsibilities" column="RESPONSIBILITIES" />
+		<result property="requirements" column="REQUIREMENTS" />
+		<result property="salary" column="SALARY" />
 		<association property="application" resultMap="com.imis.domain.repositories.ApplicationRepository.applicationResultMap" />
 		<association property="employer" resultMap="com.imis.domain.repositories.EmployerRepository.employerResultMap" />
 	</resultMap>
 
-	<select id="getPostionList" parameterType="String" resultMap="positionResultMap">
-		SELECT A.POSITION_NAME, A.APPLICAITON_STATUS, e.EMPLOYER_NAME
+	<select id="getPostionList" parameterType="Map" resultMap="positionResultMap">
+		SELECT A.POSITION_ID, A.POSITION_NAME, A.APPLICATION_STATUS, e.EMPLOYER_NAME
 		FROM
-		(SELECT p.POSITION_NAME, p.EMPLOYER_ID, a.APPLICAITON_STATUS
+		(SELECT p.POSITION_ID, p.POSITION_NAME, p.EMPLOYER_ID, p.POSITION_GROUP_ID, a.APPLICATION_STATUS
 		FROM POSITION p
 		LEFT JOIN APPLICATION a
 		on (p.POSITION_ID = a.POSITION_ID AND a.USERNAME = #{userName})) A,
 		EMPLOYER e
-		WHERE A.EMPLOYER_ID = e.EMPLOYER_ID;
+		<where>
+		    WHERE A.EMPLOYER_ID = e.EMPLOYER_ID
+			<if test="groupId != null">  
+		         AND POSITION_GROUP_ID = #{groupId},  
+		    </if>
+		    <if test="positionStatus != null">  
+		         AND A.APPLICATION_STATUS = #{positionStatus},  
+		    </if>
+		</where>
 	</select>
+	
+	<select id="getPositionInfo" parameterType="int" resultMap="positionResultMap">
+		SELECT POSITION_ID, POSITION_NAME, POSITION_DESCRIPTION, RESPONSIBILITIES, REQUIREMENTS, SALARY
+		FROM POSITION WHERE POSITION_ID = #{positionId}
+	</select>
+	
 </mapper>
 

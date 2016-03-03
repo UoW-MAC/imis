@@ -1,5 +1,5 @@
 /**
- * Created by Bright Huang on 11/1/14.
+ * Created by William Zhang on 25/15/16.
  */
 
 define(['jquery', 'bootstrap', 'handlebars', 'imis', 'validate', 'ajaxHandler', 'jqueryForm', 'formValidator',
