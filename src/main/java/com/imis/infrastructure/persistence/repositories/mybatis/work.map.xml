@@ -6,6 +6,7 @@
     <cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
     
     <resultMap type="Work" id="workResultMap">
+        <result property="workId" column="work_id" />
         <result property="company" column="COMPANY" />
         <result property="title" column="TITLE" />
         <result property="duties" column="DUTIES" />
@@ -13,7 +14,7 @@
     </resultMap>
 	
     <insert id="addWorkInfo" parameterType="java.util.List"> 
-        insert into work(work_id,company,dates,title,duties,student_id,create_time,update_time) 
+        insert into works(work_id,company,dates,title,duties,student_id,create_time,update_time) 
         select SEQ_WORK.NEXTVAL,A.* FROM ( 
         <foreach collection="list" index="index" item="item" separator="UNION">
               SELECT #{item.company},#{item.dates},#{item.title},#{item.duties},#{item.student.studentId},#{item.createTime},#{item.updateTime} FROM DUAL
@@ -22,12 +23,12 @@
     </insert> 
     
     <update id="updateWorkInfo"  parameterType="List">
-       <foreach collection="list" item="item" index="index" open="begin" close="end;" separator=";">
-                UPDATE WORK
+       <foreach collection="list" item="item" open="begin" close=";end;" separator=";">
+                UPDATE WORKS 
                 <set>
-                  company = #{company}, dates = #{dates}, title = #{title}, duties = #{duties}
+                company = #{item.company}, dates = #{item.dates}, title = #{item.title}, duties = #{item.duties}, update_time = #{item.updateTime}
                 </set>
-                WHERE STUDENT_ID = #{studentId}  
+                WHERE STUDENT_ID = #{item.workId}
        </foreach>
     </update>
    

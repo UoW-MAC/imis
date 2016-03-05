@@ -5,6 +5,7 @@
 	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
 
 	<resultMap type="Education" id="educationResultMap">
+	    <result property="educationId" column="education_id" />
         <result property="degree" column="DEGREE" />
         <result property="major" column="MAJOR" />
         <result property="gpa" column="GPA" />
@@ -23,12 +24,12 @@
     </insert>   
     
     <update id="updateEducationInfo"  parameterType="List">
-       <foreach collection="list" item="item" index="index" open="begin" close="end;" separator=";">
+       <foreach collection="list" item="item" index="index" open="begin" close=";end;" separator=";">
                 UPDATE EDUCATION
                 <set>
-                  degree = #{degree}, major = #{major}, gpa = #{gpa}, institution = #{institution}, country = #{country}, graduation_date = #{graduation_date}
+                  degree = #{item.degree}, major = #{item.major}, gpa = #{item.gpa}, institution = #{item.institution}, country = #{item.country}, graduation_date = #{item.graduationDate}, update_time = #{item.updateTime}
                 </set>
-                WHERE STUDENT_ID = #{studentId}  
+                WHERE education_id = #{item.educationId}  
        </foreach>
     </update>
     

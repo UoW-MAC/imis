@@ -1,6 +1,7 @@
 package com.imis.service.impl;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -76,11 +77,24 @@ public class StudentServiceImpl implements IStudentService {
 	}
 
 	public void studentInfoUpdate(Student student) throws Exception {
-
+		
+		Timestamp updateTime = new Timestamp(System.currentTimeMillis());
+		List<Work> workList = student.getWorkList();
+		List<Education> educationList = student.getEducationList();
+		
+		student.setUpdateTime(updateTime);
 		studentRepository.updateStudentInfo(student);
+		
+		for (Education education : student.getEducationList()) {
+			education.setUpdateTime(updateTime);
+		}
+		
+		for (Work work : student.getWorkList()) {
+			work.setUpdateTime(updateTime);
+		}
 
-		workRepository.updateWorkInfo(student.getWorkList());
+		workRepository.updateWorkInfo(workList);
 
-		educationRepository.updateEducationInfo(student.getEducationList());
+		educationRepository.updateEducationInfo(educationList);
 	}
 }

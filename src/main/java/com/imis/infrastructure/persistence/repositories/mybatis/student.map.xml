@@ -46,9 +46,9 @@
     </update>
     <select id="getStudentInfo" parameterType="String" resultMap="studentResultMap">
     	SELECT s.STUDENT_ID, s.SEMESTER_REGISTERED, s.REGISTERED_YEAR, s.STUDENT_NO, s.FIRST_NAME, s.MIDDLE_NAME,
-        	s.LAST_NAME, s.EMAIL, s.TELEPHONE, s.STATUS, s.GENDER, e.DEGREE, e.MAJOR, e.GPA, e.INSTITUTION,
-        	e.COUNTRY, e.GRADUATION_DATE, w.COMPANY, w.TITLE, w.DUTIES, w.DATES
-        FROM STUDENT s, EDUCATION e, WORK w
+        	s.LAST_NAME, s.EMAIL, s.TELEPHONE, s.STATUS, s.GENDER, e.DEGREE, e.MAJOR, e.GPA, e.INSTITUTION, e.EDUCATION_ID,
+        	e.COUNTRY, e.GRADUATION_DATE, w.COMPANY, w.TITLE, w.DUTIES, w.DATES, w.WORK_ID
+        FROM STUDENT s, EDUCATION e, WORKS w
 	    WHERE s.STUDENT_ID = e.STUDENT_ID AND s.STUDENT_ID = w.STUDENT_ID AND
 	   		s.username = #{userName}
     </select>

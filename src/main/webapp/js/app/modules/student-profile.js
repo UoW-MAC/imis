@@ -21,7 +21,13 @@ require(['../main'], function () {
                     $("#studentModelTrigger").click();
                 },
                 handleConfirmedSubmit: function(){
-                    $("#studentForm").submit();
+                	$("#studentForm").ajaxSubmit(function(response) {
+	                        if (response.statusCode == 1000){
+	                            location.href = "user-center";
+	                        }else{
+	                            return;
+	                        }
+                    });
                 },
                 loadStudentProfile : function(){
                 	$.ajax({
@@ -40,24 +46,32 @@ require(['../main'], function () {
 		                	}
 			                	
 		                	studentProfileHtml = studentProfiletemplate(studentInfoObject);
-					        $("#studentForm").append(studentProfileHtml);
+					        $("#studentInfoForm").append(studentProfileHtml);
 					        
 					        //Notice: loading order
 					        if (data.models != null) {
-						        if (data.models.studentInfo.semesterRegistered = 'fall') {
+						        if (data.models.studentInfo.semesterRegistered == 'fall') {
 		                			$('#fall').parents(".radioCustom").addClass("radioCustom-checked");
-		                		}else if (data.models.studentInfo.semesterRegistered = 'winter'){
+		                			$('#fall').attr("checked","checked");
+		                		}else if (data.models.studentInfo.semesterRegistered == 'winter'){
 		                			$('#winter').parents(".radioCustom").addClass("radioCustom-checked");
+		                			$('#winter').attr("checked","checked");
 		                		}
-		                		if (data.models.studentInfo.status = '0') {
+		                		if (data.models.studentInfo.status == '0') {
 		                			$('#is').parents(".radioCustom").addClass("radioCustom-checked");
-		                		}else if (data.models.studentInfo.status = '1') {
+		                			$('#is').attr("checked","checked");
+		                			
+		                		}else if (data.models.studentInfo.status == '1') {
 		                			$('#pr').parents(".radioCustom").addClass("radioCustom-checked");
+		                			$('#pr').attr("checked","checked");
 		                		}
-		                		if (data.models.studentInfo.gender = 'Male') {
+		                		if (data.models.studentInfo.gender == 'Male') {
 		                			$('#male').parents(".radioCustom").addClass("radioCustom-checked");
-		                		}else if (data.models.studentInfo.gender = 'Female') {
+		                			$('#male').attr("checked","checked");
+		                			
+		                		}else if (data.models.studentInfo.gender == 'Female') {
 		                			$('#female').parents(".radioCustom").addClass("radioCustom-checked");
+		                			$('#female').attr("checked","checked");
 		                		}
 					        }
 				        }
