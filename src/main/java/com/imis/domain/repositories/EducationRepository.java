@@ -15,6 +15,9 @@ import com.imis.domain.entities.Education;
 @Transactional
 public interface EducationRepository {
 	
+	
 	void addEducationInfo(List<Education> educationList);
+	
+	void updateEducationInfo(List<Education> educationList);
 	
 }

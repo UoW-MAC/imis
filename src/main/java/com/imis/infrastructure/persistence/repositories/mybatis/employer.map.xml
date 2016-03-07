@@ -4,8 +4,47 @@
 <mapper namespace="com.imis.domain.repositories.EmployerRepository">
 	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
 	<resultMap type="Employer" id="employerResultMap">
+		<id property="employerId" column="employer_id" />
 		<result property="employerName" column="employer_name" />
+        <result property="employerAddress" column="employer_address" />
+        <result property="employerCity" column="employer_city" />
+        <result property="employerPostCode" column="employer_post_code" />
+        <result property="employerCountry" column="employer_country" />
+        <result property="contactorFirstName" column="contactor_first_name" />
+        <result property="contactorLastName" column="contactor_last_name" />
+        <result property="contactorPosition" column="contactor_position" />
+        <result property="employerTelephone" column="employer_telephone" />
+        <result property="employerEmail" column="employer_email" />
+        <result property="employerWebsite" column="employer_website" />
+        <result property="employerNotes" column="employer_notes" />
+        <result property="createTime" column="create_time" />
+		<result property="updateTime" column="update_time" />
+        <association property="employerGroup" resultMap="com.imis.domain.repositories.EmployerGroupRepository.employerGroupResultMap"></association>
+        <association property="user" resultMap="com.imis.domain.repositories.UserRepository.userResultMap"></association>
 	</resultMap>
+   <insert id="addEmployerInfo" useGeneratedKeys="false" parameterType="Employer">
+    	<![CDATA[
+	    	insert into employer(employer_id,employer_name,employer_address,employer_city,employer_post_code,employer_country,
+	    	contactor_first_name,contactor_last_name,contactor_position,employer_telephone,employer_email,employer_website,employer_notes,create_time,update_time,employer_group_id,username)  
+	    	values(SEQ_EMPLOYER.NEXTVAL,#{employerName},#{employerAddress},#{employerCity},#{employerPostCode},#{employerCountry},
+	    	#{contactorFirstName},#{contactorLastName},#{contactorPosition},#{employerTelephone},#{employerEmail},#{employerWebsite},#{employerNotes},#{createTime},#{updateTime},#{employerGroup.employerGroupId},#{user.userName})
+    	]]>
+	</insert>
+	 <update id="updateEmployerInfo" parameterType="employer">
+    <![CDATA[
+			 update  employer  set employer_name=#{employerName},employer_address=#{employerAddress},employer_city=#{employerCity},employer_post_code=#{employerPostCode},employer_country=#{employerCountry},contactor_first_name=#{contactorFirstName},contactor_last_name=#{contactorLastName},
+			 contactor_position=#{contactorPosition},employer_telephone=#{employerTelephone},employer_email=#{employerEmail},employer_website=#{employerWebsite},employer_notes=#{employerNotes},update_time=#{updateTime},employer_group_id=#{employerGroup.employerGroupId}
+   				 where  
+   				 employer_id=#{employerId}      	
+    ]]>
+    </update>
+    <select id="showEmployerInfo"  resultType="Employer" resultMap="employerResultMap">
+    	<![CDATA[
+	    	select employer_id,employer_name,employer_address,employer_city,employer_post_code,employer_country,
+	    	contactor_first_name,contactor_last_name,contactor_position,employer_telephone,employer_email,employer_website,employer_notes,create_time,update_time,employer_group_id,username from employer ORDER BY employer_ID DESC
+    	]]>
+    </select>
+    
    
 </mapper>
 

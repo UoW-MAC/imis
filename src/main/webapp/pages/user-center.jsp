@@ -54,8 +54,9 @@
                         <sec:authorize access="hasRole('ROLE_ADMIN') and isAuthenticated()">
                             <li class="active"><a id="userManagementTab" href="#userManagementTabPane"  role="tab" data-toggle="tab">User Regulation<span></span></a></li>
                         </sec:authorize>
-                        <sec:authorize access="(hasRole('ROLE_ORGANIZATION') or hasRole('ROLE_STUDENT')) and isAuthenticated()">
-                            <li class="active"><a id="userProfileTab" href="#userProfileTabPane" role="tab" data-toggle="tab">Peronal Information<span></span></a></li>
+                        <sec:authorize access="hasRole('ROLE_ORGANIZATION') and isAuthenticated()">
+                            <li class="active"><a id="employerProfileTab" href="#employerProfileTabPane" role="tab" data-toggle="tab">Employer Information<span></span></a></li>
+                            <li><a id="positionProfileTab" href="#positionProfileTabPane" role="tab" data-toggle="tab">Position Information<span></span></a></li>
                         </sec:authorize>
                         <sec:authorize access="hasRole('ROLE_STUDENT') and isAuthenticated()">
                             <li><a id="positonApplication" href="javascript:void(0);" role="tab" data-toggle="tab">Position Application<span></span></a></li>
@@ -76,11 +77,15 @@
                             </div>
                         </sec:authorize>
                         <sec:authorize access="hasRole('ROLE_ORGANIZATION') and isAuthenticated()">
-                            <div id="organizationTabPane" role="tabpane" class="tab-pane active">
-                                <jsp:include page='organization.jsp'/>
+                            <div id="employerProfileTabPane" role="tabpane" class="tab-pane active">
+                                <jsp:include page='employer.jsp'/>
                             </div>
                         </sec:authorize>
-                        
+                        <sec:authorize access="hasRole('ROLE_ORGANIZATION') and isAuthenticated()">
+                            <div id="positionProfileTabPane" role="tabpane" class="tab-pane">
+                                <jsp:include page='position.jsp'/>
+                            </div>
+                        </sec:authorize>
                     </div>
                 </span>
             </div>
@@ -92,6 +97,7 @@
 <jsp:include page='footer.jsp'/>
 
 <script data-main="js/app/pages/user-center" src="js/lib/require-2.1.15.min.js"></script>
+
 <!--
 <script src="js/app/modules/custom.js"></script>
 -->

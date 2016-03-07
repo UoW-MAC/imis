@@ -5,7 +5,7 @@
 	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
     
     <resultMap type="Student" id="studentResultMap">
-        <result property="studentId" column="student_id" />
+      <result property="studentId" column="student_id" />
         <result property="studentNo" column="student_no" />
         <result property="firstName" column="first_name" />
         <result property="middleName" column="middle_name" />
@@ -14,8 +14,12 @@
         <result property="telephone" column="telephone" />
         <result property="status" column="status" />
         <result property="gender" column="gender" />
-        <result property="semsterRegistered" column="semester_registered" /> 
+        <result property="semesterRegistered" column="semester_registered" /> 
         <result property="registeredYear" column="registered_year" />
+         <association property="user" resultMap="com.imis.domain.repositories.UserRepository.userResultMap" ></association>
+         <association property="application" resultMap="com.imis.domain.repositories.ApplicationRepository.applicationResultMap" ></association>
+        <collection property="workList" resultMap="com.imis.domain.repositories.WorkRepository.workResultMap" />
+        <collection property="educationList" resultMap="com.imis.domain.repositories.EducationRepository.educationResultMap" />
     </resultMap>
      
     <insert id="addStudentInfo" useGeneratedKeys="false" parameterType="Student" >
@@ -42,20 +46,33 @@
               WHERE STUDENT.STUDENT_ID = #{studentId}     
                     
     </update>
-    <select id="getStudentInfo" parameterType="String" resultMap="studentResultMap">
-             SELECT ST.STUDENT_ID,
-                    ST.STUDENT_NO,
-                    ST.FIRST_NAME,
-                    ST.MIDDLE_NAME,
-                    ST.LAST_NAME,
-                    ST.EMAIL,
-                    ST.TELEPHONE,
-                    ST.STATUS,
-                    ST.GENDER,
-                    ST.SEMESTER_REGISTERED,
-                    ST.REGISTERED_YEAR
-              FROM STUDENT ST
-              WHERE ST.STUDENT_ID = #{studentId}
+      <select id="getStudentInfo" parameterType="String" resultMap="studentResultMap">
+    	SELECT s.STUDENT_ID, s.SEMESTER_REGISTERED, s.REGISTERED_YEAR, s.STUDENT_NO, s.FIRST_NAME, s.MIDDLE_NAME,
+        	s.LAST_NAME, s.EMAIL, s.TELEPHONE, s.STATUS, s.GENDER, e.DEGREE, e.MAJOR, e.GPA, e.INSTITUTION, e.EDUCATION_ID,
+        	e.COUNTRY, e.GRADUATION_DATE, w.COMPANY, w.TITLE, w.DUTIES, w.DATES, w.WORK_ID
+        FROM STUDENT s, EDUCATION e, WORKS w
+	    WHERE s.STUDENT_ID = e.STUDENT_ID AND s.STUDENT_ID = w.STUDENT_ID AND
+	   		s.username = #{userName}
+    </select>
+    <select id="getCandidateDetail" parameterType="int" resultMap="studentResultMap">
+        	SELECT s.username,s.STUDENT_ID, s.SEMESTER_REGISTERED, s.REGISTERED_YEAR, s.STUDENT_NO, s.FIRST_NAME, s.MIDDLE_NAME,
+        	s.LAST_NAME, s.EMAIL, s.TELEPHONE, s.STATUS, s.GENDER, e.DEGREE, e.MAJOR, e.GPA, e.INSTITUTION, e.EDUCATION_ID,
+        	e.COUNTRY, e.GRADUATION_DATE, w.COMPANY, w.TITLE, w.DUTIES, w.DATES, w.WORK_ID
+        FROM STUDENT s, EDUCATION e, WORKS w
+	    WHERE s.student_id = #{studentId} and 
+	    s.STUDENT_ID = e.STUDENT_ID AND s.STUDENT_ID = w.STUDENT_ID
+    </select>
+    <select id="getCandidateInfo" parameterType="int" resultMap="studentResultMap">
+      SELECT ST.STUDENT_ID,
+        ST.FIRST_NAME,
+        ST.MIDDLE_NAME,
+        ST.LAST_NAME,
+        ST.STATUS,
+        a.application_status,
+         a.application_id,
+         a.update_time
+        FROM STUDENT ST , application a
+        where ST.USERNAME=a.username and a.position_id = #{positionId}
     </select>
 </mapper>
 

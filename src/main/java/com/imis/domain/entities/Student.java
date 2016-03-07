@@ -24,11 +24,20 @@ public class Student implements Serializable {
 	private String semesterRegistered;
 	private String registeredYear;
 	private Position position;
+	private Application application;
 	private List<Work> workList;
 	private List<Education> educationList;
 	private User user;
 	private Timestamp createTime;
 	private Timestamp updateTime;
+
+	public Application getApplication() {
+		return application;
+	}
+
+	public void setApplication(Application application) {
+		this.application = application;
+	}
 
 	public List<Education> getEducationList() {
 		return educationList;

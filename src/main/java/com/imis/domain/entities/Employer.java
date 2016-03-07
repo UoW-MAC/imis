@@ -13,17 +13,17 @@ public class Employer implements Serializable{
 	
 	private Long employerId;
 	private String employerName;
-	private String address;
-	private String city;
-	private String postCode;
-	private String country;
+	private String employerAddress;
+	private String employerCity;
+	private String employerPostCode;
+	private String employerCountry;
 	private String contactorFirstName;
 	private String contactorLastName;
 	private String contactorPosition;
-	private String telephone;
-	private String email;
-	private String website;
-	private String notes;
+	private String employerTelephone;
+	private String employerEmail;
+	private String employerWebsite;
+	private String employerNotes;
 	private EmployerGroup employerGroup;
 	private Application application;
 	private User user;
@@ -92,38 +92,6 @@ public class Employer implements Serializable{
 	public void setEmployerName(String employerName) {
 		this.employerName = employerName;
 	}
-
-	public String getAddress() {
-		return address;
-	}
-	
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	
-	public String getCity() {
-		return city;
-	}
-	
-	public void setCity(String city) {
-		this.city = city;
-	}
-	
-	public String getPostCode() {
-		return postCode;
-	}
-	
-	public void setPostCode(String postCode) {
-		this.postCode = postCode;
-	}
-	
-	public String getCountry() {
-		return country;
-	}
-	public void setCountry(String country) {
-		this.country = country;
-	}
-	
 	public String getContactorFirstName() {
 		return contactorFirstName;
 	}
@@ -138,28 +106,69 @@ public class Employer implements Serializable{
 	public void setContactorLastName(String contactorLastName) {
 		this.contactorLastName = contactorLastName;
 	}
-	public String getTelephone() {
-		return telephone;
+
+	public String getEmployerAddress() {
+		return employerAddress;
 	}
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+
+	public void setEmployerAddress(String employerAddress) {
+		this.employerAddress = employerAddress;
 	}
-	public String getEmail() {
-		return email;
+
+	public String getEmployerCity() {
+		return employerCity;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+
+	public void setEmployerCity(String employerCity) {
+		this.employerCity = employerCity;
 	}
-	public String getWebsite() {
-		return website;
+
+	public String getEmployerPostCode() {
+		return employerPostCode;
 	}
-	public void setWebsite(String website) {
-		this.website = website;
+
+	public void setEmployerPostCode(String employerPostCode) {
+		this.employerPostCode = employerPostCode;
 	}
-	public String getNotes() {
-		return notes;
+
+	public String getEmployerCountry() {
+		return employerCountry;
 	}
-	public void setNotes(String notes) {
-		this.notes = notes;
+
+	public void setEmployerCountry(String employerCountry) {
+		this.employerCountry = employerCountry;
 	}
+
+	public String getEmployerTelephone() {
+		return employerTelephone;
+	}
+
+	public void setEmployerTelephone(String employerTelephone) {
+		this.employerTelephone = employerTelephone;
+	}
+
+	public String getEmployerEmail() {
+		return employerEmail;
+	}
+
+	public void setEmployerEmail(String employerEmail) {
+		this.employerEmail = employerEmail;
+	}
+
+	public String getEmployerWebsite() {
+		return employerWebsite;
+	}
+
+	public void setEmployerWebsite(String employerWebsite) {
+		this.employerWebsite = employerWebsite;
+	}
+
+	public String getEmployerNotes() {
+		return employerNotes;
+	}
+
+	public void setEmployerNotes(String employerNotes) {
+		this.employerNotes = employerNotes;
+	}
+	
 }

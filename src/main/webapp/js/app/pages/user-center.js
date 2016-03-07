@@ -2,14 +2,14 @@
  * Created by apple on 11/27/14.
  */
 require(['../main'], function () {
-    require(['jquery', 'bootstrap', 'handlebars', 'sannong', 'validate', 'ajaxHandler',
+    require(['jquery', 'bootstrap', 'handlebars',  'validate', 'ajaxHandler',
             'formValidator', 'additionalMethods', 'pagination', 'selector', 'jqueryForm',
-            'questionnaire', 'login', 'eventHandler', 'userManagement', 'userApplicationForm',
-            'userProfile', 'userPassword', 'custom'],
+            'questionnaire','login', 'eventHandler', 'userManagement', 'userApplicationForm',
+            'userProfile', 'userPassword','position','employer', 'custom'],
         function($, bootstrap, handlebars, sannong, validate, ajaxHandler,
                  formValidator, additionalMethods, pagination, selector, jqueryForm,
-                 questionnaire, login, eventHandler, userManagement, userApplicationForm,
-                 userProfile, userPassword, custom) {
+                 questionnaire,login, eventHandler, userManagement, userApplicationForm,
+                 userProfile, userPassword,position,employer,custom ) {
 
             "use strict";
 
@@ -31,6 +31,10 @@ require(['../main'], function () {
                     userManagement.View.emptyUserProfileEditView();
                     userProfile.Controller.showUserProfileView("", "#userProfileView");
                 });
+                $("#positionProfileTabPane").click(function(){
+                    userManagement.View.emptyUserProfileEditView();
+                    userProfile.Controller.showUserProfileView("", "#userProfileView");
+                });
             }
 
             $(function() {
@@ -41,7 +45,7 @@ require(['../main'], function () {
                 }
             })
 
-            sannong.UserPersonalCenter = userPersonalCenter;
+            imis.UserPersonalCenter = userPersonalCenter;
             return userPersonalCenter;
         });
 });

@@ -6,20 +6,26 @@
     </settings>
 
 	<typeAliases>
+	<typeAlias type="com.imis.domain.entities.PositionGroup" alias="PositionGroup" />
+	<typeAlias type="com.imis.domain.entities.EmployerGroup" alias="EmployerGroup" />
     	<typeAlias type="com.imis.domain.entities.Employer" alias="Employer" />
     	<typeAlias type="com.imis.domain.entities.Education" alias="Education" />
         <typeAlias type="com.imis.domain.entities.Position" alias="Position" />
         <typeAlias type="com.imis.domain.entities.Student" alias="Student" />
         <typeAlias type="com.imis.domain.entities.Work" alias="Work" />
         <typeAlias type="com.imis.domain.entities.User" alias="User" />
+        <typeAlias type="com.imis.domain.entities.Application" alias="Application" />
     </typeAliases>
     
     <mappers>
     	<mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/employer.map.xml"/>
     	<mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/education.map.xml"/>
     	<mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/position.map.xml"/>
+    	<mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/positiongroup.map.xml"/>
+    	<mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/employergroup.map.xml"/>
     	<mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/student.map.xml"/>
         <mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/work.map.xml"/>
         <mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/user.map.xml"/>
+         <mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/application.map.xml"/>
     </mappers>
 </configuration>

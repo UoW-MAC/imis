@@ -4,7 +4,7 @@
 <mapper namespace="com.imis.domain.repositories.UserRepository">
 	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
     
-    <resultMap type="Student" id="studentResultMap">
+    <resultMap type="User" id="userResultMap">
         <result property="userId" column="user_id" />
         <result property="userName" column="username" />
         <result property="email" column="email" />

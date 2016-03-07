@@ -5,8 +5,32 @@
 	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
 
 	<resultMap type="Application" id="applicationResultMap">
+	    <result property="applicationId" column="APPLICATION_ID" />
 		<result property="applicationStatus" column="application_status" />
+		<result property="updateTime" column="update_time" />
 	</resultMap>
-
+	
+	<insert id="positionApply" useGeneratedKeys="false" parameterType="Application" >
+	    <selectKey keyProperty="applicationId" resultType="long" order="BEFORE">  
+	    	select SEQ_APPLICATION.NEXTVAL from dual
+	    </selectKey>  
+    	<![CDATA[
+	    	insert into application(application_id,username,position_id,application_status,create_time,update_time)
+	    	values(#{applicationId},#{user.userName},#{position.positionId},#{applicationStatus},#{createTime},#{updateTime})
+    	]]>
+    </insert>
+    <update id="acceptCandidate" parameterType="int" >
+    <![CDATA[
+			 update  application  set  APPLICATION_STATUS=2
+   				 where  
+   				 application_id=#{applicationId}     	
+    ]]>
+    </update>
+     <update id="rejectCandidate" parameterType="int" >
+    <![CDATA[
+			 update  application  set  APPLICATION_STATUS=3
+   				 where  
+   				 application_id=#{applicationId}     	
+    ]]>
+    </update>
 </mapper>
-

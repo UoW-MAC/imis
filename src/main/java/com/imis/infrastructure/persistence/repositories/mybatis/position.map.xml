@@ -5,13 +5,29 @@
 	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
 
 	<resultMap type="Position" id="positionResultMap">
-		<result property="positionId" column="position_id" />
+		<id property="positionId" column="position_id" />
 		<result property="positionName" column="position_name" />
-		<association property="application" resultMap="com.imis.domain.repositories.ApplicationRepository.applicationResultMap" />
-		<association property="employer" resultMap="com.imis.domain.repositories.EmployerRepository.employerResultMap" />
+		<result property="createTime" column="create_time" />
+		<result property="updateTime" column="update_time" />
+		<result property="positionDescription" column="position_description" />
+		<result property="responsibilities" column="responsibilities" />
+		<result property="requirements" column="requirements" />
+		<result property="salary" column="salary" />
+		<result property="applicationNum" column="allapp_num" />
+		<result property="unreadApplicationNum" column="unreadapp_num" />
+	    <association property="application" resultMap="com.imis.domain.repositories.ApplicationRepository.applicationResultMap" ></association>
+		<association property="employer" resultMap="com.imis.domain.repositories.EmployerRepository.employerResultMap" ></association>    
+		<association property="positionGroup" resultMap="com.imis.domain.repositories.PositionGroupRepository.positionGroupResultMap"></association>
+	<!-- 	<association property="user" resultMap="com.imis.domain.repositories.UserRepository.userResultMap"></association>    -->
 	</resultMap>
-
+	<insert id="addPositionInfo" useGeneratedKeys="false" parameterType="Position">
+    	<![CDATA[
+	    	insert into position(position_id,position_name,position_group_id,employer_id,create_time,update_time,position_description,responsibilities,requirements,salary)  
+	    	values(SEQ_POSITION.NEXTVAL,#{positionName},#{positionGroup.positionGroupId},113,#{createTime},#{updateTime},#{positionDescription},#{responsibilities},#{requirements},#{salary})
+    	]]>
+	</insert>
 	<select id="getPostionList" parameterType="String" resultMap="positionResultMap">
+	<![CDATA[
 		SELECT A.POSITION_NAME, A.APPLICAITON_STATUS, e.EMPLOYER_NAME
 		FROM
 		(SELECT p.POSITION_NAME, p.EMPLOYER_ID, a.APPLICAITON_STATUS
@@ -19,7 +35,35 @@
 		LEFT JOIN APPLICATION a
 		on (p.POSITION_ID = a.POSITION_ID AND a.USERNAME = #{userName})) A,
 		EMPLOYER e
-		WHERE A.EMPLOYER_ID = e.EMPLOYER_ID;
+		WHERE A.EMPLOYER_ID = e.EMPLOYER_ID
+		]]>
 	</select>
+	
+	<select id="showPositionInfo"  resultType="Position" resultMap="positionResultMap">
+    	<![CDATA[
+	     select p.POSITION_id,p.position_name,p.position_group_id,g.position_group_name,p.update_time,
+	     (select count(a.POSITION_ID) from application a  where a.APPLICATION_STATUS=1 and a.POSITION_ID = p.POSITION_ID) as unreadapp_num,
+		(select count(a.POSITION_ID) from application a  where a.POSITION_ID = p.POSITION_ID) as allapp_num
+	    from POSITION p, position_group g
+	    where p.position_group_id = g.position_group_id
+        ORDER by p.UPDATE_TIME desc
+    	]]>
+    </select>
+    <select id="getPositionInfo" parameterType="int" resultMap="positionResultMap">
+		SELECT POSITION_ID, POSITION_NAME, p.position_group_id,g.position_group_name,POSITION_DESCRIPTION, RESPONSIBILITIES, REQUIREMENTS, SALARY
+		FROM POSITION p, position_group g WHERE POSITION_ID = #{positionId} and p.position_group_id = g.position_group_id
+	</select>
+    <delete id="deletePositionInfo" parameterType="Long">
+     	<![CDATA[
+     		delete from position where position_id = #{positionId}
+     	]]>
+	</delete>
+    <update id="updatePositionInfo" parameterType="Position">
+    <![CDATA[
+			 update  position  set position_name=#{positionName},position_group_id=#{positionGroup.positionGroupId},update_time=#{updateTime},position_description=#{positionDescription},
+			 responsibilities=#{responsibilities}, requirements=#{requirements}, salary=#{salary}
+   				 where  
+   				 position_id=#{positionId}      	
+    ]]>
+    </update>
 </mapper>
-

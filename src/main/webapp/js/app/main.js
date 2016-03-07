@@ -14,7 +14,6 @@ requirejs.config({
         "jqueryForm": "lib/jquery-form",
         "imis" : "app/app",
         "ajaxHandler" : "app/modules/ajax-handler",
-        "questionnaire": "app/modules/questionnaire",
         "formValidator": "app/modules/form-validator",
         "selector": "app/modules/selector",
         "additionalMethods": "app/modules/additional-methods",
@@ -32,7 +31,9 @@ requirejs.config({
         "npm": "lib/npm",
         "owlCarousel": "lib/owl.carousel",
         "respond": "lib/respond.min",
-        "ie10bug": "ie10-viewport-bug-workaround.js"
+        "ie10bug": "ie10-viewport-bug-workaround.js",
+        "position": "app/modules/position",
+        "employer": "app/modules/employer"
     },
     shim: {
         'bootstrap' : {
@@ -62,10 +63,6 @@ requirejs.config({
         "ajaxHandler": {
             deps : ['jquery'],
             exports : "ajaxHandler"
-        },
-        "questionnaire": {
-            deps : ['handlebars'],
-            exports : "questionnaire"
         },
         "applicants": {
             deps : ['jquery'],
@@ -139,17 +136,18 @@ requirejs.config({
             deps :['jquery'],
             exports : "respond"
         },
+        "position": {
+        	deps :['jquery'],
+        	exports : "position"
+        },
+        "employer": {
+        	deps :['jquery'],
+        	exports : "employer"
+        },
         "ie10bug": {
         	deps :['jquery'],
         	exports : "ie10bug"
         }
+    
     }
 });
-
-
-
-
-
-
-
-
