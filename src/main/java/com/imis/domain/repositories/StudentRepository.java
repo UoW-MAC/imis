@@ -9,7 +9,7 @@ import com.imis.domain.entities.Student;
 
 /**
  * @author william zhang
- * 
+ *
  */
 @Repository
 @Transactional
@@ -22,8 +22,9 @@ public interface StudentRepository {
 	void deleteStudentInfo(Student student);
 
 	Student getStudentInfo(String userName);
-	
+
 	Student getCandidateDetail(int studentId);
 
 	List<Student> getCandidateInfo(int positionId);
+
 }

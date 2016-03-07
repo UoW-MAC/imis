@@ -6,6 +6,7 @@ import com.imis.domain.entities.Position;
 import com.imis.domain.entities.Student;
 
 public interface IPositionService {
+	
 	public List<Position> getPostionStatusList() throws Exception;
 
 	public boolean positionSubmit(Position position) throws Exception;

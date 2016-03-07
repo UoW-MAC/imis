@@ -59,7 +59,8 @@
                             <li><a id="positionProfileTab" href="#positionProfileTabPane" role="tab" data-toggle="tab">Position Information<span></span></a></li>
                         </sec:authorize>
                         <sec:authorize access="hasRole('ROLE_STUDENT') and isAuthenticated()">
-                            <li><a id="positonApplication" href="javascript:void(0);" role="tab" data-toggle="tab">Position Application<span></span></a></li>
+                            <li><a id="positionApplicationTab" href="#positionApplicationTabPane" role="tab" data-toggle="tab">Position Application<span></span></a></li>
+                            <li class="active"><a id="studentProfileTab" href="#studentProfileTabPane" role="tab" data-toggle="tab">Personal Information<span></span></a></li>
                         </sec:authorize>
                     </ul>
                 </span>
@@ -72,16 +73,17 @@
                             </div>
                         </sec:authorize>
                         <sec:authorize access="hasRole('ROLE_STUDENT') and isAuthenticated()">
-                            <div id="studentTabPane" role="tabpane" class="tab-pane active">
+                            <div id="studentProfileTabPane" role="tabpane" class="tab-pane active">
                                 <jsp:include page='student.jsp'/>
+                            </div>
+                            <div id="positionApplicationTabPane" role="tabpane" class="tab-pane active">
+                                <jsp:include page='application.jsp'/>
                             </div>
                         </sec:authorize>
                         <sec:authorize access="hasRole('ROLE_ORGANIZATION') and isAuthenticated()">
                             <div id="employerProfileTabPane" role="tabpane" class="tab-pane active">
                                 <jsp:include page='employer.jsp'/>
                             </div>
-                        </sec:authorize>
-                        <sec:authorize access="hasRole('ROLE_ORGANIZATION') and isAuthenticated()">
                             <div id="positionProfileTabPane" role="tabpane" class="tab-pane">
                                 <jsp:include page='position.jsp'/>
                             </div>
@@ -97,9 +99,5 @@
 <jsp:include page='footer.jsp'/>
 
 <script data-main="js/app/pages/user-center" src="js/lib/require-2.1.15.min.js"></script>
-
-<!--
-<script src="js/app/modules/custom.js"></script>
--->
 </body>
 </html>

@@ -21,8 +21,8 @@ requirejs.config({
         "eventHandler": "app/modules/event-handler",
         "userManagement": "app/modules/user-management",
         "userApplicationForm": "app/modules/user-application-form",
-        "userPassword": "app/modules/user-password",
-        "userProfile": "app/modules/user-profile",
+        "studentProfile": "app/modules/student-profile",
+        "application": "app/modules/application",
         "custom": "app/modules/custom",
         "slider": "app/modules/slider",
         "html5shiv": "lib/html5shiv.min",
@@ -34,6 +34,8 @@ requirejs.config({
         "ie10bug": "ie10-viewport-bug-workaround.js",
         "position": "app/modules/position",
         "employer": "app/modules/employer"
+        "jDataTables": "app/datatables/jquery.dataTables.min"
+
     },
     shim: {
         'bootstrap' : {
@@ -96,13 +98,13 @@ requirejs.config({
             deps :['jquery'],
             exports : "userApplicationForm"
         },
-        "userPassword": {
+        "studentProfile": {
             deps :['jquery'],
-            exports : "userPassword"
+            exports : "studentProfile"
         },
-        "userProfile": {
+        "application": {
             deps :['jquery'],
-            exports : "userProfile"
+            exports : "application"
         },
         "custom": {
             deps :['jquery'],
@@ -147,7 +149,12 @@ requirejs.config({
         "ie10bug": {
         	deps :['jquery'],
         	exports : "ie10bug"
+        },
+        "jDataTables": {
+        	deps :['jquery'],
+        	exports : "jDataTables"
         }
-    
+
     }
+
 });

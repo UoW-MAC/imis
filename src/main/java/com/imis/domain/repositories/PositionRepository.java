@@ -11,7 +11,7 @@ import com.imis.domain.entities.Student;
 
 /**
  * @author Tong Chen
- * 
+ *
  */
 @Repository
 @Transactional
@@ -31,5 +31,4 @@ public interface PositionRepository {
 
 	Position getPositionInfo(int positionId);
 
-	
 }

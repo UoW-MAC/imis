@@ -16,7 +16,7 @@
         <typeAlias type="com.imis.domain.entities.User" alias="User" />
         <typeAlias type="com.imis.domain.entities.Application" alias="Application" />
     </typeAliases>
-    
+
     <mappers>
     	<mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/employer.map.xml"/>
     	<mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/education.map.xml"/>
@@ -26,6 +26,6 @@
     	<mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/student.map.xml"/>
         <mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/work.map.xml"/>
         <mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/user.map.xml"/>
-         <mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/application.map.xml"/>
+        <mapper resource="com/imis/infrastructure/persistence/repositories/mybatis/application.map.xml"/>
     </mappers>
 </configuration>

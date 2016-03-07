@@ -66,7 +66,7 @@ define(['jquery', 'imis'], function($, imis) {
     };
 
     $(function() {
-        //eventHandler.registerEventListener();
+        eventHandler.registerEventListener();
     });
 
     imis.EventHandler = eventHandler;

@@ -11,14 +11,13 @@
         -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Position Detail</title>
-
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
         <script src="js/lib/html5shiv.min.js"></script>
         <script src="js/lib/respond.min.js"></script>
         <![endif]-->
-    
+
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
         <link href="css/custom.css" rel="stylesheet" type="text/css">
         <link href="css/validation.css" rel="stylesheet">
@@ -31,20 +30,23 @@
 
 	<body>
 	<jsp:include page='header.jsp'/>
-	
+
     <!-- CONTENT SECTION -->
     <section class="contentSection">
     	<div class="container">
     	<div id="positionTable">
-           
+
+            <div class="row">
                 <div id="positionId" value="${positionDetail.positionId}">Position Name: </div>
                 <div class="row">
                 	${positionDetail.positionName}
                 </div>
+
                  <div id="positionGroupId" value="${positionDetail.positionGroup.positionGroupId}">Position Group</div>
                 <div class="row">
                     ${positionDetail.positionGroup.positionGroupName}
                 </div>
+
                 <div>Position Description</div>
                 <div class="row">
                     ${positionDetail.positionDescription}
@@ -61,7 +63,6 @@
                 <div class="row">
                     ${positionDetail.salary}
                 </div>
-              
                  <sec:authorize access="hasRole('ROLE_STUDENT') and isAuthenticated()">
                 <div class="row">
                 	<input type="button" id="positionApply" value="Apply"/>
@@ -73,18 +74,18 @@
                    		<a href="javascript:void(0)" onClick="editDisplay(${positionDetail.positionId},'${positionDetail.positionName}',${positionDetail.positionGroup.positionGroupId},'${positionDetail.responsibilities}','${positionDetail.requirements}',${positionDetail.salary},'${positionDetail.positionDescription}')" >edit</a>
                    		</div>
                    	</sec:authorize>
-              </div>     
+              </div>
                <sec:authorize access="hasRole('ROLE_ORGANIZATION') and isAuthenticated()">
                   <div id="updateForm" style="display:none">
-				<form  id="editForm" role="form" action="updatePosition" method="post">
+										<form  id="editForm" role="form" action="updatePosition" method="post">
 								<table id = "" width="100%">
 								<tr>
 								    <th>positionName</th>
-								    <th>groupName</th>	
+								    <th>groupName</th>
 								    <th>responsibilities</th>
  									<th>requirements</th>
  									<th>salary</th>
- 									<th>positionDescription</th>							    
+ 									<th>positionDescription</th>
 								</tr>
          					    <tr style="vertical-align: middle">
 									<th><input type="text" id="inputPositionName" name="positionName" value=""/></th>
@@ -104,7 +105,7 @@
 				</div>
                    </sec:authorize>
             </div>
-        
+
     </section>
      <script type="text/javascript"  >
      					 function editDisplay(positionId,positionName,groupId,responsibilities,requirements,salary,positionDescription){
@@ -144,10 +145,20 @@
      					        	document.getElementById('inputRequirements').value = requirements;
      					        	document.getElementById('inputSalary').value = salary;
      					        	document.getElementById('inputPositionDescription').value = positionDescription;
-     					        	
+
      					      }
      					   }
-     	</script>				 
+     	</script>
+            </div>
+        </div>
+    </section>
+
+    <sec:authorize access="hasRole('ROLE_STUDENT') and isAuthenticated()">
+        <div id="positionDetailPage" role="tabpane" class="tab-pane active">
+            <jsp:include page='footer.jsp'/>
+        </div>
+    </sec:authorize>
+
     <!-- Button trigger modal -->
       <button type="button" id="myModalTrigger" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="display:none">Submit</button>
       <div class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -183,7 +194,5 @@
         </div>
       </div>
  </body>
-
- 
  <script data-main="js/app/modules/application" src="js/lib/require-2.1.15.min.js"></script>
 </html>

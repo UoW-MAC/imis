@@ -13,13 +13,22 @@
                            http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
                            
     <import resource="applicationContext-security.xml" />
-    <mvc:annotation-driven />
+    <mvc:annotation-driven conversion-service="conversionService"/>  
+    <!-- <mvc:annotation-driven/>-->
     <tx:annotation-driven/>
     <context:property-placeholder location="/WEB-INF/jdbc.properties" />
     
     <context:component-scan base-package="com.imis" >
         <context:exclude-filter type="annotation"  expression="org.springframework.stereotype.Controller" />
     </context:component-scan>
+    
+	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean" >
+	    <property name="converters">
+	        <set>
+	            <bean class="com.imis.presentation.utils.StringToLongConverter"/>
+	        </set>
+	    </property>
+	</bean>
     
    <bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource" destroy-method="close">
         <property name="driverClass" value="${jdbc.driverClass}"/>

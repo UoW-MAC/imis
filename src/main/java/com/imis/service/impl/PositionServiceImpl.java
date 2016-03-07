@@ -26,6 +26,7 @@ public class PositionServiceImpl implements IPositionService {
 
 	@Autowired
 	private PositionRepository positionRepository;
+
 	@Autowired
 	private StudentRepository studentRepository;
 
@@ -87,44 +88,78 @@ public class PositionServiceImpl implements IPositionService {
 		}
 	}
 public List<Position> getPostionStatusList(String groupId, String positionStatus) throws Exception {
-		
+
 		Map<String, Object> parms = new HashMap<String, Object>();
-		
+
+	@Autowired
+	private ApplicationRepository applicationRepository;
+
+	public List<Position> getPostionStatusList(String groupId, String positionStatus) throws Exception {
+
+		Map<String, Object> parms = new HashMap<String, Object>();
+
 		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String userName = userDetails.getUsername();
-		
+
 		parms.put("userName", userName);
 		parms.put("groupId", groupId);
 		parms.put("positionStatus", positionStatus);
-		
+
 		return positionRepository.getPostionList(parms);
 	}
-	
+
 	public void positionApply(String positionId) throws Exception {
-		
+
 		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String userName = userDetails.getUsername();
 		Timestamp createTime = new Timestamp(System.currentTimeMillis());
-		
+
 		Position position = new Position();
 		position.setPositionId(Long.parseLong(positionId));
-		
+
 		User user = new User();
 		user.setUserName(userName);
-		
+
 		Application application = new Application();
 		application.setApplicationStatus(1);
 		application.setPosition(position);
 		application.setCreateTime(createTime);
 		application.setUpdateTime(createTime);
 		application.setUser(user);
-		
+
 		applicationRepository.positionApply(application);
 	}
 
 	public Position getPositionInfo(int positionId) throws Exception {
-		
-		return positionRepository.getPositionInfo(positionId); 
+
+		return positionRepository.getPostionList(parms);
+	}
+
+	public void positionApply(String positionId) throws Exception {
+
+		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String userName = userDetails.getUsername();
+		Timestamp createTime = new Timestamp(System.currentTimeMillis());
+
+		Position position = new Position();
+		position.setPositionId(Long.parseLong(positionId));
+
+		User user = new User();
+		user.setUserName(userName);
+
+		Application application = new Application();
+		application.setApplicationStatus(1);
+		application.setPosition(position);
+		application.setCreateTime(createTime);
+		application.setUpdateTime(createTime);
+		application.setUser(user);
+
+		applicationRepository.positionApply(application);
+	}
+
+	public Position getPositionInfo(int positionId) throws Exception {
+
+		return positionRepository.getPositionInfo(positionId);
 	}
 
 	@Override
@@ -135,7 +170,7 @@ public List<Position> getPostionStatusList(String groupId, String positionStatus
 		} catch (Exception e) {
 			throw e;
 		}
-	
+
 	}
 
 	@Override
@@ -146,7 +181,7 @@ public List<Position> getPostionStatusList(String groupId, String positionStatus
 		} catch (Exception e) {
 			throw e;
 		}
-	
+
 	}
 
 	@Override
@@ -165,8 +200,8 @@ public List<Position> getPostionStatusList(String groupId, String positionStatus
 		} catch (Exception e) {
 			throw e;
 		}
+
 	}
 
-	
-}
 
+}
