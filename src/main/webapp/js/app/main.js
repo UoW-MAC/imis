@@ -33,7 +33,7 @@ requirejs.config({
         "respond": "lib/respond.min",
         "ie10bug": "ie10-viewport-bug-workaround.js",
         "position": "app/modules/position",
-        "employer": "app/modules/employer"
+        "employer": "app/modules/employer",
         "jDataTables": "app/datatables/jquery.dataTables.min"
 
     },
