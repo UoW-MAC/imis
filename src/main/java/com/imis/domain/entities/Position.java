@@ -13,10 +13,6 @@ public class Position implements Serializable{
 
 	private Long positionId;
 	private String positionName;
-	private String positionDescription;
-	private String responsibilities;
-	private String requirements;
-	private String salary;
 	private PositionGroup positionGroup;
     private Employer employer;
     private Application application;
@@ -29,14 +25,6 @@ public class Position implements Serializable{
     private Long salary;
     private Long applicationNum;
     private Long unreadApplicationNum;
-
-    public Application getApplication() {
-		return application;
-	}
-
-	public void setApplication(Application application) {
-		this.application = application;
-	}
 
 	public Long getUnreadApplicationNum() {
 		return unreadApplicationNum;
@@ -56,6 +44,10 @@ public class Position implements Serializable{
 
 	public String getPositionDescription() {
 		return positionDescription;
+	}
+
+	public int getPositionStatus() {
+		return positionStatus;
 	}
 
 	public void setPositionDescription(String positionDescription) {
@@ -86,36 +78,8 @@ public class Position implements Serializable{
 		this.salary = salary;
 	}
 
-	public int getPositionStatus() {
-		return positionStatus;
-	}
-
-	public void setPositionDescription(String positionDescription) {
-		this.positionDescription = positionDescription;
-	}
-
-	public String getResponsibilities() {
-		return responsibilities;
-	}
-
-	public void setResponsibilities(String responsibilities) {
-		this.responsibilities = responsibilities;
-	}
-
-	public String getRequirements() {
-		return requirements;
-	}
-
-	public void setRequirements(String requirements) {
-		this.requirements = requirements;
-	}
-
-	public String getSalary() {
-		return salary;
-	}
-
-	public void setSalary(String salary) {
-		this.salary = salary;
+	public void setPositionStatus(int positionStatus) {
+		this.positionStatus = positionStatus;
 	}
 
 	public Application getApplication() {

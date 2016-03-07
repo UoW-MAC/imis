@@ -87,12 +87,6 @@ public class PositionServiceImpl implements IPositionService {
 			throw e;
 		}
 	}
-public List<Position> getPostionStatusList(String groupId, String positionStatus) throws Exception {
-
-		Map<String, Object> parms = new HashMap<String, Object>();
-
-	@Autowired
-	private ApplicationRepository applicationRepository;
 
 	public List<Position> getPostionStatusList(String groupId, String positionStatus) throws Exception {
 
@@ -129,34 +123,7 @@ public List<Position> getPostionStatusList(String groupId, String positionStatus
 
 		applicationRepository.positionApply(application);
 	}
-
-	public Position getPositionInfo(int positionId) throws Exception {
-
-		return positionRepository.getPostionList(parms);
-	}
-
-	public void positionApply(String positionId) throws Exception {
-
-		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String userName = userDetails.getUsername();
-		Timestamp createTime = new Timestamp(System.currentTimeMillis());
-
-		Position position = new Position();
-		position.setPositionId(Long.parseLong(positionId));
-
-		User user = new User();
-		user.setUserName(userName);
-
-		Application application = new Application();
-		application.setApplicationStatus(1);
-		application.setPosition(position);
-		application.setCreateTime(createTime);
-		application.setUpdateTime(createTime);
-		application.setUser(user);
-
-		applicationRepository.positionApply(application);
-	}
-
+	
 	public Position getPositionInfo(int positionId) throws Exception {
 
 		return positionRepository.getPositionInfo(positionId);
