@@ -18,97 +18,56 @@
         <script src="js/lib/respond.min.js"></script>
         <![endif]-->
     
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="css/custom.css" rel="stylesheet" type="text/css">
         <link href="css/validation.css" rel="stylesheet">
+        
+        <link href="css/jquery.dataTables.min.css" rel="stylesheet">
+        
         <!--[if IE 8]>
         <link href="css/ie8.css" rel="stylesheet" type="text/css">
         <![endif]-->
-
 
 	</head>
 
 	<body>
     <!-- CONTENT SECTION -->
     <section class="contentSection">
-    	<div class="container">
-    		 <div class="row">
-		    	<div class="dropdown">
-		  			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-		    			Employer Group
-		    			<span class="caret"></span>
-		  			</button>
-		  			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-					    <li><a href="#">Startup Company</a></li>
-					    <li><a href="#">Research Project</a></li>
-					    <li><a href="#">MAC Project</a></li>
-					    <li><a href="#">Company</a></li>
-					    <li><a href="#">Other</a></li>
-				    </ul>
-		        </div>
+    	    <div class="row">
+	    		 <select id="employerGroup">
+	    		     <option value="0">Employer Group</option> 
+				     <option value="1">Company</option> 
+				     <option value="2">Startup Company</option> 
+				     <option value="3">Research Project</option> 
+				     <option value="4">MAC Project</option> 
+				     <option value="5">Other</option> 
+				 </select>
+		         
+		         <select id="positionStatus">
+	    		     <option value="0">ALL</option> 
+				     <option value="1">Requested</option> 
+				     <option value="2">Confirmed</option> 
+				     <option value="3">Rejected</option> 
+				 </select>
 		        
-		        <div class="dropdown">
-		  			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-		    			Position Status
-		    			<span class="caret"></span>
-		  			</button>
-		  			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-					    <li><a href="#">ALL</a></li>
-					    <li><a href="#">Requested</a></li>
-					    <li><a href="#">Confirmed</a></li>
-					    <li><a href="#">Rejected</a></li>
-				    </ul>
-		        </div>
-		        
-		        <button type="button" id="myButton" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+		         <button type="button" id="searchPosition" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
   					Search
-				</button>
-		        
+				 </button>
             </div>
-        
-            <div class="row">
-                <span class="col-sm-9 rightBorder equalCol">
-                    <div>
-	                    <table class="table" id="positionStatusList"> 
-				    		<thead> 
-				                <tr> 
-				                   <th>Position</th> 
-				                   <th>Organazation</th> 
-				                   <th>Status</th> 
-				                </tr> 
-				            </thead> 
-				            <tbody>
-			                     <script id="positionStatusTable" type="text/x-handlebars-template">
-			                		<tr> 
-			                   		<th><a href="positionDetail?positionId={{positionId}}">{{positionName}}</a></th> 
-			                   		<td>{{employer.employerName}}</td>
-				                    <td>{{positionStatus}}</td>
-					                </tr> 
-			                     </script>
-                    </div>
-                </span>
-                
-            </div>
-        </div>
+    	    
+    	     <div class="row">
+	    	     <table id="example" class="display" cellspacing="0" width="100%">
+			        <thead>
+			            <tr>
+			                <th>Position</th>
+			                <th>Organazation</th>
+			                <th>Status</th>
+			            </tr>
+			        </thead>
+			     </table>
+    	     </div>
+    	     
     </section>
     <input type="hidden" id="positionId"/> 
-    
-    <!-- Button trigger modal -->
-      <button type="button" id="myModalTrigger" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="display:none">Submit</button>
-      <div class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                 <div class="modal-header">
-                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                     <h4 class="modal-title" id="myModalLabel">Tip</h4>
-                 </div>
-                 <div class="modal-body">Are you sure applying this position?</div>
-                  <div class="buttonsRow">
-                     <button id="return" type="button" class="white-bt" data-dismiss="modal">Cancel</button>
-                     <button type="submit" id="confirmApply" class="orange-bt meta-event-source" meta-event-handler="application:confirmApply">Confirm</button>
-                  </div>
-            </div>
-        </div>
-      </div>
  </body>
 </html>

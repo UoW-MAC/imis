@@ -31,7 +31,8 @@ requirejs.config({
         "npm": "lib/npm",
         "owlCarousel": "lib/owl.carousel",
         "respond": "lib/respond.min",
-        "ie10bug": "ie10-viewport-bug-workaround.js"
+        "ie10bug": "ie10-viewport-bug-workaround.js",
+        "jDataTables": "app/datatables/jquery.dataTables.min"
     },
     shim: {
         'bootstrap' : {
@@ -137,14 +138,10 @@ requirejs.config({
         "ie10bug": {
         	deps :['jquery'],
         	exports : "ie10bug"
+        },
+        "jDataTables": {
+        	deps :['jquery'],
+        	exports : "jDataTables"
         }
     }
 });
-
-
-
-
-
-
-
-

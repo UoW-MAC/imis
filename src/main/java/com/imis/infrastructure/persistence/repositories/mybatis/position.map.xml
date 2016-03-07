@@ -24,12 +24,12 @@
 		on (p.POSITION_ID = a.POSITION_ID AND a.USERNAME = #{userName})) A,
 		EMPLOYER e
 		<where>
-		    WHERE A.EMPLOYER_ID = e.EMPLOYER_ID
-			<if test="groupId != null">  
-		         AND POSITION_GROUP_ID = #{groupId},  
+		    A.EMPLOYER_ID = e.EMPLOYER_ID
+			<if test="groupId != 0">  
+		         AND POSITION_GROUP_ID = #{groupId}  
 		    </if>
-		    <if test="positionStatus != null">  
-		         AND A.APPLICATION_STATUS = #{positionStatus},  
+		    <if test="positionStatus != 0">  
+		         AND A.APPLICATION_STATUS = #{positionStatus} 
 		    </if>
 		</where>
 	</select>
@@ -40,4 +40,3 @@
 	</select>
 	
 </mapper>
-

@@ -84,10 +84,8 @@ public class StudentController {
     }
     
     @RequestMapping(value = "getPostionStatusList", method = RequestMethod.POST)
-    public @ResponseBody Response getPostionStatusList(HttpServletRequest request) {
+    public @ResponseBody Map<String, List<Position>>  getPostionStatusList(HttpServletRequest request) {
 
-    	int statusCode;
-        String statusDescription;
         Map<String, List<Position>> positionStatusMap = null;
         String groupId = request.getParameter("groupId");
         String positionStatus = request.getParameter("positionStatus");
@@ -96,18 +94,13 @@ public class StudentController {
     	{
     		List<Position> positionStatusList = postionServce.getPostionStatusList(groupId, positionStatus);
     		
-    		statusCode = ResponseStatus.SUCCESS.getStatusCode();
-    		statusDescription = ResponseStatus.SUCCESS.getStatusDescription();
-    		
     		positionStatusMap = new HashMap<String, List<Position>>();
-    		positionStatusMap.put("positionStatusList", positionStatusList);
+    		positionStatusMap.put("data", positionStatusList);
     	}catch(Exception exception)
     	{
-    		statusCode = ResponseStatus.FAILURE.getStatusCode();
-    		statusDescription = ResponseStatus.FAILURE.getStatusDescription();
     	}
     	
-        return new Response(statusCode, statusDescription, positionStatusMap);
+        return positionStatusMap;
     }
     
     @RequestMapping(value = "positionApply", method = RequestMethod.POST)
