@@ -45,9 +45,13 @@
         <sec:form-login login-page="/home"
                     authentication-failure-url="/login-failure"
                     default-target-url="/login-success"/>
+                    
+        <sec:form-login login-page="/login"
+			        authentication-failure-url="/login-failure"
+			        default-target-url="/login-success"/>
 
         <sec:logout invalidate-session="true"
-                    logout-url="/j_spring_security_logout" logout-success-url="/login"/>
+                    logout-url="/j_spring_security_logout" logout-success-url="/home"/>
 
         <sec:remember-me data-source-ref="dataSource" user-service-ref="userDetailsManager"/>
 

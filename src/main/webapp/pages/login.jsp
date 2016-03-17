@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <!--<link rel="icon" href="../../favicon.ico">-->
 
-    <title>Signin Template for Bootstrap</title>
+    <title>Internship Management Information System</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/login.css" rel="stylesheet">
+    <!--<link href="css/custom.css" rel="stylesheet" type="text/css"> -->
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -32,23 +33,19 @@
   </head>
 
   <body>
-
     <div class="container">
-
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Please log in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
-      </form>
-
-    </div> <!-- /container -->
+       <form class="form-signin" id="singleLoginForm" role="form" action="j_spring_security_check" method="POST">
+            <h2 class="form-signin-heading">Please log in</h2>
+            <div class="form-group">
+              <input type="text" placeholder="User name" class="form-control" id="j_username" name='j_username'>
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control" id="j_password" name='j_password'>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" id="singleLoginFormSubmit">Log in</button>
+       </form>
+    </div>
+    
+    <script data-main="js/app/pages/login" src="js/lib/require-2.1.15.min.js"></script>
   </body>
 </html>
