@@ -52,7 +52,44 @@ require(['../main'], function () {
 
             application.Controller = {
                 loadPostionStatusList : function(){
-                	tableDemo();
+             
+             		var groupId = $('#employerGroup').find("option:selected").val();
+                	var positionStatus = $('#positionStatus').find("option:selected").val();
+                
+				    $('#example').DataTable({
+				        ajax:  {
+				        	"url" : "getPostionStatusList",
+				        	"type" : "post",
+				        	"data" : {"groupId" : groupId, "positionStatus" : positionStatus}
+				        	//"dataSrc": "data"
+				        },
+				        columns: [
+				            { data: "positionName" },
+				            { data: "employer.employerName" },
+				            { data: null, render: 
+				                function ( data, type, row ) {
+					            	var result;
+					            	
+					            	if (data.application == null)
+					            		result = 'New'; 
+					            	else if (data.application.applicationStatus == 1)
+					                	result = 'In process';
+					                else if (data.application.applicationStatus == 2)
+					                	result = 'Success';
+					                else if (data.application.applicationStatus == 3)
+					                    result = 'Regected';
+					                return result;
+				                }  
+				            }
+				            
+				        ],
+				        rowCallback : function(row, data) {
+				        	$('td:eq(0)', row).html('<a href=positionDetail?positionId='+ data.positionId + '>' + data.positionName + '</a >');
+				        },
+				        select: true
+				    } );
+				 
+				    //table.buttons().container().appendTo($('.col-sm-6:eq(0)', table.table().container()));
                 },
                 positionApply : function(){
                 	
@@ -104,54 +141,11 @@ require(['../main'], function () {
                 	application.Controller.exportCSV();
                 });
                 
-                tableDemo();
+                application.Controller.loadPostionStatusList();
                 
                 //eventHandler.subscribe("application:confirmApply", application.Controller.positionApply);
             }
             
-            function tableDemo() {
-            	
-            	var groupId = $('#employerGroup').find("option:selected").val();
-                var positionStatus = $('#positionStatus').find("option:selected").val();
-                
-			    $('#example').DataTable({
-			        ajax:  {
-			        	"url" : "getPostionStatusList",
-			        	"type" : "post",
-			        	"data" : {"groupId" : groupId, "positionStatus" : positionStatus}
-			        	//"dataSrc": "data"
-			        },
-			        columns: [
-			            { data: "positionName" },
-			            { data: "employer.employerName" },
-			            { data: null, render: 
-			                function ( data, type, row ) {
-				            	var result;
-				            	
-				            	if (data.application == null)
-				            		result = 'New'; 
-				            	else if (data.application.applicationStatus == 1)
-				                	result = 'In process';
-				                else if (data.application.applicationStatus == 2)
-				                	result = 'Success';
-				                else if (data.application.applicationStatus == 3)
-				                    result = 'Regected';
-				                return result;
-			                }  
-			            }
-			            
-			        ],
-			        rowCallback : function(row, data) {
-			        	$('td:eq(0)', row).html('<a href=positionDetail?positionId='+ data.positionId + '>' + data.positionName + '</a >');
-			        },
-			        select: true
-			    } );
-			 
-			    //table.buttons().container().appendTo($('.col-sm-6:eq(0)', table.table().container()));
-            	
-            }
-
-
             $(function() {
                 registerEventListener();
             });
