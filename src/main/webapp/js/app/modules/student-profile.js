@@ -3,9 +3,9 @@
  */
 
 require(['../main'], function () {
-    require(['jquery', 'bootstrap', 'handlebars', 'login', 'validate', 'ajaxHandler',
+    require(['jquery', 'bootstrap', 'handlebars', 'validate', 'ajaxHandler',
             'jqueryForm', 'formValidator', 'selector', 'additionalMethods', 'custom'],
-        function($, bootstrap, handlebars, login, validate, ajaxHandler,
+        function($, bootstrap, handlebars, validate, ajaxHandler,
                  jqueryForm, formValidator, selector, additionalMethods, custom) {
 
             "use strict";

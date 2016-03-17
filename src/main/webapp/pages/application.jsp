@@ -53,6 +53,10 @@
 		         <button type="button" id="searchPosition" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
   					Search
 				 </button>
+				 
+				 <button type="button" id="exportCSV" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+  					Export
+				 </button>
             </div>
     	    
     	     <div class="row">

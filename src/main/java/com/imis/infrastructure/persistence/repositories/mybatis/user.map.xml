@@ -4,13 +4,8 @@
 <mapper namespace="com.imis.domain.repositories.UserRepository">
 	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
     
-    <resultMap type="Student" id="studentResultMap">
+    <resultMap type="User" id="userResultMap">
         <result property="userId" column="user_id" />
-        <result property="userName" column="username" />
-        <result property="email" column="email" />
-        <result property="password" column="password" />
-        <result property="createTime" column="create_time" />
-        <result property="updateTime" column="update_time" />
     </resultMap>
      
     <insert id="register" useGeneratedKeys="false" parameterType="User" >
@@ -26,6 +21,18 @@
 	    	values(SEQ_AUTHORITIES.NEXTVAL,#{userName},#{authority})
     	]]>
     </insert>
+	
+	<select id="getUserByUserName" parameterType="String" resultMap="userResultMap">
+    	<![CDATA[
+	    	SELECT USER_ID FROM USERS WHERE USERNAME = #{userName}
+    	]]>
+    </select>
+    
+    <select id="getUserByEmail"  parameterType="String" resultMap="userResultMap">
+    	<![CDATA[
+	    	SELECT USER_ID FROM USERS WHERE EMAIL = #{email}
+    	]]>
+    </select>
    
 </mapper>
 

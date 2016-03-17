@@ -76,7 +76,7 @@
                             <div id="studentProfileTabPane" role="tabpane" class="tab-pane active">
                                 <jsp:include page='student.jsp'/>
                             </div>
-                            <div id="positionApplicationTabPane" role="tabpane" class="tab-pane active">
+                            <div id="positionApplicationTabPane" role="tabpane" class="tab-pane">
                                 <jsp:include page='application.jsp'/>
                             </div>
                         </sec:authorize>

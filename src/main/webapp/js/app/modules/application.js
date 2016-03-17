@@ -52,18 +52,7 @@ require(['../main'], function () {
 
             application.Controller = {
                 loadPostionStatusList : function(){
-                	var groupId = $('#employerGroup').find("option:selected").val();
-                	var positionStatus = $('#positionStatus').find("option:selected").val();
-                	
-                	$.ajax({
-                      type: "post",
-                	  dataType: "json",
-                      url: 'getPostionStatusList',
-                      data: {"groupId" : groupId, "positionStatus" : positionStatus},
-                      success: function(data) {
-                        //application.View.renderPositionStatusList(data);
-                      }
-                    });
+                	tableDemo();
                 },
                 positionApply : function(){
                 	
@@ -77,6 +66,16 @@ require(['../main'], function () {
 				        	location.href = "user-center";
 				        }
 				    });
+                },
+                exportCSV : function(){
+	                $.ajax({
+	                        type : "post",
+	                        dataType : "json",
+	                        url : "exportCSV",
+	                        success : function(data) {
+	                            location.href = "downloadCsv?csvFileName=" + data.models.fileName;
+	                        }
+	                });
                 }
             };
 
@@ -99,6 +98,10 @@ require(['../main'], function () {
                 
                 $('#searchPosition').click(function(){
                 	application.Controller.loadPostionStatusList();
+                });
+                
+                $('#exportCSV').click(function(){
+                	application.Controller.exportCSV();
                 });
                 
                 tableDemo();
@@ -138,6 +141,9 @@ require(['../main'], function () {
 			            }
 			            
 			        ],
+			        rowCallback : function(row, data) {
+			        	$('td:eq(0)', row).html('<a href=positionDetail?positionId='+ data.positionId + '>' + data.positionName + '</a >');
+			        },
 			        select: true
 			    } );
 			 

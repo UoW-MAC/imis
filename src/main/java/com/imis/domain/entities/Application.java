@@ -14,10 +14,19 @@ public class Application implements Serializable{
 	private Long applicationId;
 	private int applicationStatus;
 	private Position position;
+	private Student student;
 	private Timestamp createTime;
 	private Timestamp updateTime;
 	private User user;
 	
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+
 	public Long getApplicationId() {
 		return applicationId;
 	}

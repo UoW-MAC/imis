@@ -29,4 +29,28 @@ public class UserServiceImpl implements IUserService {
 		userRepository.register(user);
 		userRepository.addUserAuthority(user);
 	}
+
+	public boolean isUserNameExisted(String userName) throws Exception {
+		User user = userRepository.getUserByUserName(userName);
+		Boolean isUserNameExisted = false;
+		
+		if (user != null) {
+			isUserNameExisted = true;
+		}
+		
+		return isUserNameExisted;
+	}
+
+	public boolean isEmailExisted(String email) throws Exception {
+		User user = userRepository.getUserByEmail(email);
+		Boolean isEmailExisted = false;
+		
+		if (user != null) {
+			isEmailExisted = true;
+		}
+		
+		return isEmailExisted;
+		
+	}
+	
 }

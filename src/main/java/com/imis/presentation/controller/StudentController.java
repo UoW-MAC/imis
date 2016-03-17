@@ -1,12 +1,18 @@
 package com.imis.presentation.controller;
 
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
@@ -21,6 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.imis.domain.entities.Position;
 import com.imis.domain.entities.Student;
 import com.imis.domain.valuetypes.ResponseStatus;
+import com.imis.infrastructure.dataexport.CsvExporter;
 import com.imis.presentation.model.Response;
 import com.imis.service.IPositionService;
 import com.imis.service.IStudentService;
@@ -174,6 +181,64 @@ public class StudentController {
     	}
     	
         return new Response(statusCode, statusDescription, models);
+    }
+    
+    @RequestMapping(value = "exportCSV", method = RequestMethod.POST)
+    public @ResponseBody Response exportAll(HttpServletRequest request) throws Exception {
+
+    	Response response = new Response();
+    	Map<String, Object> models = new HashMap<String, Object>();
+    	
+    	List<Position> positionStatusList = postionServce.getPostionStatusList("0", "0");
+      
+        String filePath = CsvExporter.export(positionStatusList);
+
+        String[] filePathSplit = filePath.split("/");
+        String fileName = filePathSplit[3];
+
+        models.put("fileName", fileName);
+        response.setModels(models);
+        
+        return response;
+    }
+    
+    @RequestMapping(value = "downloadCsv", method = RequestMethod.GET)
+    public void downloadCsv(HttpServletRequest request, HttpServletResponse response) throws IOException{
+
+        String fileName = request.getParameter("csvFileName");
+
+        java.io.BufferedInputStream bufferInputStream = null;
+        java.io.BufferedOutputStream bufferOutputStream = null;
+
+        String ctxPath = request.getSession().getServletContext().getRealPath("/") + "csvfiles/";
+        String downLoadPath = ctxPath + fileName;
+
+        try {
+            long fileLength = new File(downLoadPath).length();
+
+            response.setContentType("text/csv");
+            response.setHeader("Content-Disposition", "attachment; filename=" + new String(fileName.getBytes("utf-8"), "ISO8859-1"));
+            response.setHeader("Content-Length", String.valueOf(fileLength));
+
+            bufferInputStream = new BufferedInputStream(new FileInputStream(downLoadPath));
+            bufferOutputStream = new BufferedOutputStream(response.getOutputStream());
+
+            byte[] buff = new byte[2048];
+            int bytesRead;
+            while (-1 != (bytesRead = bufferInputStream.read(buff, 0, buff.length))) {
+                bufferOutputStream.write(buff, 0, bytesRead);
+            }
+
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        } finally {
+            if (bufferInputStream != null){
+                bufferInputStream.close();
+            }
+            if (bufferOutputStream != null){
+                bufferOutputStream.close();
+            }
+        }
     }
     
 }
