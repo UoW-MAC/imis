@@ -18,6 +18,8 @@
         <result property="registeredYear" column="registered_year" />
          <association property="user" resultMap="com.imis.domain.repositories.UserRepository.userResultMap" ></association>
          <association property="application" resultMap="com.imis.domain.repositories.ApplicationRepository.applicationResultMap" ></association>
+         <association property="position" resultMap="com.imis.domain.repositories.PositionRepository.positionResultMap" ></association>
+         <association property="employer" resultMap="com.imis.domain.repositories.EmployerRepository.employerResultMap" ></association>
         <collection property="workList" resultMap="com.imis.domain.repositories.WorkRepository.workResultMap" />
         <collection property="educationList" resultMap="com.imis.domain.repositories.EducationRepository.educationResultMap" />
     </resultMap>
@@ -47,13 +49,19 @@
 
     </update>
 
-    <select id="getStudentInfo" parameterType="String" resultMap="studentResultMap">
+    <select id="getStudentInfo" parameterType="Map" resultMap="studentResultMap">
     	SELECT s.STUDENT_ID, s.SEMESTER_REGISTERED, s.REGISTERED_YEAR, s.STUDENT_NO, s.FIRST_NAME, s.MIDDLE_NAME,
         	s.LAST_NAME, s.EMAIL, s.TELEPHONE, s.STATUS, s.GENDER, e.DEGREE, e.MAJOR, e.GPA, e.INSTITUTION, e.EDUCATION_ID,
         	e.COUNTRY, e.GRADUATION_DATE, w.COMPANY, w.TITLE, w.DUTIES, w.DATES, w.WORK_ID
         FROM STUDENT s, EDUCATION e, WORKS w
-	    WHERE s.STUDENT_ID = e.STUDENT_ID AND s.STUDENT_ID = w.STUDENT_ID AND
-	   		s.username = #{userName}
+	    <where> s.STUDENT_ID = e.STUDENT_ID AND s.STUDENT_ID = w.STUDENT_ID 
+	    <if test="userName !='admin'">
+	    AND s.username = #{userName}
+	    </if>
+	     <if test="studentId !=0">
+	    AND s.student_id = #{studentId}
+	    </if>
+	   	</where>
     </select>
     <select id="getCandidateDetail" parameterType="int" resultMap="studentResultMap">
         	SELECT s.username,s.STUDENT_ID, s.SEMESTER_REGISTERED, s.REGISTERED_YEAR, s.STUDENT_NO, s.FIRST_NAME, s.MIDDLE_NAME,
@@ -63,7 +71,7 @@
 	    WHERE s.student_id = #{studentId} and
 	    s.STUDENT_ID = e.STUDENT_ID AND s.STUDENT_ID = w.STUDENT_ID
     </select>
-    <select id="getCandidateInfo" parameterType="int" resultMap="studentResultMap">
+    <select id="getCandidateInfo" parameterType="Map" resultMap="studentResultMap">
       SELECT ST.STUDENT_ID,
         ST.FIRST_NAME,
         ST.MIDDLE_NAME,
@@ -71,8 +79,33 @@
         ST.STATUS,
         a.application_status,
          a.application_id,
-         a.update_time
-        FROM STUDENT ST , application a
-        where ST.USERNAME=a.username and a.position_id = #{positionId}
+         a.update_time,
+         p.position_name,
+         e.employer_name
+        FROM STUDENT ST , application a,position p,employer e
+        <where>ST.USERNAME=a.username and p.position_id=a.position_id and e.employer_id = p.employer_id
+        <if test="positionId !=0">
+        and a.position_id = #{positionId}
+        </if>
+        </where> 
     </select>
+     <select id="adminStudentInfo"  resultMap="studentResultMap">
+      SELECT ST.STUDENT_ID,
+        ST.FIRST_NAME,
+        ST.MIDDLE_NAME,
+        ST.LAST_NAME,
+         ST.STATUS,
+         ST.SEMESTER_REGISTERED,
+          ST.Gender,
+          ST.TELEPHONE,
+        ST.student_no,
+       	st.update_time
+        FROM STUDENT ST 
+    </select>
+    <delete id="deleteStudentInfo" parameterType="Long">
+     	<![CDATA[
+     		delete from student where student_id = #{studentId}
+     	]]>
+	</delete>
+	
 </mapper>

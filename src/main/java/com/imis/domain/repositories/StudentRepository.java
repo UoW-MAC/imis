@@ -1,10 +1,12 @@
 package com.imis.domain.repositories;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.imis.domain.entities.Application;
 import com.imis.domain.entities.Student;
 
 /**
@@ -18,13 +20,15 @@ public interface StudentRepository {
 	void addStudentInfo(Student student);
 
 	void updateStudentInfo(Student student);
+			 
+	void deleteStudentInfo(Long studentId);
 
-	void deleteStudentInfo(Student student);
-
-	Student getStudentInfo(String userName);
+	Student getStudentInfo(Map<String,Object>map);
 
 	Student getCandidateDetail(int studentId);
-
-	List<Student> getCandidateInfo(int positionId);
+	
+	List<Student> adminStudentInfo();
+	
+	List<Student> getCandidateInfo(Map<String,Integer> positionId);
 
 }

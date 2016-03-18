@@ -34,10 +34,10 @@
     <!-- CONTENT SECTION -->
     <section class="contentSection">
     	<div class="container">
-    	<div id="positionTable">
-
+    	<div id="positionEditTable">
             <div class="row">
                 <div id="positionId" value="${positionDetail.positionId}">Position Name: </div>
+                </div>
                 <div class="row">
                 	${positionDetail.positionName}
                 </div>
@@ -69,15 +69,15 @@
                 	<input type="button" id="cancelApply" value="Cancel"/>
                 </div>
                   </sec:authorize>
-                   <sec:authorize access="hasRole('ROLE_ORGANIZATION') and isAuthenticated()">
+                   <sec:authorize access="hasAnyRole('ROLE_ORGANIZATION,ROLE_ADMIN') and isAuthenticated()">
                    		<div class="row">
                    		<a href="javascript:void(0)" onClick="editDisplay(${positionDetail.positionId},'${positionDetail.positionName}',${positionDetail.positionGroup.positionGroupId},'${positionDetail.responsibilities}','${positionDetail.requirements}',${positionDetail.salary},'${positionDetail.positionDescription}')" >edit</a>
                    		</div>
                    	</sec:authorize>
               </div>
-               <sec:authorize access="hasRole('ROLE_ORGANIZATION') and isAuthenticated()">
+               <sec:authorize access="hasAnyRole('ROLE_ORGANIZATION,ROLE_ADMIN') and isAuthenticated()">
                   <div id="updateForm" style="display:none">
-										<form  id="editForm" role="form" action="updatePosition" method="post">
+							<form  id="editForm" role="form" action="updatePosition" method="post">
 								<table id = "" width="100%">
 								<tr>
 								    <th>positionName</th>
@@ -105,17 +105,16 @@
 				</div>
                    </sec:authorize>
             </div>
-
     </section>
      <script type="text/javascript"  >
      					 function editDisplay(positionId,positionName,groupId,responsibilities,requirements,salary,positionDescription){
-     					       var positionTable=document.getElementById("positionTable");
+     					       var positionTable=document.getElementById("positionEditTable");
      					       var updateForm=document.getElementById("updateForm");
-     					        if(positionTable.style.display=="none"){
+     					        if(positionEditTable.style.display=="none"){
      					        	updateForm.style.display="none";
-     					        	positionTable.style.display="";
+     					        	positionEditTable.style.display="";
      					        }else{
-     					        	positionTable.style.display="none";
+     					        	positionEditTable.style.display="none";
      					        	updateForm.style.display="";
      					        	$.ajax({
      		        					type : "get",
@@ -149,9 +148,6 @@
      					      }
      					   }
      	</script>
-            </div>
-        </div>
-    </section>
 
     <sec:authorize access="hasRole('ROLE_STUDENT') and isAuthenticated()">
         <div id="positionDetailPage" role="tabpane" class="tab-pane active">

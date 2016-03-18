@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.imis.domain.repositories.EmployerGroupRepository">
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
+
+    <resultMap type="EmployerGroup" id="employerGroupResultMap">
+        <result property="employerGroupId" column="employer_group_id" />
+        <result property="employerGroupType" column="employer_group_type" />
+    </resultMap>
+     <select id="selectEmployerGroupInfo" resultType="EmployerGroup" resultMap="employerGroupResultMap">
+    	<![CDATA[
+	    	select employer_group_id,employer_group_type from employer_group 	
+    	]]>
+    </select>
+</mapper>
+

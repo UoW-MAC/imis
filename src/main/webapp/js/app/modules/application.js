@@ -53,19 +53,41 @@ require(['../main'], function () {
 
             application.Controller = {
                 loadPostionStatusList : function(){
-
                 	var groupId = $('#employerGroup').find("option:selected").val();
-                	var positionStatus = $('#positionStatus').find("option:selected").val();
+                    var positionStatus = $('#positionStatus').find("option:selected").val();
 
-                	$.ajax({
-                      type: "post",
-                	  dataType: "json",
-                      url: 'getPostionStatusList',
-                      data: {"groupId" : groupId, "positionStatus" : positionStatus},
-                      success: function(data) {
-                        //application.View.renderPositionStatusList(data);
-                      }
-                    });
+    			    $('#example').DataTable({
+    			        ajax:  {
+    			        	"url" : "getPostionStatusList",
+    			        	"type" : "post",
+    			        	"data" : {"groupId" : groupId, "positionStatus" : positionStatus}
+    			        	//"dataSrc": "data"
+    			        },
+    			        columns: [
+    			            { data: "positionName" },
+    			            { data: "employer.employerName" },
+    			            { data: null, render:
+    			                function ( data, type, row ) {
+    				            	var result;
+
+    				            	if (data.application == null)
+    				            		result = 'New';
+    				            	else if (data.application.applicationStatus == 1)
+    				                	result = 'In process';
+    				                else if (data.application.applicationStatus == 2)
+    				                	result = 'Success';
+    				                else if (data.application.applicationStatus == 3)
+    				                    result = 'Regected';
+    				                return result;
+    			                }
+    			            }
+
+    			        ],
+    			        rowCallback : function(row, data) {
+    			        	 			        	$('td:eq(0)', row).html('<a href=positionDetail?positionId='+ data.positionId + '>' + data.positionName + '</a >');
+    			        	 			        },
+    			        select: true
+    			    } );
                 },
                 positionApply : function(){
 
@@ -80,7 +102,26 @@ require(['../main'], function () {
 				        }
 				    });
                 },
-
+                exportCSV : function(){
+                	                $.ajax({
+                	 	                        type : "post",
+                	 	                        dataType : "json",
+                	 	                        url : "exportCSV",
+                	 	                        success : function(data) {
+                	 	                            location.href = "downloadCsv?csvFileName=" + data.models.fileName;
+                	 	                        }
+                	 	                });
+                	                  },
+                	exportApplicationCSV : function(){
+                      	                $.ajax({
+                      	 	                        type : "post",
+                      	 	                        dataType : "json",
+                      	 	                        url : "exportApplicationCSV",
+                      	 	                        success : function(data) {
+                      	 	                            location.href = "downloadCsv?csvFileName=" + data.models.fileName;
+                      	 	                        }
+                      	 	                });
+                      	                  },
                 handleConfirmedSubmit: function(){
                     $("#editForm").submit();
 
@@ -111,59 +152,72 @@ require(['../main'], function () {
                 $("#cancelApply").click(function(){
                 	location.href = "user-center";
                 });
-
-                $('.dropdown-toggle').dropdown();
-
-                //eventHandler.subscribe("application:confirmApply", application.Controller.positionApply);
-            }
-
-
                 $('#searchPosition').click(function(){
                 	application.Controller.loadPostionStatusList();
                 });
-
-                tableDemo();
-
-                //eventHandler.subscribe("application:confirmApply", application.Controller.positionApply);
-            }
-
-            function tableDemo() {
-
-            	var groupId = $('#employerGroup').find("option:selected").val();
-                var positionStatus = $('#positionStatus').find("option:selected").val();
-
-			    $('#example').DataTable({
-			        ajax:  {
-			        	"url" : "getPostionStatusList",
-			        	"type" : "post",
-			        	"data" : {"groupId" : groupId, "positionStatus" : positionStatus}
-			        	//"dataSrc": "data"
+                application.Controller.loadPostionStatusList();
+                $('#adminApplicationTest').DataTable({
+               	 ajax:  {
+			        	"url" : "canditateInfo",
+			        	"type" : "get",
+			        	"data" : {"positionId" : 0}
 			        },
 			        columns: [
-			            { data: "positionName" },
-			            { data: "employer.employerName" },
+			            { data: "application.applicationId" },		
+			            { data: "studentId" },
+			            { data:  "position.positionName"},
+			            { data:  "employer.employerName"},
 			            { data: null, render:
 			                function ( data, type, row ) {
-				            	var result;
-
-				            	if (data.application == null)
-				            		result = 'New';
-				            	else if (data.application.applicationStatus == 1)
-				                	result = 'In process';
-				                else if (data.application.applicationStatus == 2)
-				                	result = 'Success';
-				                else if (data.application.applicationStatus == 3)
-				                    result = 'Regected';
-				                return result;
-			                }
-			            }
-
+			            	var result;
+			            	if (data.application == null)
+			            		result = 'New';
+			            	else if (data.application.applicationStatus == 1)
+			                	result = 'unread';
+			                else if (data.application.applicationStatus == 2)
+			                	result = 'accept';
+			                else if (data.application.applicationStatus == 3)
+			                    result = 'reject';
+			                return result;
+		                	}
+			            },
+			            { data:null,render:function(data){
+			            	function add0(m){return m<10?'0'+m:m };
+			            	var time = new Date(data.application.updateTime);
+			            	var y = time.getFullYear();
+			            	var m = time.getMonth()+1;
+			            	var d = time.getDate();
+			            	var h = time.getHours();
+			            	var mm = time.getMinutes();
+			            	var s = time.getSeconds();
+			            	return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);
+		            	}
+		            },
+		            { data:  "studentId"},
 			        ],
+			        "rowCallback": function(row, data) { //data是后端返回的数据
+			              $('td:eq(1)', row).html( data.firstName +'&nbsp' +data.middleName +'&nbsp'+ data.lastName);
+			              $('td:eq(6)', row).html('<a href=javascript:void(0) onclick=delApplicationRow()>delete</a>');
+			        },
 			        select: true
 			    } );
-
+                $('#adminApplicationTest tbody').on( 'click', 'tr', function () {
+                    if ( $(this).hasClass('selected') ) {
+                        $(this).removeClass('selected');
+                    }
+                    else {
+                    	$('#adminApplicationTest').DataTable().$('tr.selected').removeClass('selected');
+                        $(this).addClass('selected');
+                    }
+                } );
+                //eventHandler.subscribe("application:confirmApply", application.Controller.positionApply);
+			    $('#exportCSV').click(function(){
+			    	                 	application.Controller.exportCSV();
+			    	                 });
 			    //table.buttons().container().appendTo($('.col-sm-6:eq(0)', table.table().container()));
-
+			    $('#exportApplicationCSV').click(function(){
+                 	application.Controller.exportApplicationCSV();
+                 });
             }
 
 

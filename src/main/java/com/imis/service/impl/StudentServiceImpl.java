@@ -1,7 +1,9 @@
 package com.imis.service.impl;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -9,10 +11,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.imis.domain.entities.Application;
 import com.imis.domain.entities.Education;
+import com.imis.domain.entities.Position;
 import com.imis.domain.entities.Student;
 import com.imis.domain.entities.User;
 import com.imis.domain.entities.Work;
+import com.imis.domain.repositories.ApplicationRepository;
 import com.imis.domain.repositories.EducationRepository;
 import com.imis.domain.repositories.StudentRepository;
 import com.imis.domain.repositories.WorkRepository;
@@ -30,6 +35,9 @@ public class StudentServiceImpl implements IStudentService {
 
 	@Autowired
 	private EducationRepository educationRepository;
+	
+	@Autowired
+	private ApplicationRepository applicationRepository;
 
 	public void studentInfoSubmit(Student student) throws Exception {
 		
@@ -66,14 +74,20 @@ public class StudentServiceImpl implements IStudentService {
 	}
 
 
-	public Student getStudentInfo() throws Exception {
+	public Student getStudentInfo(int studentId) throws Exception {
 		
 		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String userName = userDetails.getUsername();
-		
-		Student student = studentRepository.getStudentInfo(userName);
-		
-		return student;
+		Map<String,Object> map = new HashMap<String, Object>();
+		Student student;
+		try {
+			map.put("userName", userName);
+			map.put("studentId", studentId);
+			student = studentRepository.getStudentInfo(map);
+			return student;
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	public void studentInfoUpdate(Student student) throws Exception {
@@ -96,5 +110,32 @@ public class StudentServiceImpl implements IStudentService {
 		workRepository.updateWorkInfo(workList);
 
 		educationRepository.updateEducationInfo(educationList);
+	}
+
+
+	@Override
+	public List<Student> getAdminStudentInfo() throws Exception {
+		try {
+			List<Student> student = studentRepository.adminStudentInfo();
+			return student;
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	public boolean studentDelete(Long studentId) throws Exception {
+		try {
+			studentRepository.deleteStudentInfo(studentId);
+			return true;
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	public List<Application> exportApplicationInfo() throws Exception {
+
+		try {
+			return applicationRepository.exportApplicationInfo();
+		} catch (Exception e) {
+			 return null;
+		}
 	}
 }

@@ -52,7 +52,10 @@
                     <h3>Menu</h3>
                     <ul class="nav nav-tabs-justified" role="tablist">
                         <sec:authorize access="hasRole('ROLE_ADMIN') and isAuthenticated()">
-                            <li class="active"><a id="userManagementTab" href="#userManagementTabPane"  role="tab" data-toggle="tab">User Regulation<span></span></a></li>
+                            <li class="active"><a id="studnetManagementTab" href="#studentManagementTabPane"  role="tab" data-toggle="tab">Student Management<span></span></a></li>
+                            <li><a id="employerManagementTab" href="#employerManagementTabPane"  role="tab" data-toggle="tab">Employer Management<span></span></a></li>
+                            <li><a id="employerManagementTab" href="#positionManagementTabPane"  role="tab" data-toggle="tab">Position Management<span></span></a></li>
+                            <li><a id="applicationManagementTab" href="#applicationManagementTabPane"  role="tab" data-toggle="tab">Application Condition<span></span></a></li>
                         </sec:authorize>
                         <sec:authorize access="hasRole('ROLE_ORGANIZATION') and isAuthenticated()">
                             <li class="active"><a id="employerProfileTab" href="#employerProfileTabPane" role="tab" data-toggle="tab">Employer Information<span></span></a></li>
@@ -68,15 +71,24 @@
                 <span class="col-sm-10 leftBorder equalCol umList">
                     <div class="tab-content">
                         <sec:authorize access="hasRole('ROLE_ADMIN') and isAuthenticated()">
-                            <div id="adminTabPane" role="tabpane" class="tab-pane active">
-                                <jsp:include page='admin.jsp'/>
+                            <div id="studentManagementTabPane" role="tabpane" class="tab-pane active">
+                                <jsp:include page='admin-student.jsp'/>
+                            </div>
+                               <div id="employerManagementTabPane" role="tabpane" class="tab-pane">
+                                <jsp:include page='admin-employer.jsp'/>
+                            </div> 
+                               <div id="positionManagementTabPane" role="tabpane" class="tab-pane">
+                                <jsp:include page='admin-position.jsp'/>
+                            </div>
+                             <div id="applicationManagementTabPane" role="tabpane" class="tab-pane">
+                                <jsp:include page='admin-application.jsp'/>
                             </div>
                         </sec:authorize>
                         <sec:authorize access="hasRole('ROLE_STUDENT') and isAuthenticated()">
                             <div id="studentProfileTabPane" role="tabpane" class="tab-pane active">
                                 <jsp:include page='student.jsp'/>
                             </div>
-                            <div id="positionApplicationTabPane" role="tabpane" class="tab-pane active">
+                            <div id="positionApplicationTabPane" role="tabpane" class="tab-pane">
                                 <jsp:include page='application.jsp'/>
                             </div>
                         </sec:authorize>

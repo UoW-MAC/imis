@@ -3,10 +3,10 @@
  */
 
 require(['../main'], function () {
-    require(['jquery', 'bootstrap', 'handlebars', 'login', 'validate', 'ajaxHandler',
-            'jqueryForm', 'formValidator', 'selector', 'additionalMethods', 'custom'],
-        function($, bootstrap, handlebars, login, validate, ajaxHandler,
-                 jqueryForm, formValidator, selector, additionalMethods, custom) {
+    require(['jquery', 'bootstrap', 'handlebars', 'validate', 'ajaxHandler',
+            'jqueryForm', 'formValidator', 'selector', 'additionalMethods', 'custom', 'jDataTables'],
+        function($, bootstrap, handlebars, validate, ajaxHandler,
+                 jqueryForm, formValidator, selector, additionalMethods, custom, jDataTables) {
 
             "use strict";
 
@@ -29,11 +29,26 @@ require(['../main'], function () {
 	                        }
                     });
                 },
+                exportStudentCSV : function(){
+  	                $.ajax({
+  	 	                        type : "post",
+  	 	                        dataType : "json",
+  	 	                        url : "exportStudentCSV",
+  	 	                        success : function(data) {
+  	 	                            location.href = "downloadCsv?csvFileName=" + data.models.fileName;
+  	 	                        }
+  	 	                });
+  	                  },
                 loadStudentProfile : function(){
+                	var a=0;
+                	if($("#adminstudentId").val()!=null){
+                		a=$("#adminstudentId").val();
+                	}
                 	$.ajax({
 				        type: "post",
 					    dataType: "json",
 				        url: 'getStudentInfo',
+				       data: {"studentId":a},
 				        success: function(data) {
 					        var studentProfileSource = $("#studentProfileTable").html(),
 			                	studentProfiletemplate = handlebars.compile(studentProfileSource),
@@ -81,19 +96,58 @@ require(['../main'], function () {
             };
 
             function registerEventListener() {
-                $("#studentProfile_submit").click(function () {
-                    studentProfile.Controller.handleFormSubmit();
-                });
-
-                $("#confirmedSubmit").click(function () {
-                    studentProfile.Controller.handleConfirmedSubmit();
-                });
-                
-                studentProfile.Controller.loadStudentProfile();
-                
-            }
-
-
+            	studentProfile.Controller.loadStudentProfile();
+            	   $("#studentProfile_submit").click(function () {
+                       studentProfile.Controller.handleFormSubmit();
+                   });
+                   $("#confirmedSubmit").click(function () {
+                       studentProfile.Controller.handleConfirmedSubmit();
+                   });
+                 
+                   $('#adminStudentTest').DataTable({
+   			        ajax:  {
+   			        	"url" : "adminStudentInfo",
+   			        	"type" : "get",
+   			        	//"data" : {"groupId" : groupId, "positionStatus" : positionStatus}
+   			        },
+   			        columns: [
+   			            { data: "studentNo" },
+   			            { data: "lastName" },
+   			            { data: "semesterRegistered" },
+   			            { data:null,render:function(data){
+   			            	function add0(m){return m<10?'0'+m:m };
+   			            	var time = new Date(data.updateTime);
+   			            	var y = time.getFullYear();
+   			            	var m = time.getMonth()+1;
+   			            	var d = time.getDate();
+   			            	var h = time.getHours();
+   			            	var mm = time.getMinutes();
+   			            	var s = time.getSeconds();
+   			            	return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);
+   		            		}
+   			            },
+   			         { data: "studentId" },
+   			        ],
+   			        "rowCallback": function(row, data) { //data是后端返回的数据
+   			           $('td:eq(1)', row).html('<a href=getAdminStudentInfo?studentId='+data.studentId+ '>' + data.firstName +'&nbsp' +data.middleName +'&nbsp'+ data.lastName + '</a>');
+			           $('td:eq(4)', row).html('<a href=javascript:void(0) onclick=delRow()>delete</a>');
+   			        },
+   			        "order": [[ 0, "asc" ]],
+   			        select: true
+   			    } );
+                   $('#adminStudentTest tbody').on( 'click', 'tr', function () {
+                       if ( $(this).hasClass('selected') ) {
+                           $(this).removeClass('selected');
+                       }
+                       else {
+                       	$('#adminStudentTest').DataTable().$('tr.selected').removeClass('selected');
+                           $(this).addClass('selected');
+                       }
+                   } );
+                   $('#exportStudentCSV').click(function(){
+                	   studentProfile.Controller.exportStudentCSV();
+                    });  
+           }
             $(function() {
                 registerEventListener();
             });

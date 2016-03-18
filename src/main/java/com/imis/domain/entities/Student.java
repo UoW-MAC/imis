@@ -28,8 +28,17 @@ public class Student implements Serializable {
 	private List<Work> workList;
 	private List<Education> educationList;
 	private User user;
+	private Employer employer;
 	private Timestamp createTime;
 	private Timestamp updateTime;
+
+	public Employer getEmployer() {
+		return employer;
+	}
+
+	public void setEmployer(Employer employer) {
+		this.employer = employer;
+	}
 
 	public Application getApplication() {
 		return application;

@@ -1,134 +1,151 @@
-//package com.imis.infrastructure.dataexport;
-//
-//import java.io.BufferedWriter;
-//import java.io.File;
-//import java.io.FileOutputStream;
-//import java.io.OutputStreamWriter;
-//import java.util.List;
-//
-//import org.apache.log4j.Logger;
-//import org.springframework.stereotype.Component;
-//
-//import com.sannong.domain.entities.User;
-//
-///**
-// * @author 
-// * Modified by William Zhang on 11/14/14
-// */
-//@Component
-//public class CsvExporter {
-//
-//	private static final Logger logger = Logger.getLogger(CsvExporter.class);
-//	
-//	public static String export(List<User> users, int questionSum) throws Exception {
-//		
-//		logger.info("start to call export in CsvExporter.java");
-//		
-//		BufferedWriter csvFileOutputStream = null;
-//	    String currentPath = CsvExporter.class.getResource("/").getPath().replaceAll("/WEB-INF/classes/", "").replaceAll("%20", " ");
-//		String fileName = "answers" + System.currentTimeMillis();
-//		String filePath = currentPath + "/csvfiles/" + fileName + ".csv";
-//		String returnFilePath = "/sannong/csvfiles/" + fileName + ".csv";
-//		
-//		logger.info("restore csv file path: " + filePath);
-//		logger.info("return file path: " + returnFilePath);
-//		
-//		File csvFile = new File(filePath);
-//		File parent = csvFile.getParentFile();
-//		
-//		if (parent != null && !parent.exists()) {
-//			parent.mkdirs();
-//		}
-//		csvFile.createNewFile();
-//
-//		csvFileOutputStream = new BufferedWriter(new OutputStreamWriter(
-//				new FileOutputStream(csvFile), "GB2312"), 1024);
-//		
-//		//edit title
-//		StringBuffer header = new StringBuffer();
-//		
-//		for (int number = 1; number <= questionSum; number++) {
-//			header.append("问题" + number + ",");
-//		}
-//		String title = "编号,姓名,手机号码,工作单位," + header.toString();
-//		csvFileOutputStream.write(title);
-//		csvFileOutputStream.newLine();
-//
-//		//edit contents
-//		int i = 1;
-//
-//		for (User userRow : users) {
-//			String Baseinfo = i + "," + userRow.getRealName() + ","
-//					+ "=\"" + userRow.getCellphone() + "\"" + "," + userRow.getCompany() + ",";
-//			StringBuffer answerRow = new StringBuffer();
-//			String dataRow = "";
-//
-//			if (userRow.getAnswer() != null) {
-//				if (userRow.getAnswer().getQuestionnaire1Answers() != null) {
-//					String questionnaire1Answers = userRow.getAnswer()
-//							.getQuestionnaire1Answers();
-//					String[] answerArray = questionnaire1Answers.split(";");
-//					
-//					buildAnswerRow(answerRow,answerArray);
-//				}
-//				if (userRow.getAnswer().getQuestionnaire2Answers() != null) {
-//					String questionnaire2Answers = userRow.getAnswer()
-//							.getQuestionnaire2Answers();
-//					String[] answerArray = questionnaire2Answers.split(";");
-//					
-//					buildAnswerRow(answerRow,answerArray);
-//				}
-//				if (userRow.getAnswer().getQuestionnaire3Answers() != null) {
-//					String questionnaire3Answers = userRow.getAnswer()
-//							.getQuestionnaire3Answers();
-//					String[] answerArray = questionnaire3Answers.split(";");
-//					
-//					buildAnswerRow(answerRow,answerArray);
-//
-//				}
-//				if (userRow.getAnswer().getQuestionnaire4Answers() != null) {
-//					String questionnaire4Answers = userRow.getAnswer()
-//							.getQuestionnaire4Answers();
-//					String[] answerArray = questionnaire4Answers.split(";");
-//					
-//					buildAnswerRow(answerRow,answerArray);
-//
-//				}
-//				if (userRow.getAnswer().getQuestionnaire5Answers() != null) {
-//					String questionnaire5Answers = userRow.getAnswer()
-//							.getQuestionnaire5Answers();
-//					String[] answerArray = questionnaire5Answers.split(";");
-//					
-//					buildAnswerRow(answerRow,answerArray);
-//
-//				}
-//				String answerInfo = answerRow.toString().substring(0,
-//						answerRow.toString().length() - 1);
-//				dataRow = Baseinfo + answerInfo;
-//			}
-//
-//			csvFileOutputStream.write(dataRow);
-//			csvFileOutputStream.newLine();
-//			i++;
-//		}
-//		csvFileOutputStream.flush();
-//		csvFileOutputStream.close();
-//		
-//		logger.info("end to call export in CsvExporter.java");
-//		return returnFilePath;
-//	}
-//	
-//	private static void buildAnswerRow(StringBuffer answerRow, String[] answerArray){
-//		for (String answers : answerArray) {
-//			StringBuffer answerStringBuffer = new StringBuffer();
-//			String[] singleAnswerArray = answers.split(",");
-//
-//			for (String answerStr : singleAnswerArray) {
-//				answerStr = String.valueOf(answerStr
-//						.charAt(answerStr.length() - 1));
-//				answerStringBuffer.append(answerStr);
-//			}
-//			answerRow.append(answerStringBuffer.toString() + ",");
-//		}
-//	}
-//}
+package com.imis.infrastructure.dataexport;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
+
+import com.imis.domain.entities.Application;
+import com.imis.domain.entities.Employer;
+import com.imis.domain.entities.Position;
+import com.imis.domain.entities.Student;
+import com.imis.domain.valuetypes.ServiceConstant;
+
+/**
+ * Created by William Zhang on 14/03/16.
+ */
+@Component
+public class CsvExporter {
+
+	private static final Logger logger = Logger.getLogger(CsvExporter.class);
+	
+	public static String export(List<?> objectList) throws Exception {
+		
+		logger.info("start to call export in CsvExporter.java");
+		
+		BufferedWriter csvFileOutputStream = null;
+	    //String currentPath = CsvExporter.class.getResource("/").getPath().replaceAll("/WEB-INF/classes/", "").replaceAll("%20", " ");
+		String currentPath = CsvExporter.class.getResource("/").getPath().replaceAll("/target/classes/", "/src/main/webapp").replaceAll("%20", " ");
+		String fileName = String.valueOf(System.currentTimeMillis());
+		String filePath = currentPath + "/csvfiles/" + fileName + ".csv";
+		String returnFilePath = "/imis/csvfiles/" + fileName + ".csv";
+		
+		logger.info("restore csv file path: " + filePath);
+		logger.info("return file path: " + returnFilePath);
+		
+		File csvFile = new File(filePath);
+		File parent = csvFile.getParentFile();
+		
+		if (parent != null && !parent.exists()) {
+			parent.mkdirs();
+		}
+		csvFile.createNewFile();
+
+		csvFileOutputStream = new BufferedWriter(new OutputStreamWriter(
+				new FileOutputStream(csvFile), "GB2312"), 1024);
+		
+		Object object = null;
+		StringBuffer titleStringBuffer = null;
+		String title = "";
+		String row = "";
+		
+	    if (objectList != null && objectList.size() > 0) {
+	    	object = objectList.get(0);
+	    	titleStringBuffer = new StringBuffer();
+	    	
+	    	if (object instanceof Student) {
+	    		title = titleStringBuffer.append(ServiceConstant.STU_NO).append(",").append(ServiceConstant.STU_FIRST_NAME).append(",").append(ServiceConstant.STU_MIDDLE_NAME)
+	    			.append(",").append(ServiceConstant.STU_LAST_NAME).append(",").append(ServiceConstant.STU_GENDER).append(",")
+	    				.append(ServiceConstant.STU_STATUS).append(",").append(ServiceConstant.STU_TELEPHONE).toString();
+	    		
+	    		csvFileOutputStream.write(title);
+	    		csvFileOutputStream.newLine();
+	    		
+	    		for (Object objectStudent : objectList) {
+	    			Student student = (Student)objectStudent;
+	    			StringBuffer rowStringBuffer = new StringBuffer();
+	    			
+	    			row = rowStringBuffer.append(student.getStudentNo()).append(",").append(student.getFirstName()).append(",").append(student.getMiddleName()).append(",")
+	    				.append(student.getLastName()).append(",").append(student.getGender()).append(",").append(student.getStatus()).append(",")
+	    					.append(student.getTelephone()).toString();
+	    			
+	    			csvFileOutputStream.write(row);
+	    			csvFileOutputStream.newLine();
+	    		}
+	    		
+	    		
+	    	}else if (object instanceof Employer) {
+	    		title = titleStringBuffer.append(ServiceConstant.EMP_NAME).append(",").append(ServiceConstant.EMP_CITY).append(",").append(ServiceConstant.EMP_CONTACTOR_FIRST_NAME)
+	    			.append(",").append(ServiceConstant.EMP_CONTACTOR_LAST_NAME).append(",").append(ServiceConstant.EMP_CONTACTOR_POSITION).append(",")
+	    				.append(ServiceConstant.EMP_ADDRESS).append(",").append(ServiceConstant.EMP_TELEPHONE).append(",").append(ServiceConstant.EMP_POST_CODE)
+	    					.append(",").append(ServiceConstant.EMP_WEBSITE).append(",").append(ServiceConstant.EMP_EMAIL).append(",").append(ServiceConstant.EMP_NOTES).toString();
+	    		
+	    		csvFileOutputStream.write(title);
+	    		csvFileOutputStream.newLine();
+	    		
+	    		for (Object objectEmployer : objectList) {
+	    			Employer employer = (Employer)objectEmployer;
+	    			StringBuffer rowStringBuffer = new StringBuffer();
+	    			
+	    			row = rowStringBuffer.append(employer.getEmployerName()).append(",").append(employer.getEmployerCity()).append(",").append(employer.getContactorFirstName())
+	    					.append(",").append(employer.getContactorLastName()).append(",").append(employer.getContactorPosition()).append(",").append(employer.getEmployerAddress())
+	    						.append(",").append(employer.getEmployerTelephone()).append(",").append(employer.getEmployerPostCode()).append(",").append(employer.getEmployerWebsite()).append(",")
+	    							.append(employer.getEmployerEmail()).append(",").append(employer.getEmployerNotes()).toString();
+	    		
+	    			csvFileOutputStream.write(row);
+	    			csvFileOutputStream.newLine();
+	    		}
+	    	}else if (object instanceof Position) {
+	    		title = titleStringBuffer.append(ServiceConstant.POSITION_NAME).append(",").append(ServiceConstant.POSITION_GROUP).append(",").append(ServiceConstant.EMP_NAME)
+	    			.append(",").append(ServiceConstant.POSITION_DESCRIPTION).append(",").append(ServiceConstant.POSITION_REQUIREMENTS).append(",")
+	    				.append(ServiceConstant.POSITION_RESPONSIBILITIES).append(",").append(ServiceConstant.POSITION_SALARY).toString();
+	    		csvFileOutputStream.write(title);
+	    		csvFileOutputStream.newLine();
+	    		for (Object objectPosition : objectList) {
+	    			Position position = (Position)objectPosition;
+	    			StringBuffer rowStringBuffer = new StringBuffer();
+	    			
+    			row = rowStringBuffer.append(position.getPositionName()).append(",").append(position.getPositionGroup().getPositionGroupName()).append(",")
+	    					.append(position.getEmployer().getEmployerName()).append(",").append(position.getPositionDescription()).append(",").append(position.getRequirements())
+	    						.append(",").append(position.getResponsibilities()).append(",").append(position.getSalary()).toString();
+	    		
+	    			csvFileOutputStream.write(row);
+	    			csvFileOutputStream.newLine();
+	    		}
+	    	}else if (object instanceof Application) {
+	    		title = titleStringBuffer.append(ServiceConstant.STU_NO).append(",").append(ServiceConstant.STU_FIRST_NAME).append(",").append(ServiceConstant.STU_MIDDLE_NAME)
+	    			.append(",").append(ServiceConstant.STU_LAST_NAME).append(",").append(ServiceConstant.POSITION_NAME).append(",")
+	    				.append(ServiceConstant.EMP_NAME).append(ServiceConstant.APPLICATION_STATUS).toString();
+	    	    
+	    		csvFileOutputStream.write(title);
+	    		csvFileOutputStream.newLine();
+	    		
+	    		for (Object objectApplication : objectList) {
+	    			Application application = (Application)objectApplication;
+	    			StringBuffer rowStringBuffer = new StringBuffer();
+	    			
+	    			row = rowStringBuffer.append(application.getStudent().getStudentNo()).append(",").append(application.getStudent().getFirstName()).append(",")
+	    					.append(application.getStudent().getMiddleName()).append(",").append(application.getStudent().getLastName()).append(",")
+	    						.append(application.getPosition().getPositionName()).append(",").append(application.getPosition().getEmployer().getEmployerName())
+	    							.append(",").append(application.getApplicationStatus()).toString();
+	    			
+	    			csvFileOutputStream.write(row);
+	    			csvFileOutputStream.newLine();
+	    		}
+	    	
+	    	}
+	    	
+	    }
+		
+		csvFileOutputStream.flush();
+		csvFileOutputStream.close();
+		
+		logger.info("end to call export in CsvExporter.java");
+		return returnFilePath;
+	}
+	
+}

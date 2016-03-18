@@ -22,7 +22,7 @@
 	<insert id="addPositionInfo" useGeneratedKeys="false" parameterType="Position">
     	<![CDATA[
 	    	insert into position(position_id,position_name,position_group_id,employer_id,create_time,update_time,position_description,responsibilities,requirements,salary)
-	    	values(SEQ_POSITION.NEXTVAL,#{positionName},#{positionGroup.positionGroupId},113,#{createTime},#{updateTime},#{positionDescription},#{responsibilities},#{requirements},#{salary})
+	    	values(SEQ_POSITION.NEXTVAL,#{positionName},#{positionGroup.positionGroupId},(select employer_id from employer where username=#{employer.user.userName}),#{createTime},#{updateTime},#{positionDescription},#{responsibilities},#{requirements},#{salary})
     	]]>
 	</insert>
 	<select id="getPostionList" parameterType="Map" resultMap="positionResultMap">
@@ -44,19 +44,23 @@
 		</where>
 	</select>
 
-	<select id="showPositionInfo"  resultType="Position" resultMap="positionResultMap">
-    	<![CDATA[
+	<select id="showPositionInfo"  resultType="Position" parameterType="Map" resultMap="positionResultMap">
+    	
 	     select p.POSITION_id,p.position_name,p.position_group_id,g.position_group_name,p.update_time,
 	     (select count(a.POSITION_ID) from application a  where a.APPLICATION_STATUS=1 and a.POSITION_ID = p.POSITION_ID) as unreadapp_num,
-		(select count(a.POSITION_ID) from application a  where a.POSITION_ID = p.POSITION_ID) as allapp_num
-	    from POSITION p, position_group g
-	    where p.position_group_id = g.position_group_id
-        ORDER by p.UPDATE_TIME desc
-    	]]>
+		(select count(a.POSITION_ID) from application a  where a.POSITION_ID = p.POSITION_ID) as allapp_num,
+		e.employer_name
+	    from POSITION p, position_group g,employer e
+	    <where>
+	    	p.position_group_id = g.position_group_id
+	    <if test="userName!='admin'">
+	    	and e.employer_id = (select employer_id from employer where username=#{userName})
+	    </if>
+	    </where> 
     </select>
     <select id="getPositionInfo" parameterType="int" resultMap="positionResultMap">
-			SELECT POSITION_ID, POSITION_NAME, POSITION_DESCRIPTION, RESPONSIBILITIES, REQUIREMENTS, SALARY
-			FROM POSITION WHERE POSITION_ID = #{positionId}
+			SELECT p.POSITION_ID, p.POSITION_NAME, p.POSITION_DESCRIPTION, p.RESPONSIBILITIES, p.REQUIREMENTS, p.SALARY,g.position_group_id,g.position_group_name
+			FROM POSITION p,position_group g WHERE POSITION_ID = #{positionId} and p.position_group_id=g.position_group_id
 	</select>
     <delete id="deletePositionInfo" parameterType="Long">
      	<![CDATA[
@@ -70,5 +74,9 @@
    				 where
    				 position_id=#{positionId}
     ]]>
-    </update>
+    </update>	
+    <select id="exportPositionInfo" resultMap="positionResultMap">
+			SELECT e.employer_name,p.POSITION_NAME, p.POSITION_DESCRIPTION, p.RESPONSIBILITIES, p.REQUIREMENTS, p.SALARY,g.position_group_name
+			FROM POSITION p,position_group g,employer e WHERE p.position_group_id=g.position_group_id and e.employer_id=p.employer_id
+	</select>
 </mapper>

@@ -12,8 +12,10 @@ public interface IPositionService {
 	public boolean positionSubmit(Position position) throws Exception;
 
 	public boolean positionDelete(Long positionId) throws Exception;
+	
+	public boolean applicationDelete(Long applicationId) throws Exception;
 
-	public Map<String, Object> positionObtain() throws Exception;
+	public List<Position> positionObtain() throws Exception;
 
 	public boolean positionUpdate(Position position) throws Exception;
 
@@ -30,5 +32,7 @@ public interface IPositionService {
 	public void acceptCandidate(int applicationId) throws Exception;
 
 	public void rejectCandidate(int applicationId) throws Exception;
-
+	
+	public List<Position> exportPositionInfo() throws Exception;
+	
 }

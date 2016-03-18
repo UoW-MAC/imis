@@ -11,8 +11,9 @@ import com.imis.domain.entities.User;
 public interface UserRepository {
 	
 	void register(User user);
-	
 	void addUserAuthority(User user);
+	User getUserByUserName(String userName);
+	User getUserByEmail(String email);
 	
 }
 

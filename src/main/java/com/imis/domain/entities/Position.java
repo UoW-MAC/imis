@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
- * @author william zhang
+ * @author Tong Chen
  *
  */
 public class Position implements Serializable{

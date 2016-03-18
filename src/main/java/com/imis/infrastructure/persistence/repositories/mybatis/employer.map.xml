@@ -19,6 +19,7 @@
         <result property="employerNotes" column="employer_notes" />
         <result property="createTime" column="create_time" />
 		<result property="updateTime" column="update_time" />
+		<result property="allPositionNum" column="allpos_num" />
         <association property="employerGroup" resultMap="com.imis.domain.repositories.EmployerGroupRepository.employerGroupResultMap"></association>
         <association property="user" resultMap="com.imis.domain.repositories.UserRepository.userResultMap"></association>
 	</resultMap>
@@ -38,13 +39,32 @@
    				 employer_id=#{employerId}      	
     ]]>
     </update>
-    <select id="showEmployerInfo"  resultType="Employer" resultMap="employerResultMap">
-    	<![CDATA[
+    <select id="showEmployerInfo"  resultType="Employer" parameterType="Map" resultMap="employerResultMap">  
 	    	select employer_id,employer_name,employer_address,employer_city,employer_post_code,employer_country,
-	    	contactor_first_name,contactor_last_name,contactor_position,employer_telephone,employer_email,employer_website,employer_notes,create_time,update_time,employer_group_id,username from employer ORDER BY employer_ID DESC
-    	]]>
+	    	contactor_first_name,contactor_last_name,contactor_position,employer_telephone,employer_email,employer_website,employer_notes,create_time,update_time,employer_group_id from employer
+	    	<where>
+		    <if test="userName!='admin'">
+	    		 username = #{userName}
+	   		</if>    
+	   		<if test="employerId!=0">
+	    		 employer_id = #{employerId}
+	   		</if>    
+	    </where>	
     </select>
-    
-   
+    <select id="getAdminEmployerInfo" parameterType="int" resultMap="employerResultMap">
+			  select e.employer_id,e.employer_name,e.update_time,e.employer_group_id,g.employer_group_type,
+		(select count(p.POSITION_ID) from position p where p.employer_ID = e.employer_ID) as allpos_num
+	    from employer_group g,employer e
+	    where e.employer_group_id=g.employer_group_id
+	</select>
+   <delete id="deleteEmployerInfo" parameterType="Long">
+     	<![CDATA[
+     		delete from employer where employer_id = #{employerId}
+     	]]>
+	</delete>
+	 <select id="exportAdminEmployerInfo"  resultMap="employerResultMap">  
+	    	select employer_name,employer_address,employer_city,employer_post_code,employer_country,
+	    	contactor_first_name,contactor_last_name,contactor_position,employer_telephone,employer_email,employer_website,employer_notes,create_time,update_time,employer_group_id from employer
+    </select>
 </mapper>
 

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.imis.domain.entities.Application;
+import com.imis.domain.entities.Employer;
 import com.imis.domain.entities.Position;
 import com.imis.domain.entities.Student;
 import com.imis.domain.entities.User;
@@ -36,6 +37,13 @@ public class PositionServiceImpl implements IPositionService {
 	public boolean positionSubmit(Position position) throws Exception {
 		try {
 			Timestamp createTime = new Timestamp(System.currentTimeMillis());
+			UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			String userName = userDetails.getUsername();
+			User user = new User();
+			user.setUserName(userName);
+			Employer employer = new Employer();
+			employer.setUser(user);
+			position.setEmployer(employer);
 			position.setCreateTime(createTime);
 			position.setUpdateTime(createTime);
 			positionRepository.addPositionInfo(position);
@@ -65,12 +73,15 @@ public class PositionServiceImpl implements IPositionService {
 	}
 
 	@Override
-	public Map<String, Object> positionObtain() throws Exception {
+	public List<Position> positionObtain() throws Exception {
 		try {
-			List<Position> position = positionRepository.showPositionInfo();
-			Map<String, Object> positionMap = new HashMap<String, Object>();
-			positionMap.put("position", position);
-			return positionMap;
+			UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			String userName = userDetails.getUsername();
+			Map<String, String> para = new HashMap<String,String>();
+			para.put("userName", userName);
+			List<Position> position = positionRepository.showPositionInfo(para);
+			
+			return position;
 		} catch (Exception e) {
 			throw e;
 		}
@@ -131,8 +142,11 @@ public class PositionServiceImpl implements IPositionService {
 
 	@Override
 	public  List<Student> candidateObtain(int positionId) throws Exception {
+		Map<String,Integer> map=null;
 		try {
-			List<Student> student = studentRepository.getCandidateInfo(positionId);
+			map=new HashMap<String, Integer>();
+			map.put("positionId", positionId);
+			List<Student> student = studentRepository.getCandidateInfo(map);
 			return student;
 		} catch (Exception e) {
 			throw e;
@@ -170,5 +184,22 @@ public class PositionServiceImpl implements IPositionService {
 
 	}
 
+	@Override
+	public boolean applicationDelete(Long applicationId) throws Exception {
+		try {
+			applicationRepository.deleteApplicationInfo(applicationId);
+			return true;
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	public List<Position> exportPositionInfo() throws Exception {
+
+		try {
+			return positionRepository.exportPositionInfo();
+		} catch (Exception e) {
+			 return null;
+		}
+	}
 
 }

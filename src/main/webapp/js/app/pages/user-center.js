@@ -4,12 +4,10 @@
 require(['../main'], function () {
     require(['jquery', 'bootstrap', 'handlebars',  'validate', 'ajaxHandler',
             'formValidator', 'additionalMethods', 'pagination', 'selector', 'jqueryForm',
-            'questionnaire','login', 'eventHandler', 'userManagement', 'userApplicationForm',
-            'userProfile', 'userPassword','position','employer', 'custom'],
-        function($, bootstrap, handlebars, sannong, validate, ajaxHandler,
+             'eventHandler','studentProfile','position','employer', 'application'],
+        function($, bootstrap, handlebars, validate, ajaxHandler,
                  formValidator, additionalMethods, pagination, selector, jqueryForm,
-                 questionnaire,login, eventHandler, userManagement, userApplicationForm,
-                 userProfile, userPassword,position,employer,custom ) {
+                  eventHandler, studentProfile,position,employer,application ) {
 
             "use strict";
 

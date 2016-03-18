@@ -8,6 +8,9 @@
 	    <result property="applicationId" column="APPLICATION_ID" />
 			<result property="applicationStatus" column="application_status" />
 			<result property="updateTime" column="update_time" />
+			  <association property="student" resultMap="com.imis.domain.repositories.StudentRepository.studentResultMap" ></association>
+			  <association property="position" resultMap="com.imis.domain.repositories.PositionRepository.positionResultMap" ></association>
+         <association property="employer" resultMap="com.imis.domain.repositories.EmployerRepository.employerResultMap" ></association>
 	</resultMap>
 
 	<insert id="positionApply" useGeneratedKeys="false" parameterType="Application" >
@@ -33,4 +36,20 @@
    				 application_id=#{applicationId}
     ]]>
     </update>
+    <delete id="deleteApplicationInfo" parameterType="Long">
+     	<![CDATA[
+     		delete from application where application_id = #{applicationId}
+     	]]>
+	</delete>
+	<select id="exportApplicationInfo" resultMap="applicationResultMap">
+      SELECT ST.student_no,
+        ST.FIRST_NAME,
+        ST.MIDDLE_NAME,
+        ST.LAST_NAME,
+        a.application_status,
+         p.position_name,
+         e.employer_name
+        FROM STUDENT ST , application a,position p,employer e
+        where ST.USERNAME=a.username and p.position_id=a.position_id and e.employer_id = p.employer_id
+    </select>
 </mapper>

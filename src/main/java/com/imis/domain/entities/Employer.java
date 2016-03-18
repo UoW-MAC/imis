@@ -29,7 +29,16 @@ public class Employer implements Serializable{
 	private User user;
 	private Timestamp createTime;
 	private Timestamp updateTime;
+	private Long allPositionNum;
 	
+	public Long getAllPositionNum() {
+		return allPositionNum;
+	}
+
+	public void setAllPositionNum(Long allPositionNum) {
+		this.allPositionNum = allPositionNum;
+	}
+
 	public Application getApplication() {
 		return application;
 	}

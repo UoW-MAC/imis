@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.imis.domain.repositories.PositionGroupRepository">
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
+
+    <resultMap type="PositionGroup" id="positionGroupResultMap">
+        <result property="positionGroupId" column="position_group_id" />
+        <result property="positionGroupName" column="position_group_name" />
+    </resultMap>
+     <select id="selectPositionGroupInfo" resultType="PositionGroup" resultMap="positionGroupResultMap">
+    	<![CDATA[
+	    	select position_group_id,position_group_name from position_group 	
+    	]]>
+    </select>
+</mapper>
+

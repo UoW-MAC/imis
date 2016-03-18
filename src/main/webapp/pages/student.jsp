@@ -35,6 +35,7 @@
             <div class="row">
                 <span class="col-sm-9 rightBorder equalCol">
                     <form class="studentForm" id="studentForm" role="form" action="addOrUpdStudent" method="post">
+                      <input type="hidden" id="adminStudentId" name="studentId" value="${studentId}" /> 
                         <div class="row">
                         	<div>Status</div>
                         	<div class="radioRow">
@@ -227,4 +228,5 @@
         </div>
     </section>
  </body>
+ <script data-main="js/app/modules/student-profile" src="js/lib/require-2.1.15.min.js"></script>
 </html>
