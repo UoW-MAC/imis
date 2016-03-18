@@ -43,33 +43,33 @@ public class StudentController {
     private static final String STUDENT_PAGE = "student";
     private static final String POSITION_DETAIL_PAGE = "position-detail";
     private static final String ERROR_PAGE = "error";
-    
 
-    @Resource 
+
+    @Resource
     private IStudentService studentService;
-    
+
     @Resource
     private IPositionService positionService;
-    
+
     @RequestMapping(value = "student", method = RequestMethod.GET)
     public ModelAndView showStudentPage() {
         Map<String, Object> models = new HashMap<String, Object>();
         return new ModelAndView(STUDENT_PAGE, models);
     }
-    
+
     @RequestMapping(value = "addOrUpdStudent", method = RequestMethod.POST)
     public @ResponseBody Response makeApplication(@ModelAttribute("studentForm") @Valid Student student, BindingResult result) {
 
     	int statusCode;
-        String statusDescription; 
-        
+        String statusDescription;
+
         if (result.hasErrors()) {
         	statusCode = ResponseStatus.FAILURE.getStatusCode();
     		statusDescription = ResponseStatus.FAILURE.getStatusDescription();
     		return new Response(statusCode, statusDescription);
         }
-    	
-    	try 
+
+    	try
     	{
     		if (student.getStudentId() == null || student.getStudentId().equals(""))
         	{
@@ -79,7 +79,7 @@ public class StudentController {
         	{
         		studentService.studentInfoUpdate(student);
         	}
-    		
+
     		statusCode = ResponseStatus.SUCCESS.getStatusCode();
     		statusDescription = ResponseStatus.SUCCESS.getStatusDescription();
     	}catch(Exception exception)
@@ -87,75 +87,75 @@ public class StudentController {
     		statusCode = ResponseStatus.FAILURE.getStatusCode();
     		statusDescription = ResponseStatus.FAILURE.getStatusDescription();
     	}
-    	
+
         return new Response(statusCode, statusDescription);
     }
-    
+
     @RequestMapping(value = "getPostionStatusList", method = RequestMethod.POST)
     public @ResponseBody Map<String, List<Position>>  getPostionStatusList(HttpServletRequest request) {
 
         Map<String, List<Position>> positionStatusMap = null;
         String groupId = request.getParameter("groupId");
         String positionStatus = request.getParameter("positionStatus");
-    	
-    	try 
+
+    	try
     	{
     		List<Position> positionStatusList = positionService.getPostionStatusList(groupId, positionStatus);
-    		
+
     		positionStatusMap = new HashMap<String, List<Position>>();
     		positionStatusMap.put("data", positionStatusList);
     	}catch(Exception exception)
     	{
     	}
-    	
+
         return positionStatusMap;
     }
-    
+
     @RequestMapping(value = "positionApply", method = RequestMethod.POST)
     public @ResponseBody Response positionApply(HttpServletRequest request) {
 
     	int statusCode;
         String statusDescription;
-    	
+
     	try
     	{
     		positionService.positionApply(request.getParameter("positionId"));
-    		
+
     		statusCode = ResponseStatus.SUCCESS.getStatusCode();
     		statusDescription = ResponseStatus.SUCCESS.getStatusDescription();
-    		
+
     	}catch(Exception exception)
     	{
     		statusCode = ResponseStatus.FAILURE.getStatusCode();
     		statusDescription = ResponseStatus.FAILURE.getStatusDescription();
     	}
-    	
+
         return new Response(statusCode, statusDescription);
     }
-    
+
     @RequestMapping(value = "positionDetail", method = RequestMethod.GET)
     public ModelAndView showPositionDetailInfo(HttpServletRequest request) {
-    	
+
     	String positionId = request.getParameter("positionId");
     	Position position = null;
         Map<String, Object> models = null;
         String returnPage = null;
-        
+
         try {
         	position = positionService.getPositionInfo(Integer.parseInt(positionId));
-        	
+
         	models = new HashMap<String, Object>();
         	models.put("positionDetail", position);
-        	
+
     		returnPage = POSITION_DETAIL_PAGE;
-			
+
 		} catch (Exception e) {
     		returnPage = ERROR_PAGE;
 		}
-        
+
         return new ModelAndView(returnPage, models);
     }
-    												 
+
     @RequestMapping(value = "getStudentInfo", method = RequestMethod.POST)
     public @ResponseBody Response getAdminStudentInfo(HttpServletRequest request) {
     	int studentId=Integer.parseInt(request.getParameter("studentId"));
@@ -165,7 +165,7 @@ public class StudentController {
     	try
     	{
     		Student student = studentService.getStudentInfo(studentId);
-    		
+
     		if (student != null)
     		{
     			models = new HashMap<String, Object>();
@@ -173,13 +173,13 @@ public class StudentController {
     		}
     		statusCode = ResponseStatus.SUCCESS.getStatusCode();
     		statusDescription = ResponseStatus.SUCCESS.getStatusDescription();
-    		
+
     	}catch(Exception exception)
     	{
     		statusCode = ResponseStatus.FAILURE.getStatusCode();
     		statusDescription = ResponseStatus.FAILURE.getStatusDescription();
     	}
-    	
+
         return new Response(statusCode, statusDescription, models);
     }
     @RequestMapping(value = "adminStudentInfo", method = RequestMethod.GET)
@@ -194,7 +194,7 @@ public class StudentController {
 		} catch (Exception ex) {
 			return null;
 		}
-	
+
 	}
     @RequestMapping(value = "deleteStudent", method = RequestMethod.GET)
    	public @ResponseBody Response handleDeleteStudent(HttpServletRequest request) {
@@ -212,9 +212,9 @@ public class StudentController {
 
     	Response response = new Response();
     	Map<String, Object> models = new HashMap<String, Object>();
-    	
+
     	List<Position> positionStatusList = positionService.getPostionStatusList("0", "0");
-      
+
         String filePath = CsvExporter.export(positionStatusList);
 
         String[] filePathSplit = filePath.split("/");
@@ -222,7 +222,7 @@ public class StudentController {
 
         models.put("fileName", fileName);
         response.setModels(models);
-        
+
         return response;
     }
     
@@ -264,16 +264,17 @@ public class StudentController {
             }
         }
     }
+
     @RequestMapping(value = "getAdminStudentInfo", method = RequestMethod.GET)
     public ModelAndView showStudentDetailInfo(HttpServletRequest request) {
     	String returnPage;
     	try{
     		returnPage = STUDENT_PAGE;;
-			
+
 		} catch (Exception e) {
     		returnPage = ERROR_PAGE;
 		}
-        
+
         return new ModelAndView(returnPage);
     }
     @RequestMapping(value = "exportStudentCSV", method = RequestMethod.POST)
@@ -281,9 +282,9 @@ public class StudentController {
 
     	Response response = new Response();
     	Map<String, Object> models = new HashMap<String, Object>();
-    	
+
     	List<Student> studentList = studentService.getAdminStudentInfo();
-      
+
         String filePath = CsvExporter.export(studentList);
 
         String[] filePathSplit = filePath.split("/");
@@ -291,17 +292,18 @@ public class StudentController {
 
         models.put("fileName", fileName);
         response.setModels(models);
-        
+
         return response;
+
 }
     @RequestMapping(value = "exportApplicationCSV", method = RequestMethod.POST)
     public @ResponseBody Response exportApplicationAll(HttpServletRequest request) throws Exception {
 
     	Response response = new Response();
     	Map<String, Object> models = new HashMap<String, Object>();
-    	
+
     	List<Application> applicationList = studentService.exportApplicationInfo();
-      
+
         String filePath = CsvExporter.export(applicationList);
 
         String[] filePathSplit = filePath.split("/");
@@ -309,8 +311,7 @@ public class StudentController {
 
         models.put("fileName", fileName);
         response.setModels(models);
-        
+
         return response;
     }
 }
-

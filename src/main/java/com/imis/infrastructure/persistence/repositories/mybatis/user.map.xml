@@ -6,11 +6,6 @@
     
     <resultMap type="User" id="userResultMap">
         <result property="userId" column="user_id" />
-        <result property="userName" column="username" />
-        <result property="email" column="email" />
-        <result property="password" column="password" />
-        <result property="createTime" column="create_time" />
-        <result property="updateTime" column="update_time" />
     </resultMap>
      
     <insert id="register" useGeneratedKeys="false" parameterType="User" >

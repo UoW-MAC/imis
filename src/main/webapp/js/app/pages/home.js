@@ -3,8 +3,8 @@
  */
 
 require(['../main'], function () {
-    require(['jquery', 'bootstrap', 'imis', 'login', 'formValidator', 'additionalMethods', 'custom', 'jqueryForm', 'ajaxHandler'],
-        function($, bootstrap, imis, login, formValidator, additionalMethods, custom, jqueryForm, ajaxHandler) {
+    require(['jquery', 'bootstrap', 'formValidator', 'jqueryForm', 'ajaxHandler'],
+        function($, bootstrap, formValidator, jqueryForm, ajaxHandler) {
 
             "use strict";
 
@@ -43,36 +43,34 @@ require(['../main'], function () {
 	                        if (response.statusCode == 1000){
 	                            window.location.href = response.models.redirect; 
 	                        }else{
-	                            $("#registerFormSubmit").after('<label id="update-error" class="update">Register failed</label>');
+	                            return;
 	                        }
                         });
                     }
                 },
                 
                 handleLoginFormSubmit: function () {
-	                if (formValidator.getLoginValidator("#loginForm").form() == true){
-	                    ajaxHandler.sendRequest({
-	                        type: "POST",
-	                        url: "j_spring_security_check",
-	                        dataType: "json",
-	                        data: {
-	                            j_password: $("#j_password").val(),
-	                            j_username: $("#j_username").val()
-	                            //_spring_security_remember_me: $("#_spring_security_remember_me").prop("checked")
-	
-	                        },
-	                        success: function (response) {
-	                            if (response.statusCode < 2000) {
-	                                window.location.href = response.models.redirect;
-	                            } else {
-	                                showLoginError(response.statusDescription);
-	                            }
-	                        },
-	                        fail: function (response) {
-	                            showLoginError("Login failed");
-	                        }
-	                    });
-	                }
+                    ajaxHandler.sendRequest({
+                        type: "POST",
+                        url: "j_spring_security_check",
+                        dataType: "json",
+                        data: {
+                            j_password: $("#j_password").val(),
+                            j_username: $("#j_username").val()
+                            //_spring_security_remember_me: $("#_spring_security_remember_me").prop("checked")
+
+                        },
+                        success: function (response) {
+                            if (response.statusCode < 2000) {
+                                window.location.href = response.models.redirect;
+                            } else {
+                                window.location.href = response.models.redirect + "?error=" + response.models.error;
+                            }
+                        },
+                        fail: function (response) {
+                            window.location.href = response.models.redirect + "?error=" + response.models.error;
+                        }
+                    });
            	    }
             }
 

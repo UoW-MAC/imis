@@ -20,7 +20,7 @@ define(['jquery', 'imis'], function($, imis) {
               			url:"userNameValidation",
                			data:{
                  			userName:function(){return $("#userName").val();}
-               			} 
+               			}
               		} 
                 },
                 password: {
@@ -35,7 +35,7 @@ define(['jquery', 'imis'], function($, imis) {
               			url:"emailValidation",
                			data:{
                  			userName:function(){return $("#email").val();}
-               			} 
+               			}
               		} 
                 },
                 reEmail: {
@@ -47,7 +47,7 @@ define(['jquery', 'imis'], function($, imis) {
                 }
             },
             messages: {
-                username: {
+                userName: {
                     required: "Please enter your user name.",
                     remote: "The user name has existed, please enter a new one."
                 },

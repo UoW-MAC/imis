@@ -4,16 +4,18 @@
 
 require(['../main'], function () {
     require(['jquery', 'bootstrap', 'handlebars', 'validate', 'ajaxHandler',
+
             'jqueryForm', 'formValidator', 'selector', 'additionalMethods', 'custom', 'jDataTables'],
         function($, bootstrap, handlebars, validate, ajaxHandler,
                  jqueryForm, formValidator, selector, additionalMethods, custom, jDataTables) {
+
 
             "use strict";
 
             var studentProfile = {};
 
             studentProfile.View = {
-            	
+
             };
 
             studentProfile.Controller = {
@@ -54,15 +56,15 @@ require(['../main'], function () {
 			                	studentProfiletemplate = handlebars.compile(studentProfileSource),
 			                	studentInfoObject = null,
 			                	studentProfileHtml = null;
-			                	
+
 		                	if (data.models != null) {
-		                		
+
 		                		studentInfoObject = data.models.studentInfo;
 		                	}
-			                	
+
 		                	studentProfileHtml = studentProfiletemplate(studentInfoObject);
 					        $("#studentInfoForm").append(studentProfileHtml);
-					        
+
 					        //Notice: loading order
 					        if (data.models != null) {
 						        if (data.models.studentInfo.semesterRegistered == 'fall') {
@@ -75,7 +77,7 @@ require(['../main'], function () {
 		                		if (data.models.studentInfo.status == '0') {
 		                			$('#is').parents(".radioCustom").addClass("radioCustom-checked");
 		                			$('#is').attr("checked","checked");
-		                			
+
 		                		}else if (data.models.studentInfo.status == '1') {
 		                			$('#pr').parents(".radioCustom").addClass("radioCustom-checked");
 		                			$('#pr').attr("checked","checked");
@@ -83,7 +85,7 @@ require(['../main'], function () {
 		                		if (data.models.studentInfo.gender == 'Male') {
 		                			$('#male').parents(".radioCustom").addClass("radioCustom-checked");
 		                			$('#male').attr("checked","checked");
-		                			
+
 		                		}else if (data.models.studentInfo.gender == 'Female') {
 		                			$('#female').parents(".radioCustom").addClass("radioCustom-checked");
 		                			$('#female').attr("checked","checked");
@@ -92,7 +94,7 @@ require(['../main'], function () {
 				        }
 				    });
                 }
-               
+
             };
 
             function registerEventListener() {
@@ -103,7 +105,7 @@ require(['../main'], function () {
                    $("#confirmedSubmit").click(function () {
                        studentProfile.Controller.handleConfirmedSubmit();
                    });
-                 
+
                    $('#adminStudentTest').DataTable({
    			        ajax:  {
    			        	"url" : "adminStudentInfo",
@@ -146,7 +148,7 @@ require(['../main'], function () {
                    } );
                    $('#exportStudentCSV').click(function(){
                 	   studentProfile.Controller.exportStudentCSV();
-                    });  
+                    });
            }
             $(function() {
                 registerEventListener();

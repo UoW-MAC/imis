@@ -53,41 +53,45 @@ require(['../main'], function () {
 
             application.Controller = {
                 loadPostionStatusList : function(){
-                	var groupId = $('#employerGroup').find("option:selected").val();
-                    var positionStatus = $('#positionStatus').find("option:selected").val();
 
-    			    $('#example').DataTable({
-    			        ajax:  {
-    			        	"url" : "getPostionStatusList",
-    			        	"type" : "post",
-    			        	"data" : {"groupId" : groupId, "positionStatus" : positionStatus}
-    			        	//"dataSrc": "data"
-    			        },
-    			        columns: [
-    			            { data: "positionName" },
-    			            { data: "employer.employerName" },
-    			            { data: null, render:
-    			                function ( data, type, row ) {
-    				            	var result;
+             		var groupId = $('#employerGroup').find("option:selected").val();
+                	var positionStatus = $('#positionStatus').find("option:selected").val();
 
-    				            	if (data.application == null)
-    				            		result = 'New';
-    				            	else if (data.application.applicationStatus == 1)
-    				                	result = 'In process';
-    				                else if (data.application.applicationStatus == 2)
-    				                	result = 'Success';
-    				                else if (data.application.applicationStatus == 3)
-    				                    result = 'Regected';
-    				                return result;
-    			                }
-    			            }
+				    $('#example').DataTable({
+				        ajax:  {
+				        	"url" : "getPostionStatusList",
+				        	"type" : "post",
+				        	"data" : {"groupId" : groupId, "positionStatus" : positionStatus}
+				        	//"dataSrc": "data"
+				        },
+				        columns: [
+				            { data: "positionName" },
+				            { data: "employer.employerName" },
+				            { data: null, render:
+				                function ( data, type, row ) {
+					            	var result;
 
-    			        ],
-    			        rowCallback : function(row, data) {
-    			        	 			        	$('td:eq(0)', row).html('<a href=positionDetail?positionId='+ data.positionId + '>' + data.positionName + '</a >');
-    			        	 			        },
-    			        select: true
-    			    } );
+					            	if (data.application == null)
+					            		result = 'New';
+					            	else if (data.application.applicationStatus == 1)
+					                	result = 'In process';
+					                else if (data.application.applicationStatus == 2)
+					                	result = 'Success';
+					                else if (data.application.applicationStatus == 3)
+					                    result = 'Regected';
+					                return result;
+				                }
+				            }
+
+				        ],
+				        rowCallback : function(row, data) {
+				        	$('td:eq(0)', row).html('<a href=positionDetail?positionId='+ data.positionId + '>' + data.positionName + '</a >');
+				        },
+				        select: true
+				    } );
+
+				    //table.buttons().container().appendTo($('.col-sm-6:eq(0)', table.table().container()));
+
                 },
                 positionApply : function(){
 
@@ -125,6 +129,7 @@ require(['../main'], function () {
                 handleConfirmedSubmit: function(){
                     $("#editForm").submit();
 
+
                 }
             };
 
@@ -155,6 +160,7 @@ require(['../main'], function () {
                 $('#searchPosition').click(function(){
                 	application.Controller.loadPostionStatusList();
                 });
+
                 application.Controller.loadPostionStatusList();
                 $('#adminApplicationTest').DataTable({
                	 ajax:  {
@@ -163,7 +169,7 @@ require(['../main'], function () {
 			        	"data" : {"positionId" : 0}
 			        },
 			        columns: [
-			            { data: "application.applicationId" },		
+			            { data: "application.applicationId" },
 			            { data: "studentId" },
 			            { data:  "position.positionName"},
 			            { data:  "employer.employerName"},
@@ -219,6 +225,12 @@ require(['../main'], function () {
                  	application.Controller.exportApplicationCSV();
                  });
             }
+
+
+
+
+
+
 
 
 

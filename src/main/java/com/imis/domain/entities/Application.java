@@ -8,9 +8,9 @@ import java.sql.Timestamp;
  *
  */
 public class Application implements Serializable{
-	
+
 	private static final long serialVersionUID = -7789710960436175314L;
-	
+
 	private Long applicationId;
 	private int applicationStatus;
 	private Position position;
@@ -18,7 +18,8 @@ public class Application implements Serializable{
 	private Timestamp createTime;
 	private Timestamp updateTime;
 	private User user;
-	private Employer employer;		 
+	private Employer employer;
+
 	public Student getStudent() {
 		return student;
 	}
