@@ -29,6 +29,4 @@ public interface StudentRepository {
 	
 	List<Student> adminStudentInfo();
 	
-	List<Student> getCandidateInfo(Map<String,Integer> positionId);
-
 }

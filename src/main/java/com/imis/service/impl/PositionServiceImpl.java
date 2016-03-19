@@ -63,15 +63,6 @@ public class PositionServiceImpl implements IPositionService {
 		}
 
 	}
-
-	public List<Position> getPostionStatusList() throws Exception {
-
-		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String userName = userDetails.getUsername();
-
-		return positionRepository.getPostionList(userName);
-	}
-
 	@Override
 	public List<Position> positionObtain() throws Exception {
 		try {
@@ -99,7 +90,7 @@ public class PositionServiceImpl implements IPositionService {
 		}
 	}
 
-	public List<Position> getPostionStatusList(String groupId, String positionStatus) throws Exception {
+	public List<Application> getPositionStatusList(String groupId, String positionStatus) throws Exception {
 
 		Map<String, Object> parms = new HashMap<String, Object>();
 
@@ -110,7 +101,7 @@ public class PositionServiceImpl implements IPositionService {
 		parms.put("groupId", groupId);
 		parms.put("positionStatus", positionStatus);
 
-		return positionRepository.getPostionList(parms);
+		return applicationRepository.getPositionList(parms);
 	}
 
 	public void positionApply(String positionId) throws Exception {
@@ -141,12 +132,12 @@ public class PositionServiceImpl implements IPositionService {
 	}
 
 	@Override
-	public  List<Student> candidateObtain(int positionId) throws Exception {
+	public  List<Application> candidateObtain(int positionId) throws Exception {
 		Map<String,Integer> map=null;
 		try {
 			map=new HashMap<String, Integer>();
 			map.put("positionId", positionId);
-			List<Student> student = studentRepository.getCandidateInfo(map);
+			List<Application> student = applicationRepository.getCandidateInfo(map);
 			return student;
 		} catch (Exception e) {
 			throw e;

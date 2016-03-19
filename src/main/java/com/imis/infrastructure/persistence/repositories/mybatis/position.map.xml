@@ -15,7 +15,6 @@
 		<result property="salary" column="salary" />
 		<result property="applicationNum" column="allapp_num" />
 		<result property="unreadApplicationNum" column="unreadapp_num" />
-	    <association property="application" resultMap="com.imis.domain.repositories.ApplicationRepository.applicationResultMap" ></association>
 		<association property="employer" resultMap="com.imis.domain.repositories.EmployerRepository.employerResultMap" ></association>
 		<association property="positionGroup" resultMap="com.imis.domain.repositories.PositionGroupRepository.positionGroupResultMap"></association>
 	</resultMap>
@@ -25,24 +24,6 @@
 	    	values(SEQ_POSITION.NEXTVAL,#{positionName},#{positionGroup.positionGroupId},(select employer_id from employer where username=#{employer.user.userName}),#{createTime},#{updateTime},#{positionDescription},#{responsibilities},#{requirements},#{salary})
     	]]>
 	</insert>
-	<select id="getPostionList" parameterType="Map" resultMap="positionResultMap">
-		SELECT A.POSITION_ID, A.POSITION_NAME, A.APPLICATION_STATUS, e.EMPLOYER_NAME
-		FROM
-		(SELECT p.POSITION_ID, p.POSITION_NAME, p.EMPLOYER_ID, p.POSITION_GROUP_ID, a.APPLICATION_STATUS
-		FROM POSITION p
-		LEFT JOIN APPLICATION a
-		on (p.POSITION_ID = a.POSITION_ID AND a.USERNAME = #{userName})) A,
-		EMPLOYER e
-		<where>
-		    A.EMPLOYER_ID = e.EMPLOYER_ID
-			<if test="groupId != 0">
-		         AND POSITION_GROUP_ID = #{groupId}
-		    </if>
-		    <if test="positionStatus != 0">
-		         AND A.APPLICATION_STATUS = #{positionStatus}
-		    </if>
-		</where>
-	</select>
 
 	<select id="showPositionInfo"  resultType="Position" parameterType="Map" resultMap="positionResultMap">
     	

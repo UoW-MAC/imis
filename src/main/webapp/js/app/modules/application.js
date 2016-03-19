@@ -65,19 +65,19 @@ require(['../main'], function () {
 				        	//"dataSrc": "data"
 				        },
 				        columns: [
-				            { data: "positionName" },
+				            { data: "position.positionName" },
 				            { data: "employer.employerName" },
 				            { data: null, render:
 				                function ( data, type, row ) {
 					            	var result;
 
-					            	if (data.application == null)
+					            	if (data.applicationStatus == 0)
 					            		result = 'New';
-					            	else if (data.application.applicationStatus == 1)
+					            	else if (data.applicationStatus == 1)
 					                	result = 'In process';
-					                else if (data.application.applicationStatus == 2)
+					                else if (data.applicationStatus == 2)
 					                	result = 'Success';
-					                else if (data.application.applicationStatus == 3)
+					                else if (data.applicationStatus == 3)
 					                    result = 'Regected';
 					                return result;
 				                }
@@ -85,7 +85,7 @@ require(['../main'], function () {
 
 				        ],
 				        rowCallback : function(row, data) {
-				        	$('td:eq(0)', row).html('<a href=positionDetail?positionId='+ data.positionId + '>' + data.positionName + '</a >');
+				        	$('td:eq(0)', row).html('<a href=positionDetail?positionId='+ data.position.positionId + '>' + data.position.positionName + '</a >');
 				        },
 				        select: true
 				    } );
@@ -160,7 +160,7 @@ require(['../main'], function () {
                 $('#searchPosition').click(function(){
                 	application.Controller.loadPostionStatusList();
                 });
-
+                
                 application.Controller.loadPostionStatusList();
                 $('#adminApplicationTest').DataTable({
                	 ajax:  {
@@ -169,27 +169,27 @@ require(['../main'], function () {
 			        	"data" : {"positionId" : 0}
 			        },
 			        columns: [
-			            { data: "application.applicationId" },
-			            { data: "studentId" },
+			            { data: "applicationId" },
+			            { data: "student.studentId" },
 			            { data:  "position.positionName"},
 			            { data:  "employer.employerName"},
 			            { data: null, render:
 			                function ( data, type, row ) {
 			            	var result;
-			            	if (data.application == null)
+			            	if (data.applicationStatus == 0)
 			            		result = 'New';
-			            	else if (data.application.applicationStatus == 1)
+			            	else if (data.applicationStatus == 1)
 			                	result = 'unread';
-			                else if (data.application.applicationStatus == 2)
+			                else if (data.applicationStatus == 2)
 			                	result = 'accept';
-			                else if (data.application.applicationStatus == 3)
+			                else if (data.applicationStatus == 3)
 			                    result = 'reject';
 			                return result;
 		                	}
 			            },
 			            { data:null,render:function(data){
 			            	function add0(m){return m<10?'0'+m:m };
-			            	var time = new Date(data.application.updateTime);
+			            	var time = new Date(data.updateTime);
 			            	var y = time.getFullYear();
 			            	var m = time.getMonth()+1;
 			            	var d = time.getDate();
@@ -199,10 +199,10 @@ require(['../main'], function () {
 			            	return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);
 		            	}
 		            },
-		            { data:  "studentId"},
+		            { data:  "applicationId"},
 			        ],
 			        "rowCallback": function(row, data) { //data是后端返回的数据
-			              $('td:eq(1)', row).html( data.firstName +'&nbsp' +data.middleName +'&nbsp'+ data.lastName);
+			              $('td:eq(1)', row).html( data.student.firstName +'&nbsp' +data.student.middleName +'&nbsp'+ data.student.lastName);
 			              $('td:eq(6)', row).html('<a href=javascript:void(0) onclick=delApplicationRow()>delete</a>');
 			        },
 			        select: true
@@ -226,17 +226,8 @@ require(['../main'], function () {
                  });
             }
 
-
-
-
-
-
-
-
-
             $(function() {
                 registerEventListener();
-
             });
 
     imis.application = application;

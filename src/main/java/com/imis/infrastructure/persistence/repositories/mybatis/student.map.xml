@@ -4,108 +4,104 @@
 <mapper namespace="com.imis.domain.repositories.StudentRepository">
 	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
 
-    <resultMap type="Student" id="studentResultMap">
-      <result property="studentId" column="student_id" />
-        <result property="studentNo" column="student_no" />
-        <result property="firstName" column="first_name" />
-        <result property="middleName" column="middle_name" />
-        <result property="lastName" column="last_name" />
-        <result property="email" column="email" />
-        <result property="telephone" column="telephone" />
-        <result property="status" column="status" />
-        <result property="gender" column="gender" />
-        <result property="semesterRegistered" column="semester_registered" />
-        <result property="registeredYear" column="registered_year" />
-         <association property="user" resultMap="com.imis.domain.repositories.UserRepository.userResultMap" ></association>
-         <association property="application" resultMap="com.imis.domain.repositories.ApplicationRepository.applicationResultMap" ></association>
-         <association property="position" resultMap="com.imis.domain.repositories.PositionRepository.positionResultMap" ></association>
-         <association property="employer" resultMap="com.imis.domain.repositories.EmployerRepository.employerResultMap" ></association>
-        <collection property="workList" resultMap="com.imis.domain.repositories.WorkRepository.workResultMap" />
-        <collection property="educationList" resultMap="com.imis.domain.repositories.EducationRepository.educationResultMap" />
-    </resultMap>
+	<resultMap type="Student" id="studentResultMap">
+		<result property="studentId" column="student_id" />
+		<result property="studentNo" column="student_no" />
+		<result property="firstName" column="first_name" />
+		<result property="middleName" column="middle_name" />
+		<result property="lastName" column="last_name" />
+		<result property="email" column="email" />
+		<result property="telephone" column="telephone" />
+		<result property="status" column="status" />
+		<result property="gender" column="gender" />
+		<result property="semesterRegistered" column="semester_registered" />
+		<result property="registeredYear" column="registered_year" />
+		<association property="user"
+			resultMap="com.imis.domain.repositories.UserRepository.userResultMap"></association>
+		<association property="employer"
+			resultMap="com.imis.domain.repositories.EmployerRepository.employerResultMap"></association>
+		<collection property="workList"
+			resultMap="com.imis.domain.repositories.WorkRepository.workResultMap" />
+		<collection property="educationList"
+			resultMap="com.imis.domain.repositories.EducationRepository.educationResultMap" />
+	</resultMap>
 
-    <insert id="addStudentInfo" useGeneratedKeys="false" parameterType="Student" >
-	    <selectKey keyProperty="studentId" resultType="long" order="BEFORE">
-	    	select SEQ_STUDENT.NEXTVAL from dual
-	    </selectKey>
+	<insert id="addStudentInfo" useGeneratedKeys="false"
+		parameterType="Student">
+		<selectKey keyProperty="studentId" resultType="long" order="BEFORE">
+			select SEQ_STUDENT.NEXTVAL from dual
+		</selectKey>
     	<![CDATA[
 	    	insert into student(student_id,student_no,first_name,middle_name,last_name,email,telephone,status,gender,semester_registered,registered_year,username,create_time,update_time)
 	    	values(#{studentId},#{studentNo},#{firstName},#{middleName},#{lastName},#{email},#{telephone},#{status},#{gender},#{semesterRegistered},#{registeredYear},#{user.userName},#{createTime},#{updateTime})
     	]]>
-    </insert>
-    <update id="updateStudentInfo" parameterType="Student" >
-          UPDATE STUDENT
-                SET STUDENT.STUDENT_NO = #{studentNo},
-                    STUDENT.FIRST_NAME = #{firstName},
-                    STUDENT.MIDDLE_NAME = #{middleName},
-                    STUDENT.LAST_NAME = #{lastName},
-                    STUDENT.EMAIL = #{email},
-                    STUDENT.TELEPHONE = #{telephone},
-                    STUDENT.STATUS = #{status},
-                    STUDENT.GENDER = #{gender},
-                    STUDENT.SEMESTER_REGISTERED = #{semesterRegistered},
-                    STUDENT.REGISTERED_YEAR = #{registeredYear}
-              WHERE STUDENT.STUDENT_ID = #{studentId}
+	</insert>
+	<update id="updateStudentInfo" parameterType="Student">
+		UPDATE STUDENT
+		SET
+		STUDENT.STUDENT_NO = #{studentNo},
+		STUDENT.FIRST_NAME = #{firstName},
+		STUDENT.MIDDLE_NAME = #{middleName},
+		STUDENT.LAST_NAME = #{lastName},
+		STUDENT.EMAIL = #{email},
+		STUDENT.TELEPHONE = #{telephone},
+		STUDENT.STATUS = #{status},
+		STUDENT.GENDER = #{gender},
+		STUDENT.SEMESTER_REGISTERED = #{semesterRegistered},
+		STUDENT.REGISTERED_YEAR = #{registeredYear}
+		WHERE STUDENT.STUDENT_ID =
+		#{studentId}
 
-    </update>
-
-    <select id="getStudentInfo" parameterType="Map" resultMap="studentResultMap">
-    	SELECT s.STUDENT_ID, s.SEMESTER_REGISTERED, s.REGISTERED_YEAR, s.STUDENT_NO, s.FIRST_NAME, s.MIDDLE_NAME,
-        	s.LAST_NAME, s.EMAIL, s.TELEPHONE, s.STATUS, s.GENDER, e.DEGREE, e.MAJOR, e.GPA, e.INSTITUTION, e.EDUCATION_ID,
-        	e.COUNTRY, e.GRADUATION_DATE, w.COMPANY, w.TITLE, w.DUTIES, w.DATES, w.WORK_ID
-        FROM STUDENT s, EDUCATION e, WORKS w
-	    <where> s.STUDENT_ID = e.STUDENT_ID AND s.STUDENT_ID = w.STUDENT_ID 
-	    <if test="userName !='admin'">
-	    AND s.username = #{userName}
-	    </if>
-	     <if test="studentId !=0">
-	    AND s.student_id = #{studentId}
-	    </if>
-	   	</where>
-    </select>
-    <select id="getCandidateDetail" parameterType="int" resultMap="studentResultMap">
-        	SELECT s.username,s.STUDENT_ID, s.SEMESTER_REGISTERED, s.REGISTERED_YEAR, s.STUDENT_NO, s.FIRST_NAME, s.MIDDLE_NAME,
-        	s.LAST_NAME, s.EMAIL, s.TELEPHONE, s.STATUS, s.GENDER, e.DEGREE, e.MAJOR, e.GPA, e.INSTITUTION, e.EDUCATION_ID,
-        	e.COUNTRY, e.GRADUATION_DATE, w.COMPANY, w.TITLE, w.DUTIES, w.DATES, w.WORK_ID
-        FROM STUDENT s, EDUCATION e, WORKS w
-	    WHERE s.student_id = #{studentId} and
-	    s.STUDENT_ID = e.STUDENT_ID AND s.STUDENT_ID = w.STUDENT_ID
-    </select>
-    <select id="getCandidateInfo" parameterType="Map" resultMap="studentResultMap">
-      SELECT ST.STUDENT_ID,
-        ST.FIRST_NAME,
-        ST.MIDDLE_NAME,
-        ST.LAST_NAME,
-        ST.STATUS,
-        a.application_status,
-         a.application_id,
-         a.update_time,
-         p.position_name,
-         e.employer_name
-        FROM STUDENT ST , application a,position p,employer e
-        <where>ST.USERNAME=a.username and p.position_id=a.position_id and e.employer_id = p.employer_id
-        <if test="positionId !=0">
-        and a.position_id = #{positionId}
-        </if>
-        </where> 
-    </select>
-     <select id="adminStudentInfo"  resultMap="studentResultMap">
-      SELECT ST.STUDENT_ID,
-        ST.FIRST_NAME,
-        ST.MIDDLE_NAME,
-        ST.LAST_NAME,
-         ST.STATUS,
-         ST.SEMESTER_REGISTERED,
-          ST.Gender,
-          ST.TELEPHONE,
-        ST.student_no,
-       	st.update_time
-        FROM STUDENT ST 
-    </select>
-    <delete id="deleteStudentInfo" parameterType="Long">
+	</update>
+	<select id="getStudentInfo" parameterType="Map" resultMap="studentResultMap">
+		SELECT s.STUDENT_ID, s.SEMESTER_REGISTERED, s.REGISTERED_YEAR,
+		s.STUDENT_NO, s.FIRST_NAME, s.MIDDLE_NAME,
+		s.LAST_NAME, s.EMAIL,
+		s.TELEPHONE, s.STATUS, s.GENDER, e.DEGREE, e.MAJOR, e.GPA,
+		e.INSTITUTION, e.EDUCATION_ID,
+		e.COUNTRY, e.GRADUATION_DATE, w.COMPANY,
+		w.TITLE, w.DUTIES, w.DATES, w.WORK_ID
+		FROM STUDENT s, EDUCATION e,
+		WORKS w
+		<where>
+			s.STUDENT_ID = e.STUDENT_ID AND s.STUDENT_ID = w.STUDENT_ID
+			<if test="userName !='admin'">
+				AND s.username = #{userName}
+			</if>
+			<if test="studentId !=0">
+				AND s.student_id = #{studentId}
+			</if>
+		</where>
+	</select>
+	<select id="getCandidateDetail" parameterType="int" resultMap="studentResultMap">
+		SELECT s.username,s.STUDENT_ID, s.SEMESTER_REGISTERED,
+		s.REGISTERED_YEAR, s.STUDENT_NO, s.FIRST_NAME, s.MIDDLE_NAME,
+		s.LAST_NAME, s.EMAIL, s.TELEPHONE, s.STATUS, s.GENDER, e.DEGREE,
+		e.MAJOR, e.GPA, e.INSTITUTION, e.EDUCATION_ID,
+		e.COUNTRY,
+		e.GRADUATION_DATE, w.COMPANY, w.TITLE, w.DUTIES, w.DATES, w.WORK_ID
+		FROM STUDENT s, EDUCATION e, WORKS w
+		WHERE s.student_id = #{studentId}
+		and
+		s.STUDENT_ID = e.STUDENT_ID AND s.STUDENT_ID = w.STUDENT_ID
+	</select>
+	<select id="adminStudentInfo" resultMap="studentResultMap">
+		SELECT ST.STUDENT_ID,
+		ST.FIRST_NAME,
+		ST.MIDDLE_NAME,
+		ST.LAST_NAME,
+		ST.STATUS,
+		ST.SEMESTER_REGISTERED,
+		ST.Gender,
+		ST.TELEPHONE,
+		ST.student_no,
+		st.update_time
+		FROM STUDENT ST
+	</select>
+	<delete id="deleteStudentInfo" parameterType="Long">
      	<![CDATA[
      		delete from student where student_id = #{studentId}
      	]]>
 	</delete>
-	
+
 </mapper>

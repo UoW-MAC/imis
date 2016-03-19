@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.imis.service.IPositionGroupService;
 import com.imis.service.IPositionService;
 import com.imis.service.IStudentService;
+import com.imis.domain.entities.Application;
 import com.imis.domain.entities.Position;
 import com.imis.domain.entities.PositionGroup;
 import com.imis.domain.entities.Student;
@@ -124,7 +125,7 @@ public class PositionController {
     public @ResponseBody Map<String,Object> showCandidateInfo(HttpServletRequest request) {
     	
     	String positionId = request.getParameter("positionId");
-    	List<Student> student = null;
+    	List<Application> student = null;
         Map<String, Object> data = null;     
         try {
         	student = positionService.candidateObtain(Integer.parseInt(positionId));
@@ -134,8 +135,8 @@ public class PositionController {
     		return null;
 		}
 		return data;
-    }   
-    @RequestMapping(value = "canditate", method = RequestMethod.GET)
+    } 
+    @RequestMapping(value = "candidate", method = RequestMethod.GET)
     public ModelAndView showCandidate(HttpServletRequest request) {
     	String positionId = request.getParameter("positionId");
         Map<String, Object> models = null;

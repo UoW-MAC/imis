@@ -3,6 +3,8 @@ package com.imis.domain.entities;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 /**
  * @author william zhang
  *
@@ -19,6 +21,7 @@ public class Application implements Serializable{
 	private Timestamp updateTime;
 	private User user;
 	private Employer employer;
+	
 
 	public Student getStudent() {
 		return student;

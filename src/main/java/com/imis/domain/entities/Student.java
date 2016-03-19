@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 /**
  * @author william zhang
  *
@@ -23,8 +25,6 @@ public class Student implements Serializable {
 	private String gender;
 	private String semesterRegistered;
 	private String registeredYear;
-	private Position position;
-	private Application application;
 	private List<Work> workList;
 	private List<Education> educationList;
 	private User user;
@@ -38,14 +38,6 @@ public class Student implements Serializable {
 
 	public void setEmployer(Employer employer) {
 		this.employer = employer;
-	}
-
-	public Application getApplication() {
-		return application;
-	}
-
-	public void setApplication(Application application) {
-		this.application = application;
 	}
 
 	public List<Education> getEducationList() {
@@ -159,16 +151,7 @@ public class Student implements Serializable {
 	public void setRegisteredYear(String registeredYear) {
 		this.registeredYear = registeredYear;
 	}
-
-
-	public Position getPosition() {
-		return position;
-	}
-
-	public void setPosition(Position position) {
-		this.position = position;
-	}
-
+	
 	public Long getStudentNo() {
 		return studentNo;
 	}

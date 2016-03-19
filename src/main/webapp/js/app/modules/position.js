@@ -106,7 +106,7 @@ require(['../main'], function () {
 			        ],
 			        "rowCallback": function(row, data) { //data是后端返回的数据
 			              $('td:eq(1)', row).html('<a href=positionDetail?positionId='+ data.positionId + '>' + data.positionName + '</a>');
-			              $('td:eq(4)', row).html('<a href=canditate?positionId='+ data.positionId + '>' + data.unreadApplicationNum+'/'+data.applicationNum + '</a>');
+			              $('td:eq(4)', row).html('<a href=candidate?positionId='+ data.positionId + '>' + data.unreadApplicationNum+'/'+data.applicationNum + '</a>');
 			              $('td:eq(5)', row).html('<a href=javascript:void(0) onclick=delPositionRow()>delete</a>');
 			        },
 			        "order": [[ 3, "desc" ]],

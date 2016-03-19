@@ -19,15 +19,11 @@ public interface PositionRepository {
 
 	void addPositionInfo(Position position);
 
-	List<Position> getPostionList(String userName);
-
 	void deletePositionInfo(Long positionId);
 	
 	List<Position> showPositionInfo(Map<String,String> para);
 
 	void updatePositionInfo(Position position);
-
-	List<Position> getPostionList(Map<String, Object> parms);
 
 	Position getPositionInfo(int positionId);
 	

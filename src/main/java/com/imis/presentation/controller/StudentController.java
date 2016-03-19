@@ -92,20 +92,20 @@ public class StudentController {
     }
 
     @RequestMapping(value = "getPostionStatusList", method = RequestMethod.POST)
-    public @ResponseBody Map<String, List<Position>>  getPostionStatusList(HttpServletRequest request) {
+    public @ResponseBody Map<String, List<Application>>  getPostionStatusList(HttpServletRequest request) {
 
-        Map<String, List<Position>> positionStatusMap = null;
+        Map<String, List<Application>> positionStatusMap = null;
         String groupId = request.getParameter("groupId");
         String positionStatus = request.getParameter("positionStatus");
 
     	try
     	{
-    		List<Position> positionStatusList = positionService.getPostionStatusList(groupId, positionStatus);
+    		List<Application> positionStatusList = positionService.getPositionStatusList(groupId, positionStatus);
 
-    		positionStatusMap = new HashMap<String, List<Position>>();
+    		positionStatusMap = new HashMap<String, List<Application>>();
     		positionStatusMap.put("data", positionStatusList);
-    	}catch(Exception exception)
-    	{
+    	}catch(Exception exception){
+    		return null;
     	}
 
         return positionStatusMap;
@@ -213,7 +213,7 @@ public class StudentController {
     	Response response = new Response();
     	Map<String, Object> models = new HashMap<String, Object>();
 
-    	List<Position> positionStatusList = positionService.getPostionStatusList("0", "0");
+    	List<Application> positionStatusList = positionService.getPositionStatusList("0", "0");
 
         String filePath = CsvExporter.export(positionStatusList);
 
@@ -302,16 +302,16 @@ public class StudentController {
     	Response response = new Response();
     	Map<String, Object> models = new HashMap<String, Object>();
 
-    	List<Application> applicationList = studentService.exportApplicationInfo();
-
-        String filePath = CsvExporter.export(applicationList);
-
-        String[] filePathSplit = filePath.split("/");
-        String fileName = filePathSplit[3];
-
-        models.put("fileName", fileName);
-        response.setModels(models);
-
-        return response;
+    	try {
+			List<Application> applicationList = studentService.exportApplicationInfo();
+			String filePath = CsvExporter.export(applicationList);
+			String[] filePathSplit = filePath.split("/");
+			String fileName = filePathSplit[3];
+			models.put("fileName", fileName);
+			response.setModels(models);
+			return response;
+		} catch (Exception e) {
+			return null;
+		}
     }
 }

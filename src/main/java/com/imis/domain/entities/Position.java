@@ -3,6 +3,8 @@ package com.imis.domain.entities;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import org.codehaus.jackson.annotate.JsonBackReference;
+
 /**
  * @author Tong Chen
  *
@@ -15,7 +17,6 @@ public class Position implements Serializable{
 	private String positionName;
 	private PositionGroup positionGroup;
     private Employer employer;
-    private Application application;
 	private Timestamp createTime;
     private Timestamp updateTime;
     private int positionStatus;
@@ -80,14 +81,6 @@ public class Position implements Serializable{
 
 	public void setPositionStatus(int positionStatus) {
 		this.positionStatus = positionStatus;
-	}
-
-	public Application getApplication() {
-		return application;
-	}
-
-	public void setApplication(Application application) {
-		this.application = application;
 	}
 
 	public Long getPositionId() {

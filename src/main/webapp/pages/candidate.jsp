@@ -47,18 +47,6 @@
 			            </tr>
 			        </thead>
 			     </table>
-    	<%--  <c:forEach var="candidateInfo" items="${candidateInfo}">
-                 <tr>
-                 <th>${candidateInfo.studentId} </th>
-                 <th><a href="canditateDetail?applicationId=${candidateInfo.application.applicationId}&studentId=${candidateInfo.studentId}&positionId=${positionId}">${candidateInfo.firstName}${candidateInfo.middleName}${candidateInfo.lastName}</a> </th>
-                <c:if test="${candidateInfo.status==0}"> <th>International Student</th></c:if>
-                <c:if  test="${candidateInfo.status==1}"><th>Permanent Resident/Citizen</th></c:if>
-                 <c:if test="${candidateInfo.application.applicationStatus==1}"> <th>unread</th></c:if>
-                 <c:if test="${candidateInfo.application.applicationStatus==2}"> <th>accept</th></c:if>
-                 <c:if test="${candidateInfo.application.applicationStatus==3}"> <th>reject</th></c:if>
-                    <th>${candidateInfo.application.updateTime}</th>
-                 </tr>
-            </c:forEach> --%>
         </div>
     </section>
     
