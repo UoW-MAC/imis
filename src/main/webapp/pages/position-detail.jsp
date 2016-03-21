@@ -21,6 +21,9 @@
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
         <link href="css/custom.css" rel="stylesheet" type="text/css">
         <link href="css/validation.css" rel="stylesheet">
+        
+        <link rel="icon" href="images/favicon.png">
+        
         <!--[if IE 8]>
         <link href="css/ie8.css" rel="stylesheet" type="text/css">
         <![endif]-->
@@ -32,7 +35,7 @@
 	<jsp:include page='header.jsp'/>
 
     <!-- CONTENT SECTION -->
-    <section class="contentSection">
+    <section class="contentSection position-detail">
     	<div class="container">
     	<div id="positionEditTable">
             <div class="row">
@@ -149,12 +152,6 @@
      					   }
      	</script>
 
-    <sec:authorize access="hasRole('ROLE_STUDENT') and isAuthenticated()">
-        <div id="positionDetailPage" role="tabpane" class="tab-pane active">
-            <jsp:include page='footer.jsp'/>
-        </div>
-    </sec:authorize>
-
     <!-- Button trigger modal -->
       <button type="button" id="myModalTrigger" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="display:none">Submit</button>
       <div class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -189,6 +186,8 @@
             </div>
         </div>
       </div>
+      
+      <jsp:include page='footer.jsp'/>
  </body>
- <script data-main="js/app/modules/application" src="js/lib/require-2.1.15.min.js"></script>
+ <script data-main="js/app/pages/application" src="js/lib/require-2.1.15.min.js"></script>
 </html>

@@ -1,19 +1,35 @@
-/**
- * Created by Tong Chen 30/01/16
+/*
+ * Created by William Zhang 18/02/16
  */
 
-require(['../main'], function () {
-    require(['jquery', 'bootstrap', 'validate', 'ajaxHandler',
-            'jqueryForm', 'formValidator', 'selector', 'additionalMethods', 'jDataTables'],
+    define(['jquery', 'bootstrap', 'handlebars', 'validate', 'ajaxHandler',
+            'jqueryForm', 'formValidator', 'additionalMethods', 'custom', 'eventHandler',
+            'jDataTables', 'imis'],
         function($, bootstrap, handlebars, validate, ajaxHandler,
-                 jqueryForm, formValidator, selector, additionalMethods, jDataTables) {
+                 jqueryForm, formValidator, additionalMethods, custom, eventHandler,
+                 jDataTables, imis) {
 
             "use strict";
-         
-            var positionShow = {};
-            var positionForm = {};
-            positionForm.View = {
-        			getPositionGroupView : function(options) {
+
+            var position = {};
+            
+            var editor;
+
+            position.View = {
+            	
+            	positionSelectByEmployer : function() {
+	            	$('#positionTest tbody').on( 'click', 'tr', function () {
+	                        if ( $(this).hasClass('selected') ) {
+	                            $(this).removeClass('selected');
+	                        }
+	                        else {
+	                        	$('#positionTest').DataTable().$('tr.selected').removeClass('selected');
+	                            $(this).addClass('selected');
+	                        }
+	                } );
+            	},
+            	
+            	getPositionGroupView : function(options) {
         				var positionGroupSelect = $('#positionGroupSelect');
         				$('#positionGroupSelect' + ' option').remove();
 
@@ -25,20 +41,34 @@ require(['../main'], function () {
         					var option = "<option value=" + optionValue + ">"
         							+ optionText + "</option>";
         					positionGroupSelect.append(option);
-
         				}
-
-        			},
+        	     },
+        	     positionSelectByAdmin : function() {
+        	     
+        	      $('#adminPositionTest tbody').on( 'click', 'tr', function () {
+                            if ( $(this).hasClass('selected') ) {
+                                $(this).removeClass('selected');
+                            }
+                            else {
+                            	$('#adminPositionTest').DataTable().$('tr.selected').removeClass('selected');
+                                $(this).addClass('selected');
+                            }
+                        } );
+        	     
+        	     },
+        	     			 
+        			
         			positionFormSubmit : $("#positionForm_submit")
         		};
-            positionForm.Controller = {
-        			getPositionGroup : function() {
+
+            position.Controller = {
+            	getPositionGroup : function() {
         				$.ajax({
         					type : "get",
         					dataType : "json",
         					url : 'getPositionGroup',
         					success : function(data) {
-        						positionForm.View.getPositionGroupView(data);
+        						position.View.getPositionGroupView(data);
         					}
         				});
         			},
@@ -55,9 +85,8 @@ require(['../main'], function () {
         			handleFormSubmit : function() {
         				$("#positionForm").submit();
         			},
-        		};
-            positionShow.Controller = {
-            	addDisplay: function(){ 
+        			
+        			addDisplay: function(){ 
             		 var positionTable=document.getElementById("positionTable");
  				       var addForm=document.getElementById("addForm");
  				        if(positionTable.style.display=="none"){
@@ -67,19 +96,50 @@ require(['../main'], function () {
  				        	positionTable.style.display="none";
  				        	addForm.style.display="";
  				      }
-            	},
-            	
-            };
-            
-            function registerEventListener() {
-                positionForm.Controller.getPositionGroup();
-                $("#submitPosition").click(function() {
-                	$("#myModalTrigger3").click();
-    			});
-                $("#confirmSubmit").click(function(){
-                	positionForm.Controller.handleFormSubmit();
-                });
-                $('#positionTest').DataTable({
+            		 },
+            		 
+            		 loadPostionStatusList : function() {
+            		    var groupId = $('#employerGroup').find("option:selected").val();
+                	    var positionStatus = $('#positionStatus').find("option:selected").val();
+            		 
+            		 	$('#example').DataTable({
+				        ajax:  {
+				        	"url" : "getPostionStatusList",
+				        	"type" : "post",
+				        	"data" : {"groupId" : groupId, "positionStatus" : positionStatus}
+				        	//"dataSrc": "data"
+				        },
+				        columns: [
+				            { data: "positionName" },
+				            { data: "employer.employerName" },
+				            { data: null, render: 
+				                function ( data, type, row ) {
+					            	var result;
+					            	
+					            	if (data.application == null)
+					            		result = 'New'; 
+					            	else if (data.application.applicationStatus == 1)
+					                	result = 'Requested';
+					                else if (data.application.applicationStatus == 2)
+					                	result = 'Success';
+					                else if (data.application.applicationStatus == 3)
+					                    result = 'Regected';
+					                return result;
+				                }  
+				            }
+				            
+				        ],
+				        rowCallback : function(row, data) {
+				        	$('td:eq(0)', row).html('<a href=positionDetail?positionId='+ data.positionId + '>' + data.positionName + '</a >');
+				        },
+				        select: true
+				       } );
+            		 
+            		 },
+            		 
+            		 loadPositionByEmployer : function() {
+            		 
+            		 	$('#positionTest').DataTable({
 			        ajax:  {
 			        	"url" : "showPosition",
 			        	"type" : "get",
@@ -112,17 +172,11 @@ require(['../main'], function () {
 			        "order": [[ 3, "desc" ]],
 			        select: true
 			    } );
-                    $('#positionTest tbody').on( 'click', 'tr', function () {
-                        if ( $(this).hasClass('selected') ) {
-                            $(this).removeClass('selected');
-                        }
-                        else {
-                        	$('#positionTest').DataTable().$('tr.selected').removeClass('selected');
-                            $(this).addClass('selected');
-                        }
-                    } );
-                    
-                    $('#adminPositionTest').DataTable({
+            		 
+            		 },
+            		 
+            		 loadPositionByAdmin : function() {
+            		 	$('#adminPositionTest').DataTable({
     			        ajax:  {
     			        	"url" : "showPosition",
     			        	"type" : "get",
@@ -154,34 +208,61 @@ require(['../main'], function () {
     			        "order": [[ 0, "asc" ]],
     			        select: true
     			    } );
-                        $('#adminPositionTest tbody').on( 'click', 'tr', function () {
-                            if ( $(this).hasClass('selected') ) {
-                                $(this).removeClass('selected');
-                            }
-                            else {
-                            	$('#adminPositionTest').DataTable().$('tr.selected').removeClass('selected');
-                                $(this).addClass('selected');
-                            }
-                        } );
-                      
-                    $('#deleteLink').click( function () {
-                    	positionShow.Controller.deletePosition();
-                    } );
-                    $('#addDisplay').click( function () {
-                    	positionShow.Controller.addDisplay();
-                    } );
-                    $('#addDisplay2').click( function () {
-                    	positionShow.Controller.addDisplay();
-                    } );
-                    $('#exportPositionCSV').click(function(){
-                    	positionForm.Controller.exportPositionCSV();
-	                 });
+            		 
+            		 
+            		 }
+            		 
+            		 
+            		 
+            		 
+        		};
+            
+
+            function registerEventListener() {
+                /*$("#positionApplicationTab").click(function(){
+                	application.Controller.loadPostionStatusList();
+                });*/
+                
+                /*$('#searchPosition').click(function(){
+                	application.Controller.loadPostionStatusList();
+                });*/
+                
+                position.Controller.loadPostionStatusList();
+                position.Controller.getPositionGroup();
+                position.Controller.loadPositionByAdmin();
+                position.Controller.loadPositionByEmployer();
+                
+                position.View.getPositionGroupView();
+                position.View.positionSelectByEmployer();
+                
+                
+                $("#submitPosition").click(function() {
+                	$("#myModalTrigger3").click();
+    			});
+                $("#confirmSubmit").click(function(){
+                	position.Controller.handleFormSubmit();
+                });
+                $('#deleteLink').click( function () {
+                	positionShow.Controller.deletePosition();
+                } );
+                $('#addDisplay').click( function () {
+                	positionShow.Controller.addDisplay();
+                } );
+                $('#addDisplay2').click( function () {
+                	positionShow.Controller.addDisplay();
+                } );
+                $('#exportPositionCSV').click(function(){
+                	positionForm.Controller.exportPositionCSV();
+	            });
             }
+                
+            
             $(function() {
                 registerEventListener();
             });
 
-//    imis.position = position;
-//   return position;
-    });
+
+    imis.position = position;
+    return position;
+
 });

@@ -2,12 +2,14 @@
  * Created by William on 11/27/14.
  */
 require(['../main'], function () {
-    require(['jquery', 'bootstrap', 'handlebars',  'validate', 'ajaxHandler',
-            'formValidator', 'additionalMethods', 'pagination', 'selector', 'jqueryForm',
-             'eventHandler','studentProfile','position','employer', 'application'],
+
+    require(['jquery', 'bootstrap', 'handlebars', 'validate', 'ajaxHandler',
+            'formValidator', 'additionalMethods', 'jqueryForm',
+            'eventHandler', 'studentProfile', 'position', 'imis', 'employer','jDataTables'],
+            
         function($, bootstrap, handlebars, validate, ajaxHandler,
-                 formValidator, additionalMethods, pagination, selector, jqueryForm,
-                  eventHandler, studentProfile,position,employer,application ) {
+                 formValidator, additionalMethods, jqueryForm,
+                 eventHandler, studentProfile, position, imis, employer, jDataTables) {
 
             "use strict";
 
