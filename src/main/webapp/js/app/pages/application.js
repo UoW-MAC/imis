@@ -25,6 +25,9 @@ require(['../main'], function () {
 				        	location.href = "user-center";
 				        }
 				    });
+                },
+                handleConfirmedSubmit: function(){
+                    $("#editForm").submit();
                 }
             };
 
@@ -40,6 +43,12 @@ require(['../main'], function () {
                 
                 $("#cancelApply").click(function(){
                 	location.href = "user-center";
+                });
+                $("#confirmEdit").click(function(){
+                	application.Controller.handleConfirmedSubmit();
+                });
+                $("#editPosition").click(function(){
+                	$("#myModalTrigger2").click();
                 });
             }
             

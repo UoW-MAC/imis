@@ -1,12 +1,5 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Bright Huang
-  Date: 11/27/14
-  Time: 21:32
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html>
@@ -14,6 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="images/favicon.png">
     <!--
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
     -->
@@ -57,10 +51,12 @@
                             <li><a id="employerManagementTab" href="#positionManagementTabPane"  role="tab" data-toggle="tab">Position Management<span></span></a></li>
                             <li><a id="applicationManagementTab" href="#applicationManagementTabPane"  role="tab" data-toggle="tab">Application Condition<span></span></a></li>
                         </sec:authorize>
+                        
                         <sec:authorize access="hasRole('ROLE_ORGANIZATION') and isAuthenticated()">
                             <li class="active"><a id="employerProfileTab" href="#employerProfileTabPane" role="tab" data-toggle="tab">Employer Information<span></span></a></li>
                             <li><a id="positionProfileTab" href="#positionProfileTabPane" role="tab" data-toggle="tab">Position Information<span></span></a></li>
                         </sec:authorize>
+                        
                         <sec:authorize access="hasRole('ROLE_STUDENT') and isAuthenticated()">
                             <li><a id="positionApplicationTab" href="#positionApplicationTabPane" role="tab" data-toggle="tab">Position Application<span></span></a></li>
                             <li class="active"><a id="studentProfileTab" href="#studentProfileTabPane" role="tab" data-toggle="tab">Personal Information<span></span></a></li>

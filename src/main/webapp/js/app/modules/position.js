@@ -1,19 +1,35 @@
-/**
- * Created by Tong Chen 30/01/16
+/*
+ * Created by William Zhang 18/02/16
  */
 
-require(['../main'], function () {
-    require(['jquery', 'bootstrap', 'validate', 'ajaxHandler',
-            'jqueryForm', 'formValidator', 'selector', 'additionalMethods', 'jDataTables'],
-        function($, bootstrap, handlebars, validate, ajaxHandler,
-                 jqueryForm, formValidator, selector, additionalMethods, jDataTables) {
+    define(['jquery', 'bootstrap', 'validate', 'ajaxHandler',
+            'jqueryForm', 'formValidator', 'additionalMethods', 'custom', 'eventHandler',
+            'jDataTables', 'imis'],
+        function($, bootstrap, validate, ajaxHandler,
+                 jqueryForm, formValidator, additionalMethods, custom, eventHandler,
+                 jDataTables, imis) {
 
             "use strict";
-         
-            var positionShow = {};
-            var positionForm = {};
-            positionForm.View = {
-        			getPositionGroupView : function(options) {
+
+            var position = {};
+            
+            var editor;
+
+            position.View = {
+            	
+            	positionSelectByEmployer : function() {
+	            	$('#positionTest tbody').on( 'click', 'tr', function () {
+	                        if ( $(this).hasClass('selected') ) {
+	                            $(this).removeClass('selected');
+	                        }
+	                        else {
+	                        	$('#positionTest').DataTable().$('tr.selected').removeClass('selected');
+	                            $(this).addClass('selected');
+	                        }
+	                } );
+            	},
+            	
+            	getPositionGroupView : function(options) {
         				var positionGroupSelect = $('#positionGroupSelect');
         				$('#positionGroupSelect' + ' option').remove();
 
@@ -25,20 +41,43 @@ require(['../main'], function () {
         					var option = "<option value=" + optionValue + ">"
         							+ optionText + "</option>";
         					positionGroupSelect.append(option);
-
         				}
-
-        			},
+        	     },
+        	     positionSelectByAdmin : function() {
+        	     
+        	      $('#adminPositionTest tbody').on( 'click', 'tr', function () {
+                            if ( $(this).hasClass('selected') ) {
+                                $(this).removeClass('selected');
+                            }
+                            else {
+                            	$('#adminPositionTest').DataTable().$('tr.selected').removeClass('selected');
+                                $(this).addClass('selected');
+                            }
+                        } );
+        	     
+        	     },
+        	     applicationSelectByAdmin : function() {
+        	     $('#adminApplicationTest tbody').on( 'click', 'tr', function () {
+                     if ( $(this).hasClass('selected') ) {
+                         $(this).removeClass('selected');
+                     }
+                     else {
+                     	$('#adminApplicationTest').DataTable().$('tr.selected').removeClass('selected');
+                         $(this).addClass('selected');
+                     }
+                 } );			 
+        	     },	
         			positionFormSubmit : $("#positionForm_submit")
         		};
-            positionForm.Controller = {
-        			getPositionGroup : function() {
+
+            position.Controller = {
+            	getPositionGroup : function() {
         				$.ajax({
         					type : "get",
         					dataType : "json",
         					url : 'getPositionGroup',
         					success : function(data) {
-        						positionForm.View.getPositionGroupView(data);
+        						position.View.getPositionGroupView(data);
         					}
         				});
         			},
@@ -55,9 +94,8 @@ require(['../main'], function () {
         			handleFormSubmit : function() {
         				$("#positionForm").submit();
         			},
-        		};
-            positionShow.Controller = {
-            	addDisplay: function(){ 
+        			
+        			addDisplay: function(){ 
             		 var positionTable=document.getElementById("positionTable");
  				       var addForm=document.getElementById("addForm");
  				        if(positionTable.style.display=="none"){
@@ -67,19 +105,50 @@ require(['../main'], function () {
  				        	positionTable.style.display="none";
  				        	addForm.style.display="";
  				      }
-            	},
-            	
-            };
-            
-            function registerEventListener() {
-                positionForm.Controller.getPositionGroup();
-                $("#submitPosition").click(function() {
-                	$("#myModalTrigger3").click();
-    			});
-                $("#confirmSubmit").click(function(){
-                	positionForm.Controller.handleFormSubmit();
-                });
-                $('#positionTest').DataTable({
+            		 },
+            		 
+            		 loadPostionStatusList : function() {
+            		    var groupId = $('#employerGroup').find("option:selected").val();
+                	    var positionStatus = $('#positionStatus').find("option:selected").val();
+            		 
+            		 	$('#example').DataTable({
+				        ajax:  {
+				        	"url" : "getPostionStatusList",
+				        	"type" : "post",
+				        	"data" : {"groupId" : groupId, "positionStatus" : positionStatus}
+				        	//"dataSrc": "data"
+				        },
+				        columns: [
+				            { data: "positionName" },
+				            { data: "employer.employerName" },
+				            { data: null, render: 
+				                function ( data, type, row ) {
+					            	var result;
+					            	
+					            	if (data.application == null)
+					            		result = 'New'; 
+					            	else if (data.application.applicationStatus == 1)
+					                	result = 'Requested';
+					                else if (data.application.applicationStatus == 2)
+					                	result = 'Success';
+					                else if (data.application.applicationStatus == 3)
+					                    result = 'Regected';
+					                return result;
+				                }  
+				            }
+				            
+				        ],
+				        rowCallback : function(row, data) {
+				        	$('td:eq(0)', row).html('<a href=positionDetail?positionId='+ data.positionId + '>' + data.positionName + '</a >');
+				        },
+				        select: true
+				       } );
+            		 
+            		 },
+            		 
+            		 loadPositionByEmployer : function() {
+            		 
+            		 	$('#positionTest').DataTable({
 			        ajax:  {
 			        	"url" : "showPosition",
 			        	"type" : "get",
@@ -112,17 +181,11 @@ require(['../main'], function () {
 			        "order": [[ 3, "desc" ]],
 			        select: true
 			    } );
-                    $('#positionTest tbody').on( 'click', 'tr', function () {
-                        if ( $(this).hasClass('selected') ) {
-                            $(this).removeClass('selected');
-                        }
-                        else {
-                        	$('#positionTest').DataTable().$('tr.selected').removeClass('selected');
-                            $(this).addClass('selected');
-                        }
-                    } );
-                    
-                    $('#adminPositionTest').DataTable({
+            		 
+            		 },
+            		 
+            		 loadPositionByAdmin : function() {
+            		 	$('#adminPositionTest').DataTable({
     			        ajax:  {
     			        	"url" : "showPosition",
     			        	"type" : "get",
@@ -154,34 +217,115 @@ require(['../main'], function () {
     			        "order": [[ 0, "asc" ]],
     			        select: true
     			    } );
-                        $('#adminPositionTest tbody').on( 'click', 'tr', function () {
-                            if ( $(this).hasClass('selected') ) {
-                                $(this).removeClass('selected');
-                            }
-                            else {
-                            	$('#adminPositionTest').DataTable().$('tr.selected').removeClass('selected');
-                                $(this).addClass('selected');
-                            }
-                        } );
-                      
-                    $('#deleteLink').click( function () {
-                    	positionShow.Controller.deletePosition();
-                    } );
-                    $('#addDisplay').click( function () {
-                    	positionShow.Controller.addDisplay();
-                    } );
-                    $('#addDisplay2').click( function () {
-                    	positionShow.Controller.addDisplay();
-                    } );
-                    $('#exportPositionCSV').click(function(){
-                    	positionForm.Controller.exportPositionCSV();
-	                 });
+            		 
+            		 
+            		 },
+            		 loadApplicationByAdmin : function() {
+            			 $('#adminApplicationTest').DataTable({
+                           	 ajax:  {
+            			        	"url" : "canditateInfo",
+            			        	"type" : "get",
+            			        	"data" : {"positionId" : 0}
+            			        },
+            			        columns: [
+            			            { data: "applicationId" },
+            			            { data: "student.studentId" },
+            			            { data:  "position.positionName"},
+            			            { data:  "employer.employerName"},
+            			            { data: null, render:
+            			                function ( data, type, row ) {
+            			            	var result;
+            			            	if (data.applicationStatus == 0)
+            			            		result = 'New';
+            			            	else if (data.applicationStatus == 1)
+            			                	result = 'unread';
+            			                else if (data.applicationStatus == 2)
+            			                	result = 'accept';
+            			                else if (data.applicationStatus == 3)
+            			                    result = 'reject';
+            			                return result;
+            		                	}
+            			            },
+            			            { data:null,render:function(data){
+            			            	function add0(m){return m<10?'0'+m:m };
+            			            	var time = new Date(data.updateTime);
+            			            	var y = time.getFullYear();
+            			            	var m = time.getMonth()+1;
+            			            	var d = time.getDate();
+            			            	var h = time.getHours();
+            			            	var mm = time.getMinutes();
+            			            	var s = time.getSeconds();
+            			            	return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);
+            		            	}
+            		            },
+            		            { data:  "applicationId"},
+            			        ],
+            			        "rowCallback": function(row, data) { //data是后端返回的数据
+            			              $('td:eq(1)', row).html( data.student.firstName +'&nbsp' +data.student.middleName +'&nbsp'+ data.student.lastName);
+            			              $('td:eq(6)', row).html('<a href=javascript:void(0) onclick=delApplicationRow()>delete</a>');
+            			        },
+            			        select: true
+            			    } );
+            		 },
+            			exportApplicationCSV : function(){
+          	                $.ajax({
+          	 	                        type : "post",
+          	 	                        dataType : "json",
+          	 	                        url : "exportApplicationCSV",
+          	 	                        success : function(data) {
+          	 	                            location.href = "downloadCsv?csvFileName=" + data.models.fileName;
+          	 	                        }
+          	 	                });
+          	                  }
+        		};
+            
+
+            function registerEventListener() {
+                /*$("#positionApplicationTab").click(function(){
+                	application.Controller.loadPostionStatusList();
+                });*/
+                
+                /*$('#searchPosition').click(function(){
+                	application.Controller.loadPostionStatusList();
+                });*/
+                
+                position.Controller.loadPostionStatusList();
+                position.Controller.getPositionGroup();
+                position.Controller.loadPositionByAdmin();
+                position.Controller.loadPositionByEmployer();
+                position.Controller.loadApplicationByAdmin();
+                position.View.getPositionGroupView();
+                position.View.positionSelectByEmployer();
+                position.View.applicationSelectByEmployer();
+                
+                
+                $("#submitPosition").click(function() {
+                	$("#myModalTrigger3").click();
+    			});
+                $("#confirmSubmit").click(function(){
+                	position.Controller.handleFormSubmit();
+                });
+                $('#addDisplay').click( function () {
+                	position.Controller.addDisplay();
+                } );
+                $('#addDisplay2').click( function () {
+                	position.Controller.addDisplay();
+                } );
+                $('#exportPositionCSV').click(function(){
+                	position.Controller.exportPositionCSV();
+	            });
+                $('#exportApplicationCSV').click(function(){
+                	position.Controller.exportApplicationCSV();
+                 });
             }
+                
+            
             $(function() {
                 registerEventListener();
             });
 
-//    imis.position = position;
-//   return position;
-    });
+
+    imis.position = position;
+    return position;
+
 });

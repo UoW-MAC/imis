@@ -2,9 +2,9 @@
  * Created by Freya He 29/01/16
  */
 
-    define(['jquery', 'bootstrap', 'handlebars', 'validate', 'ajaxHandler',
+    define(['jquery', 'bootstrap', 'validate', 'ajaxHandler',
             'jqueryForm', 'formValidator', 'additionalMethods','jDataTables'],
-        function($, bootstrap, handlebars, validate, ajaxHandler,
+        function($, bootstrap, validate, ajaxHandler,
                  jqueryForm, formValidator, additionalMethods, jDataTables) {
 
             "use strict";
@@ -43,6 +43,17 @@
             			$("#employerTable").html(HTML);
             			$('#employerGroupSelect').val($('#employerGroupId').val());
             		},
+            		employerSelectByAdmin:function(){
+            			 $('#adminEmployerTest tbody').on( 'click', 'tr', function () {
+                             if ( $(this).hasClass('selected') ) {
+                                 $(this).removeClass('selected');
+                             }
+                             else {
+                             	$('#adminEmployerTest').DataTable().$('tr.selected').removeClass('selected');
+                                 $(this).addClass('selected');
+                             }
+                         } );
+            		}
             };
             employerForm.Controller = {
             		getEmployerGroup : function() {
@@ -74,11 +85,8 @@
                 },
                 handleConfirmedSubmit: function(){
                     $("#employerForm").submit();
-                },
-                handleAdminEmployerConfirmedSubmit: function(){
-                    $("#editEmployerForm").submit();
-
                 }
+               
                
             };
             employerShow.Controller = {
@@ -92,6 +100,40 @@
             			    }      
             	        });       
             	},
+            	loadEmployerByAdmin:function(){
+            		 $('#adminEmployerTest').DataTable({
+     			        ajax:  {
+     			        	"url" : "showAdminEmployer",
+     			        	"type" : "get",
+     			        	//"data" : {"groupId" : groupId, "positionStatus" : positionStatus}
+     			        },
+     			        columns: [
+     			            { data: "employerId" },
+     			            { data: "employerName" },
+     			            { data: "employerGroup.employerGroupType" },
+     			            { data: "allPositionNum" },
+     			            { data:null,render:function(data){
+     			            	function add0(m){return m<10?'0'+m:m };
+     			            	var time = new Date(data.updateTime);
+     			            	var y = time.getFullYear();
+     			            	var m = time.getMonth()+1;
+     			            	var d = time.getDate();
+     			            	var h = time.getHours();
+     			            	var mm = time.getMinutes();
+     			            	var s = time.getSeconds();
+     			            	return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);
+     		            	}
+     		            },
+     		            { data: "allPositionNum" },
+     			        ],
+     			        "rowCallback": function(row, data) { //data是后端返回的数据
+     			              $('td:eq(1)', row).html('<a href=employerDetail?employerId='+ data.employerId + '>' + data.employerName + '</a>');
+     			              $('td:eq(5)', row).html('<a href=javascript:void(0) onclick=delEmployerRow()>delete</a>');
+     			        },
+     			        "order": [[ 0, "asc" ]],
+     			        select: true
+     			    } );
+            	}
             };
             function registerEventListener() {
                 $("#employerForm_submit").click(function () {
@@ -103,56 +145,11 @@
                 });
                 employerForm.Controller.getEmployerGroup();
                 employerShow.Controller.showEmployer();
-                $('#adminEmployerTest').DataTable({
-			        ajax:  {
-			        	"url" : "showAdminEmployer",
-			        	"type" : "get",
-			        	//"data" : {"groupId" : groupId, "positionStatus" : positionStatus}
-			        },
-			        columns: [
-			            { data: "employerId" },
-			            { data: "employerName" },
-			            { data: "employerGroup.employerGroupType" },
-			            { data: "allPositionNum" },
-			            { data:null,render:function(data){
-			            	function add0(m){return m<10?'0'+m:m };
-			            	var time = new Date(data.updateTime);
-			            	var y = time.getFullYear();
-			            	var m = time.getMonth()+1;
-			            	var d = time.getDate();
-			            	var h = time.getHours();
-			            	var mm = time.getMinutes();
-			            	var s = time.getSeconds();
-			            	return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);
-		            	}
-		            },
-		            { data: "allPositionNum" },
-			        ],
-			        "rowCallback": function(row, data) { //data是后端返回的数据
-			              $('td:eq(1)', row).html('<a href=employerDetail?employerId='+ data.employerId + '>' + data.employerName + '</a>');
-			              $('td:eq(5)', row).html('<a href=javascript:void(0) onclick=delEmployerRow()>delete</a>');
-			        },
-			        "order": [[ 0, "asc" ]],
-			        select: true
-			    } );
-                    $('#adminEmployerTest tbody').on( 'click', 'tr', function () {
-                        if ( $(this).hasClass('selected') ) {
-                            $(this).removeClass('selected');
-                        }
-                        else {
-                        	$('#adminEmployerTest').DataTable().$('tr.selected').removeClass('selected');
-                            $(this).addClass('selected');
-                        }
-                    } );
-                $("#editEmployer").click(function(){
-                	$("#myModalTrigger6").click();
-                });
-                $("#confirmEmployerEdit").click(function(){
-                	employerForm.Controller.handleAdminEmployerConfirmedSubmit();
-                });
                 $('#exportEmployerCSV').click(function(){
                 	employerForm.Controller.exportEmployerCSV();
                  });
+                employerShow.Controller.loadEmployerByAdmin();
+                employerShow.View.employerSelectByAdmin();
             }
 
             $(function() {
