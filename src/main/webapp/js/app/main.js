@@ -15,14 +15,12 @@ requirejs.config({
         "imis" : "app/app",
         "ajaxHandler" : "app/modules/ajax-handler",
         "formValidator": "app/modules/form-validator",
-        "selector": "app/modules/selector",
         "additionalMethods": "app/modules/additional-methods",
         "login": "app/modules/login",
         "eventHandler": "app/modules/event-handler",
         "userManagement": "app/modules/user-management",
         "userApplicationForm": "app/modules/user-application-form",
         "studentProfile": "app/modules/student-profile",
-        "application": "app/modules/application",
         "custom": "app/modules/custom",
         "slider": "app/modules/slider",
         "html5shiv": "lib/html5shiv.min",
@@ -34,8 +32,7 @@ requirejs.config({
         "ie10bug": "ie10-viewport-bug-workaround.js",
         "position": "app/modules/position",
         "employer": "app/modules/employer",
-        "jDataTables": "app/datatables/jquery.dataTables.min"
-
+        "jDataTables": "app/modules/jquery.dataTables.min"
     },
     shim: {
         'bootstrap' : {
@@ -77,10 +74,6 @@ requirejs.config({
         "formValidator": {
             deps :['jquery', 'validate'],
             exports : "formValidator"
-        },
-        "selector": {
-            deps :['jquery'],
-            exports : "selector"
         },
         "login": {
             deps :['jquery'],
