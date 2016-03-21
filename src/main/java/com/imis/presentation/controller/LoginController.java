@@ -35,7 +35,18 @@ public class LoginController {
 
 	@RequestMapping(value = "home", method = RequestMethod.GET)
 	public ModelAndView show() {
-		return new ModelAndView(HOME_PAGE);
+		String resultPage = HOME_PAGE;
+		
+		try {
+			if (userService.isLogged()) {
+				resultPage = USER_CENTER_PAGE;
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return new ModelAndView(resultPage);
 	}
 
 	@RequestMapping(value = "makeRegister", method = RequestMethod.POST)

@@ -35,7 +35,7 @@
   <body>
     <div class="container">
        <form class="form-signin" id="singleLoginForm" role="form" action="j_spring_security_check" method="POST">
-            <h2 class="form-signin-heading">Please log in</h2>
+            <h2 class="form-signin-heading">Log into system</h2>
             <div class="form-group">
               <input type="text" placeholder="User name" class="form-control" id="j_username" name='j_username'>
             </div>

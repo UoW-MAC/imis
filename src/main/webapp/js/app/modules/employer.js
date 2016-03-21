@@ -2,16 +2,17 @@
  * Created by Freya He 29/01/16
  */
 
-require(['../main'], function () {
-    require(['jquery', 'bootstrap', 'handlebars', 'validate', 'ajaxHandler',
-            'jqueryForm', 'formValidator', 'selector', 'additionalMethods','jDataTables'],
+    define(['jquery', 'bootstrap', 'handlebars', 'validate', 'ajaxHandler',
+            'jqueryForm', 'formValidator', 'additionalMethods','jDataTables'],
         function($, bootstrap, handlebars, validate, ajaxHandler,
-                 jqueryForm, formValidator, selector, additionalMethods,jDataTables) {
+                 jqueryForm, formValidator, additionalMethods, jDataTables) {
 
             "use strict";
 
             var employerForm = {};
+            
             var employerShow = {};
+            
             employerForm.View = {
                 employerFormSubmit: $("#employerForm_submit"),
                 enableSubmitButton: function() {
@@ -159,5 +160,4 @@ require(['../main'], function () {
                 
             });
 
-    });
 });

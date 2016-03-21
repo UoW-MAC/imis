@@ -33,7 +33,7 @@
 	<body>
     <!-- CONTENT SECTION -->
     <section class="contentSection">
-    	    <div class="row">
+    	    <div class="row" style="display:none">
 	    		 <select id="employerGroup">
 	    		     <option value="0">Employer Group</option> 
 				     <option value="1">Company</option> 
@@ -52,10 +52,6 @@
 		        
 		         <button type="button" id="searchPosition" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
   					Search
-				 </button>
-				 
-				 <button type="button" id="exportCSV" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
-  					Export
 				 </button>
             </div>
     	    

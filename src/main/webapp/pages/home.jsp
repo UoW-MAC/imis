@@ -8,7 +8,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-   <!-- <link rel="icon" href="../../favicon.ico"> -->
+    <link rel="icon" href="images/favicon.png">
 
     <title>Internship Management Information System</title>
 
@@ -21,6 +21,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/jumbotron.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -40,11 +41,11 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <div class="col-md-4">
+        <div class="col-md-4 home-left">
             <h1>Project Description</h1>
 	        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 home-right">
             <h2>Sign Up</h2>
             <form class="registerForm" id="registerForm" role="form" action="makeRegister" method="post">
 		        <div class="input-group">
