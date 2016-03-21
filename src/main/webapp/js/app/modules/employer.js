@@ -2,9 +2,9 @@
  * Created by Freya He 29/01/16
  */
 
-    define(['jquery', 'bootstrap', 'validate', 'ajaxHandler',
+    define(['jquery', 'bootstrap', 'handlebars', 'validate', 'ajaxHandler',
             'jqueryForm', 'formValidator', 'additionalMethods','jDataTables'],
-        function($, bootstrap, validate, ajaxHandler,
+        function($, bootstrap, handlebars, validate, ajaxHandler,
                  jqueryForm, formValidator, additionalMethods, jDataTables) {
 
             "use strict";
