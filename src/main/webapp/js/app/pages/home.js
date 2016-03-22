@@ -40,11 +40,12 @@ require(['../main'], function () {
 		        handleRegisterFormSubmit: function(){
                     if (formValidator.getRegisterValidator("#registerForm").form() == true){
                         $("#registerForm").ajaxSubmit(function(response) {
-	                        if (response.statusCode == 1000){
-	                            window.location.href = response.models.redirect; 
+                        	location.href = response.models.redirect;
+	                        /*if (response.statusCode == 1000){
+	                            location.href = response.models.redirect;
 	                        }else{
 	                            return;
-	                        }
+	                        }*/
                         });
                     }
                 },
@@ -85,7 +86,6 @@ require(['../main'], function () {
             }
 
             $(function() {
-                //selector.initSelect('select');
                 registerEventListener();
             });
 

@@ -90,7 +90,7 @@ public class PositionServiceImpl implements IPositionService {
 		}
 	}
 
-	public List<Application> getPositionStatusList(String groupId, String positionStatus) throws Exception {
+	public List<Application> getPositionStatusList() throws Exception {
 
 		Map<String, Object> parms = new HashMap<String, Object>();
 
@@ -98,8 +98,6 @@ public class PositionServiceImpl implements IPositionService {
 		String userName = userDetails.getUsername();
 
 		parms.put("userName", userName);
-		parms.put("groupId", groupId);
-		parms.put("positionStatus", positionStatus);
 
 		return applicationRepository.getPositionList(parms);
 	}

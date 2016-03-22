@@ -59,7 +59,7 @@
                         
                         <sec:authorize access="hasRole('ROLE_STUDENT') and isAuthenticated()">
                             <li><a id="positionApplicationTab" href="#positionApplicationTabPane" role="tab" data-toggle="tab">Position Application<span></span></a></li>
-                            <li class="active"><a id="studentProfileTab" href="#studentProfileTabPane" role="tab" data-toggle="tab">Personal Information<span></span></a></li>
+                            <li class="active"><a id="studentProfileTab" href="#studentProfileTabPane" role="tab" data-toggle="tab">Student Profile<span></span></a></li>
                         </sec:authorize>
                     </ul>
                 </span>

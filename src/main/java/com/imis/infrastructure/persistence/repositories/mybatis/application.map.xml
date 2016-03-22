@@ -53,21 +53,15 @@
         where ST.USERNAME=a.username and p.position_id=a.position_id and e.employer_id = p.employer_id
     </select>
     <select id="getPositionList" parameterType="Map" resultMap="applicationResultMap">
-		SELECT A.POSITION_ID, A.POSITION_NAME, A.APPLICATION_STATUS, e.EMPLOYER_NAME
+		SELECT A.POSITION_ID, A.POSITION_NAME, A.APPLICATION_STATUS, e.EMPLOYER_NAME, e.EMPLOYER_CITY, g.POSITION_GROUP_NAME
 		FROM
 		(SELECT p.POSITION_ID, p.POSITION_NAME, p.EMPLOYER_ID, p.POSITION_GROUP_ID, a.APPLICATION_STATUS
 		FROM POSITION p
 		LEFT JOIN APPLICATION a
 		on (p.POSITION_ID = a.POSITION_ID AND a.USERNAME = #{userName})) A,
-		EMPLOYER e
+		EMPLOYER e, POSITION_GROUP g
 		<where>
-		    A.EMPLOYER_ID = e.EMPLOYER_ID
-			<if test="groupId != 0">
-		         AND POSITION_GROUP_ID = #{groupId}
-		    </if>
-		    <if test="positionStatus != 0">
-		         AND A.APPLICATION_STATUS = #{positionStatus}
-		    </if>
+		    A.EMPLOYER_ID = e.EMPLOYER_ID AND A.POSITION_GROUP_ID = g.POSITION_GROUP_ID
 		</where>
 	</select>
 	<select id="getCandidateInfo" parameterType="Map" resultMap="applicationResultMap">

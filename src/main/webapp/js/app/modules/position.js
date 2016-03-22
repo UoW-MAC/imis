@@ -12,8 +12,6 @@
             "use strict";
 
             var position = {};
-            
-            var editor;
 
             position.View = {
             	
@@ -30,30 +28,29 @@
             	},
             	
             	getPositionGroupView : function(options) {
-        				var positionGroupSelect = $('#positionGroupSelect');
-        				$('#positionGroupSelect' + ' option').remove();
+    				var positionGroupSelect = $('#positionGroupSelect');
+    				$('#positionGroupSelect' + ' option').remove();
 
-        				for (var i = 0; i < options.length; i++) {
+    				for (var i = 0; i < options.length; i++) {
 
-        					var optionText = options[i].positionGroupName;
-        					var optionValue = options[i].positionGroupId;
+    					var optionText = options[i].positionGroupName;
+    					var optionValue = options[i].positionGroupId;
 
-        					var option = "<option value=" + optionValue + ">"
-        							+ optionText + "</option>";
-        					positionGroupSelect.append(option);
-        				}
+    					var option = "<option value=" + optionValue + ">"
+    							+ optionText + "</option>";
+    					positionGroupSelect.append(option);
+    				}
         	     },
         	     positionSelectByAdmin : function() {
-        	     
-        	      $('#adminPositionTest tbody').on( 'click', 'tr', function () {
-                            if ( $(this).hasClass('selected') ) {
-                                $(this).removeClass('selected');
-                            }
-                            else {
-                            	$('#adminPositionTest').DataTable().$('tr.selected').removeClass('selected');
-                                $(this).addClass('selected');
-                            }
-                        } );
+	        	     $('#adminPositionTest tbody').on( 'click', 'tr', function () {
+                        if ( $(this).hasClass('selected') ) {
+                            $(this).removeClass('selected');
+                        }
+                        else {
+                        	$('#adminPositionTest').DataTable().$('tr.selected').removeClass('selected');
+                            $(this).addClass('selected');
+                        }
+                     });
         	     
         	     },
         	     applicationSelectByAdmin : function() {
@@ -62,13 +59,13 @@
                          $(this).removeClass('selected');
                      }
                      else {
-                     	$('#adminApplicationTest').DataTable().$('tr.selected').removeClass('selected');
+                     	 $('#adminApplicationTest').DataTable().$('tr.selected').removeClass('selected');
                          $(this).addClass('selected');
                      }
-                 } );			 
+                 });			 
         	     },	
-        			positionFormSubmit : $("#positionForm_submit")
-        		};
+        		 positionFormSubmit : $("#positionForm_submit")
+        	};
 
             position.Controller = {
             	getPositionGroup : function() {
@@ -108,30 +105,32 @@
             		 },
             		 
             		 loadPostionStatusList : function() {
-            		    var groupId = $('#employerGroup').find("option:selected").val();
-                	    var positionStatus = $('#positionStatus').find("option:selected").val();
+            		    //var groupId = $('#employerGroup').find("option:selected").val();
+                	    //var positionStatus = $('#positionStatus').find("option:selected").val();
             		 
             		 	$('#example').DataTable({
 				        ajax:  {
 				        	"url" : "getPostionStatusList",
-				        	"type" : "post",
-				        	"data" : {"groupId" : groupId, "positionStatus" : positionStatus}
+				        	"type" : "post"
+				        	//"data" : {"groupId" : groupId, "positionStatus" : positionStatus}
 				        	//"dataSrc": "data"
 				        },
 				        columns: [
-				            { data: "positionName" },
+				            { data: "position.positionName" },
+				            { data: "position.positionGroup.positionGroupName" },
 				            { data: "employer.employerName" },
+				            { data: "employer.employerCity" },
 				            { data: null, render: 
 				                function ( data, type, row ) {
 					            	var result;
 					            	
-					            	if (data.application == null)
+					            	if (data == null)
 					            		result = 'New'; 
-					            	else if (data.application.applicationStatus == 1)
+					            	else if (data.applicationStatus == 1)
 					                	result = 'Requested';
-					                else if (data.application.applicationStatus == 2)
+					                else if (data.applicationStatus == 2)
 					                	result = 'Success';
-					                else if (data.application.applicationStatus == 3)
+					                else if (data.applicationStatus == 3)
 					                    result = 'Regected';
 					                return result;
 				                }  
@@ -139,7 +138,7 @@
 				            
 				        ],
 				        rowCallback : function(row, data) {
-				        	$('td:eq(0)', row).html('<a href=positionDetail?positionId='+ data.positionId + '>' + data.positionName + '</a >');
+				        	$('td:eq(0)', row).html('<a href=positionDetail?positionId='+ data.position.positionId + '>' + data.position.positionName + '</a >');
 				        },
 				        select: true
 				       } );
@@ -149,7 +148,7 @@
             		 loadPositionByEmployer : function() {
             		 
             		 	$('#positionTest').DataTable({
-			        ajax:  {
+			             ajax:  {
 			        	"url" : "showPosition",
 			        	"type" : "get",
 			        	//"data" : {"groupId" : groupId, "positionStatus" : positionStatus}
@@ -316,7 +315,7 @@
 	            });
                 $('#exportApplicationCSV').click(function(){
                 	position.Controller.exportApplicationCSV();
-                 });
+                });
             }
                 
             

@@ -17,7 +17,7 @@ public interface IPositionService {
 
 	public boolean positionUpdate(Position position) throws Exception;
 
-	public List<Application> getPositionStatusList(String groupId, String positionStatus) throws Exception;
+	public List<Application> getPositionStatusList() throws Exception;
 
 	public void positionApply(String positionId) throws Exception;
 

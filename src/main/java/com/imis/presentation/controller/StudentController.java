@@ -95,12 +95,10 @@ public class StudentController {
     public @ResponseBody Map<String, List<Application>>  getPostionStatusList(HttpServletRequest request) {
 
         Map<String, List<Application>> positionStatusMap = null;
-        String groupId = request.getParameter("groupId");
-        String positionStatus = request.getParameter("positionStatus");
 
-    	try
+        try
     	{
-    		List<Application> positionStatusList = positionService.getPositionStatusList(groupId, positionStatus);
+    		List<Application> positionStatusList = positionService.getPositionStatusList();
 
     		positionStatusMap = new HashMap<String, List<Application>>();
     		positionStatusMap.put("data", positionStatusList);
@@ -213,7 +211,7 @@ public class StudentController {
     	Response response = new Response();
     	Map<String, Object> models = new HashMap<String, Object>();
 
-    	List<Application> positionStatusList = positionService.getPositionStatusList("0", "0");
+    	List<Application> positionStatusList = positionService.getPositionStatusList();
 
         String filePath = CsvExporter.export(positionStatusList);
 

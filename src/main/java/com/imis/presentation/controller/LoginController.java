@@ -7,6 +7,12 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +24,6 @@ import com.imis.domain.entities.User;
 import com.imis.domain.valuetypes.ResponseStatus;
 import com.imis.presentation.model.Response;
 import com.imis.service.IUserService;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
 /**
  * @author william zhang
@@ -32,6 +37,9 @@ public class LoginController {
 
 	@Resource
 	private IUserService userService;
+	
+	@Autowired
+    protected AuthenticationManager authenticationManager;
 
 	@RequestMapping(value = "home", method = RequestMethod.GET)
 	public ModelAndView show() {
@@ -50,11 +58,19 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "makeRegister", method = RequestMethod.POST)
-	public @ResponseBody Response handleRegister(@ModelAttribute("registerForm") User user) {
+	public @ResponseBody Response handleRegister(@ModelAttribute("registerForm") User user, HttpServletRequest request) {
 		Map<String, Object> models = null;
 
 		try {
+			String noEncryptedPassword = user.getPassword();
 			userService.register(user);
+			
+			UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getUserName(), noEncryptedPassword);
+			request.getSession();
+	        token.setDetails(new WebAuthenticationDetails(request));
+	        Authentication authenticatedUser = authenticationManager.authenticate(token);
+	        SecurityContextHolder.getContext().setAuthentication(authenticatedUser);
+			
 			models = new HashMap<String, Object>();
 			models.put("redirect", USER_CENTER_PAGE);
 

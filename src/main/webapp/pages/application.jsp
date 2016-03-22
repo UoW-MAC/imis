@@ -60,7 +60,9 @@
 			        <thead>
 			            <tr>
 			                <th>Position</th>
+			                <th>Position Group</th>
 			                <th>Organization</th>
+			                <th>Work Place</th>
 			                <th>Status</th>
 			            </tr>
 			        </thead>

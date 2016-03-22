@@ -21,7 +21,8 @@ require(['../main'], function () {
 				        url: 'positionApply',
 				        data : "positionId=" + $("#positionId").attr("value"),
 				        success: function(data) {
-				        	application.Controller.loadPostionStatusList();
+				        	//application.Controller.loadPostionStatusList();
+				        	//need load asynchronous
 				        	location.href = "user-center";
 				        }
 				    });
