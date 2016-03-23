@@ -70,14 +70,16 @@ public class EmployerController {
 	}
 	@RequestMapping(value = "makeEmployer", method = RequestMethod.POST)
 	public ModelAndView makeApplication(@ModelAttribute("employerForm") Employer employer) {
+		String returnPage = null;
 		try {
 			if (employer.getEmployerId()==null) {
 				employerService.employerInfoSubmit(employer);
 			} else {
 				employerService.employerInfoUpdate(employer);
 			}
+			returnPage = USER_CENTER_PAGE;
 		} catch (Exception exception) {
-			return null;
+			returnPage = ERROR_PAGE;
 		}
 		return new ModelAndView(USER_CENTER_PAGE);
 		// return new Response(statusCode, statusDescription);
@@ -144,4 +146,20 @@ public class EmployerController {
 	        
 	        return response;
 	    }
+	  @RequestMapping(value = "employerNameValidation", method = RequestMethod.POST)
+		public @ResponseBody boolean userNameValidation(HttpServletRequest request) {
+		  Boolean employerNameValidation = null;
+		  if (request.getParameter("address") != null){
+			  employerNameValidation = true;
+		  }else{
+			try {
+				 if (employerService.isEmployerNameExisted(request.getParameter("employerName"))) {
+					 employerNameValidation = false;
+				 }
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		  }
+			return employerNameValidation;
+		}
 }

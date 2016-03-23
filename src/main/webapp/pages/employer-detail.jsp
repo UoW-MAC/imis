@@ -33,7 +33,7 @@
 	<jsp:include page='header.jsp'/>
 
     <!-- CONTENT SECTION -->
-    <section class="contentSection">
+    <section class="contentSection position-detail">
     	<div class="container">
     	<div id="employerEditTable">
             <div class="row">

@@ -133,5 +133,14 @@ public class EmployerServiceImpl implements IEmployerService {
 			throw e;
 		}
 	}
-	
+	public boolean isEmployerNameExisted(String userName) throws Exception {
+		Employer employer = employerRepository.getEmployerByEmployerName(userName);
+		Boolean isEmployerNameExisted = false;
+		
+		if (employer != null) {
+			isEmployerNameExisted = true;
+		}
+		
+		return isEmployerNameExisted;
+	}
 }

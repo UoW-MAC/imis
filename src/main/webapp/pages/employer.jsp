@@ -36,9 +36,8 @@
             <div class="row">
               <span class="col-sm-9 rightBorder equalCol">
                     <form class="employerForm" id="employerForm" role="form" action="makeEmployer" method="post">
-                    		 <div id="employerTable">
-                    		 <script	id="employer-list" type="text/x-handlebars-template">
- {{#employer}}
+                    	 <div id="employerTable" class="row" >
+                     		  <script	id="employer-list" type="text/x-handlebars-template">
 				   <div class="row">
                             <aside class="userFormCol-1">CompanyName</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="employer_name" name="employerName" value="{{employerName}}"></aside>
@@ -89,9 +88,9 @@
                         </div>
 						<input type ="hidden" id="employerId" name = "employerId" value ="{{employerId}}"/>
 						<input type ="hidden" id="employerGroupId" name = "employerGroupId" value ="{{employerGroup.employerGroupId}}"/>
-			{{/employer}}	
- 					</script>  
- 					   </div>
+ </script>  
+ </div>
+ <div id="down">
  						<div class="row">
 							<aside class="userFormCol-1">EmployerGroup</aside>
 							<aside class="userFormCol-right">				
@@ -100,6 +99,7 @@
 							</aside>
 						</div>	
                <div class="row">  <input type="button" id="employerForm_submit" value="submit"/>
+                </div>
                 </div>
              </form>
               </span>

@@ -293,13 +293,15 @@
                 position.Controller.loadPositionByAdmin();
                 position.Controller.loadPositionByEmployer();
                 position.Controller.loadApplicationByAdmin();
-                position.View.getPositionGroupView();
                 position.View.positionSelectByEmployer();
-                position.View.applicationSelectByEmployer();
+                position.View.positionSelectByAdmin();
+                position.View.applicationSelectByAdmin();
                 
                 
                 $("#submitPosition").click(function() {
-                	$("#myModalTrigger3").click();
+                	if (formValidator.getPositionValidator("#positionForm").form() == true){
+                		$("#myModalTrigger3").click();
+                	}
     			});
                 $("#confirmSubmit").click(function(){
                 	position.Controller.handleFormSubmit();

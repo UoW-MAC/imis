@@ -4,9 +4,9 @@
 
 require(['../main'], function () {
     require(['jquery', 'bootstrap', 'handlebars',  'validate', 'ajaxHandler',
-            'jqueryForm', 'formValidator', 'selector', 'additionalMethods', 'custom', 'eventHandler','jDataTables'],
+            'jqueryForm', 'formValidator', 'additionalMethods', 'custom', 'eventHandler','jDataTables'],
         function($, bootstrap, handlebars, validate, ajaxHandler,
-                 jqueryForm, formValidator, selector, additionalMethods, custom, eventHandler,jDataTables) {
+                 jqueryForm, formValidator, additionalMethods, custom, eventHandler,jDataTables) {
 
             "use strict";
 

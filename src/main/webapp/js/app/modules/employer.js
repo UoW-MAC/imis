@@ -38,10 +38,15 @@
             };
             employerShow.View = {
             		showEmployerInfo: function(data){
-            			var handleEmployerList = handlebars.compile($("#employer-list").html());
-            			var HTML = handleEmployerList(data);
-            			$("#employerTable").html(HTML);
-            			$('#employerGroupSelect').val($('#employerGroupId').val());
+            			var employerProfiletemplate = handlebars.compile($("#employer-list").html());
+            			var employerInfoObject = null;
+            			var employerProfileHtml = null;
+            			if (data!= null) {
+            				employerInfoObject = data.employer;
+            			}
+            			employerProfileHtml = employerProfiletemplate(employerInfoObject);
+				        $("#employerForm").append(employerProfileHtml);
+				        $('#employerGroupSelect').val($('#employerGroupId').val());
             		},
             		employerSelectByAdmin:function(){
             			 $('#adminEmployerTest tbody').on( 'click', 'tr', function () {
@@ -137,7 +142,9 @@
             };
             function registerEventListener() {
                 $("#employerForm_submit").click(function () {
+                	if (formValidator.getEmployerValidator("#employerForm").form() == true){
                     employerForm.Controller.handleFormSubmit();
+                	}
                 });
 
                 $("#confirmedSubmit").click(function () {

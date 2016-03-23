@@ -21,4 +21,5 @@ public interface EmployerRepository {
 	void deleteEmployerInfo(Long employerId);
 	List<Employer> getAdminEmployerInfo();
 	List<Employer> exportAdminEmployerInfo();
+	Employer getEmployerByEmployerName(String employerName);
 }

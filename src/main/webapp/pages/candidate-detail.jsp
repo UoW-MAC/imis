@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
         -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Student Center</title>
+		<title>Candidate Center</title>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,7 +17,7 @@
         <script src="js/lib/html5shiv.min.js"></script>
         <script src="js/lib/respond.min.js"></script>
         <![endif]-->
-    
+    	<link rel="icon" href="images/favicon.png">
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
         <link href="css/custom.css" rel="stylesheet" type="text/css">
         <link href="css/validation.css" rel="stylesheet">
@@ -32,7 +32,7 @@
 	<jsp:include page='header.jsp'/>
 	
     <!-- CONTENT SECTION -->
-    <section class="contentSection">
+    <section class="contentSection position-detail">
     	<div class="container">
     	
                 <div class="row">
@@ -154,7 +154,7 @@
           				      <div class="row">
                 	<input type="button" id="candidateAccept" value="Accept"/>
                 	<input type="button" id="candidateReject" value="Reject"/>
-                	<a href="canditateInfo?positionId=${positionId}">Cancel</a>
+                	<a href="candidate?positionId=${positionId}">Cancel</a>
                 </div>
            </div>
     </section>

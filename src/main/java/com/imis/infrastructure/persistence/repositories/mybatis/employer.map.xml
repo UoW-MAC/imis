@@ -66,5 +66,8 @@
 	    	select employer_name,employer_address,employer_city,employer_post_code,employer_country,
 	    	contactor_first_name,contactor_last_name,contactor_position,employer_telephone,employer_email,employer_website,employer_notes,create_time,update_time,employer_group_id from employer
     </select>
+     <select id="getEmployerByEmployerName"  parameterType="String" resultMap="employerResultMap">  
+	    	select employer_name from employer where employer_name = #{employerName}
+    </select>
 </mapper>
 
