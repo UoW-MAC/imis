@@ -11,18 +11,17 @@ require(['../main'], function () {
             
             employerDetail.View = {
                 getEmployerGroupView : function(options) {
-    				var employerGroupSelect = $('#employerGroupSelect');
-    				$('#employerGroupSelect' + ' option').remove();
+    				var employerGroupSelect = $('#inputemployerGroupSelect');
+    				$('#inputemployerGroupSelect' + ' option').remove();
     				for (var i = 0; i < options.length; i++) {
     					var optionText = options[i].employerGroupType;
     					var optionValue = options[i].employerGroupId;
     					var option = "<option value=" + optionValue + ">"
     							+ optionText + "</option>";
-    					$('#employerGroupSelect').append(option);
-
+    					$('#inputemployerGroupSelect').append(option);
     				}
     			}
-            };
+    		 };
             employerDetail.Controller = {
             		getEmployerGroup : function() {
         				$.ajax({
@@ -31,6 +30,7 @@ require(['../main'], function () {
         					url : 'getEmployerGroup',
         					success : function(data) {
         						employerDetail.View.getEmployerGroupView(data);
+        						document.getElementById("inputemployerGroupSelect").options[($('#inputemployerGroupId').val()-1)].selected = true;
         					}
         				});
         			},
@@ -49,7 +49,9 @@ require(['../main'], function () {
                 	employerDetail.Controller.handleAdminEmployerConfirmedSubmit();
                 });
             }
-
+            $("#cancelEmployer").click(function(){
+            	location.href="user-center";
+            });
             $(function() {
                 registerEventListener();
             });

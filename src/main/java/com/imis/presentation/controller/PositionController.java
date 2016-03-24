@@ -36,6 +36,7 @@ public class PositionController {
 	private static final String CANDIDATE_DETAIL_PAGE="candidate-detail";
 	private static final String CANDIDATE_PAGE="candidate";
     private static final String ERROR_PAGE = "error";
+    private static final String ADMIN_POSITION_DETAIL_PAGE="admin-position-detail";
 	
 	//private static final String SURVEY_COMPLETION_PAGE = "survey-completion-page";
 
@@ -206,5 +207,26 @@ public class PositionController {
         
         return response;
     }
-  
+    @RequestMapping(value = "adminPositionDetail", method = RequestMethod.GET)
+    public ModelAndView showPositionDetailInfo(HttpServletRequest request) {
+
+    	String positionId = request.getParameter("positionId");
+    	Position position = null;
+        Map<String, Object> models = null;
+        String returnPage = null;
+
+        try {
+        	position = positionService.getPositionInfo(Integer.parseInt(positionId));
+
+        	models = new HashMap<String, Object>();
+        	models.put("positionDetail", position);
+
+    		returnPage = ADMIN_POSITION_DETAIL_PAGE;
+
+		} catch (Exception e) {
+    		returnPage = ERROR_PAGE;
+		}
+
+        return new ModelAndView(returnPage, models);
+    }
 }

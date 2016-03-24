@@ -154,7 +154,6 @@
 			        	//"data" : {"groupId" : groupId, "positionStatus" : positionStatus}
 			        },
 			        columns: [
-			            { data: "positionId" },
 			            { data: "positionName" },
 			            { data: "positionGroup.positionGroupName" },
 			            { data:null,render:function(data){
@@ -163,21 +162,19 @@
 			            	var y = time.getFullYear();
 			            	var m = time.getMonth()+1;
 			            	var d = time.getDate();
-			            	var h = time.getHours();
-			            	var mm = time.getMinutes();
-			            	var s = time.getSeconds();
-			            	return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);
+			            	return y+'-'+add0(m)+'-'+add0(d);
 		            	}
 		            },
 			            { data: "unreadApplicationNum" },
 			            { data: "unreadApplicationNum" },
 			        ],
 			        "rowCallback": function(row, data) { //data是后端返回的数据
-			              $('td:eq(1)', row).html('<a href=positionDetail?positionId='+ data.positionId + '>' + data.positionName + '</a>');
-			              $('td:eq(4)', row).html('<a href=candidate?positionId='+ data.positionId + '>' + data.unreadApplicationNum+'/'+data.applicationNum + '</a>');
-			              $('td:eq(5)', row).html('<a href=javascript:void(0) onclick=delPositionRow()>delete</a>');
+			              $('td:eq(0)', row).html('<a href=positionDetail?positionId='+ data.positionId + '>' + data.positionName + '</a>');
+			              $('td:eq(3)', row).html('<a href=candidate?positionId='+ data.positionId + '>' + data.unreadApplicationNum+'/'+data.applicationNum + '</a>');
+			              $('td:eq(4)', row).html('<a href=javascript:void(0) onclick=delPositionRow()>delete</a>');
+			              $("table th").css("text-align", "center");
 			        },
-			        "order": [[ 3, "desc" ]],
+			        "order": [[ 2, "desc" ]],
 			        select: true
 			    } );
             		 
@@ -191,7 +188,6 @@
     			        	//"data" : {"groupId" : groupId, "positionStatus" : positionStatus}
     			        },
     			        columns: [
-    			            { data: "positionId" },
     			            { data: "positionName" },
     			            { data: "positionGroup.positionGroupName" },
     			            { data: "employer.employerName" },
@@ -201,19 +197,16 @@
     			            	var y = time.getFullYear();
     			            	var m = time.getMonth()+1;
     			            	var d = time.getDate();
-    			            	var h = time.getHours();
-    			            	var mm = time.getMinutes();
-    			            	var s = time.getSeconds();
-    			            	return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);
+    			            	return y+'-'+add0(m)+'-'+add0(d);
     		            	}
     		            },
     		            { data: "positionId" },
     			        ],
     			        "rowCallback": function(row, data) { //data是后端返回的数据
-    			              $('td:eq(1)', row).html('<a href=positionDetail?positionId='+ data.positionId + '>' + data.positionName + '</a>');
-    			              $('td:eq(5)', row).html('<a href=javascript:void(0) onclick=delAdminPositionRow()>delete</a>');
+    			              $('td:eq(0)', row).html('<a href=adminPositionDetail?positionId='+ data.positionId + '>' + data.positionName + '</a>');
+    			              $('td:eq(4)', row).html('<a href=javascript:void(0) onclick=delAdminPositionRow()>delete</a>');
     			        },
-    			        "order": [[ 0, "asc" ]],
+    			        "order": [[ 4, "asc" ]],
     			        select: true
     			    } );
             		 
@@ -227,7 +220,6 @@
             			        	"data" : {"positionId" : 0}
             			        },
             			        columns: [
-            			            { data: "applicationId" },
             			            { data: "student.studentId" },
             			            { data:  "position.positionName"},
             			            { data:  "employer.employerName"},
@@ -251,17 +243,14 @@
             			            	var y = time.getFullYear();
             			            	var m = time.getMonth()+1;
             			            	var d = time.getDate();
-            			            	var h = time.getHours();
-            			            	var mm = time.getMinutes();
-            			            	var s = time.getSeconds();
-            			            	return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);
+            			            	return y+'-'+add0(m)+'-'+add0(d);
             		            	}
             		            },
             		            { data:  "applicationId"},
             			        ],
             			        "rowCallback": function(row, data) { //data是后端返回的数据
-            			              $('td:eq(1)', row).html( data.student.firstName +'&nbsp' +data.student.middleName +'&nbsp'+ data.student.lastName);
-            			              $('td:eq(6)', row).html('<a href=javascript:void(0) onclick=delApplicationRow()>delete</a>');
+            			              $('td:eq(0)', row).html( data.student.firstName +'&nbsp' +data.student.middleName +'&nbsp'+ data.student.lastName);
+            			              $('td:eq(5)', row).html('<a href=javascript:void(0) onclick=delApplicationRow()>delete</a>');
             			        },
             			        select: true
             			    } );

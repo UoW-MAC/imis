@@ -72,86 +72,10 @@
                 	<input type="button" id="cancelApply" value="Cancel"/>
                 </div>
                   </sec:authorize>
-                   <sec:authorize access="hasAnyRole('ROLE_ORGANIZATION,ROLE_ADMIN') and isAuthenticated()">
-                   		<div class="row">
-                   		<a href="javascript:void(0)" onClick="editDisplay(${positionDetail.positionId},'${positionDetail.positionName}',${positionDetail.positionGroup.positionGroupId},'${positionDetail.responsibilities}','${positionDetail.requirements}',${positionDetail.salary},'${positionDetail.positionDescription}')" >edit</a>
-                   		</div>
-                   	</sec:authorize>
               </div>
-               <sec:authorize access="hasAnyRole('ROLE_ORGANIZATION,ROLE_ADMIN') and isAuthenticated()">
-                  <div id="updateForm" style="display:none">
-							<form  id="editForm" role="form" action="updatePosition" method="post">
-								<table id = "" width="100%">
-								<tr>
-								    <th>positionName</th>
-								    <th>groupName</th>
-								    <th>responsibilities</th>
- 									<th>requirements</th>
- 									<th>salary</th>
- 									<th>positionDescription</th>
-								</tr>
-         					    <tr style="vertical-align: middle">
-									<th><input type="text" id="inputPositionName" name="positionName" value=""/></th>
-									<th><select id="inputpositionGroupSelect" name="positionGroup.positionGroupId"></select></th>
-									<th><input type="text" id="inputResponsibilities" name="responsibilities" value=""/></th>
-									<th><input type="text" id="inputRequirements" name="requirements" value=""/></th>
-									<th><input type="text" id="inputSalary" name="salary" value=""/></th>
-									<th><input type="text" id="inputPositionDescription" name="positionDescription" value=""/></th>
-									</tr>
-									</table>
-									<div class="row">
-									<input type ="hidden" id="inputPositionId" name = "positionId" value =""/>
-									<input type="button" id="editPosition" value="Edit"/>
-									<input type="button" class="white-bt" id="canclePosition" value="cancle" onclick="editDisplay()"/>
-									</div>
-									</form>
-				</div>
-                   </sec:authorize>
             </div>
     </section>
-     <script type="text/javascript"  >
-     					 function editDisplay(positionId,positionName,groupId,responsibilities,requirements,salary,positionDescription){
-     					       var positionTable=document.getElementById("positionEditTable");
-     					       var updateForm=document.getElementById("updateForm");
-     					        if(positionEditTable.style.display=="none"){
-     					        	updateForm.style.display="none";
-     					        	positionEditTable.style.display="";
-     					        }else{
-     					        	positionEditTable.style.display="none";
-     					        	updateForm.style.display="";
-     					        	$.ajax({
-     		        					type : "get",
-     		        					dataType : "json",
-     		        					url : 'getPositionGroup',
-     		        					success : function(data) {
-     		        						var positionGroupSelect = $('#inputpositionGroupSelect');
-     		               				$('#inputpositionGroupSelect' + ' option').remove();
-
-     		               				for (var i = 0; i < data.length; i++) {
-
-     		               					var optionText = data[i].positionGroupName;
-     		               					var optionValue = data[i].positionGroupId;
-
-     		               					var option = "<option value=" + optionValue + ">"
-     		               							+ optionText + "</option>";
-     		               					positionGroupSelect.append(option);
-
-     		               				}
-     		               			document.getElementById("inputpositionGroupSelect").options[(groupId-1)].selected = true;
-     		        					}
-     		        				});
-     					        	document.getElementById('inputPositionId').value = positionId;
-     					        	document.getElementById('inputPositionName').value = positionName;
-     					        	document.getElementById('inputpositionGroupSelect').value = groupId;
-     					        	document.getElementById('inputResponsibilities').value = responsibilities;
-     					        	document.getElementById('inputRequirements').value = requirements;
-     					        	document.getElementById('inputSalary').value = salary;
-     					        	document.getElementById('inputPositionDescription').value = positionDescription;
-
-     					      }
-     					   }
-     	</script>
-
+ 
     <!-- Button trigger modal -->
       <button type="button" id="myModalTrigger" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="display:none">Submit</button>
       <div class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -165,23 +89,6 @@
                   <div class="buttonsRow">
                      <button id="return" type="button" class="white-bt" data-dismiss="modal">Cancel</button>
                      <button type="submit" id="confirmApply" class="orange-bt meta-event-source" meta-event-handler="application:confirmApply">Confirm</button>
-                  </div>
-            </div>
-        </div>
-      </div>
-      <!-- Button trigger modal -->
-      <button type="button" id="myModalTrigger2" class="btn btn-primary" data-toggle="modal" data-target="#myModal2" style="display:none">Submit</button>
-      <div class="modal fade in" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                 <div class="modal-header">
-                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                     <h4 class="modal-title" id="myModalLabel2">Tip</h4>
-                 </div>
-                 <div class="modal-body">Are you sure to edit this position?</div>
-                  <div class="buttonsRow">
-                     <button id="return" type="button" class="white-bt" data-dismiss="modal">Cancel</button>
-                     <button type="submit" id="confirmEdit" class="orange-bt meta-event-source" meta-event-handler="application:confirmEdit">Confirm</button>
                   </div>
             </div>
         </div>

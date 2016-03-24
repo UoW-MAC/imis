@@ -41,12 +41,11 @@
 	    	     <table id="adminApplicationTest" class="display" cellspacing="0" width="100%">
 			        <thead>
 			            <tr>
-			                <th>ApplicationId</th>
-			                <th>StudentName</th>
-			                <th>PositionName</th>
-			                <th>EmployerName</th>
-			                <th>ApplicationStatus</th>
-			                <th>updateTime</th>
+			                <th>Applicant Name</th>
+			                <th>Position Name</th>
+			                <th>Employer Name</th>
+			                <th>Application Status</th>
+			                <th>Update Time</th>
 			                <th></th>
 			            </tr>
 			        </thead>
@@ -64,7 +63,7 @@
          $.ajax({
     				type: "get",       
     				dataType: "json",            
-    				url: 'deletePosition',   
+    				url: 'deleteApplication',   
     				data:  a,
     				success: function() {     
     			    }      

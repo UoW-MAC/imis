@@ -51,10 +51,6 @@
   	            },
                 loadStudentProfile : function(){
                 	var a = 0;
-                	
-                	if($("#adminstudentId").val()!=null){
-                		a = $("#adminstudentId").val();
-                	}
                 	$.ajax({
 				        type: "post",
 					    dataType: "json",
@@ -115,18 +111,7 @@
 	   			            { data: "studentNo" },
 	   			            { data: "lastName" },
 	   			            { data: "semesterRegistered" },
-	   			            { data:null,render:function(data){
-	   			            	function add0(m){return m<10?'0'+m:m };
-	   			            	var time = new Date(data.updateTime);
-	   			            	var y = time.getFullYear();
-	   			            	var m = time.getMonth()+1;
-	   			            	var d = time.getDate();
-	   			            	var h = time.getHours();
-	   			            	var mm = time.getMinutes();
-	   			            	var s = time.getSeconds();
-	   			            	return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);
-	   		            		}
-	   			            },
+	   			            { data: "registeredYear"},
 	   			            { data: "studentId" }
 	   			         ],
 	   			         "rowCallback": function(row, data) { //data是后端返回的数据

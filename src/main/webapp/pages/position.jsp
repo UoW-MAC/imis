@@ -41,7 +41,6 @@
 	    	     <table id="positionTest" class="display" cellspacing="0" width="100%">
 			        <thead>
 			            <tr>
-			                <th>positionId</th>
 			                <th>positionName</th>
 			                <th>GroupName</th>
 			                <th>updateTime</th>
@@ -53,7 +52,7 @@
     	     </div>
     	     </div>
 				<div id="addForm" style="display:none">
-				<form class="positionForm" id="positionForm" role="form" action="makePosition" method="post">
+				<form class="positionForm col-sm-9 rightBorder equalCol" id="positionForm" role="form" action="makePosition" method="post">
 						<div class="row">
 							<aside class="userFormCol-1">Name</aside>
 							<aside class="userFormCol-right">
@@ -82,17 +81,17 @@
 							</aside>
 						</div>
 						<div class="row">
-							<aside class="userFormCol-1">PositionGroup</aside>
-							<aside class="userFormCol-right">								
-              					<select id="positionGroupSelect" name="positionGroup.positionGroupId">
-             				 	</select>
-							</aside>
-						</div>
-						<div class="row">
 							<aside class="userFormCol-1">positionDescription</aside>
 							<aside class="userFormCol-right">
 								<input type="text" class="width-330" id="positionDescription"
 									name="positionDescription">
+							</aside>
+						</div>
+						<div class="row">
+							<aside class="userFormCol-1">PositionGroup</aside>
+							<aside class="userFormCol-right">								
+              					<select id="positionGroupSelect" name="positionGroup.positionGroupId">
+             				 	</select>
 							</aside>
 						</div>
 						<div class="row">

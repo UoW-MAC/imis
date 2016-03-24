@@ -90,12 +90,9 @@
 		ST.FIRST_NAME,
 		ST.MIDDLE_NAME,
 		ST.LAST_NAME,
-		ST.STATUS,
 		ST.SEMESTER_REGISTERED,
-		ST.Gender,
-		ST.TELEPHONE,
 		ST.student_no,
-		st.update_time
+		ST.REGISTERED_YEAR
 		FROM STUDENT ST
 	</select>
 	<delete id="deleteStudentInfo" parameterType="Long">

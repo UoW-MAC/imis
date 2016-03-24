@@ -43,6 +43,7 @@ public class StudentController {
     private static final String STUDENT_PAGE = "student";
     private static final String POSITION_DETAIL_PAGE = "position-detail";
     private static final String ERROR_PAGE = "error";
+    private static final String STUDENT_DETAIL_PAGE= "student-detail";
 
 
     @Resource
@@ -188,11 +189,10 @@ public class StudentController {
 			studentList  = studentService.getAdminStudentInfo();
 			studentMap = new HashMap<String,Object>();
 			studentMap.put("data", studentList);
-			return studentMap;
 		} catch (Exception ex) {
-			return null;
+			
 		}
-
+		return studentMap;
 	}
     @RequestMapping(value = "deleteStudent", method = RequestMethod.GET)
    	public @ResponseBody Response handleDeleteStudent(HttpServletRequest request) {
@@ -266,14 +266,17 @@ public class StudentController {
     @RequestMapping(value = "getAdminStudentInfo", method = RequestMethod.GET)
     public ModelAndView showStudentDetailInfo(HttpServletRequest request) {
     	String returnPage;
+    	String studentId = request.getParameter("studentId");
+    	Map<String, Integer> model = new HashMap<String, Integer>();
+    	model.put("studentId", Integer.parseInt(studentId));
     	try{
-    		returnPage = STUDENT_PAGE;;
+    		returnPage = STUDENT_DETAIL_PAGE;
 
 		} catch (Exception e) {
     		returnPage = ERROR_PAGE;
 		}
 
-        return new ModelAndView(returnPage);
+        return new ModelAndView(returnPage,model);
     }
     @RequestMapping(value = "exportStudentCSV", method = RequestMethod.POST)
     public @ResponseBody Response exportStudentAll(HttpServletRequest request) throws Exception {

@@ -46,7 +46,6 @@
             			}
             			employerProfileHtml = employerProfiletemplate(employerInfoObject);
 				        $("#employerForm").append(employerProfileHtml);
-				        $('#employerGroupSelect').val($('#employerGroupId').val());
             		},
             		employerSelectByAdmin:function(){
             			 $('#adminEmployerTest tbody').on( 'click', 'tr', function () {
@@ -68,6 +67,10 @@
         					url : 'getEmployerGroup',
         					success : function(data) {
         						employerForm.View.getEmployerGroupView(data);
+        						if(data!=null){
+        							document.getElementById("employerGroupSelect").options[($('#employerGroupId').val()-1)].selected = true;
+        					
+        						}
         					}
         				});
         			},
@@ -102,6 +105,7 @@
             				url: 'showEmployer',   
             				success: function(data) {     
             					employerShow.View.showEmployerInfo(data);
+            					 employerForm.Controller.getEmployerGroup();
             			    }      
             	        });       
             	},
@@ -113,7 +117,6 @@
      			        	//"data" : {"groupId" : groupId, "positionStatus" : positionStatus}
      			        },
      			        columns: [
-     			            { data: "employerId" },
      			            { data: "employerName" },
      			            { data: "employerGroup.employerGroupType" },
      			            { data: "allPositionNum" },
@@ -123,19 +126,17 @@
      			            	var y = time.getFullYear();
      			            	var m = time.getMonth()+1;
      			            	var d = time.getDate();
-     			            	var h = time.getHours();
-     			            	var mm = time.getMinutes();
-     			            	var s = time.getSeconds();
-     			            	return y+'-'+add0(m)+'-'+add0(d)+' '+add0(h)+':'+add0(mm)+':'+add0(s);
+     			            	return y+'-'+add0(m)+'-'+add0(d);
      		            	}
      		            },
-     		            { data: "allPositionNum" },
+     		            { data: "employerId" },
      			        ],
      			        "rowCallback": function(row, data) { //data是后端返回的数据
-     			              $('td:eq(1)', row).html('<a href=employerDetail?employerId='+ data.employerId + '>' + data.employerName + '</a>');
-     			              $('td:eq(5)', row).html('<a href=javascript:void(0) onclick=delEmployerRow()>delete</a>');
+     			        	  $("table th").css("text-align", "center");
+     			              $('td:eq(0)', row).html('<a href=employerDetail?employerId='+ data.employerId + '>' + data.employerName + '</a>');
+     			              $('td:eq(4)', row).html('<a href=javascript:void(0) onclick=delEmployerRow()>delete</a>');
      			        },
-     			        "order": [[ 0, "asc" ]],
+     			        "order": [[ 4, "asc" ]],
      			        select: true
      			    } );
             	}
@@ -150,7 +151,6 @@
                 $("#confirmedSubmit").click(function () {
                     employerForm.Controller.handleConfirmedSubmit();
                 });
-                employerForm.Controller.getEmployerGroup();
                 employerShow.Controller.showEmployer();
                 $('#exportEmployerCSV').click(function(){
                 	employerForm.Controller.exportEmployerCSV();

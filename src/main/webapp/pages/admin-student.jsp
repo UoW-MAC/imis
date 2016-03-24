@@ -42,9 +42,9 @@
 			        <thead>
 			            <tr>
 			                 <th>Student Number</th>
-			                <th>StudentName</th>
-			                <th>Semester</th>
-			                <th>updateTime</th>
+			                <th>Student Name</th>
+			                <th>Register Semester</th>
+			                <th>Register Year</th>
 			                <th></th>
 			            </tr>
 			        </thead>
@@ -57,11 +57,11 @@
 	function delRow () {
 		 var b= $('#adminStudentTest').DataTable().row('.selected').data();
 		 if(b!=null){
-			 $('#adminEmployerTest').DataTable().row('.selected').remove().draw( false );
+			 $('#adminStudentTest').DataTable().row('.selected').remove().draw( false );
              $.ajax({
         				type: "get",       
         				dataType: "json",            
-        				url: 'deleteEmployer',   
+        				url: 'deleteStudent',   
         				data:  b,
         				success: function() {     
         			    }      

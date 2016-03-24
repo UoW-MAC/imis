@@ -38,14 +38,13 @@
    					Export
  				 </button>
 			   <div class="row">
-	    	     <table id="adminEmployerTest" class="display" cellspacing="0" width="100%">
+	    	     <table id="adminEmployerTest" class="display" cellspacing="0" width="100%" >
 			        <thead>
 			            <tr>
-			                <th>EmployerId</th>
-			                <th>EmployerName</th>
-			                <th>EmployerGroupName</th>		
-			                <th>Position Number</th>		             
-			                <th>createTime</th>
+			                <th>Company Name</th>
+			                <th>Company Type</th>		
+			                <th>Publish Position Number</th>		             
+			                <th>Update Time</th>
 			                <th></th>
 			            </tr>
 			        </thead>
@@ -54,34 +53,16 @@
     	     </div>
 			</div>
 	</section>
-	<!-- /CONTENT SECTION -->
- <!-- Button trigger modal -->
-   <!--   <button type="button" id="myModalTrigger4" class="btn btn-primary" data-toggle="modal" data-target="#myModal4" style="display:none">Submit</button>
-      <div class="modal fade in" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                 <div class="modal-header">
-                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                     <h4 class="modal-title" id="myModalLabel2">Tip</h4>
-                 </div>
-                 <div class="modal-body">Are you sure to submit this position?</div>
-                  <div class="buttonsRow">
-                     <button id="return" type="button" class="white-bt" data-dismiss="modal">Cancel</button>
-                     <button type="submit" id="adminConfirmSubmit" class="orange-bt meta-event-source" meta-event-handler="position:adminConfirmSubmit">Confirm</button>
-                  </div>
-            </div>
-        </div>
-      </div> -->
 </body>
  <script type="text/javascript"  >
 	function delEmployerRow () {
 		 var b= $('#adminEmployerTest').DataTable().row('.selected').data();
 		 if(b!=null){
-	 		$('#adminStudentTest').DataTable().row('.selected').remove().draw( false );
+	 		$('#adminEmployerTest').DataTable().row('.selected').remove().draw( false );
          $.ajax({
     				type: "get",       
     				dataType: "json",            
-    				url: 'deleteStudent',   
+    				url: 'deleteEmployer',   
     				data:  b,
     				success: function() {     
     			    }      

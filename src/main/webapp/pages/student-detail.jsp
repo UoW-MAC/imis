@@ -6,16 +6,22 @@
 		<meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="images/favicon.png">
 		<title>Student Center</title>
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="css/custom.css" rel="stylesheet" type="text/css">
+		<link href="css/validation.css" rel="stylesheet">
 	</head>
 
 	<body>
+	<jsp:include page='header.jsp'/>
+	
     <!-- CONTENT SECTION -->
-    <section class="contentSection">
+    <section class="contentSection position-detail">
     	<div class="container">
             <div class="row">
-                <span class="col-sm-9 rightBorder equalCol">
-                    <form class="studentForm" id="studentForm" role="form" action="addOrUpdStudent" method="post">
+                    <form class="studentDetailForm col-sm-9 rightBorder equalCol" id="studentForm" role="form" action="addOrUpdStudent" method="post">
+                      <input type="hidden" id="adminStudentId" name="studentId" value="${studentId}" /> 
                         <div class="row">
                         	<div>Status</div>
                         	<div class="radioRow">
@@ -38,8 +44,8 @@
 	                        </div>
 	                    </div>
                         
-                        <div id="studentInfoForm" class="row">
-	                        <script id="studentProfileTable" type="text/x-handlebars-template">
+                        <div id="studentDetailInfoForm" class="row">
+	                        <script id="studentDetailProfileTable" type="text/x-handlebars-template">
 	                            <div class="row">
 	                            	<aside class="userFormCol-1">YEAR:</aside>
 	                            	<aside class="userFormCol-right"><input type="text" class="width-200" id="registeredYear" name="registeredYear" value="{{registeredYear}}"></aside>
@@ -176,15 +182,14 @@
 			                    
 				                </script>
 			                </div>
-			                
 			                <div class="row">
-	                            <input type="button" id="studentProfile_submit" value="submit"/>
+	                            <input type="button" id="studentDetailProfile_submit" value="Edit"/>
+	                            <input type="button" class="white-bt" id="cancelStudent" value="Cancel" />
 	                        </div>
                     </form>
-                </span>
                 
                 <!-- Button trigger modal -->
-                <button type="button" id="studentModelTrigger" data-toggle="modal" data-target="#studentModel" style="display:none"></button>
+                <button type="button" id="studentDetailModelTrigger" data-toggle="modal" data-target="#studentModel" style="display:none"></button>
 
                 <!-- Project Application Page-Confirm Modal -->
                 <div class="modal fade" id="studentModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -198,7 +203,7 @@
                                 Do you want to submit?
                             </div>
                             <div class="buttonsRow">
-                                <button type="submit" class="orange-bt" id="confirmedSubmit">submit</button>
+                                <button type="submit" class="orange-bt" id="confirmedStudentDetailSubmit">submit</button>
                                 <button type="button" class="white-bt" data-dismiss="modal">cancel</button>
                             </div>
                         </div>
@@ -207,5 +212,7 @@
             </div>
         </div>
     </section>
+    <jsp:include page='footer.jsp'/>
  </body>
+  <script data-main="js/app/pages/student-detail" src="js/lib/require-2.1.15.min.js"></script>
 </html>
