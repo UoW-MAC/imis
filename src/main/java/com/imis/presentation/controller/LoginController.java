@@ -114,8 +114,16 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "user-center", method = RequestMethod.GET)
-	public ModelAndView showUserCenter() {
-		return new ModelAndView(USER_CENTER_PAGE);
+	public ModelAndView showUserCenter(HttpServletRequest request) {
+		String menu = request.getParameter("menu");
+		Map<String, Object> models = null;
+		
+		if ("position".equals(menu)) {
+			models = new HashMap<String, Object>();
+			models.put("menu", menu);
+		}
+		
+		return new ModelAndView(USER_CENTER_PAGE, models);
 	}
 
 	@RequestMapping(value = "login", method = RequestMethod.GET)

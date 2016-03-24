@@ -19,7 +19,12 @@ require(['../main'], function () {
             };
 
             userPersonalCenter.init = function(){
-
+            	if ($("#menuSwitch").val() == "position") {
+					$("#positionApplicationMenu").addClass("active");
+                	$("#studentProfileMenu").removeClass("active");
+                	$("#positionApplicationTabPane").addClass("active");
+                	$("#studentProfileTabPane").removeClass("active");
+            	}
             }
 
             $(function() {

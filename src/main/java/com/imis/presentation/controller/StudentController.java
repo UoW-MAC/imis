@@ -132,7 +132,7 @@ public class StudentController {
         return new Response(statusCode, statusDescription);
     }
 
-    @RequestMapping(value = "positionDetail", method = RequestMethod.GET)
+    @RequestMapping(value = "position-detail", method = RequestMethod.GET)
     public ModelAndView showPositionDetailInfo(HttpServletRequest request) {
 
     	String positionId = request.getParameter("positionId");

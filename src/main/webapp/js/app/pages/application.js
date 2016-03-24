@@ -46,7 +46,7 @@ require(['../main'], function () {
 				        success: function(data) {
 				        	//application.Controller.loadPostionStatusList();
 				        	//need load asynchronous
-				        	location.href = "user-center";
+				        	location.href = "user-center?menu=position";
 				        }
 				    });
                 },
@@ -67,7 +67,7 @@ require(['../main'], function () {
                 });
                 
                 $("#cancelApply").click(function(){
-                	location.href = "user-center";
+                	location.href = "user-center?menu=position";
                 });
                 
                 $("#confirmEdit").click(function(){

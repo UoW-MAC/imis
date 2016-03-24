@@ -39,33 +39,42 @@
     	<div class="container">
     	<div id="positionEditTable">
             <div class="row">
-                <div id="positionId" value="${positionDetail.positionId}">Position Name: </div>
+               <div id="positionId" value="${positionDetail.positionId}"></div>
                 </div>
-                <div class="row">
+                <div class="row positionName">
                 	${positionDetail.positionName}
                 </div>
-
-                 <div id="positionGroupId" value="${positionDetail.positionGroup.positionGroupId}">Position Group</div>
+                <br>
+                <div class="row positionGroupName" id="positionGroupId" value="${positionDetail.positionGroup.positionGroupId}">Position Group -</div>
+                <br>
                 <div class="row">
                     ${positionDetail.positionGroup.positionGroupName}
                 </div>
-
-                <div>Position Description</div>
+                <br>
+                <div class="row positionDescription">Position Description -</div>
+                <br>
                 <div class="row">
                     ${positionDetail.positionDescription}
                 </div>
-                <div>Position Responsibilities</div>
+                <br>
+                <div class="row responsibilities">Position Responsibilities -</div>
+                <br>
                 <div class="row">
                     ${positionDetail.responsibilities}
                 </div>
-                <div>Position Requirements</div>
+                <br>
+                <div class="row requirements">Position Requirements -</div>
+                <br>
                 <div class="row">
                     ${positionDetail.requirements}
                 </div>
-                <div>Salary</div>
+                <br>
+                <div class="row salary">Salary -</div>
+                <br>
                 <div class="row">
                     ${positionDetail.salary}
                 </div>
+                <br>
                  <sec:authorize access="hasRole('ROLE_STUDENT') and isAuthenticated()">
                 <div class="row">
                 	<input type="button" id="positionApply" value="Apply"/>

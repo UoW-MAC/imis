@@ -58,8 +58,8 @@
                         </sec:authorize>
                         
                         <sec:authorize access="hasRole('ROLE_STUDENT') and isAuthenticated()">
-                            <li><a id="positionApplicationTab" href="#positionApplicationTabPane" role="tab" data-toggle="tab">Position Application<span></span></a></li>
-                            <li class="active"><a id="studentProfileTab" href="#studentProfileTabPane" role="tab" data-toggle="tab">Student Profile<span></span></a></li>
+                            <li id="positionApplicationMenu"><a id="positionApplicationTab" href="#positionApplicationTabPane" role="tab" data-toggle="tab">Position Application<span></span></a></li>
+                            <li class="active" id="studentProfileMenu"><a id="studentProfileTab" href="#studentProfileTabPane" role="tab" data-toggle="tab">Student Profile<span></span></a></li>
                         </sec:authorize>
                     </ul>
                 </span>
@@ -103,6 +103,7 @@
     </section>
 </div>
 <!-- /CONTENT SECTION -->
+<input type="hidden" id="menuSwitch" value="${menu}" />  
 
 <jsp:include page='footer.jsp'/>
 

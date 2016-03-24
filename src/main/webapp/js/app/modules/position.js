@@ -124,7 +124,7 @@
 				                function ( data, type, row ) {
 					            	var result;
 					            	
-					            	if (data == null)
+					            	if (data == null || data.applicationStatus == 0)
 					            		result = 'New'; 
 					            	else if (data.applicationStatus == 1)
 					                	result = 'Requested';
@@ -138,7 +138,7 @@
 				            
 				        ],
 				        rowCallback : function(row, data) {
-				        	$('td:eq(0)', row).html('<a href=positionDetail?positionId='+ data.position.positionId + '>' + data.position.positionName + '</a >');
+				        	$('td:eq(0)', row).html('<a href=position-detail?positionId='+ data.position.positionId + '>' + data.position.positionName + '</a >');
 				        },
 				        select: true
 				       } );
