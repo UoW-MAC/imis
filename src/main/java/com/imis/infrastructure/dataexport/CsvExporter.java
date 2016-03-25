@@ -138,11 +138,20 @@ public class CsvExporter {
 	    		for (Object objectApplication : objectList) {
 	    			Application application = (Application)objectApplication;
 	    			StringBuffer rowStringBuffer = new StringBuffer();
-
+	    			String applicationStatus=null;
+	    			if(application.getApplicationStatus()==0){
+	    				applicationStatus="new";
+	    			}else if(application.getApplicationStatus()==1){
+	    				applicationStatus="Request";
+	    			}else if(application.getApplicationStatus()==2){
+	    				applicationStatus="Accept";
+	    			}else if(application.getApplicationStatus()==3){
+	    				applicationStatus="Reject";
+	    			}
 	    			row = rowStringBuffer.append(application.getStudent().getStudentNo()).append(",").append(application.getStudent().getFirstName()).append(",")
 	    					.append(application.getStudent().getMiddleName()).append(",").append(application.getStudent().getLastName()).append(",")
 	    						.append(application.getPosition().getPositionName()).append(",").append(application.getEmployer().getEmployerName())
-	    							.append(",").append(application.getApplicationStatus()).toString();
+	    							.append(",").append(applicationStatus).toString();
 
 	    			csvFileOutputStream.write(row);
 	    			csvFileOutputStream.newLine();

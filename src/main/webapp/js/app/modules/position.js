@@ -169,7 +169,7 @@
 			            { data: "unreadApplicationNum" },
 			        ],
 			        "rowCallback": function(row, data) { //data是后端返回的数据
-			              $('td:eq(0)', row).html('<a href=position-detail?positionId='+ data.positionId + '>' + data.positionName + '</a>');
+			              $('td:eq(0)', row).html('<a href=adminPositionDetail?positionId='+ data.positionId + '>' + data.positionName + '</a>');
 			              $('td:eq(3)', row).html('<a href=candidate?positionId='+ data.positionId + '>' + data.unreadApplicationNum+'/'+data.applicationNum + '</a>');
 			              $('td:eq(4)', row).html('<a href=javascript:void(0) onclick=delPositionRow()>delete</a>');
 			              $("table th").css("text-align", "center");

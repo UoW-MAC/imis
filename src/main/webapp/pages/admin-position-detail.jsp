@@ -39,7 +39,7 @@
     	<div class="container">
                <sec:authorize access="hasAnyRole('ROLE_ORGANIZATION,ROLE_ADMIN') and isAuthenticated()">
                   <div id="updateForm">
-						<form  id="editForm col-sm-9 rightBorder equalCol" role="form" action="updatePosition" method="post">
+						<form class="col-sm-9 rightBorder equalCol" id="editForm" role="form" action="updatePosition" method="post">
 							<div class="row">
                             	<aside class="userFormCol-1">Position Name:</aside>
                             	<aside class="userFormCol-right"><input type="text" id="inputAdminDetailPositionName" name="positionName" value="${positionDetail.positionName}"/></aside>

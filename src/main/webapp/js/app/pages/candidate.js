@@ -142,6 +142,9 @@ require(['../main'], function () {
 			        },
 			        select: true
 			    } );
+                $("#cancelCandidate").click(function(){
+                	location.href = "user-center";
+                });
             }
             $(function() {
                 registerEventListener();

@@ -31,7 +31,7 @@
         <sec:intercept-url pattern="/horizontalQuery" access="ROLE_PLATFORMADMIN"/>
 
         <sec:intercept-url pattern="/user-center" access="ROLE_STUDENT, ROLE_ORGANIZATION, ROLE_ADMIN"/>
-        <sec:intercept-url pattern="/position-detail" access="ROLE_STUDENT, ROLE_ORGANIZATION"/>
+        <sec:intercept-url pattern="/position-detail" access="ROLE_STUDENT"/>
 
         <!--intercept-url pattern="/login" access="ROLE_USER, ROLE_ANONYMOUS"/-->
         <sec:intercept-url pattern="/user-profile" access="ROLE_STUDENT, ROLE_ADMIN"/>
@@ -39,8 +39,11 @@
 
         <!-- admin enabled="true"></admin -->
         <sec:intercept-url pattern="/user-management" access="ROLE_ADMIN"/>
-        <sec:intercept-url pattern="/adminPositionDetail" access="ROLE_ADMIN"/>
-
+        <sec:intercept-url pattern="/adminPositionDetail" access="ROLE_ADMIN,ROLE_ORGANIZATION"/>
+        <sec:intercept-url pattern="/employerDetail" access="ROLE_ADMIN"/>
+        <sec:intercept-url pattern="/candidate" access="ROLE_ORGANIZATION"/>
+        <sec:intercept-url pattern="/canditateInfo" access="ROLE_ORGANIZATION"/>
+		<sec:intercept-url pattern="/canditateDetail" access="ROLE_ORGANIZATION"/>
         <sec:custom-filter before="FORM_LOGIN_FILTER" ref="loginFilter" />
 
         <sec:form-login login-page="/home"

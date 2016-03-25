@@ -33,7 +33,7 @@
 	<jsp:include page='header.jsp'/>
 	
     <!-- CONTENT SECTION -->
-    <section class="contentSection">
+    <section class="contentSection position-detail">
     	<div class="container">
     	 <input type="hidden" id = "positionId" value="${positionId}"/>
     	<table id="candidateTest" class="display" cellspacing="0" width="100%">
@@ -47,6 +47,7 @@
 			            </tr>
 			        </thead>
 			     </table>
+			     <input type="button" class="white-bt" id="cancelCandidate" value="cancel" />
         </div>
     </section>
     

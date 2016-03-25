@@ -2,8 +2,8 @@
  * Created by Freya He 29/01/16
  */
 require(['../main'], function () {
-    require(['jquery', 'bootstrap', 'ajaxHandler'],
-        function($, bootstrap, ajaxHandler) {
+    require(['jquery', 'bootstrap', 'ajaxHandler', 'jqueryForm'],
+        function($, bootstrap, ajaxHandler, jqueryForm) {
 
             "use strict";
 
@@ -36,7 +36,13 @@ require(['../main'], function () {
         			},
                 
                 handleAdminEmployerConfirmedSubmit: function(){
-                    $("#editEmployerForm").submit();
+                    $("#editEmployerForm").ajaxSubmit(function(response) {
+                        if (response.statusCode == 1000){
+                            location.href = "user-center";
+                        }else{
+                            return;
+                        }
+                    });
                 }
                
             };
