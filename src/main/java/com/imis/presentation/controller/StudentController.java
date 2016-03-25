@@ -315,4 +315,18 @@ public class StudentController {
 			return null;
 		}
     }
+    @RequestMapping(value = "studentNumberValidation", method = RequestMethod.POST)
+	public @ResponseBody boolean studentNumberValidation(HttpServletRequest request) {
+		Boolean studentNumberValidation = true;
+
+		try {
+			 if (studentService.isStudentNumberExisted(Long.parseLong(request.getParameter("studentNo")))) {
+				 studentNumberValidation = false;
+			 }
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return studentNumberValidation;
+	}
 }

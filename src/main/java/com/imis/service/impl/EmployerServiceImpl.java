@@ -28,9 +28,6 @@ public class EmployerServiceImpl implements IEmployerService {
 	@Autowired
 	private EmployerRepository employerRepository;
 
-	@Autowired
-	private EducationRepository educationRepository;
-
 	public boolean employerInfoSubmit(Employer employer) throws Exception {
 		try {
 		// step 1:

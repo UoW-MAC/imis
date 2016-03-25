@@ -2,8 +2,8 @@
  * Created by Freya He 29/01/16
  */
 require(['../main'], function () {
-    require(['jquery', 'bootstrap', 'ajaxHandler', 'handlebars', 'jqueryForm'],
-        function($, bootstrap, ajaxHandler,handlebars,jqueryForm) {
+    require(['jquery', 'bootstrap', 'ajaxHandler', 'handlebars', 'jqueryForm', 'formValidator'],
+        function($, bootstrap, ajaxHandler,handlebars,jqueryForm,formValidator) {
 
             "use strict";
 
@@ -83,11 +83,13 @@ require(['../main'], function () {
             		location.href="user-center";
             	});
             	$("#studentDetailProfile_submit").click(function () {
-            		$("#studentDetailModelTrigger").click();
+            		if (formValidator.getStudentValidator("#studentForm").form() == true){
+            			$("#studentDetailModelTrigger").click();
+            		}
                 });
 
                 $("#confirmedStudentDetailSubmit").click(function () {
-                	studentDetail.Controller.handleConfirmedSubmit();
+                		studentDetail.Controller.handleConfirmedSubmit();
                 });
             };
             $(function() {

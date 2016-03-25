@@ -159,6 +159,10 @@ define(['jquery', 'imis'], function($, imis) {
                 employerTelephone: {
                     required: true,
                 }, 
+                employerEmail: {
+                	email:true,
+                	required: true,
+                }, 
                 employerWebsite: {
                     required: true,
                 },
@@ -198,6 +202,9 @@ define(['jquery', 'imis'], function($, imis) {
                 employerWebsite: {
                 	required: "Please enter your Company Website.",
                 },
+                employerEmail: {
+                	required: "Please enter a valid email.",
+                },
                 employerGroup: {
                     required: "Please choose your Employer Group."
                 }
@@ -235,6 +242,7 @@ define(['jquery', 'imis'], function($, imis) {
                 }, 
                 salary: {
                     required: true,
+                    number:true,
                 }, 
                 positionGroup: {
                     required: true,
@@ -254,7 +262,7 @@ define(['jquery', 'imis'], function($, imis) {
                 	required: "Please enter your Position requirements.",
                 },
                 salary: {
-                	required: "Please enter your Position salary.",
+                	required: "Please enter a valid Position salary number.",
                 },
                 positionGroup: {
                     required: "Please choose your Position Group."
@@ -280,12 +288,12 @@ define(['jquery', 'imis'], function($, imis) {
             rules: {
             	studentNo: {
                     required: true,
-                    maxlength: 100,
+                    maxlength: 20,
                     remote:{                                          
                         type:"POST",
-              			url:"employerNameValidation",
+              			url:"studentNumberValidation",
                			data:{
-                 			userName:function(){return $("#userName").val();}
+               				studentNo:function(){return $("#student_no").val();}
                			}
               		} 
                 },
@@ -305,6 +313,7 @@ define(['jquery', 'imis'], function($, imis) {
                     required: true,
                 },
                 registeredYear: {
+                	number:true,
                     required: true,
                 },
                 gender: {
@@ -313,26 +322,46 @@ define(['jquery', 'imis'], function($, imis) {
                 status: {
                     required: true,
                 },
-                gender: {
+                email: {
+                	email:true,
                     required: true,
-                }
+                },
+                telephone: {
+                	 number:true,
+                    required: true,
+                },
             },
             messages: {
-            	positionName: {
-                    required: "Please enter your company name.",
-                    remote: "The user name has existed, please enter a new one."
+            	studentNo: {
+                    required: "Please enter your student number.",
+                    remote: "The student number has existed, please enter a new one."
                 },
-                positionDescription: {
-                	required: "Please enter your Position Description.",
+                firstName: {
+                	required: "Please enter your first name.",
                 },
-                responsibilities: {
-                	required: "Please enter your Position responsibilities.",
+                middleName: {
+                	required: "Please enter your middle name.",
                 },
-                requirements: {
-                	required: "Please enter your Position requirements.",
+                lastName: {
+                	required: "Please enter your last name.",
                 },
-                positionGroup: {
-                    required: "Please choose your Position Group."
+                semesterRegistered: {
+                    required: "Please select your register semester."
+                },
+                registeredYear: {
+                    required: "Please enter your register year."
+                },
+                gender: {
+                    required: "Please select your gender."
+                },
+                status: {
+                    required: "Please select your status."
+                },
+                email: {
+                    required: "Please enter your email."
+                },
+                telephone: {
+                    required: "Please enter your telephone number."
                 }
             },
             success: function(label) {

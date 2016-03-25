@@ -1,235 +1,1019 @@
-2016-03-18 09:50:19,413 DEBUG - Invoking afterPropertiesSet() on bean with name 'error'
-2016-03-18 09:50:19,416 DEBUG - Rendering view [org.springframework.web.servlet.view.JstlView: name 'error'; URL [/pages/error.jsp]] in DispatcherServlet with name 'imis'
-2016-03-18 09:50:19,417 DEBUG - Including resource [/pages/error.jsp] in InternalResourceView 'error'
-2016-03-18 09:50:19,454 DEBUG - Error rendering view [org.springframework.web.servlet.view.JstlView: name 'error'; URL [/pages/error.jsp]] in DispatcherServlet with name 'imis'
-javax.servlet.ServletException: File &quot;/pages/error.jsp&quot; not found
-	at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:335)
-	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:301)
-	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:260)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:646)
-	at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:551)
-	at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:488)
-	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:201)
-	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:266)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1225)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1012)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:876)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:961)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:852)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:837)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:108)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:330)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:118)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:84)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:103)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:113)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:146)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:154)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:45)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilter(BasicAuthenticationFilter.java:150)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:199)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:199)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:87)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:192)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:160)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:344)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:261)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:298)
-	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:857)
-	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:588)
-	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:489)
-	at java.lang.Thread.run(Thread.java:745)
-2016-03-18 09:50:19,454 DEBUG - Could not complete request
-javax.servlet.ServletException: File &quot;/pages/error.jsp&quot; not found
-	at org.apache.jasper.servlet.JspServlet.handleMissingResource(JspServlet.java:335)
-	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:301)
-	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:260)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
-	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:646)
-	at org.apache.catalina.core.ApplicationDispatcher.doInclude(ApplicationDispatcher.java:551)
-	at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:488)
-	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:201)
-	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:266)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1225)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1012)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:876)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:961)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:852)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:617)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:837)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:88)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:108)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:330)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:118)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:84)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:103)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:113)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:146)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:154)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:45)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilter(BasicAuthenticationFilter.java:150)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:199)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:199)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:87)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:342)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:192)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:160)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:344)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:261)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:298)
-	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:857)
-	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:588)
-	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:489)
-	at java.lang.Thread.run(Thread.java:745)
-2016-03-18 09:50:19,491 DEBUG - SecurityContextHolder now cleared, as request processing completed
-2016-03-18 09:51:01,564 DEBUG - Checking match of request : '/index.jsp'; against '/**/*.jsp'
-2016-03-18 09:51:01,565 DEBUG - /index.jsp has an empty filter list
-2016-03-18 09:51:01,604 DEBUG - Checking match of request : '/home'; against '/**/*.jsp'
-2016-03-18 09:51:01,604 DEBUG - Checking match of request : '/home'; against '/**/*.png'
-2016-03-18 09:51:01,604 DEBUG - Checking match of request : '/home'; against '/**/*.gif'
-2016-03-18 09:51:01,604 DEBUG - Checking match of request : '/home'; against '/**/*.css'
-2016-03-18 09:51:01,604 DEBUG - Checking match of request : '/home'; against '/**/*.js'
-2016-03-18 09:51:01,605 DEBUG - Checking match of request : '/home'; against '/**/*.map'
-2016-03-18 09:51:01,605 DEBUG - Checking match of request : '/home'; against '/**/*.eot'
-2016-03-18 09:51:01,605 DEBUG - Checking match of request : '/home'; against '/**/*.woff'
-2016-03-18 09:51:01,605 DEBUG - Checking match of request : '/home'; against '/**/*.svg'
-2016-03-18 09:51:01,605 DEBUG - Checking match of request : '/home'; against '/**/*.ttf'
-2016-03-18 09:51:01,605 DEBUG - /home at position 1 of 12 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
-2016-03-18 09:51:01,608 DEBUG - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@ac8bda56: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@ac8bda56: Principal: org.springframework.security.core.userdetails.User@2e93ce: Username: chen; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ORGANIZATION; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@0: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 75A33D48BDA8D07245CF05D8C5C7F6EF; Granted Authorities: ROLE_ORGANIZATION'
-2016-03-18 09:51:01,608 DEBUG - /home at position 2 of 12 in additional filter chain; firing Filter: 'LogoutFilter'
-2016-03-18 09:51:01,608 DEBUG - /home at position 3 of 12 in additional filter chain; firing Filter: 'LoginFilter'
-2016-03-18 09:51:01,608 DEBUG - /home at position 4 of 12 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
-2016-03-18 09:51:01,609 DEBUG - /home at position 5 of 12 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
-2016-03-18 09:51:01,610 DEBUG - /home at position 6 of 12 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
-2016-03-18 09:51:01,610 DEBUG - /home at position 7 of 12 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
-2016-03-18 09:51:01,610 DEBUG - /home at position 8 of 12 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
-2016-03-18 09:51:01,610 DEBUG - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@ac8bda56: Principal: org.springframework.security.core.userdetails.User@2e93ce: Username: chen; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ORGANIZATION; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@0: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 75A33D48BDA8D07245CF05D8C5C7F6EF; Granted Authorities: ROLE_ORGANIZATION'
-2016-03-18 09:51:01,611 DEBUG - /home at position 9 of 12 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
-2016-03-18 09:51:01,612 DEBUG - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@ac8bda56: Principal: org.springframework.security.core.userdetails.User@2e93ce: Username: chen; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ORGANIZATION; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@0: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 75A33D48BDA8D07245CF05D8C5C7F6EF; Granted Authorities: ROLE_ORGANIZATION'
-2016-03-18 09:51:01,612 DEBUG - /home at position 10 of 12 in additional filter chain; firing Filter: 'SessionManagementFilter'
-2016-03-18 09:51:01,613 DEBUG - /home at position 11 of 12 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
-2016-03-18 09:51:01,613 DEBUG - /home at position 12 of 12 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
-2016-03-18 09:51:01,613 DEBUG - Checking match of request : '/home'; against '/unitsmanager'
-2016-03-18 09:51:01,613 DEBUG - Checking match of request : '/home'; against '/usersmanager'
-2016-03-18 09:51:01,613 DEBUG - Checking match of request : '/home'; against '/horizontalquery'
-2016-03-18 09:51:01,613 DEBUG - Checking match of request : '/home'; against '/user-center'
-2016-03-18 09:51:01,614 DEBUG - Checking match of request : '/home'; against '/position-detail'
-2016-03-18 09:51:01,614 DEBUG - Checking match of request : '/home'; against '/user-profile'
-2016-03-18 09:51:01,614 DEBUG - Checking match of request : '/home'; against '/user-password'
-2016-03-18 09:51:01,614 DEBUG - Checking match of request : '/home'; against '/user-management'
-2016-03-18 09:51:01,614 DEBUG - Public object - authentication not attempted
-2016-03-18 09:51:01,617 DEBUG - /home reached end of additional filter chain; proceeding with original chain
-2016-03-18 09:51:01,617 DEBUG - DispatcherServlet with name 'imis' processing GET request for [/imis/home]
-2016-03-18 09:51:01,617 DEBUG - Looking up handler method for path /home
-2016-03-18 09:51:01,618 DEBUG - Returning handler method [public org.springframework.web.servlet.ModelAndView com.imis.presentation.controller.LoginController.show()]
-2016-03-18 09:51:01,619 DEBUG - Returning cached instance of singleton bean 'loginController'
-2016-03-18 09:51:01,619 DEBUG - Last-Modified value for [/imis/home] is: -1
-2016-03-18 09:51:01,619 DEBUG - Rendering view [org.springframework.web.servlet.view.JstlView: name 'home'; URL [/pages/home.jsp]] in DispatcherServlet with name 'imis'
-2016-03-18 09:51:01,620 DEBUG - Forwarding to resource [/pages/home.jsp] in InternalResourceView 'home'
-2016-03-18 09:51:01,623 DEBUG - Successfully completed request
-2016-03-18 09:51:01,623 DEBUG - Chain processed normally
-2016-03-18 09:51:01,623 DEBUG - SecurityContextHolder now cleared, as request processing completed
-2016-03-18 09:51:02,835 DEBUG - Checking match of request : '/login/username'; against '/**/*.jsp'
-2016-03-18 09:51:02,841 DEBUG - Checking match of request : '/login/username'; against '/**/*.png'
-2016-03-18 09:51:02,844 DEBUG - Checking match of request : '/login/username'; against '/**/*.gif'
-2016-03-18 09:51:02,844 DEBUG - Checking match of request : '/login/username'; against '/**/*.css'
-2016-03-18 09:51:02,844 DEBUG - Checking match of request : '/login/username'; against '/**/*.js'
-2016-03-18 09:51:02,844 DEBUG - Checking match of request : '/login/username'; against '/**/*.map'
-2016-03-18 09:51:02,844 DEBUG - Checking match of request : '/login/username'; against '/**/*.eot'
-2016-03-18 09:51:02,845 DEBUG - Checking match of request : '/login/username'; against '/**/*.woff'
-2016-03-18 09:51:02,845 DEBUG - Checking match of request : '/login/username'; against '/**/*.svg'
-2016-03-18 09:51:02,845 DEBUG - Checking match of request : '/login/username'; against '/**/*.ttf'
-2016-03-18 09:51:02,845 DEBUG - /login/userName at position 1 of 12 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
-2016-03-18 09:51:02,845 DEBUG - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@ac8bda56: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@ac8bda56: Principal: org.springframework.security.core.userdetails.User@2e93ce: Username: chen; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ORGANIZATION; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@0: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 75A33D48BDA8D07245CF05D8C5C7F6EF; Granted Authorities: ROLE_ORGANIZATION'
-2016-03-18 09:51:02,846 DEBUG - /login/userName at position 2 of 12 in additional filter chain; firing Filter: 'LogoutFilter'
-2016-03-18 09:51:02,846 DEBUG - /login/userName at position 3 of 12 in additional filter chain; firing Filter: 'LoginFilter'
-2016-03-18 09:51:02,846 DEBUG - /login/userName at position 4 of 12 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
-2016-03-18 09:51:02,846 DEBUG - /login/userName at position 5 of 12 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
-2016-03-18 09:51:02,846 DEBUG - /login/userName at position 6 of 12 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
-2016-03-18 09:51:02,847 DEBUG - /login/userName at position 7 of 12 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
-2016-03-18 09:51:02,847 DEBUG - /login/userName at position 8 of 12 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
-2016-03-18 09:51:02,847 DEBUG - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@ac8bda56: Principal: org.springframework.security.core.userdetails.User@2e93ce: Username: chen; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ORGANIZATION; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@0: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 75A33D48BDA8D07245CF05D8C5C7F6EF; Granted Authorities: ROLE_ORGANIZATION'
-2016-03-18 09:51:02,849 DEBUG - /login/userName at position 9 of 12 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
-2016-03-18 09:51:02,850 DEBUG - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@ac8bda56: Principal: org.springframework.security.core.userdetails.User@2e93ce: Username: chen; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ORGANIZATION; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@0: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: 75A33D48BDA8D07245CF05D8C5C7F6EF; Granted Authorities: ROLE_ORGANIZATION'
-2016-03-18 09:51:02,850 DEBUG - /login/userName at position 10 of 12 in additional filter chain; firing Filter: 'SessionManagementFilter'
-2016-03-18 09:51:02,853 DEBUG - /login/userName at position 11 of 12 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
-2016-03-18 09:51:02,853 DEBUG - /login/userName at position 12 of 12 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
-2016-03-18 09:51:02,854 DEBUG - Checking match of request : '/login/username'; against '/unitsmanager'
-2016-03-18 09:51:02,854 DEBUG - Checking match of request : '/login/username'; against '/usersmanager'
-2016-03-18 09:51:02,854 DEBUG - Checking match of request : '/login/username'; against '/horizontalquery'
-2016-03-18 09:51:02,854 DEBUG - Checking match of request : '/login/username'; against '/user-center'
-2016-03-18 09:51:02,854 DEBUG - Checking match of request : '/login/username'; against '/position-detail'
-2016-03-18 09:51:02,854 DEBUG - Checking match of request : '/login/username'; against '/user-profile'
-2016-03-18 09:51:02,855 DEBUG - Checking match of request : '/login/username'; against '/user-password'
-2016-03-18 09:51:02,855 DEBUG - Checking match of request : '/login/username'; against '/user-management'
-2016-03-18 09:51:02,855 DEBUG - Public object - authentication not attempted
-2016-03-18 09:51:02,855 DEBUG - /login/userName reached end of additional filter chain; proceeding with original chain
-2016-03-18 09:51:02,856 DEBUG - DispatcherServlet with name 'imis' processing POST request for [/imis/login/userName]
-2016-03-18 09:51:02,856 DEBUG - Looking up handler method for path /login/userName
-2016-03-18 09:51:02,859 DEBUG - Did not find handler method for [/login/userName]
-2016-03-18 09:51:02,859 DEBUG - Looking up handler method for path /login/userName
-2016-03-18 09:51:02,859 DEBUG - Did not find handler method for [/login/userName]
-2016-03-18 09:51:02,860 WARN  - No mapping found for HTTP request with URI [/imis/login/userName] in DispatcherServlet with name 'imis'
-2016-03-18 09:51:02,860 DEBUG - Successfully completed request
-2016-03-18 09:51:02,860 DEBUG - Chain processed normally
-2016-03-18 09:51:02,860 DEBUG - SecurityContextHolder now cleared, as request processing completed
+2016-03-24 20:05:41,068 DEBUG - Looking up handler method for path /user-center
+2016-03-24 20:05:41,069 DEBUG - Returning handler method [public org.springframework.web.servlet.ModelAndView com.imis.presentation.controller.LoginController.showUserCenter(javax.servlet.http.HttpServletRequest)]
+2016-03-24 20:05:41,069 DEBUG - Returning cached instance of singleton bean 'loginController'
+2016-03-24 20:05:41,069 DEBUG - Last-Modified value for [/imis/user-center] is: -1
+2016-03-24 20:05:41,070 DEBUG - Invoking afterPropertiesSet() on bean with name 'user-center'
+2016-03-24 20:05:41,070 DEBUG - Rendering view [org.springframework.web.servlet.view.JstlView: name 'user-center'; URL [/pages/user-center.jsp]] in DispatcherServlet with name 'imis'
+2016-03-24 20:05:41,070 DEBUG - Forwarding to resource [/pages/user-center.jsp] in InternalResourceView 'user-center'
+2016-03-24 20:05:41,081 DEBUG - Returning cached instance of singleton bean 'webexpressionHandler'
+2016-03-24 20:05:41,101 DEBUG - Returning cached instance of singleton bean 'webexpressionHandler'
+2016-03-24 20:05:41,101 DEBUG - Returning cached instance of singleton bean 'webexpressionHandler'
+2016-03-24 20:05:41,102 DEBUG - Returning cached instance of singleton bean 'webexpressionHandler'
+2016-03-24 20:05:41,103 DEBUG - Returning cached instance of singleton bean 'webexpressionHandler'
+2016-03-24 20:05:41,165 DEBUG - Returning cached instance of singleton bean 'webexpressionHandler'
+2016-03-24 20:05:41,166 DEBUG - Returning cached instance of singleton bean 'webexpressionHandler'
+2016-03-24 20:05:41,212 DEBUG - Successfully completed request
+2016-03-24 20:05:41,212 DEBUG - Chain processed normally
+2016-03-24 20:05:41,212 DEBUG - SecurityContextHolder now cleared, as request processing completed
+2016-03-24 20:05:41,257 DEBUG - Checking match of request : '/css/jquery.datatables.min.css'; against '/**/*.jsp'
+2016-03-24 20:05:41,257 DEBUG - Checking match of request : '/css/jquery.datatables.min.css'; against '/**/*.png'
+2016-03-24 20:05:41,257 DEBUG - Checking match of request : '/css/jquery.datatables.min.css'; against '/**/*.gif'
+2016-03-24 20:05:41,257 DEBUG - Checking match of request : '/css/jquery.datatables.min.css'; against '/**/*.css'
+2016-03-24 20:05:41,257 DEBUG - /css/jquery.dataTables.min.css has an empty filter list
+2016-03-24 20:05:41,450 DEBUG - Checking match of request : '/js/app/pages/user-center.js'; against '/**/*.jsp'
+2016-03-24 20:05:41,450 DEBUG - Checking match of request : '/js/app/pages/user-center.js'; against '/**/*.png'
+2016-03-24 20:05:41,450 DEBUG - Checking match of request : '/js/app/pages/user-center.js'; against '/**/*.gif'
+2016-03-24 20:05:41,450 DEBUG - Checking match of request : '/js/app/pages/user-center.js'; against '/**/*.css'
+2016-03-24 20:05:41,450 DEBUG - Checking match of request : '/js/app/pages/user-center.js'; against '/**/*.js'
+2016-03-24 20:05:41,450 DEBUG - /js/app/pages/user-center.js has an empty filter list
+2016-03-24 20:05:41,504 DEBUG - Checking match of request : '/js/app/modules/student-profile.js'; against '/**/*.jsp'
+2016-03-24 20:05:41,504 DEBUG - Checking match of request : '/js/app/modules/student-profile.js'; against '/**/*.png'
+2016-03-24 20:05:41,504 DEBUG - Checking match of request : '/js/app/modules/student-profile.js'; against '/**/*.gif'
+2016-03-24 20:05:41,504 DEBUG - Checking match of request : '/js/app/modules/student-profile.js'; against '/**/*.css'
+2016-03-24 20:05:41,504 DEBUG - Checking match of request : '/js/app/modules/student-profile.js'; against '/**/*.js'
+2016-03-24 20:05:41,504 DEBUG - /js/app/modules/student-profile.js has an empty filter list
+2016-03-24 20:05:41,505 DEBUG - Checking match of request : '/js/app/modules/employer.js'; against '/**/*.jsp'
+2016-03-24 20:05:41,508 DEBUG - Checking match of request : '/js/app/modules/employer.js'; against '/**/*.png'
+2016-03-24 20:05:41,508 DEBUG - Checking match of request : '/js/app/modules/employer.js'; against '/**/*.gif'
+2016-03-24 20:05:41,508 DEBUG - Checking match of request : '/js/app/modules/employer.js'; against '/**/*.css'
+2016-03-24 20:05:41,508 DEBUG - Checking match of request : '/js/app/modules/employer.js'; against '/**/*.js'
+2016-03-24 20:05:41,507 DEBUG - Checking match of request : '/js/app/modules/position.js'; against '/**/*.jsp'
+2016-03-24 20:05:41,511 DEBUG - Checking match of request : '/js/app/modules/position.js'; against '/**/*.png'
+2016-03-24 20:05:41,511 DEBUG - Checking match of request : '/js/app/modules/position.js'; against '/**/*.gif'
+2016-03-24 20:05:41,511 DEBUG - Checking match of request : '/js/app/modules/position.js'; against '/**/*.css'
+2016-03-24 20:05:41,511 DEBUG - Checking match of request : '/js/app/modules/position.js'; against '/**/*.js'
+2016-03-24 20:05:41,511 DEBUG - /js/app/modules/employer.js has an empty filter list
+2016-03-24 20:05:41,511 DEBUG - /js/app/modules/position.js has an empty filter list
+2016-03-24 20:05:41,565 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.jsp'
+2016-03-24 20:05:41,565 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.png'
+2016-03-24 20:05:41,565 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.gif'
+2016-03-24 20:05:41,565 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.css'
+2016-03-24 20:05:41,565 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.js'
+2016-03-24 20:05:41,566 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.map'
+2016-03-24 20:05:41,566 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.eot'
+2016-03-24 20:05:41,566 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.woff'
+2016-03-24 20:05:41,566 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.svg'
+2016-03-24 20:05:41,566 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.ttf'
+2016-03-24 20:05:41,566 DEBUG - /getStudentInfo at position 1 of 12 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2016-03-24 20:05:41,566 DEBUG - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@badb5395: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,566 DEBUG - /getStudentInfo at position 2 of 12 in additional filter chain; firing Filter: 'LogoutFilter'
+2016-03-24 20:05:41,566 DEBUG - /getStudentInfo at position 3 of 12 in additional filter chain; firing Filter: 'LoginFilter'
+2016-03-24 20:05:41,566 DEBUG - /getStudentInfo at position 4 of 12 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2016-03-24 20:05:41,566 DEBUG - /getStudentInfo at position 5 of 12 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+2016-03-24 20:05:41,566 DEBUG - /getStudentInfo at position 6 of 12 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2016-03-24 20:05:41,566 DEBUG - /getStudentInfo at position 7 of 12 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2016-03-24 20:05:41,566 DEBUG - /getStudentInfo at position 8 of 12 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2016-03-24 20:05:41,566 DEBUG - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,567 DEBUG - /getStudentInfo at position 9 of 12 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2016-03-24 20:05:41,567 DEBUG - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,567 DEBUG - /getStudentInfo at position 10 of 12 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2016-03-24 20:05:41,567 DEBUG - /getStudentInfo at position 11 of 12 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2016-03-24 20:05:41,567 DEBUG - /getStudentInfo at position 12 of 12 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2016-03-24 20:05:41,569 DEBUG - Checking match of request : '/getstudentinfo'; against '/unitsmanager'
+2016-03-24 20:05:41,569 DEBUG - Checking match of request : '/getstudentinfo'; against '/usersmanager'
+2016-03-24 20:05:41,569 DEBUG - Checking match of request : '/getstudentinfo'; against '/horizontalquery'
+2016-03-24 20:05:41,569 DEBUG - Checking match of request : '/getstudentinfo'; against '/user-center'
+2016-03-24 20:05:41,569 DEBUG - Checking match of request : '/getstudentinfo'; against '/position-detail'
+2016-03-24 20:05:41,569 DEBUG - Checking match of request : '/getstudentinfo'; against '/user-profile'
+2016-03-24 20:05:41,569 DEBUG - Checking match of request : '/getstudentinfo'; against '/user-password'
+2016-03-24 20:05:41,569 DEBUG - Checking match of request : '/getstudentinfo'; against '/user-management'
+2016-03-24 20:05:41,569 DEBUG - Public object - authentication not attempted
+2016-03-24 20:05:41,569 DEBUG - /getStudentInfo reached end of additional filter chain; proceeding with original chain
+2016-03-24 20:05:41,569 DEBUG - DispatcherServlet with name 'imis' processing POST request for [/imis/getStudentInfo]
+2016-03-24 20:05:41,569 DEBUG - Looking up handler method for path /getStudentInfo
+2016-03-24 20:05:41,569 DEBUG - Returning handler method [public com.imis.presentation.model.Response com.imis.presentation.controller.StudentController.getAdminStudentInfo(javax.servlet.http.HttpServletRequest)]
+2016-03-24 20:05:41,569 DEBUG - Returning cached instance of singleton bean 'studentController'
+2016-03-24 20:05:41,574 DEBUG - Adding transactional method 'StudentServiceImpl.getStudentInfo' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; '',-java.lang.Exception
+2016-03-24 20:05:41,576 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:05:41,576 DEBUG - Creating new transaction with name [com.imis.service.impl.StudentServiceImpl.getStudentInfo]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; '',-java.lang.Exception
+2016-03-24 20:05:41,577 DEBUG - Acquired Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] for JDBC transaction
+2016-03-24 20:05:41,577 DEBUG - Switching JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] to manual commit
+2016-03-24 20:05:41,577 DEBUG - Adding transactional method '$Proxy48.getStudentInfo' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+2016-03-24 20:05:41,578 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:05:41,578 DEBUG - Participating in existing transaction
+2016-03-24 20:05:41,592 DEBUG - Creating a new SqlSession
+2016-03-24 20:05:41,598 DEBUG - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ac707c4]
+2016-03-24 20:05:41,636 DEBUG - Checking match of request : '/adminstudentinfo'; against '/**/*.jsp'
+2016-03-24 20:05:41,638 DEBUG - Checking match of request : '/adminstudentinfo'; against '/**/*.png'
+2016-03-24 20:05:41,638 DEBUG - Checking match of request : '/adminstudentinfo'; against '/**/*.gif'
+2016-03-24 20:05:41,638 DEBUG - Checking match of request : '/adminstudentinfo'; against '/**/*.css'
+2016-03-24 20:05:41,638 DEBUG - Checking match of request : '/adminstudentinfo'; against '/**/*.js'
+2016-03-24 20:05:41,638 DEBUG - Checking match of request : '/adminstudentinfo'; against '/**/*.map'
+2016-03-24 20:05:41,638 DEBUG - Checking match of request : '/adminstudentinfo'; against '/**/*.eot'
+2016-03-24 20:05:41,638 DEBUG - Checking match of request : '/adminstudentinfo'; against '/**/*.woff'
+2016-03-24 20:05:41,638 DEBUG - Checking match of request : '/adminstudentinfo'; against '/**/*.svg'
+2016-03-24 20:05:41,638 DEBUG - Checking match of request : '/adminstudentinfo'; against '/**/*.ttf'
+2016-03-24 20:05:41,638 DEBUG - /adminStudentInfo?_=1458864341494 at position 1 of 12 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2016-03-24 20:05:41,639 DEBUG - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@badb5395: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,639 DEBUG - /adminStudentInfo?_=1458864341494 at position 2 of 12 in additional filter chain; firing Filter: 'LogoutFilter'
+2016-03-24 20:05:41,639 DEBUG - /adminStudentInfo?_=1458864341494 at position 3 of 12 in additional filter chain; firing Filter: 'LoginFilter'
+2016-03-24 20:05:41,639 DEBUG - /adminStudentInfo?_=1458864341494 at position 4 of 12 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2016-03-24 20:05:41,639 DEBUG - /adminStudentInfo?_=1458864341494 at position 5 of 12 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+2016-03-24 20:05:41,639 DEBUG - /adminStudentInfo?_=1458864341494 at position 6 of 12 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2016-03-24 20:05:41,639 DEBUG - /adminStudentInfo?_=1458864341494 at position 7 of 12 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2016-03-24 20:05:41,639 DEBUG - /adminStudentInfo?_=1458864341494 at position 8 of 12 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2016-03-24 20:05:41,639 DEBUG - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,639 DEBUG - /adminStudentInfo?_=1458864341494 at position 9 of 12 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2016-03-24 20:05:41,639 DEBUG - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,639 DEBUG - /adminStudentInfo?_=1458864341494 at position 10 of 12 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2016-03-24 20:05:41,639 DEBUG - /adminStudentInfo?_=1458864341494 at position 11 of 12 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2016-03-24 20:05:41,639 DEBUG - /adminStudentInfo?_=1458864341494 at position 12 of 12 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2016-03-24 20:05:41,639 DEBUG - Checking match of request : '/adminstudentinfo'; against '/unitsmanager'
+2016-03-24 20:05:41,639 DEBUG - Checking match of request : '/adminstudentinfo'; against '/usersmanager'
+2016-03-24 20:05:41,639 DEBUG - Checking match of request : '/adminstudentinfo'; against '/horizontalquery'
+2016-03-24 20:05:41,639 DEBUG - Checking match of request : '/adminstudentinfo'; against '/user-center'
+2016-03-24 20:05:41,640 DEBUG - Checking match of request : '/adminstudentinfo'; against '/position-detail'
+2016-03-24 20:05:41,640 DEBUG - Checking match of request : '/adminstudentinfo'; against '/user-profile'
+2016-03-24 20:05:41,640 DEBUG - Checking match of request : '/adminstudentinfo'; against '/user-password'
+2016-03-24 20:05:41,640 DEBUG - Checking match of request : '/adminstudentinfo'; against '/user-management'
+2016-03-24 20:05:41,640 DEBUG - Public object - authentication not attempted
+2016-03-24 20:05:41,640 DEBUG - /adminStudentInfo?_=1458864341494 reached end of additional filter chain; proceeding with original chain
+2016-03-24 20:05:41,640 DEBUG - DispatcherServlet with name 'imis' processing GET request for [/imis/adminStudentInfo]
+2016-03-24 20:05:41,640 DEBUG - Looking up handler method for path /adminStudentInfo
+2016-03-24 20:05:41,640 DEBUG - Returning handler method [public java.util.Map<java.lang.String, java.lang.Object> com.imis.presentation.controller.StudentController.handleStudentObtain(javax.servlet.http.HttpServletRequest)]
+2016-03-24 20:05:41,640 DEBUG - Returning cached instance of singleton bean 'studentController'
+2016-03-24 20:05:41,640 DEBUG - Last-Modified value for [/imis/adminStudentInfo] is: -1
+2016-03-24 20:05:41,647 DEBUG - Checking match of request : '/showemployer'; against '/**/*.jsp'
+2016-03-24 20:05:41,648 DEBUG - Checking match of request : '/showemployer'; against '/**/*.png'
+2016-03-24 20:05:41,648 DEBUG - Checking match of request : '/showemployer'; against '/**/*.gif'
+2016-03-24 20:05:41,648 DEBUG - Checking match of request : '/showemployer'; against '/**/*.css'
+2016-03-24 20:05:41,648 DEBUG - Checking match of request : '/showemployer'; against '/**/*.js'
+2016-03-24 20:05:41,648 DEBUG - Checking match of request : '/showemployer'; against '/**/*.map'
+2016-03-24 20:05:41,648 DEBUG - Checking match of request : '/showemployer'; against '/**/*.eot'
+2016-03-24 20:05:41,648 DEBUG - Checking match of request : '/showemployer'; against '/**/*.woff'
+2016-03-24 20:05:41,648 DEBUG - Checking match of request : '/showemployer'; against '/**/*.svg'
+2016-03-24 20:05:41,648 DEBUG - Checking match of request : '/showemployer'; against '/**/*.ttf'
+2016-03-24 20:05:41,648 DEBUG - /showEmployer at position 1 of 12 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2016-03-24 20:05:41,648 DEBUG - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@badb5395: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,648 DEBUG - /showEmployer at position 2 of 12 in additional filter chain; firing Filter: 'LogoutFilter'
+2016-03-24 20:05:41,648 DEBUG - /showEmployer at position 3 of 12 in additional filter chain; firing Filter: 'LoginFilter'
+2016-03-24 20:05:41,648 DEBUG - /showEmployer at position 4 of 12 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2016-03-24 20:05:41,648 DEBUG - /showEmployer at position 5 of 12 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+2016-03-24 20:05:41,648 DEBUG - /showEmployer at position 6 of 12 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2016-03-24 20:05:41,648 DEBUG - /showEmployer at position 7 of 12 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2016-03-24 20:05:41,648 DEBUG - /showEmployer at position 8 of 12 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2016-03-24 20:05:41,648 DEBUG - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,648 DEBUG - /showEmployer at position 9 of 12 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2016-03-24 20:05:41,648 DEBUG - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,648 DEBUG - /showEmployer at position 10 of 12 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2016-03-24 20:05:41,648 DEBUG - /showEmployer at position 11 of 12 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2016-03-24 20:05:41,648 DEBUG - /showEmployer at position 12 of 12 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2016-03-24 20:05:41,648 DEBUG - Checking match of request : '/showemployer'; against '/unitsmanager'
+2016-03-24 20:05:41,648 DEBUG - Checking match of request : '/showemployer'; against '/usersmanager'
+2016-03-24 20:05:41,648 DEBUG - Checking match of request : '/showemployer'; against '/horizontalquery'
+2016-03-24 20:05:41,648 DEBUG - Checking match of request : '/showemployer'; against '/user-center'
+2016-03-24 20:05:41,649 DEBUG - Checking match of request : '/showemployer'; against '/position-detail'
+2016-03-24 20:05:41,649 DEBUG - Checking match of request : '/showemployer'; against '/user-profile'
+2016-03-24 20:05:41,649 DEBUG - Checking match of request : '/showemployer'; against '/user-password'
+2016-03-24 20:05:41,649 DEBUG - Checking match of request : '/showemployer'; against '/user-management'
+2016-03-24 20:05:41,649 DEBUG - Public object - authentication not attempted
+2016-03-24 20:05:41,649 DEBUG - /showEmployer reached end of additional filter chain; proceeding with original chain
+2016-03-24 20:05:41,649 DEBUG - DispatcherServlet with name 'imis' processing GET request for [/imis/showEmployer]
+2016-03-24 20:05:41,649 DEBUG - Looking up handler method for path /showEmployer
+2016-03-24 20:05:41,649 DEBUG - Returning handler method [public java.util.Map<java.lang.String, com.imis.domain.entities.Employer> com.imis.presentation.controller.EmployerController.handleEmployerObtain(javax.servlet.http.HttpServletRequest)]
+2016-03-24 20:05:41,649 DEBUG - Returning cached instance of singleton bean 'employerController'
+2016-03-24 20:05:41,649 DEBUG - Last-Modified value for [/imis/showEmployer] is: -1
+2016-03-24 20:05:41,647 DEBUG - Adding transactional method 'StudentServiceImpl.getAdminStudentInfo' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; '',-java.lang.Exception
+2016-03-24 20:05:41,651 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:05:41,651 DEBUG - Adding transactional method 'EmployerServiceImpl.employerObtain' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; '',-java.lang.Exception
+2016-03-24 20:05:41,651 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:05:41,652 DEBUG - Creating new transaction with name [com.imis.service.impl.EmployerServiceImpl.employerObtain]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; '',-java.lang.Exception
+2016-03-24 20:05:41,652 DEBUG - Acquired Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] for JDBC transaction
+2016-03-24 20:05:41,652 DEBUG - Switching JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] to manual commit
+2016-03-24 20:05:41,652 DEBUG - Adding transactional method '$Proxy57.showEmployerInfo' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+2016-03-24 20:05:41,652 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:05:41,653 DEBUG - Participating in existing transaction
+2016-03-24 20:05:41,652 DEBUG - Creating new transaction with name [com.imis.service.impl.StudentServiceImpl.getAdminStudentInfo]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; '',-java.lang.Exception
+2016-03-24 20:05:41,653 DEBUG - Acquired Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] for JDBC transaction
+2016-03-24 20:05:41,653 DEBUG - Switching JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] to manual commit
+2016-03-24 20:05:41,653 DEBUG - Adding transactional method '$Proxy48.adminStudentInfo' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+2016-03-24 20:05:41,654 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:05:41,654 DEBUG - Participating in existing transaction
+2016-03-24 20:05:41,653 DEBUG - Creating a new SqlSession
+2016-03-24 20:05:41,654 DEBUG - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33728c36]
+2016-03-24 20:05:41,654 DEBUG - Creating a new SqlSession
+2016-03-24 20:05:41,655 DEBUG - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@567378de]
+2016-03-24 20:05:41,698 DEBUG - Cache Hit Ratio [com.imis.domain.repositories.StudentRepository]: 0.0
+2016-03-24 20:05:41,722 DEBUG - JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] will be managed by Spring
+2016-03-24 20:05:41,723 DEBUG - Checking match of request : '/showadminemployer'; against '/**/*.jsp'
+2016-03-24 20:05:41,723 DEBUG - Checking match of request : '/showadminemployer'; against '/**/*.png'
+2016-03-24 20:05:41,723 DEBUG - Checking match of request : '/showadminemployer'; against '/**/*.gif'
+2016-03-24 20:05:41,723 DEBUG - Checking match of request : '/showadminemployer'; against '/**/*.css'
+2016-03-24 20:05:41,723 DEBUG - Checking match of request : '/showadminemployer'; against '/**/*.js'
+2016-03-24 20:05:41,723 DEBUG - Checking match of request : '/showadminemployer'; against '/**/*.map'
+2016-03-24 20:05:41,723 DEBUG - Checking match of request : '/showadminemployer'; against '/**/*.eot'
+2016-03-24 20:05:41,723 DEBUG - Checking match of request : '/showadminemployer'; against '/**/*.woff'
+2016-03-24 20:05:41,723 DEBUG - Checking match of request : '/showadminemployer'; against '/**/*.svg'
+2016-03-24 20:05:41,723 DEBUG - Checking match of request : '/showadminemployer'; against '/**/*.ttf'
+2016-03-24 20:05:41,723 DEBUG - /showAdminEmployer?_=1458864341495 at position 1 of 12 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2016-03-24 20:05:41,724 DEBUG - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@badb5395: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,724 DEBUG - /showAdminEmployer?_=1458864341495 at position 2 of 12 in additional filter chain; firing Filter: 'LogoutFilter'
+2016-03-24 20:05:41,724 DEBUG - /showAdminEmployer?_=1458864341495 at position 3 of 12 in additional filter chain; firing Filter: 'LoginFilter'
+2016-03-24 20:05:41,724 DEBUG - /showAdminEmployer?_=1458864341495 at position 4 of 12 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2016-03-24 20:05:41,724 DEBUG - /showAdminEmployer?_=1458864341495 at position 5 of 12 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+2016-03-24 20:05:41,724 DEBUG - /showAdminEmployer?_=1458864341495 at position 6 of 12 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2016-03-24 20:05:41,724 DEBUG - /showAdminEmployer?_=1458864341495 at position 7 of 12 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2016-03-24 20:05:41,724 DEBUG - /showAdminEmployer?_=1458864341495 at position 8 of 12 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2016-03-24 20:05:41,724 DEBUG - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,724 DEBUG - /showAdminEmployer?_=1458864341495 at position 9 of 12 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2016-03-24 20:05:41,724 DEBUG - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,724 DEBUG - /showAdminEmployer?_=1458864341495 at position 10 of 12 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2016-03-24 20:05:41,724 DEBUG - /showAdminEmployer?_=1458864341495 at position 11 of 12 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2016-03-24 20:05:41,724 DEBUG - /showAdminEmployer?_=1458864341495 at position 12 of 12 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2016-03-24 20:05:41,724 DEBUG - Checking match of request : '/showadminemployer'; against '/unitsmanager'
+2016-03-24 20:05:41,724 DEBUG - Checking match of request : '/showadminemployer'; against '/usersmanager'
+2016-03-24 20:05:41,724 DEBUG - Checking match of request : '/showadminemployer'; against '/horizontalquery'
+2016-03-24 20:05:41,724 DEBUG - Checking match of request : '/showadminemployer'; against '/user-center'
+2016-03-24 20:05:41,724 DEBUG - Checking match of request : '/showadminemployer'; against '/position-detail'
+2016-03-24 20:05:41,724 DEBUG - Checking match of request : '/showadminemployer'; against '/user-profile'
+2016-03-24 20:05:41,724 DEBUG - Checking match of request : '/showadminemployer'; against '/user-password'
+2016-03-24 20:05:41,724 DEBUG - Checking match of request : '/showadminemployer'; against '/user-management'
+2016-03-24 20:05:41,724 DEBUG - Public object - authentication not attempted
+2016-03-24 20:05:41,724 DEBUG - /showAdminEmployer?_=1458864341495 reached end of additional filter chain; proceeding with original chain
+2016-03-24 20:05:41,724 DEBUG - DispatcherServlet with name 'imis' processing GET request for [/imis/showAdminEmployer]
+2016-03-24 20:05:41,725 DEBUG - Looking up handler method for path /showAdminEmployer
+2016-03-24 20:05:41,725 DEBUG - Returning handler method [public java.util.Map<java.lang.String, java.lang.Object> com.imis.presentation.controller.EmployerController.handlePositionObtain(javax.servlet.http.HttpServletRequest)]
+2016-03-24 20:05:41,725 DEBUG - Returning cached instance of singleton bean 'employerController'
+2016-03-24 20:05:41,725 DEBUG - Last-Modified value for [/imis/showAdminEmployer] is: -1
+2016-03-24 20:05:41,731 DEBUG - Adding transactional method 'EmployerServiceImpl.getAdminEmployerInfo' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; '',-java.lang.Exception
+2016-03-24 20:05:41,731 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:05:41,731 DEBUG - Creating new transaction with name [com.imis.service.impl.EmployerServiceImpl.getAdminEmployerInfo]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; '',-java.lang.Exception
+2016-03-24 20:05:41,731 DEBUG - Acquired Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] for JDBC transaction
+2016-03-24 20:05:41,732 DEBUG - Switching JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] to manual commit
+2016-03-24 20:05:41,732 DEBUG - Adding transactional method '$Proxy57.getAdminEmployerInfo' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+2016-03-24 20:05:41,732 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:05:41,732 DEBUG - Participating in existing transaction
+2016-03-24 20:05:41,732 DEBUG - Creating a new SqlSession
+2016-03-24 20:05:41,732 DEBUG - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c4b7715]
+2016-03-24 20:05:41,732 DEBUG - Cache Hit Ratio [com.imis.domain.repositories.EmployerRepository]: 0.0
+2016-03-24 20:05:41,733 DEBUG - JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] will be managed by Spring
+2016-03-24 20:05:41,734 DEBUG - ooo Using Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}]
+2016-03-24 20:05:41,737 DEBUG - ==>  Preparing: SELECT ST.STUDENT_ID, ST.FIRST_NAME, ST.MIDDLE_NAME, ST.LAST_NAME, ST.SEMESTER_REGISTERED, ST.student_no, ST.REGISTERED_YEAR FROM STUDENT ST 
+2016-03-24 20:05:41,734 DEBUG - ooo Using Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}]
+2016-03-24 20:05:41,745 DEBUG - ==>  Preparing: select e.employer_id,e.employer_name,e.update_time,e.employer_group_id,g.employer_group_type, (select count(p.POSITION_ID) from position p where p.employer_ID = e.employer_ID) as allpos_num from employer_group g,employer e where e.employer_group_id=g.employer_group_id 
+2016-03-24 20:05:41,764 DEBUG - Checking match of request : '/getpositiongroup'; against '/**/*.jsp'
+2016-03-24 20:05:41,764 DEBUG - Checking match of request : '/getpositiongroup'; against '/**/*.png'
+2016-03-24 20:05:41,764 DEBUG - Checking match of request : '/getpositiongroup'; against '/**/*.gif'
+2016-03-24 20:05:41,764 DEBUG - Checking match of request : '/getpositiongroup'; against '/**/*.css'
+2016-03-24 20:05:41,764 DEBUG - Checking match of request : '/getpositiongroup'; against '/**/*.js'
+2016-03-24 20:05:41,764 DEBUG - Checking match of request : '/getpositiongroup'; against '/**/*.map'
+2016-03-24 20:05:41,764 DEBUG - Checking match of request : '/getpositiongroup'; against '/**/*.eot'
+2016-03-24 20:05:41,764 DEBUG - Checking match of request : '/getpositiongroup'; against '/**/*.woff'
+2016-03-24 20:05:41,764 DEBUG - Checking match of request : '/getpositiongroup'; against '/**/*.svg'
+2016-03-24 20:05:41,764 DEBUG - Checking match of request : '/getpositiongroup'; against '/**/*.ttf'
+2016-03-24 20:05:41,765 DEBUG - /getPositionGroup at position 1 of 12 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2016-03-24 20:05:41,765 DEBUG - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@badb5395: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,765 DEBUG - /getPositionGroup at position 2 of 12 in additional filter chain; firing Filter: 'LogoutFilter'
+2016-03-24 20:05:41,765 DEBUG - /getPositionGroup at position 3 of 12 in additional filter chain; firing Filter: 'LoginFilter'
+2016-03-24 20:05:41,765 DEBUG - /getPositionGroup at position 4 of 12 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2016-03-24 20:05:41,765 DEBUG - /getPositionGroup at position 5 of 12 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+2016-03-24 20:05:41,765 DEBUG - /getPositionGroup at position 6 of 12 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2016-03-24 20:05:41,765 DEBUG - /getPositionGroup at position 7 of 12 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2016-03-24 20:05:41,765 DEBUG - /getPositionGroup at position 8 of 12 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2016-03-24 20:05:41,765 DEBUG - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,765 DEBUG - /getPositionGroup at position 9 of 12 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2016-03-24 20:05:41,765 DEBUG - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,765 DEBUG - /getPositionGroup at position 10 of 12 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2016-03-24 20:05:41,765 DEBUG - /getPositionGroup at position 11 of 12 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2016-03-24 20:05:41,765 DEBUG - /getPositionGroup at position 12 of 12 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2016-03-24 20:05:41,765 DEBUG - Checking match of request : '/getpositiongroup'; against '/unitsmanager'
+2016-03-24 20:05:41,765 DEBUG - Checking match of request : '/getpositiongroup'; against '/usersmanager'
+2016-03-24 20:05:41,765 DEBUG - Checking match of request : '/getpositiongroup'; against '/horizontalquery'
+2016-03-24 20:05:41,766 DEBUG - Checking match of request : '/getpositiongroup'; against '/user-center'
+2016-03-24 20:05:41,766 DEBUG - Checking match of request : '/getpositiongroup'; against '/position-detail'
+2016-03-24 20:05:41,766 DEBUG - Checking match of request : '/getpositiongroup'; against '/user-profile'
+2016-03-24 20:05:41,766 DEBUG - Checking match of request : '/getpositiongroup'; against '/user-password'
+2016-03-24 20:05:41,766 DEBUG - Checking match of request : '/getpositiongroup'; against '/user-management'
+2016-03-24 20:05:41,766 DEBUG - Public object - authentication not attempted
+2016-03-24 20:05:41,766 DEBUG - /getPositionGroup reached end of additional filter chain; proceeding with original chain
+2016-03-24 20:05:41,766 DEBUG - DispatcherServlet with name 'imis' processing GET request for [/imis/getPositionGroup]
+2016-03-24 20:05:41,766 DEBUG - Looking up handler method for path /getPositionGroup
+2016-03-24 20:05:41,767 DEBUG - Returning handler method [public java.util.List<com.imis.domain.entities.PositionGroup> com.imis.presentation.controller.PositionController.handlePositionGroupObtain(javax.servlet.http.HttpServletRequest)]
+2016-03-24 20:05:41,767 DEBUG - Returning cached instance of singleton bean 'positionController'
+2016-03-24 20:05:41,767 DEBUG - Last-Modified value for [/imis/getPositionGroup] is: -1
+2016-03-24 20:05:41,769 DEBUG - Adding transactional method 'PositionGroupServiceImpl.positionGroupObtain' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; '',-java.lang.Exception
+2016-03-24 20:05:41,770 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:05:41,770 DEBUG - Creating new transaction with name [com.imis.service.impl.PositionGroupServiceImpl.positionGroupObtain]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; '',-java.lang.Exception
+2016-03-24 20:05:41,770 DEBUG - Acquired Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] for JDBC transaction
+2016-03-24 20:05:41,770 DEBUG - Switching JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] to manual commit
+2016-03-24 20:05:41,770 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:05:41,770 DEBUG - Participating in existing transaction
+2016-03-24 20:05:41,771 DEBUG - Creating a new SqlSession
+2016-03-24 20:05:41,771 DEBUG - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a2ccbb8]
+2016-03-24 20:05:41,771 DEBUG - Cache Hit Ratio [com.imis.domain.repositories.PositionGroupRepository]: 0.0
+2016-03-24 20:05:41,771 DEBUG - JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] will be managed by Spring
+2016-03-24 20:05:41,771 DEBUG - ooo Using Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}]
+2016-03-24 20:05:41,771 DEBUG - ==>  Preparing: select position_group_id,position_group_name from position_group 
+2016-03-24 20:05:41,781 DEBUG - ==> Parameters: 
+2016-03-24 20:05:41,784 DEBUG - ==> Parameters: 
+2016-03-24 20:05:41,786 DEBUG - ==> Parameters: 
+2016-03-24 20:05:41,798 DEBUG - Checking match of request : '/showposition'; against '/**/*.jsp'
+2016-03-24 20:05:41,798 DEBUG - Checking match of request : '/showposition'; against '/**/*.png'
+2016-03-24 20:05:41,798 DEBUG - Checking match of request : '/showposition'; against '/**/*.gif'
+2016-03-24 20:05:41,798 DEBUG - Checking match of request : '/showposition'; against '/**/*.css'
+2016-03-24 20:05:41,798 DEBUG - Checking match of request : '/showposition'; against '/**/*.js'
+2016-03-24 20:05:41,798 DEBUG - Checking match of request : '/showposition'; against '/**/*.map'
+2016-03-24 20:05:41,798 DEBUG - Checking match of request : '/showposition'; against '/**/*.eot'
+2016-03-24 20:05:41,798 DEBUG - Checking match of request : '/showposition'; against '/**/*.woff'
+2016-03-24 20:05:41,798 DEBUG - Checking match of request : '/showposition'; against '/**/*.svg'
+2016-03-24 20:05:41,798 DEBUG - Checking match of request : '/showposition'; against '/**/*.ttf'
+2016-03-24 20:05:41,798 DEBUG - /showPosition?_=1458864341496 at position 1 of 12 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2016-03-24 20:05:41,798 DEBUG - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@badb5395: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,798 DEBUG - /showPosition?_=1458864341496 at position 2 of 12 in additional filter chain; firing Filter: 'LogoutFilter'
+2016-03-24 20:05:41,798 DEBUG - /showPosition?_=1458864341496 at position 3 of 12 in additional filter chain; firing Filter: 'LoginFilter'
+2016-03-24 20:05:41,798 DEBUG - /showPosition?_=1458864341496 at position 4 of 12 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2016-03-24 20:05:41,798 DEBUG - /showPosition?_=1458864341496 at position 5 of 12 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+2016-03-24 20:05:41,798 DEBUG - /showPosition?_=1458864341496 at position 6 of 12 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2016-03-24 20:05:41,798 DEBUG - /showPosition?_=1458864341496 at position 7 of 12 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2016-03-24 20:05:41,798 DEBUG - /showPosition?_=1458864341496 at position 8 of 12 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2016-03-24 20:05:41,798 DEBUG - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,798 DEBUG - /showPosition?_=1458864341496 at position 9 of 12 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2016-03-24 20:05:41,799 DEBUG - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,799 DEBUG - /showPosition?_=1458864341496 at position 10 of 12 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2016-03-24 20:05:41,799 DEBUG - /showPosition?_=1458864341496 at position 11 of 12 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2016-03-24 20:05:41,799 DEBUG - /showPosition?_=1458864341496 at position 12 of 12 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2016-03-24 20:05:41,799 DEBUG - Checking match of request : '/showposition'; against '/unitsmanager'
+2016-03-24 20:05:41,799 DEBUG - Checking match of request : '/showposition'; against '/usersmanager'
+2016-03-24 20:05:41,799 DEBUG - Checking match of request : '/showposition'; against '/horizontalquery'
+2016-03-24 20:05:41,799 DEBUG - Checking match of request : '/showposition'; against '/user-center'
+2016-03-24 20:05:41,799 DEBUG - Checking match of request : '/showposition'; against '/position-detail'
+2016-03-24 20:05:41,799 DEBUG - Checking match of request : '/showposition'; against '/user-profile'
+2016-03-24 20:05:41,799 DEBUG - Checking match of request : '/showposition'; against '/user-password'
+2016-03-24 20:05:41,799 DEBUG - Checking match of request : '/showposition'; against '/user-management'
+2016-03-24 20:05:41,799 DEBUG - Public object - authentication not attempted
+2016-03-24 20:05:41,799 DEBUG - /showPosition?_=1458864341496 reached end of additional filter chain; proceeding with original chain
+2016-03-24 20:05:41,799 DEBUG - DispatcherServlet with name 'imis' processing GET request for [/imis/showPosition]
+2016-03-24 20:05:41,799 DEBUG - Looking up handler method for path /showPosition
+2016-03-24 20:05:41,799 DEBUG - Returning handler method [public java.util.Map<java.lang.String, java.lang.Object> com.imis.presentation.controller.PositionController.handlePositionObtain(javax.servlet.http.HttpServletRequest)]
+2016-03-24 20:05:41,799 DEBUG - Returning cached instance of singleton bean 'positionController'
+2016-03-24 20:05:41,799 DEBUG - Last-Modified value for [/imis/showPosition] is: -1
+2016-03-24 20:05:41,802 DEBUG - Adding transactional method 'PositionServiceImpl.positionObtain' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; '',-java.lang.Exception
+2016-03-24 20:05:41,802 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:05:41,802 DEBUG - Creating new transaction with name [com.imis.service.impl.PositionServiceImpl.positionObtain]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; '',-java.lang.Exception
+2016-03-24 20:05:41,802 DEBUG - Acquired Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] for JDBC transaction
+2016-03-24 20:05:41,803 DEBUG - Switching JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] to manual commit
+2016-03-24 20:05:41,803 DEBUG - Adding transactional method '$Proxy60.showPositionInfo' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+2016-03-24 20:05:41,803 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:05:41,803 DEBUG - Participating in existing transaction
+2016-03-24 20:05:41,803 DEBUG - Creating a new SqlSession
+2016-03-24 20:05:41,803 DEBUG - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1bd9c272]
+2016-03-24 20:05:41,844 DEBUG - Cache Hit Ratio [com.imis.domain.repositories.PositionRepository]: 0.0
+2016-03-24 20:05:41,846 DEBUG - JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] will be managed by Spring
+2016-03-24 20:05:41,846 DEBUG - ooo Using Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}]
+2016-03-24 20:05:41,846 DEBUG - ==>  Preparing: select p.POSITION_id,p.position_name,p.position_group_id,g.position_group_name,p.update_time, (select count(a.POSITION_ID) from application a where a.APPLICATION_STATUS=1 and a.POSITION_ID = p.POSITION_ID) as unreadapp_num, (select count(a.POSITION_ID) from application a where a.POSITION_ID = p.POSITION_ID) as allapp_num, e.employer_name from POSITION p, position_group g,employer e WHERE p.position_group_id = g.position_group_id 
+2016-03-24 20:05:41,846 DEBUG - ==> Parameters: 
+2016-03-24 20:05:41,852 DEBUG - Cache Hit Ratio [com.imis.domain.repositories.StudentRepository]: 0.0
+2016-03-24 20:05:41,855 DEBUG - JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] will be managed by Spring
+2016-03-24 20:05:41,855 DEBUG - ooo Using Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}]
+2016-03-24 20:05:41,855 DEBUG - ==>  Preparing: SELECT s.STUDENT_ID, s.SEMESTER_REGISTERED, s.REGISTERED_YEAR, s.STUDENT_NO, s.FIRST_NAME, s.MIDDLE_NAME, s.LAST_NAME, s.EMAIL, s.TELEPHONE, s.STATUS, s.GENDER, e.DEGREE, e.MAJOR, e.GPA, e.INSTITUTION, e.EDUCATION_ID, e.COUNTRY, e.GRADUATION_DATE, w.COMPANY, w.TITLE, w.DUTIES, w.DATES, w.WORK_ID FROM STUDENT s, EDUCATION e, WORKS w WHERE s.STUDENT_ID = e.STUDENT_ID AND s.STUDENT_ID = w.STUDENT_ID 
+2016-03-24 20:05:41,855 DEBUG - ==> Parameters: 
+2016-03-24 20:05:41,868 DEBUG - Cache Hit Ratio [com.imis.domain.repositories.EmployerRepository]: 0.0
+2016-03-24 20:05:41,871 DEBUG - JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] will be managed by Spring
+2016-03-24 20:05:41,871 DEBUG - ooo Using Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}]
+2016-03-24 20:05:41,871 DEBUG - ==>  Preparing: select employer_id,employer_name,employer_address,employer_city,employer_post_code,employer_country, contactor_first_name,contactor_last_name,contactor_position,employer_telephone,employer_email,employer_website,employer_notes,create_time,update_time,employer_group_id from employer 
+2016-03-24 20:05:41,871 DEBUG - ==> Parameters: 
+2016-03-24 20:05:41,884 DEBUG - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a2ccbb8]
+2016-03-24 20:05:41,885 DEBUG - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a2ccbb8]
+2016-03-24 20:05:41,884 DEBUG - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c4b7715]
+2016-03-24 20:05:41,885 DEBUG - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c4b7715]
+2016-03-24 20:05:41,884 DEBUG - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33728c36]
+2016-03-24 20:05:41,885 DEBUG - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33728c36]
+2016-03-24 20:05:41,885 DEBUG - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@567378de]
+2016-03-24 20:05:41,885 DEBUG - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@567378de]
+2016-03-24 20:05:41,886 DEBUG - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ac707c4]
+2016-03-24 20:05:41,887 DEBUG - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33728c36]
+2016-03-24 20:05:41,887 DEBUG - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@33728c36]
+2016-03-24 20:05:41,887 DEBUG - Initiating transaction commit
+2016-03-24 20:05:41,887 DEBUG - Committing JDBC transaction on Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}]
+2016-03-24 20:05:41,886 DEBUG - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a2ccbb8]
+2016-03-24 20:05:41,887 DEBUG - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c4b7715]
+2016-03-24 20:05:41,887 DEBUG - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@567378de]
+2016-03-24 20:05:41,888 DEBUG - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4a2ccbb8]
+2016-03-24 20:05:41,889 DEBUG - Initiating transaction commit
+2016-03-24 20:05:41,889 DEBUG - Committing JDBC transaction on Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}]
+2016-03-24 20:05:41,887 DEBUG - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ac707c4]
+2016-03-24 20:05:41,890 DEBUG - Releasing JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] after transaction
+2016-03-24 20:05:41,888 DEBUG - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@567378de]
+2016-03-24 20:05:41,888 DEBUG - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c4b7715]
+2016-03-24 20:05:41,895 DEBUG - Initiating transaction commit
+2016-03-24 20:05:41,895 DEBUG - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ac707c4]
+2016-03-24 20:05:41,896 DEBUG - Committing JDBC transaction on Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}]
+2016-03-24 20:05:41,895 DEBUG - Initiating transaction commit
+2016-03-24 20:05:41,896 DEBUG - Committing JDBC transaction on Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}]
+2016-03-24 20:05:41,897 DEBUG - Releasing JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] after transaction
+2016-03-24 20:05:41,897 DEBUG - Releasing JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] after transaction
+2016-03-24 20:05:41,897 DEBUG - Returning JDBC Connection to DataSource
+2016-03-24 20:05:41,896 DEBUG - Releasing JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] after transaction
+2016-03-24 20:05:41,897 DEBUG - Returning JDBC Connection to DataSource
+2016-03-24 20:05:41,890 DEBUG - Returning JDBC Connection to DataSource
+2016-03-24 20:05:41,897 DEBUG - Returning JDBC Connection to DataSource
+2016-03-24 20:05:41,899 DEBUG - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ac707c4]
+2016-03-24 20:05:41,909 DEBUG - Initiating transaction commit
+2016-03-24 20:05:41,909 DEBUG - Committing JDBC transaction on Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1410, lastUsedAgoInSec=1410, creationTimeAgoInSec=1410}]
+2016-03-24 20:05:41,910 DEBUG - Releasing JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1410, lastUsedAgoInSec=1410, creationTimeAgoInSec=1410}] after transaction
+2016-03-24 20:05:41,910 DEBUG - Returning JDBC Connection to DataSource
+2016-03-24 20:05:41,923 DEBUG - Written [[com.imis.domain.entities.PositionGroup@4643224e, com.imis.domain.entities.PositionGroup@66f256da, com.imis.domain.entities.PositionGroup@6e910b33]] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJacksonHttpMessageConverter@3248dc65]
+2016-03-24 20:05:41,928 DEBUG - Null ModelAndView returned to DispatcherServlet with name 'imis': assuming HandlerAdapter completed request handling
+2016-03-24 20:05:41,928 DEBUG - Successfully completed request
+2016-03-24 20:05:41,927 DEBUG - Written [{data=[com.imis.domain.entities.Employer@5e889647]}] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJacksonHttpMessageConverter@3248dc65]
+2016-03-24 20:05:41,928 DEBUG - Null ModelAndView returned to DispatcherServlet with name 'imis': assuming HandlerAdapter completed request handling
+2016-03-24 20:05:41,928 DEBUG - Successfully completed request
+2016-03-24 20:05:41,928 DEBUG - Chain processed normally
+2016-03-24 20:05:41,930 DEBUG - SecurityContextHolder now cleared, as request processing completed
+2016-03-24 20:05:41,928 DEBUG - Chain processed normally
+2016-03-24 20:05:41,930 DEBUG - SecurityContextHolder now cleared, as request processing completed
+2016-03-24 20:05:41,933 DEBUG - Checking match of request : '/canditateinfo'; against '/**/*.jsp'
+2016-03-24 20:05:41,933 DEBUG - Checking match of request : '/canditateinfo'; against '/**/*.png'
+2016-03-24 20:05:41,933 DEBUG - Checking match of request : '/canditateinfo'; against '/**/*.gif'
+2016-03-24 20:05:41,933 DEBUG - Checking match of request : '/canditateinfo'; against '/**/*.css'
+2016-03-24 20:05:41,933 DEBUG - Checking match of request : '/canditateinfo'; against '/**/*.js'
+2016-03-24 20:05:41,933 DEBUG - Checking match of request : '/canditateinfo'; against '/**/*.map'
+2016-03-24 20:05:41,933 DEBUG - Checking match of request : '/canditateinfo'; against '/**/*.eot'
+2016-03-24 20:05:41,933 DEBUG - Checking match of request : '/canditateinfo'; against '/**/*.woff'
+2016-03-24 20:05:41,933 DEBUG - Checking match of request : '/canditateinfo'; against '/**/*.svg'
+2016-03-24 20:05:41,933 DEBUG - Checking match of request : '/canditateinfo'; against '/**/*.ttf'
+2016-03-24 20:05:41,933 DEBUG - /canditateInfo?positionId=0&_=1458864341497 at position 1 of 12 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2016-03-24 20:05:41,933 DEBUG - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@badb5395: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,933 DEBUG - /canditateInfo?positionId=0&_=1458864341497 at position 2 of 12 in additional filter chain; firing Filter: 'LogoutFilter'
+2016-03-24 20:05:41,933 DEBUG - /canditateInfo?positionId=0&_=1458864341497 at position 3 of 12 in additional filter chain; firing Filter: 'LoginFilter'
+2016-03-24 20:05:41,933 DEBUG - /canditateInfo?positionId=0&_=1458864341497 at position 4 of 12 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2016-03-24 20:05:41,933 DEBUG - /canditateInfo?positionId=0&_=1458864341497 at position 5 of 12 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+2016-03-24 20:05:41,933 DEBUG - /canditateInfo?positionId=0&_=1458864341497 at position 6 of 12 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2016-03-24 20:05:41,933 DEBUG - /canditateInfo?positionId=0&_=1458864341497 at position 7 of 12 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2016-03-24 20:05:41,934 DEBUG - /canditateInfo?positionId=0&_=1458864341497 at position 8 of 12 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2016-03-24 20:05:41,934 DEBUG - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,934 DEBUG - /canditateInfo?positionId=0&_=1458864341497 at position 9 of 12 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2016-03-24 20:05:41,934 DEBUG - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:41,934 DEBUG - /canditateInfo?positionId=0&_=1458864341497 at position 10 of 12 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2016-03-24 20:05:41,934 DEBUG - /canditateInfo?positionId=0&_=1458864341497 at position 11 of 12 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2016-03-24 20:05:41,934 DEBUG - /canditateInfo?positionId=0&_=1458864341497 at position 12 of 12 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2016-03-24 20:05:41,934 DEBUG - Checking match of request : '/canditateinfo'; against '/unitsmanager'
+2016-03-24 20:05:41,934 DEBUG - Checking match of request : '/canditateinfo'; against '/usersmanager'
+2016-03-24 20:05:41,934 DEBUG - Checking match of request : '/canditateinfo'; against '/horizontalquery'
+2016-03-24 20:05:41,934 DEBUG - Checking match of request : '/canditateinfo'; against '/user-center'
+2016-03-24 20:05:41,934 DEBUG - Checking match of request : '/canditateinfo'; against '/position-detail'
+2016-03-24 20:05:41,934 DEBUG - Checking match of request : '/canditateinfo'; against '/user-profile'
+2016-03-24 20:05:41,934 DEBUG - Checking match of request : '/canditateinfo'; against '/user-password'
+2016-03-24 20:05:41,934 DEBUG - Checking match of request : '/canditateinfo'; against '/user-management'
+2016-03-24 20:05:41,934 DEBUG - Public object - authentication not attempted
+2016-03-24 20:05:41,934 DEBUG - /canditateInfo?positionId=0&_=1458864341497 reached end of additional filter chain; proceeding with original chain
+2016-03-24 20:05:41,934 DEBUG - DispatcherServlet with name 'imis' processing GET request for [/imis/canditateInfo]
+2016-03-24 20:05:41,934 DEBUG - Looking up handler method for path /canditateInfo
+2016-03-24 20:05:41,935 DEBUG - Written [{employer=com.imis.domain.entities.Employer@1cca8e7f}] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJacksonHttpMessageConverter@3248dc65]
+2016-03-24 20:05:41,935 DEBUG - Null ModelAndView returned to DispatcherServlet with name 'imis': assuming HandlerAdapter completed request handling
+2016-03-24 20:05:41,936 DEBUG - Successfully completed request
+2016-03-24 20:05:41,936 DEBUG - Chain processed normally
+2016-03-24 20:05:41,936 DEBUG - SecurityContextHolder now cleared, as request processing completed
+2016-03-24 20:05:41,935 DEBUG - Returning handler method [public java.util.Map<java.lang.String, java.lang.Object> com.imis.presentation.controller.PositionController.showCandidateInfo(javax.servlet.http.HttpServletRequest)]
+2016-03-24 20:05:41,937 DEBUG - Returning cached instance of singleton bean 'positionController'
+2016-03-24 20:05:41,937 DEBUG - Last-Modified value for [/imis/canditateInfo] is: -1
+2016-03-24 20:05:41,940 DEBUG - Adding transactional method 'PositionServiceImpl.candidateObtain' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; '',-java.lang.Exception
+2016-03-24 20:05:41,941 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:05:41,941 DEBUG - Creating new transaction with name [com.imis.service.impl.PositionServiceImpl.candidateObtain]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; '',-java.lang.Exception
+2016-03-24 20:05:41,941 DEBUG - Acquired Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] for JDBC transaction
+2016-03-24 20:05:41,941 DEBUG - Switching JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] to manual commit
+2016-03-24 20:05:41,941 DEBUG - Adding transactional method '$Proxy54.getCandidateInfo' with attribute: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; ''
+2016-03-24 20:05:41,941 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:05:41,941 DEBUG - Participating in existing transaction
+2016-03-24 20:05:41,941 DEBUG - Creating a new SqlSession
+2016-03-24 20:05:41,942 DEBUG - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e9b691d]
+2016-03-24 20:05:41,942 DEBUG - Cache Hit Ratio [com.imis.domain.repositories.ApplicationRepository]: 0.0
+2016-03-24 20:05:41,943 DEBUG - JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] will be managed by Spring
+2016-03-24 20:05:41,943 DEBUG - ooo Using Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}]
+2016-03-24 20:05:41,943 DEBUG - ==>  Preparing: SELECT ST.STUDENT_ID, ST.FIRST_NAME, ST.MIDDLE_NAME, ST.LAST_NAME, ST.STATUS, a.application_status, a.application_id, a.update_time, p.position_name, e.employer_name FROM STUDENT ST , application a,position p,employer e WHERE ST.USERNAME=a.username and p.position_id=a.position_id and e.employer_id = p.employer_id 
+2016-03-24 20:05:41,943 DEBUG - ==> Parameters: 
+2016-03-24 20:05:41,956 DEBUG - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e9b691d]
+2016-03-24 20:05:41,956 DEBUG - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e9b691d]
+2016-03-24 20:05:41,956 DEBUG - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e9b691d]
+2016-03-24 20:05:41,956 DEBUG - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@e9b691d]
+2016-03-24 20:05:41,956 DEBUG - Initiating transaction commit
+2016-03-24 20:05:41,956 DEBUG - Committing JDBC transaction on Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}]
+2016-03-24 20:05:41,957 DEBUG - Releasing JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] after transaction
+2016-03-24 20:05:41,957 DEBUG - Returning JDBC Connection to DataSource
+2016-03-24 20:05:41,957 DEBUG - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1bd9c272]
+2016-03-24 20:05:41,958 DEBUG - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1bd9c272]
+2016-03-24 20:05:41,958 DEBUG - Written [{data=[]}] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJacksonHttpMessageConverter@3248dc65]
+2016-03-24 20:05:41,958 DEBUG - Null ModelAndView returned to DispatcherServlet with name 'imis': assuming HandlerAdapter completed request handling
+2016-03-24 20:05:41,958 DEBUG - Successfully completed request
+2016-03-24 20:05:41,958 DEBUG - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1bd9c272]
+2016-03-24 20:05:41,958 DEBUG - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1bd9c272]
+2016-03-24 20:05:41,959 DEBUG - Initiating transaction commit
+2016-03-24 20:05:41,959 DEBUG - Committing JDBC transaction on Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}]
+2016-03-24 20:05:41,958 DEBUG - Chain processed normally
+2016-03-24 20:05:41,959 DEBUG - SecurityContextHolder now cleared, as request processing completed
+2016-03-24 20:05:41,959 DEBUG - Releasing JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1409, lastUsedAgoInSec=1409, creationTimeAgoInSec=1409}] after transaction
+2016-03-24 20:05:41,959 DEBUG - Returning JDBC Connection to DataSource
+2016-03-24 20:05:41,965 DEBUG - Written [{data=[com.imis.domain.entities.Student@5999f523]}] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJacksonHttpMessageConverter@3248dc65]
+2016-03-24 20:05:41,965 DEBUG - Null ModelAndView returned to DispatcherServlet with name 'imis': assuming HandlerAdapter completed request handling
+2016-03-24 20:05:41,965 DEBUG - Successfully completed request
+2016-03-24 20:05:41,965 DEBUG - Chain processed normally
+2016-03-24 20:05:41,965 DEBUG - SecurityContextHolder now cleared, as request processing completed
+2016-03-24 20:05:41,965 DEBUG - Written [com.imis.presentation.model.Response@1d1a6d9a] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJacksonHttpMessageConverter@3248dc65]
+2016-03-24 20:05:41,965 DEBUG - Null ModelAndView returned to DispatcherServlet with name 'imis': assuming HandlerAdapter completed request handling
+2016-03-24 20:05:41,965 DEBUG - Successfully completed request
+2016-03-24 20:05:41,965 DEBUG - Chain processed normally
+2016-03-24 20:05:41,965 DEBUG - SecurityContextHolder now cleared, as request processing completed
+2016-03-24 20:05:41,971 DEBUG - Written [{data=[com.imis.domain.entities.Position@cf83f16, com.imis.domain.entities.Position@1cca7ed5, com.imis.domain.entities.Position@d6fc820, com.imis.domain.entities.Position@4bf5b376, com.imis.domain.entities.Position@6383591, com.imis.domain.entities.Position@49cbcf55, com.imis.domain.entities.Position@3a162084, com.imis.domain.entities.Position@5c9e5ab3, com.imis.domain.entities.Position@1b4d780c, com.imis.domain.entities.Position@cebad57, com.imis.domain.entities.Position@7f2be4e, com.imis.domain.entities.Position@291737c1, com.imis.domain.entities.Position@59eab7f7, com.imis.domain.entities.Position@83a3888, com.imis.domain.entities.Position@1aa8e70f, com.imis.domain.entities.Position@a1172a4, com.imis.domain.entities.Position@6c8291e, com.imis.domain.entities.Position@5f6fbf37, com.imis.domain.entities.Position@2a2ab4a, com.imis.domain.entities.Position@3a76de8]}] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJacksonHttpMessageConverter@3248dc65]
+2016-03-24 20:05:41,971 DEBUG - Null ModelAndView returned to DispatcherServlet with name 'imis': assuming HandlerAdapter completed request handling
+2016-03-24 20:05:41,972 DEBUG - Successfully completed request
+2016-03-24 20:05:41,972 DEBUG - Chain processed normally
+2016-03-24 20:05:41,972 DEBUG - SecurityContextHolder now cleared, as request processing completed
+2016-03-24 20:05:49,053 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.jsp'
+2016-03-24 20:05:49,053 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.png'
+2016-03-24 20:05:49,053 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.gif'
+2016-03-24 20:05:49,053 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.css'
+2016-03-24 20:05:49,053 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.js'
+2016-03-24 20:05:49,053 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.map'
+2016-03-24 20:05:49,053 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.eot'
+2016-03-24 20:05:49,053 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.woff'
+2016-03-24 20:05:49,053 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.svg'
+2016-03-24 20:05:49,053 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.ttf'
+2016-03-24 20:05:49,053 DEBUG - /getAdminStudentInfo?studentId=1 at position 1 of 12 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2016-03-24 20:05:49,053 DEBUG - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@badb5395: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:49,054 DEBUG - /getAdminStudentInfo?studentId=1 at position 2 of 12 in additional filter chain; firing Filter: 'LogoutFilter'
+2016-03-24 20:05:49,054 DEBUG - /getAdminStudentInfo?studentId=1 at position 3 of 12 in additional filter chain; firing Filter: 'LoginFilter'
+2016-03-24 20:05:49,054 DEBUG - /getAdminStudentInfo?studentId=1 at position 4 of 12 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2016-03-24 20:05:49,054 DEBUG - /getAdminStudentInfo?studentId=1 at position 5 of 12 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+2016-03-24 20:05:49,054 DEBUG - /getAdminStudentInfo?studentId=1 at position 6 of 12 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2016-03-24 20:05:49,054 DEBUG - /getAdminStudentInfo?studentId=1 at position 7 of 12 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2016-03-24 20:05:49,054 DEBUG - /getAdminStudentInfo?studentId=1 at position 8 of 12 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2016-03-24 20:05:49,054 DEBUG - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:49,054 DEBUG - /getAdminStudentInfo?studentId=1 at position 9 of 12 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2016-03-24 20:05:49,054 DEBUG - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:49,054 DEBUG - /getAdminStudentInfo?studentId=1 at position 10 of 12 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2016-03-24 20:05:49,054 DEBUG - /getAdminStudentInfo?studentId=1 at position 11 of 12 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2016-03-24 20:05:49,054 DEBUG - /getAdminStudentInfo?studentId=1 at position 12 of 12 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2016-03-24 20:05:49,054 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/unitsmanager'
+2016-03-24 20:05:49,054 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/usersmanager'
+2016-03-24 20:05:49,054 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/horizontalquery'
+2016-03-24 20:05:49,054 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/user-center'
+2016-03-24 20:05:49,054 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/position-detail'
+2016-03-24 20:05:49,054 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/user-profile'
+2016-03-24 20:05:49,054 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/user-password'
+2016-03-24 20:05:49,054 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/user-management'
+2016-03-24 20:05:49,054 DEBUG - Public object - authentication not attempted
+2016-03-24 20:05:49,054 DEBUG - /getAdminStudentInfo?studentId=1 reached end of additional filter chain; proceeding with original chain
+2016-03-24 20:05:49,054 DEBUG - DispatcherServlet with name 'imis' processing GET request for [/imis/getAdminStudentInfo]
+2016-03-24 20:05:49,054 DEBUG - Looking up handler method for path /getAdminStudentInfo
+2016-03-24 20:05:49,054 DEBUG - Returning handler method [public org.springframework.web.servlet.ModelAndView com.imis.presentation.controller.StudentController.showStudentDetailInfo(javax.servlet.http.HttpServletRequest)]
+2016-03-24 20:05:49,054 DEBUG - Returning cached instance of singleton bean 'studentController'
+2016-03-24 20:05:49,054 DEBUG - Last-Modified value for [/imis/getAdminStudentInfo] is: -1
+2016-03-24 20:05:49,056 DEBUG - Invoking afterPropertiesSet() on bean with name 'student-detail'
+2016-03-24 20:05:49,056 DEBUG - Rendering view [org.springframework.web.servlet.view.JstlView: name 'student-detail'; URL [/pages/student-detail.jsp]] in DispatcherServlet with name 'imis'
+2016-03-24 20:05:49,056 DEBUG - Added model object 'studentId' of type [java.lang.Integer] to request in view with name 'student-detail'
+2016-03-24 20:05:49,056 DEBUG - Forwarding to resource [/pages/student-detail.jsp] in InternalResourceView 'student-detail'
+2016-03-24 20:05:49,096 DEBUG - Returning cached instance of singleton bean 'webexpressionHandler'
+2016-03-24 20:05:49,103 DEBUG - Successfully completed request
+2016-03-24 20:05:49,103 DEBUG - Chain processed normally
+2016-03-24 20:05:49,103 DEBUG - SecurityContextHolder now cleared, as request processing completed
+2016-03-24 20:05:49,216 DEBUG - Checking match of request : '/js/app/pages/student-detail.js'; against '/**/*.jsp'
+2016-03-24 20:05:49,216 DEBUG - Checking match of request : '/js/app/pages/student-detail.js'; against '/**/*.png'
+2016-03-24 20:05:49,216 DEBUG - Checking match of request : '/js/app/pages/student-detail.js'; against '/**/*.gif'
+2016-03-24 20:05:49,216 DEBUG - Checking match of request : '/js/app/pages/student-detail.js'; against '/**/*.css'
+2016-03-24 20:05:49,216 DEBUG - Checking match of request : '/js/app/pages/student-detail.js'; against '/**/*.js'
+2016-03-24 20:05:49,216 DEBUG - /js/app/pages/student-detail.js has an empty filter list
+2016-03-24 20:05:49,271 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.jsp'
+2016-03-24 20:05:49,271 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.png'
+2016-03-24 20:05:49,271 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.gif'
+2016-03-24 20:05:49,271 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.css'
+2016-03-24 20:05:49,271 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.js'
+2016-03-24 20:05:49,271 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.map'
+2016-03-24 20:05:49,271 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.eot'
+2016-03-24 20:05:49,271 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.woff'
+2016-03-24 20:05:49,271 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.svg'
+2016-03-24 20:05:49,271 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.ttf'
+2016-03-24 20:05:49,271 DEBUG - /getStudentInfo at position 1 of 12 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2016-03-24 20:05:49,271 DEBUG - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@badb5395: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:49,271 DEBUG - /getStudentInfo at position 2 of 12 in additional filter chain; firing Filter: 'LogoutFilter'
+2016-03-24 20:05:49,272 DEBUG - /getStudentInfo at position 3 of 12 in additional filter chain; firing Filter: 'LoginFilter'
+2016-03-24 20:05:49,272 DEBUG - /getStudentInfo at position 4 of 12 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2016-03-24 20:05:49,272 DEBUG - /getStudentInfo at position 5 of 12 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+2016-03-24 20:05:49,272 DEBUG - /getStudentInfo at position 6 of 12 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2016-03-24 20:05:49,272 DEBUG - /getStudentInfo at position 7 of 12 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2016-03-24 20:05:49,272 DEBUG - /getStudentInfo at position 8 of 12 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2016-03-24 20:05:49,272 DEBUG - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:49,272 DEBUG - /getStudentInfo at position 9 of 12 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2016-03-24 20:05:49,272 DEBUG - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:05:49,272 DEBUG - /getStudentInfo at position 10 of 12 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2016-03-24 20:05:49,272 DEBUG - /getStudentInfo at position 11 of 12 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2016-03-24 20:05:49,272 DEBUG - /getStudentInfo at position 12 of 12 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2016-03-24 20:05:49,272 DEBUG - Checking match of request : '/getstudentinfo'; against '/unitsmanager'
+2016-03-24 20:05:49,272 DEBUG - Checking match of request : '/getstudentinfo'; against '/usersmanager'
+2016-03-24 20:05:49,272 DEBUG - Checking match of request : '/getstudentinfo'; against '/horizontalquery'
+2016-03-24 20:05:49,272 DEBUG - Checking match of request : '/getstudentinfo'; against '/user-center'
+2016-03-24 20:05:49,272 DEBUG - Checking match of request : '/getstudentinfo'; against '/position-detail'
+2016-03-24 20:05:49,272 DEBUG - Checking match of request : '/getstudentinfo'; against '/user-profile'
+2016-03-24 20:05:49,272 DEBUG - Checking match of request : '/getstudentinfo'; against '/user-password'
+2016-03-24 20:05:49,272 DEBUG - Checking match of request : '/getstudentinfo'; against '/user-management'
+2016-03-24 20:05:49,272 DEBUG - Public object - authentication not attempted
+2016-03-24 20:05:49,272 DEBUG - /getStudentInfo reached end of additional filter chain; proceeding with original chain
+2016-03-24 20:05:49,272 DEBUG - DispatcherServlet with name 'imis' processing POST request for [/imis/getStudentInfo]
+2016-03-24 20:05:49,272 DEBUG - Looking up handler method for path /getStudentInfo
+2016-03-24 20:05:49,272 DEBUG - Returning handler method [public com.imis.presentation.model.Response com.imis.presentation.controller.StudentController.getAdminStudentInfo(javax.servlet.http.HttpServletRequest)]
+2016-03-24 20:05:49,272 DEBUG - Returning cached instance of singleton bean 'studentController'
+2016-03-24 20:05:49,272 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:05:49,273 DEBUG - Creating new transaction with name [com.imis.service.impl.StudentServiceImpl.getStudentInfo]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; '',-java.lang.Exception
+2016-03-24 20:05:49,273 DEBUG - Acquired Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1416, lastUsedAgoInSec=1416, creationTimeAgoInSec=1416}] for JDBC transaction
+2016-03-24 20:05:49,273 DEBUG - Switching JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1416, lastUsedAgoInSec=1416, creationTimeAgoInSec=1416}] to manual commit
+2016-03-24 20:05:49,273 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:05:49,273 DEBUG - Participating in existing transaction
+2016-03-24 20:05:49,273 DEBUG - Creating a new SqlSession
+2016-03-24 20:05:49,273 DEBUG - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@494b496e]
+2016-03-24 20:05:49,273 DEBUG - Cache Hit Ratio [com.imis.domain.repositories.StudentRepository]: 0.3333333333333333
+2016-03-24 20:05:49,273 DEBUG - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@494b496e]
+2016-03-24 20:05:49,273 DEBUG - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@494b496e]
+2016-03-24 20:05:49,273 DEBUG - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@494b496e]
+2016-03-24 20:05:49,273 DEBUG - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@494b496e]
+2016-03-24 20:05:49,273 DEBUG - Initiating transaction commit
+2016-03-24 20:05:49,273 DEBUG - Committing JDBC transaction on Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1416, lastUsedAgoInSec=1416, creationTimeAgoInSec=1416}]
+2016-03-24 20:05:49,279 DEBUG - Releasing JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1416, lastUsedAgoInSec=1416, creationTimeAgoInSec=1416}] after transaction
+2016-03-24 20:05:49,279 DEBUG - Returning JDBC Connection to DataSource
+2016-03-24 20:05:49,280 DEBUG - Written [com.imis.presentation.model.Response@4f34c19b] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJacksonHttpMessageConverter@3248dc65]
+2016-03-24 20:05:49,280 DEBUG - Null ModelAndView returned to DispatcherServlet with name 'imis': assuming HandlerAdapter completed request handling
+2016-03-24 20:05:49,280 DEBUG - Successfully completed request
+2016-03-24 20:05:49,280 DEBUG - Chain processed normally
+2016-03-24 20:05:49,280 DEBUG - SecurityContextHolder now cleared, as request processing completed
+2016-03-24 20:07:57,103 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.jsp'
+2016-03-24 20:07:57,103 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.png'
+2016-03-24 20:07:57,103 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.gif'
+2016-03-24 20:07:57,103 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.css'
+2016-03-24 20:07:57,103 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.js'
+2016-03-24 20:07:57,103 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.map'
+2016-03-24 20:07:57,103 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.eot'
+2016-03-24 20:07:57,103 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.woff'
+2016-03-24 20:07:57,103 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.svg'
+2016-03-24 20:07:57,103 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.ttf'
+2016-03-24 20:07:57,103 DEBUG - /getAdminStudentInfo?studentId=1 at position 1 of 12 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2016-03-24 20:07:57,103 DEBUG - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@badb5395: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:07:57,103 DEBUG - /getAdminStudentInfo?studentId=1 at position 2 of 12 in additional filter chain; firing Filter: 'LogoutFilter'
+2016-03-24 20:07:57,103 DEBUG - /getAdminStudentInfo?studentId=1 at position 3 of 12 in additional filter chain; firing Filter: 'LoginFilter'
+2016-03-24 20:07:57,103 DEBUG - /getAdminStudentInfo?studentId=1 at position 4 of 12 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2016-03-24 20:07:57,104 DEBUG - /getAdminStudentInfo?studentId=1 at position 5 of 12 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+2016-03-24 20:07:57,104 DEBUG - /getAdminStudentInfo?studentId=1 at position 6 of 12 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2016-03-24 20:07:57,104 DEBUG - /getAdminStudentInfo?studentId=1 at position 7 of 12 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2016-03-24 20:07:57,104 DEBUG - /getAdminStudentInfo?studentId=1 at position 8 of 12 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2016-03-24 20:07:57,104 DEBUG - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:07:57,104 DEBUG - /getAdminStudentInfo?studentId=1 at position 9 of 12 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2016-03-24 20:07:57,104 DEBUG - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:07:57,104 DEBUG - /getAdminStudentInfo?studentId=1 at position 10 of 12 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2016-03-24 20:07:57,104 DEBUG - /getAdminStudentInfo?studentId=1 at position 11 of 12 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2016-03-24 20:07:57,104 DEBUG - /getAdminStudentInfo?studentId=1 at position 12 of 12 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2016-03-24 20:07:57,104 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/unitsmanager'
+2016-03-24 20:07:57,104 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/usersmanager'
+2016-03-24 20:07:57,104 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/horizontalquery'
+2016-03-24 20:07:57,104 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/user-center'
+2016-03-24 20:07:57,104 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/position-detail'
+2016-03-24 20:07:57,104 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/user-profile'
+2016-03-24 20:07:57,104 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/user-password'
+2016-03-24 20:07:57,104 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/user-management'
+2016-03-24 20:07:57,104 DEBUG - Public object - authentication not attempted
+2016-03-24 20:07:57,104 DEBUG - /getAdminStudentInfo?studentId=1 reached end of additional filter chain; proceeding with original chain
+2016-03-24 20:07:57,104 DEBUG - DispatcherServlet with name 'imis' processing GET request for [/imis/getAdminStudentInfo]
+2016-03-24 20:07:57,104 DEBUG - Looking up handler method for path /getAdminStudentInfo
+2016-03-24 20:07:57,105 DEBUG - Returning handler method [public org.springframework.web.servlet.ModelAndView com.imis.presentation.controller.StudentController.showStudentDetailInfo(javax.servlet.http.HttpServletRequest)]
+2016-03-24 20:07:57,105 DEBUG - Returning cached instance of singleton bean 'studentController'
+2016-03-24 20:07:57,105 DEBUG - Last-Modified value for [/imis/getAdminStudentInfo] is: -1
+2016-03-24 20:07:57,105 DEBUG - Rendering view [org.springframework.web.servlet.view.JstlView: name 'student-detail'; URL [/pages/student-detail.jsp]] in DispatcherServlet with name 'imis'
+2016-03-24 20:07:57,105 DEBUG - Added model object 'studentId' of type [java.lang.Integer] to request in view with name 'student-detail'
+2016-03-24 20:07:57,106 DEBUG - Forwarding to resource [/pages/student-detail.jsp] in InternalResourceView 'student-detail'
+2016-03-24 20:07:57,107 DEBUG - Returning cached instance of singleton bean 'webexpressionHandler'
+2016-03-24 20:07:57,120 DEBUG - Successfully completed request
+2016-03-24 20:07:57,120 DEBUG - Chain processed normally
+2016-03-24 20:07:57,120 DEBUG - SecurityContextHolder now cleared, as request processing completed
+2016-03-24 20:07:57,200 DEBUG - Checking match of request : '/css/bootstrap.css'; against '/**/*.jsp'
+2016-03-24 20:07:57,201 DEBUG - Checking match of request : '/css/bootstrap.css'; against '/**/*.png'
+2016-03-24 20:07:57,201 DEBUG - Checking match of request : '/css/bootstrap.css'; against '/**/*.gif'
+2016-03-24 20:07:57,201 DEBUG - Checking match of request : '/css/bootstrap.css'; against '/**/*.css'
+2016-03-24 20:07:57,201 DEBUG - /css/bootstrap.css has an empty filter list
+2016-03-24 20:07:57,201 DEBUG - Checking match of request : '/css/custom.css'; against '/**/*.jsp'
+2016-03-24 20:07:57,207 DEBUG - Checking match of request : '/css/custom.css'; against '/**/*.png'
+2016-03-24 20:07:57,207 DEBUG - Checking match of request : '/css/custom.css'; against '/**/*.gif'
+2016-03-24 20:07:57,207 DEBUG - Checking match of request : '/css/custom.css'; against '/**/*.css'
+2016-03-24 20:07:57,207 DEBUG - /css/custom.css has an empty filter list
+2016-03-24 20:07:57,213 DEBUG - Checking match of request : '/js/app/modules/ie.js'; against '/**/*.jsp'
+2016-03-24 20:07:57,214 DEBUG - Checking match of request : '/js/app/modules/ie.js'; against '/**/*.png'
+2016-03-24 20:07:57,214 DEBUG - Checking match of request : '/js/app/modules/ie.js'; against '/**/*.gif'
+2016-03-24 20:07:57,214 DEBUG - Checking match of request : '/js/app/modules/ie.js'; against '/**/*.css'
+2016-03-24 20:07:57,214 DEBUG - Checking match of request : '/js/app/modules/ie.js'; against '/**/*.js'
+2016-03-24 20:07:57,214 DEBUG - /js/app/modules/ie.js has an empty filter list
+2016-03-24 20:07:57,214 DEBUG - Checking match of request : '/css/ie.css'; against '/**/*.jsp'
+2016-03-24 20:07:57,214 DEBUG - Checking match of request : '/css/ie.css'; against '/**/*.png'
+2016-03-24 20:07:57,214 DEBUG - Checking match of request : '/css/ie.css'; against '/**/*.gif'
+2016-03-24 20:07:57,214 DEBUG - Checking match of request : '/css/ie.css'; against '/**/*.css'
+2016-03-24 20:07:57,214 DEBUG - /css/ie.css has an empty filter list
+2016-03-24 20:07:57,215 DEBUG - Checking match of request : '/css/validation.css'; against '/**/*.jsp'
+2016-03-24 20:07:57,215 DEBUG - Checking match of request : '/css/validation.css'; against '/**/*.png'
+2016-03-24 20:07:57,215 DEBUG - Checking match of request : '/css/validation.css'; against '/**/*.gif'
+2016-03-24 20:07:57,215 DEBUG - Checking match of request : '/css/validation.css'; against '/**/*.css'
+2016-03-24 20:07:57,215 DEBUG - /css/validation.css has an empty filter list
+2016-03-24 20:07:57,217 DEBUG - Checking match of request : '/js/lib/require-2.1.15.min.js'; against '/**/*.jsp'
+2016-03-24 20:07:57,217 DEBUG - Checking match of request : '/js/lib/require-2.1.15.min.js'; against '/**/*.png'
+2016-03-24 20:07:57,217 DEBUG - Checking match of request : '/js/lib/require-2.1.15.min.js'; against '/**/*.gif'
+2016-03-24 20:07:57,217 DEBUG - Checking match of request : '/js/lib/require-2.1.15.min.js'; against '/**/*.css'
+2016-03-24 20:07:57,217 DEBUG - Checking match of request : '/js/lib/require-2.1.15.min.js'; against '/**/*.js'
+2016-03-24 20:07:57,217 DEBUG - /js/lib/require-2.1.15.min.js has an empty filter list
+2016-03-24 20:07:57,252 DEBUG - Checking match of request : '/css/font.css'; against '/**/*.jsp'
+2016-03-24 20:07:57,252 DEBUG - Checking match of request : '/css/font.css'; against '/**/*.png'
+2016-03-24 20:07:57,252 DEBUG - Checking match of request : '/css/font.css'; against '/**/*.gif'
+2016-03-24 20:07:57,252 DEBUG - Checking match of request : '/css/font.css'; against '/**/*.css'
+2016-03-24 20:07:57,252 DEBUG - /css/font.css has an empty filter list
+2016-03-24 20:07:57,309 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.jsp'
+2016-03-24 20:07:57,310 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.png'
+2016-03-24 20:07:57,310 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.gif'
+2016-03-24 20:07:57,310 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.css'
+2016-03-24 20:07:57,310 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.js'
+2016-03-24 20:07:57,310 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.map'
+2016-03-24 20:07:57,310 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.eot'
+2016-03-24 20:07:57,310 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.woff'
+2016-03-24 20:07:57,310 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.svg'
+2016-03-24 20:07:57,310 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.ttf'
+2016-03-24 20:07:57,310 DEBUG - /images/page-title-bg.jpg at position 1 of 12 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2016-03-24 20:07:57,310 DEBUG - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@badb5395: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:07:57,310 DEBUG - /images/page-title-bg.jpg at position 2 of 12 in additional filter chain; firing Filter: 'LogoutFilter'
+2016-03-24 20:07:57,310 DEBUG - /images/page-title-bg.jpg at position 3 of 12 in additional filter chain; firing Filter: 'LoginFilter'
+2016-03-24 20:07:57,310 DEBUG - /images/page-title-bg.jpg at position 4 of 12 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2016-03-24 20:07:57,312 DEBUG - /images/page-title-bg.jpg at position 5 of 12 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+2016-03-24 20:07:57,313 DEBUG - /images/page-title-bg.jpg at position 6 of 12 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2016-03-24 20:07:57,313 DEBUG - /images/page-title-bg.jpg at position 7 of 12 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2016-03-24 20:07:57,313 DEBUG - /images/page-title-bg.jpg at position 8 of 12 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2016-03-24 20:07:57,313 DEBUG - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:07:57,313 DEBUG - /images/page-title-bg.jpg at position 9 of 12 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2016-03-24 20:07:57,313 DEBUG - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:07:57,313 DEBUG - /images/page-title-bg.jpg at position 10 of 12 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2016-03-24 20:07:57,313 DEBUG - /images/page-title-bg.jpg at position 11 of 12 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2016-03-24 20:07:57,313 DEBUG - /images/page-title-bg.jpg at position 12 of 12 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2016-03-24 20:07:57,315 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/unitsmanager'
+2016-03-24 20:07:57,315 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/usersmanager'
+2016-03-24 20:07:57,315 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/horizontalquery'
+2016-03-24 20:07:57,315 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/user-center'
+2016-03-24 20:07:57,315 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/position-detail'
+2016-03-24 20:07:57,315 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/user-profile'
+2016-03-24 20:07:57,315 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/user-password'
+2016-03-24 20:07:57,315 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/user-management'
+2016-03-24 20:07:57,315 DEBUG - Public object - authentication not attempted
+2016-03-24 20:07:57,315 DEBUG - /images/page-title-bg.jpg reached end of additional filter chain; proceeding with original chain
+2016-03-24 20:07:57,315 DEBUG - Chain processed normally
+2016-03-24 20:07:57,315 DEBUG - SecurityContextHolder now cleared, as request processing completed
+2016-03-24 20:07:57,434 DEBUG - Checking match of request : '/js/app/pages/student-detail.js'; against '/**/*.jsp'
+2016-03-24 20:07:57,434 DEBUG - Checking match of request : '/js/app/pages/student-detail.js'; against '/**/*.png'
+2016-03-24 20:07:57,434 DEBUG - Checking match of request : '/js/app/pages/student-detail.js'; against '/**/*.gif'
+2016-03-24 20:07:57,434 DEBUG - Checking match of request : '/js/app/pages/student-detail.js'; against '/**/*.css'
+2016-03-24 20:07:57,434 DEBUG - Checking match of request : '/js/app/pages/student-detail.js'; against '/**/*.js'
+2016-03-24 20:07:57,434 DEBUG - /js/app/pages/student-detail.js has an empty filter list
+2016-03-24 20:07:57,691 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.jsp'
+2016-03-24 20:07:57,691 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.png'
+2016-03-24 20:07:57,691 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.gif'
+2016-03-24 20:07:57,691 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.css'
+2016-03-24 20:07:57,691 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.js'
+2016-03-24 20:07:57,691 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.map'
+2016-03-24 20:07:57,691 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.eot'
+2016-03-24 20:07:57,691 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.woff'
+2016-03-24 20:07:57,691 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.svg'
+2016-03-24 20:07:57,691 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.ttf'
+2016-03-24 20:07:57,692 DEBUG - /getStudentInfo at position 1 of 12 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2016-03-24 20:07:57,692 DEBUG - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@badb5395: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:07:57,692 DEBUG - /getStudentInfo at position 2 of 12 in additional filter chain; firing Filter: 'LogoutFilter'
+2016-03-24 20:07:57,692 DEBUG - /getStudentInfo at position 3 of 12 in additional filter chain; firing Filter: 'LoginFilter'
+2016-03-24 20:07:57,692 DEBUG - /getStudentInfo at position 4 of 12 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2016-03-24 20:07:57,692 DEBUG - /getStudentInfo at position 5 of 12 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+2016-03-24 20:07:57,692 DEBUG - /getStudentInfo at position 6 of 12 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2016-03-24 20:07:57,692 DEBUG - /getStudentInfo at position 7 of 12 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2016-03-24 20:07:57,692 DEBUG - /getStudentInfo at position 8 of 12 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2016-03-24 20:07:57,692 DEBUG - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:07:57,692 DEBUG - /getStudentInfo at position 9 of 12 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2016-03-24 20:07:57,692 DEBUG - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:07:57,692 DEBUG - /getStudentInfo at position 10 of 12 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2016-03-24 20:07:57,692 DEBUG - /getStudentInfo at position 11 of 12 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2016-03-24 20:07:57,692 DEBUG - /getStudentInfo at position 12 of 12 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2016-03-24 20:07:57,692 DEBUG - Checking match of request : '/getstudentinfo'; against '/unitsmanager'
+2016-03-24 20:07:57,692 DEBUG - Checking match of request : '/getstudentinfo'; against '/usersmanager'
+2016-03-24 20:07:57,692 DEBUG - Checking match of request : '/getstudentinfo'; against '/horizontalquery'
+2016-03-24 20:07:57,692 DEBUG - Checking match of request : '/getstudentinfo'; against '/user-center'
+2016-03-24 20:07:57,692 DEBUG - Checking match of request : '/getstudentinfo'; against '/position-detail'
+2016-03-24 20:07:57,692 DEBUG - Checking match of request : '/getstudentinfo'; against '/user-profile'
+2016-03-24 20:07:57,692 DEBUG - Checking match of request : '/getstudentinfo'; against '/user-password'
+2016-03-24 20:07:57,692 DEBUG - Checking match of request : '/getstudentinfo'; against '/user-management'
+2016-03-24 20:07:57,692 DEBUG - Public object - authentication not attempted
+2016-03-24 20:07:57,692 DEBUG - /getStudentInfo reached end of additional filter chain; proceeding with original chain
+2016-03-24 20:07:57,692 DEBUG - DispatcherServlet with name 'imis' processing POST request for [/imis/getStudentInfo]
+2016-03-24 20:07:57,692 DEBUG - Looking up handler method for path /getStudentInfo
+2016-03-24 20:07:57,693 DEBUG - Returning handler method [public com.imis.presentation.model.Response com.imis.presentation.controller.StudentController.getAdminStudentInfo(javax.servlet.http.HttpServletRequest)]
+2016-03-24 20:07:57,693 DEBUG - Returning cached instance of singleton bean 'studentController'
+2016-03-24 20:07:57,693 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:07:57,693 DEBUG - Creating new transaction with name [com.imis.service.impl.StudentServiceImpl.getStudentInfo]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; '',-java.lang.Exception
+2016-03-24 20:07:57,693 DEBUG - Acquired Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1545, lastUsedAgoInSec=1545, creationTimeAgoInSec=1545}] for JDBC transaction
+2016-03-24 20:07:57,693 DEBUG - Switching JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1545, lastUsedAgoInSec=1545, creationTimeAgoInSec=1545}] to manual commit
+2016-03-24 20:07:57,694 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:07:57,699 DEBUG - Participating in existing transaction
+2016-03-24 20:07:57,699 DEBUG - Creating a new SqlSession
+2016-03-24 20:07:57,699 DEBUG - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@438bfca8]
+2016-03-24 20:07:57,700 DEBUG - Cache Hit Ratio [com.imis.domain.repositories.StudentRepository]: 0.25
+2016-03-24 20:07:57,701 DEBUG - JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1545, lastUsedAgoInSec=1545, creationTimeAgoInSec=1545}] will be managed by Spring
+2016-03-24 20:07:57,701 DEBUG - ooo Using Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1545, lastUsedAgoInSec=1545, creationTimeAgoInSec=1545}]
+2016-03-24 20:07:57,701 DEBUG - ==>  Preparing: SELECT s.STUDENT_ID, s.SEMESTER_REGISTERED, s.REGISTERED_YEAR, s.STUDENT_NO, s.FIRST_NAME, s.MIDDLE_NAME, s.LAST_NAME, s.EMAIL, s.TELEPHONE, s.STATUS, s.GENDER, e.DEGREE, e.MAJOR, e.GPA, e.INSTITUTION, e.EDUCATION_ID, e.COUNTRY, e.GRADUATION_DATE, w.COMPANY, w.TITLE, w.DUTIES, w.DATES, w.WORK_ID FROM STUDENT s, EDUCATION e, WORKS w WHERE s.STUDENT_ID = e.STUDENT_ID AND s.STUDENT_ID = w.STUDENT_ID 
+2016-03-24 20:07:57,701 DEBUG - ==> Parameters: 
+2016-03-24 20:07:57,710 DEBUG - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@438bfca8]
+2016-03-24 20:07:57,710 DEBUG - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@438bfca8]
+2016-03-24 20:07:57,711 DEBUG - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@438bfca8]
+2016-03-24 20:07:57,711 DEBUG - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@438bfca8]
+2016-03-24 20:07:57,712 DEBUG - Initiating transaction commit
+2016-03-24 20:07:57,712 DEBUG - Committing JDBC transaction on Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1545, lastUsedAgoInSec=1545, creationTimeAgoInSec=1545}]
+2016-03-24 20:07:57,712 DEBUG - Releasing JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1545, lastUsedAgoInSec=1545, creationTimeAgoInSec=1545}] after transaction
+2016-03-24 20:07:57,712 DEBUG - Returning JDBC Connection to DataSource
+2016-03-24 20:07:57,715 DEBUG - Written [com.imis.presentation.model.Response@78feac40] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJacksonHttpMessageConverter@3248dc65]
+2016-03-24 20:07:57,716 DEBUG - Null ModelAndView returned to DispatcherServlet with name 'imis': assuming HandlerAdapter completed request handling
+2016-03-24 20:07:57,716 DEBUG - Successfully completed request
+2016-03-24 20:07:57,716 DEBUG - Chain processed normally
+2016-03-24 20:07:57,716 DEBUG - SecurityContextHolder now cleared, as request processing completed
+2016-03-24 20:09:34,335 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.jsp'
+2016-03-24 20:09:34,335 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.png'
+2016-03-24 20:09:34,335 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.gif'
+2016-03-24 20:09:34,335 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.css'
+2016-03-24 20:09:34,335 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.js'
+2016-03-24 20:09:34,335 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.map'
+2016-03-24 20:09:34,335 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.eot'
+2016-03-24 20:09:34,335 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.woff'
+2016-03-24 20:09:34,335 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.svg'
+2016-03-24 20:09:34,335 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/**/*.ttf'
+2016-03-24 20:09:34,336 DEBUG - /getAdminStudentInfo?studentId=1 at position 1 of 12 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2016-03-24 20:09:34,336 DEBUG - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@badb5395: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:09:34,336 DEBUG - /getAdminStudentInfo?studentId=1 at position 2 of 12 in additional filter chain; firing Filter: 'LogoutFilter'
+2016-03-24 20:09:34,336 DEBUG - /getAdminStudentInfo?studentId=1 at position 3 of 12 in additional filter chain; firing Filter: 'LoginFilter'
+2016-03-24 20:09:34,336 DEBUG - /getAdminStudentInfo?studentId=1 at position 4 of 12 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2016-03-24 20:09:34,336 DEBUG - /getAdminStudentInfo?studentId=1 at position 5 of 12 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+2016-03-24 20:09:34,336 DEBUG - /getAdminStudentInfo?studentId=1 at position 6 of 12 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2016-03-24 20:09:34,336 DEBUG - /getAdminStudentInfo?studentId=1 at position 7 of 12 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2016-03-24 20:09:34,336 DEBUG - /getAdminStudentInfo?studentId=1 at position 8 of 12 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2016-03-24 20:09:34,336 DEBUG - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:09:34,336 DEBUG - /getAdminStudentInfo?studentId=1 at position 9 of 12 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2016-03-24 20:09:34,336 DEBUG - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:09:34,336 DEBUG - /getAdminStudentInfo?studentId=1 at position 10 of 12 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2016-03-24 20:09:34,336 DEBUG - /getAdminStudentInfo?studentId=1 at position 11 of 12 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2016-03-24 20:09:34,336 DEBUG - /getAdminStudentInfo?studentId=1 at position 12 of 12 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2016-03-24 20:09:34,336 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/unitsmanager'
+2016-03-24 20:09:34,336 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/usersmanager'
+2016-03-24 20:09:34,336 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/horizontalquery'
+2016-03-24 20:09:34,336 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/user-center'
+2016-03-24 20:09:34,336 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/position-detail'
+2016-03-24 20:09:34,336 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/user-profile'
+2016-03-24 20:09:34,336 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/user-password'
+2016-03-24 20:09:34,336 DEBUG - Checking match of request : '/getadminstudentinfo'; against '/user-management'
+2016-03-24 20:09:34,336 DEBUG - Public object - authentication not attempted
+2016-03-24 20:09:34,336 DEBUG - /getAdminStudentInfo?studentId=1 reached end of additional filter chain; proceeding with original chain
+2016-03-24 20:09:34,336 DEBUG - DispatcherServlet with name 'imis' processing GET request for [/imis/getAdminStudentInfo]
+2016-03-24 20:09:34,336 DEBUG - Looking up handler method for path /getAdminStudentInfo
+2016-03-24 20:09:34,337 DEBUG - Returning handler method [public org.springframework.web.servlet.ModelAndView com.imis.presentation.controller.StudentController.showStudentDetailInfo(javax.servlet.http.HttpServletRequest)]
+2016-03-24 20:09:34,337 DEBUG - Returning cached instance of singleton bean 'studentController'
+2016-03-24 20:09:34,337 DEBUG - Last-Modified value for [/imis/getAdminStudentInfo] is: -1
+2016-03-24 20:09:34,337 DEBUG - Rendering view [org.springframework.web.servlet.view.JstlView: name 'student-detail'; URL [/pages/student-detail.jsp]] in DispatcherServlet with name 'imis'
+2016-03-24 20:09:34,337 DEBUG - Added model object 'studentId' of type [java.lang.Integer] to request in view with name 'student-detail'
+2016-03-24 20:09:34,337 DEBUG - Forwarding to resource [/pages/student-detail.jsp] in InternalResourceView 'student-detail'
+2016-03-24 20:09:34,341 DEBUG - Returning cached instance of singleton bean 'webexpressionHandler'
+2016-03-24 20:09:34,344 DEBUG - Successfully completed request
+2016-03-24 20:09:34,344 DEBUG - Chain processed normally
+2016-03-24 20:09:34,344 DEBUG - SecurityContextHolder now cleared, as request processing completed
+2016-03-24 20:09:34,418 DEBUG - Checking match of request : '/css/bootstrap.css'; against '/**/*.jsp'
+2016-03-24 20:09:34,418 DEBUG - Checking match of request : '/css/bootstrap.css'; against '/**/*.png'
+2016-03-24 20:09:34,420 DEBUG - Checking match of request : '/css/bootstrap.css'; against '/**/*.gif'
+2016-03-24 20:09:34,420 DEBUG - Checking match of request : '/css/bootstrap.css'; against '/**/*.css'
+2016-03-24 20:09:34,420 DEBUG - /css/bootstrap.css has an empty filter list
+2016-03-24 20:09:34,420 DEBUG - Checking match of request : '/css/custom.css'; against '/**/*.jsp'
+2016-03-24 20:09:34,421 DEBUG - Checking match of request : '/css/custom.css'; against '/**/*.png'
+2016-03-24 20:09:34,421 DEBUG - Checking match of request : '/css/custom.css'; against '/**/*.gif'
+2016-03-24 20:09:34,421 DEBUG - Checking match of request : '/css/custom.css'; against '/**/*.css'
+2016-03-24 20:09:34,421 DEBUG - /css/custom.css has an empty filter list
+2016-03-24 20:09:34,426 DEBUG - Checking match of request : '/css/validation.css'; against '/**/*.jsp'
+2016-03-24 20:09:34,426 DEBUG - Checking match of request : '/css/validation.css'; against '/**/*.png'
+2016-03-24 20:09:34,426 DEBUG - Checking match of request : '/css/validation.css'; against '/**/*.gif'
+2016-03-24 20:09:34,427 DEBUG - Checking match of request : '/css/validation.css'; against '/**/*.css'
+2016-03-24 20:09:34,427 DEBUG - /css/validation.css has an empty filter list
+2016-03-24 20:09:34,431 DEBUG - Checking match of request : '/css/ie.css'; against '/**/*.jsp'
+2016-03-24 20:09:34,431 DEBUG - Checking match of request : '/css/ie.css'; against '/**/*.png'
+2016-03-24 20:09:34,431 DEBUG - Checking match of request : '/css/ie.css'; against '/**/*.gif'
+2016-03-24 20:09:34,431 DEBUG - Checking match of request : '/css/ie.css'; against '/**/*.css'
+2016-03-24 20:09:34,431 DEBUG - /css/ie.css has an empty filter list
+2016-03-24 20:09:34,435 DEBUG - Checking match of request : '/js/lib/require-2.1.15.min.js'; against '/**/*.jsp'
+2016-03-24 20:09:34,435 DEBUG - Checking match of request : '/js/lib/require-2.1.15.min.js'; against '/**/*.png'
+2016-03-24 20:09:34,435 DEBUG - Checking match of request : '/js/lib/require-2.1.15.min.js'; against '/**/*.gif'
+2016-03-24 20:09:34,435 DEBUG - Checking match of request : '/js/lib/require-2.1.15.min.js'; against '/**/*.css'
+2016-03-24 20:09:34,435 DEBUG - Checking match of request : '/js/lib/require-2.1.15.min.js'; against '/**/*.js'
+2016-03-24 20:09:34,435 DEBUG - /js/lib/require-2.1.15.min.js has an empty filter list
+2016-03-24 20:09:34,437 DEBUG - Checking match of request : '/js/app/modules/ie.js'; against '/**/*.jsp'
+2016-03-24 20:09:34,437 DEBUG - Checking match of request : '/js/app/modules/ie.js'; against '/**/*.png'
+2016-03-24 20:09:34,437 DEBUG - Checking match of request : '/js/app/modules/ie.js'; against '/**/*.gif'
+2016-03-24 20:09:34,437 DEBUG - Checking match of request : '/js/app/modules/ie.js'; against '/**/*.css'
+2016-03-24 20:09:34,437 DEBUG - Checking match of request : '/js/app/modules/ie.js'; against '/**/*.js'
+2016-03-24 20:09:34,437 DEBUG - /js/app/modules/ie.js has an empty filter list
+2016-03-24 20:09:34,467 DEBUG - Checking match of request : '/css/font.css'; against '/**/*.jsp'
+2016-03-24 20:09:34,467 DEBUG - Checking match of request : '/css/font.css'; against '/**/*.png'
+2016-03-24 20:09:34,467 DEBUG - Checking match of request : '/css/font.css'; against '/**/*.gif'
+2016-03-24 20:09:34,467 DEBUG - Checking match of request : '/css/font.css'; against '/**/*.css'
+2016-03-24 20:09:34,467 DEBUG - /css/font.css has an empty filter list
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.jsp'
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.png'
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.gif'
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.css'
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.js'
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.map'
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.eot'
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.woff'
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.svg'
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/**/*.ttf'
+2016-03-24 20:09:34,524 DEBUG - /images/page-title-bg.jpg at position 1 of 12 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2016-03-24 20:09:34,524 DEBUG - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@badb5395: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:09:34,524 DEBUG - /images/page-title-bg.jpg at position 2 of 12 in additional filter chain; firing Filter: 'LogoutFilter'
+2016-03-24 20:09:34,524 DEBUG - /images/page-title-bg.jpg at position 3 of 12 in additional filter chain; firing Filter: 'LoginFilter'
+2016-03-24 20:09:34,524 DEBUG - /images/page-title-bg.jpg at position 4 of 12 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2016-03-24 20:09:34,524 DEBUG - /images/page-title-bg.jpg at position 5 of 12 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+2016-03-24 20:09:34,524 DEBUG - /images/page-title-bg.jpg at position 6 of 12 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2016-03-24 20:09:34,524 DEBUG - /images/page-title-bg.jpg at position 7 of 12 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2016-03-24 20:09:34,524 DEBUG - /images/page-title-bg.jpg at position 8 of 12 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2016-03-24 20:09:34,524 DEBUG - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:09:34,524 DEBUG - /images/page-title-bg.jpg at position 9 of 12 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2016-03-24 20:09:34,524 DEBUG - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:09:34,524 DEBUG - /images/page-title-bg.jpg at position 10 of 12 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2016-03-24 20:09:34,524 DEBUG - /images/page-title-bg.jpg at position 11 of 12 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2016-03-24 20:09:34,524 DEBUG - /images/page-title-bg.jpg at position 12 of 12 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/unitsmanager'
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/usersmanager'
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/horizontalquery'
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/user-center'
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/position-detail'
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/user-profile'
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/user-password'
+2016-03-24 20:09:34,524 DEBUG - Checking match of request : '/images/page-title-bg.jpg'; against '/user-management'
+2016-03-24 20:09:34,524 DEBUG - Public object - authentication not attempted
+2016-03-24 20:09:34,524 DEBUG - /images/page-title-bg.jpg reached end of additional filter chain; proceeding with original chain
+2016-03-24 20:09:34,525 DEBUG - Chain processed normally
+2016-03-24 20:09:34,525 DEBUG - SecurityContextHolder now cleared, as request processing completed
+2016-03-24 20:09:34,625 DEBUG - Checking match of request : '/js/app/pages/student-detail.js'; against '/**/*.jsp'
+2016-03-24 20:09:34,625 DEBUG - Checking match of request : '/js/app/pages/student-detail.js'; against '/**/*.png'
+2016-03-24 20:09:34,625 DEBUG - Checking match of request : '/js/app/pages/student-detail.js'; against '/**/*.gif'
+2016-03-24 20:09:34,625 DEBUG - Checking match of request : '/js/app/pages/student-detail.js'; against '/**/*.css'
+2016-03-24 20:09:34,625 DEBUG - Checking match of request : '/js/app/pages/student-detail.js'; against '/**/*.js'
+2016-03-24 20:09:34,626 DEBUG - /js/app/pages/student-detail.js has an empty filter list
+2016-03-24 20:09:34,949 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.jsp'
+2016-03-24 20:09:34,950 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.png'
+2016-03-24 20:09:34,950 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.gif'
+2016-03-24 20:09:34,950 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.css'
+2016-03-24 20:09:34,950 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.js'
+2016-03-24 20:09:34,950 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.map'
+2016-03-24 20:09:34,950 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.eot'
+2016-03-24 20:09:34,950 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.woff'
+2016-03-24 20:09:34,950 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.svg'
+2016-03-24 20:09:34,950 DEBUG - Checking match of request : '/getstudentinfo'; against '/**/*.ttf'
+2016-03-24 20:09:34,950 DEBUG - /getStudentInfo at position 1 of 12 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+2016-03-24 20:09:34,950 DEBUG - Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@badb5395: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:09:34,950 DEBUG - /getStudentInfo at position 2 of 12 in additional filter chain; firing Filter: 'LogoutFilter'
+2016-03-24 20:09:34,950 DEBUG - /getStudentInfo at position 3 of 12 in additional filter chain; firing Filter: 'LoginFilter'
+2016-03-24 20:09:34,950 DEBUG - /getStudentInfo at position 4 of 12 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+2016-03-24 20:09:34,950 DEBUG - /getStudentInfo at position 5 of 12 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+2016-03-24 20:09:34,950 DEBUG - /getStudentInfo at position 6 of 12 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+2016-03-24 20:09:34,950 DEBUG - /getStudentInfo at position 7 of 12 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+2016-03-24 20:09:34,950 DEBUG - /getStudentInfo at position 8 of 12 in additional filter chain; firing Filter: 'RememberMeAuthenticationFilter'
+2016-03-24 20:09:34,950 DEBUG - SecurityContextHolder not populated with remember-me token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:09:34,951 DEBUG - /getStudentInfo at position 9 of 12 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+2016-03-24 20:09:34,951 DEBUG - SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@badb5395: Principal: org.springframework.security.core.userdetails.User@586034f: Username: admin; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_ADMIN; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@fffe9938: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: C6CEB7729EEEEE89EB40C031A8F38DA5; Granted Authorities: ROLE_ADMIN'
+2016-03-24 20:09:34,951 DEBUG - /getStudentInfo at position 10 of 12 in additional filter chain; firing Filter: 'SessionManagementFilter'
+2016-03-24 20:09:34,951 DEBUG - /getStudentInfo at position 11 of 12 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+2016-03-24 20:09:34,951 DEBUG - /getStudentInfo at position 12 of 12 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+2016-03-24 20:09:34,951 DEBUG - Checking match of request : '/getstudentinfo'; against '/unitsmanager'
+2016-03-24 20:09:34,951 DEBUG - Checking match of request : '/getstudentinfo'; against '/usersmanager'
+2016-03-24 20:09:34,951 DEBUG - Checking match of request : '/getstudentinfo'; against '/horizontalquery'
+2016-03-24 20:09:34,951 DEBUG - Checking match of request : '/getstudentinfo'; against '/user-center'
+2016-03-24 20:09:34,951 DEBUG - Checking match of request : '/getstudentinfo'; against '/position-detail'
+2016-03-24 20:09:34,951 DEBUG - Checking match of request : '/getstudentinfo'; against '/user-profile'
+2016-03-24 20:09:34,951 DEBUG - Checking match of request : '/getstudentinfo'; against '/user-password'
+2016-03-24 20:09:34,951 DEBUG - Checking match of request : '/getstudentinfo'; against '/user-management'
+2016-03-24 20:09:34,951 DEBUG - Public object - authentication not attempted
+2016-03-24 20:09:34,952 DEBUG - /getStudentInfo reached end of additional filter chain; proceeding with original chain
+2016-03-24 20:09:34,952 DEBUG - DispatcherServlet with name 'imis' processing POST request for [/imis/getStudentInfo]
+2016-03-24 20:09:34,952 DEBUG - Looking up handler method for path /getStudentInfo
+2016-03-24 20:09:34,953 DEBUG - Returning handler method [public com.imis.presentation.model.Response com.imis.presentation.controller.StudentController.getAdminStudentInfo(javax.servlet.http.HttpServletRequest)]
+2016-03-24 20:09:34,953 DEBUG - Returning cached instance of singleton bean 'studentController'
+2016-03-24 20:09:34,953 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:09:34,953 DEBUG - Creating new transaction with name [com.imis.service.impl.StudentServiceImpl.getStudentInfo]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT; '',-java.lang.Exception
+2016-03-24 20:09:34,953 DEBUG - Acquired Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1642, lastUsedAgoInSec=1642, creationTimeAgoInSec=1642}] for JDBC transaction
+2016-03-24 20:09:34,954 DEBUG - Switching JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1642, lastUsedAgoInSec=1642, creationTimeAgoInSec=1642}] to manual commit
+2016-03-24 20:09:34,954 DEBUG - Returning cached instance of singleton bean 'transactionManager'
+2016-03-24 20:09:34,954 DEBUG - Participating in existing transaction
+2016-03-24 20:09:34,954 DEBUG - Creating a new SqlSession
+2016-03-24 20:09:34,954 DEBUG - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ce35ad]
+2016-03-24 20:09:34,954 DEBUG - Cache Hit Ratio [com.imis.domain.repositories.StudentRepository]: 0.2
+2016-03-24 20:09:34,954 DEBUG - JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1642, lastUsedAgoInSec=1642, creationTimeAgoInSec=1642}] will be managed by Spring
+2016-03-24 20:09:34,954 DEBUG - ooo Using Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1642, lastUsedAgoInSec=1642, creationTimeAgoInSec=1642}]
+2016-03-24 20:09:34,954 DEBUG - ==>  Preparing: SELECT s.STUDENT_ID, s.SEMESTER_REGISTERED, s.REGISTERED_YEAR, s.STUDENT_NO, s.FIRST_NAME, s.MIDDLE_NAME, s.LAST_NAME, s.EMAIL, s.TELEPHONE, s.STATUS, s.GENDER, e.DEGREE, e.MAJOR, e.GPA, e.INSTITUTION, e.EDUCATION_ID, e.COUNTRY, e.GRADUATION_DATE, w.COMPANY, w.TITLE, w.DUTIES, w.DATES, w.WORK_ID FROM STUDENT s, EDUCATION e, WORKS w WHERE s.STUDENT_ID = e.STUDENT_ID AND s.STUDENT_ID = w.STUDENT_ID 
+2016-03-24 20:09:34,955 DEBUG - ==> Parameters: 
+2016-03-24 20:09:34,972 DEBUG - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ce35ad]
+2016-03-24 20:09:34,972 DEBUG - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ce35ad]
+2016-03-24 20:09:34,972 DEBUG - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ce35ad]
+2016-03-24 20:09:34,972 DEBUG - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ce35ad]
+2016-03-24 20:09:34,972 DEBUG - Initiating transaction commit
+2016-03-24 20:09:34,973 DEBUG - Committing JDBC transaction on Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1642, lastUsedAgoInSec=1642, creationTimeAgoInSec=1642}]
+2016-03-24 20:09:34,973 DEBUG - Releasing JDBC Connection [ConnectionHandle{url=jdbc:oracle:thin:@127.0.0.1:1521:orcl , user=imis, debugHandle=null, lastResetAgoInSec=1642, lastUsedAgoInSec=1642, creationTimeAgoInSec=1642}] after transaction
+2016-03-24 20:09:34,973 DEBUG - Returning JDBC Connection to DataSource
+2016-03-24 20:09:34,976 DEBUG - Written [com.imis.presentation.model.Response@26223d93] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJacksonHttpMessageConverter@3248dc65]
+2016-03-24 20:09:34,977 DEBUG - Null ModelAndView returned to DispatcherServlet with name 'imis': assuming HandlerAdapter completed request handling
+2016-03-24 20:09:34,977 DEBUG - Successfully completed request
+2016-03-24 20:09:34,977 DEBUG - Chain processed normally
+2016-03-24 20:09:34,977 DEBUG - SecurityContextHolder now cleared, as request processing completed

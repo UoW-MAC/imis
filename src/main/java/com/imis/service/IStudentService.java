@@ -18,4 +18,6 @@ public interface IStudentService {
    List<Application> exportApplicationInfo() throws Exception;
 
     boolean studentDelete(Long studentId) throws Exception;
+    
+    boolean isStudentNumberExisted(Long studentNo) throws Exception;
 }

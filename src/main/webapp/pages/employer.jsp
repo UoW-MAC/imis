@@ -32,10 +32,10 @@
     <!-- CONTENT SECTION -->
     <section class="contentSection">
     	<div class="container">
-    	
             <div class="row">
                     <form class="employerForm col-sm-9 rightBorder equalCol" id="employerForm" role="form" action="makeEmployer" method="post">
-                    	 <div id="employerTable" class="row" >
+                    	<div class="row">
+                    	 <div id="employerTable" style="position:relative"class="row" >
                      		  <script	id="employer-list" type="text/x-handlebars-template">
 				   <div class="row">
                             <aside class="userFormCol-1">CompanyName</aside>
@@ -94,12 +94,17 @@
              				 	</select>
 							</aside>
 						</div>	
-              			<div class="row">  <input type="button" id="employerForm_submit" value="submit"/>
-              		    </div>
  					</script>  
  				</div>
+ 				</div>
+ 				 <div class="row">
+ 				<div id="abc" style="position:absolute; bottom:-70px;left:0px">
+ 					<div class="row">  <input type="button" id="employerForm_submit" value="submit"/>
+              		    </div>
+ 				</div>
+ 				</div>
              </form>
-               </div>
+        	</div>
         	</div>
                  </section>
     <!-- /CONTENT SECTION -->

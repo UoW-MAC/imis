@@ -138,4 +138,17 @@ public class StudentServiceImpl implements IStudentService {
 			 return null;
 		}
 	}
+
+
+	@Override
+	public boolean isStudentNumberExisted(Long studentNo) throws Exception {
+		Student student = studentRepository.getStudentByStudentNo(studentNo);
+		Boolean isUserNameExisted = false;
+		
+		if (student != null) {
+			isUserNameExisted = true;
+		}
+		
+		return isUserNameExisted;
+	}
 }

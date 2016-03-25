@@ -144,7 +144,7 @@
             function registerEventListener() {
                 $("#employerForm_submit").click(function () {
                 	if (formValidator.getEmployerValidator("#employerForm").form() == true){
-                    employerForm.Controller.handleFormSubmit();
+                		employerForm.Controller.handleFormSubmit();
                 	}
                 });
 

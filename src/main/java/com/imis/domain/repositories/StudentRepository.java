@@ -29,4 +29,6 @@ public interface StudentRepository {
 	
 	List<Student> adminStudentInfo();
 	
+	Student getStudentByStudentNo(Long studentNo);
+	
 }
