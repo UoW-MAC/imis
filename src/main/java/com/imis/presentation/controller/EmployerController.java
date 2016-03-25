@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.imis.domain.entities.Employer;
 import com.imis.domain.entities.EmployerGroup;
 import com.imis.domain.entities.Position;
+import com.imis.domain.entities.Student;
 import com.imis.domain.valuetypes.ResponseStatus;
 import com.imis.infrastructure.dataexport.CsvExporter;
 import com.imis.presentation.model.Response;
@@ -69,20 +72,28 @@ public class EmployerController {
 		return employerMap;
 	}
 	@RequestMapping(value = "makeEmployer", method = RequestMethod.POST)
-	public ModelAndView makeApplication(@ModelAttribute("employerForm") Employer employer) {
-		String returnPage = null;
+	public @ResponseBody Response makeApplication(@ModelAttribute("employerForm") @Valid Employer employer, BindingResult result) {
+		int statusCode;
+        String statusDescription;
+
+        if (result.hasErrors()) {
+        	statusCode = ResponseStatus.FAILURE.getStatusCode();
+    		statusDescription = ResponseStatus.FAILURE.getStatusDescription();
+    		return new Response(statusCode, statusDescription);
+        }
 		try {
 			if (employer.getEmployerId()==null) {
 				employerService.employerInfoSubmit(employer);
 			} else {
 				employerService.employerInfoUpdate(employer);
 			}
-			returnPage = USER_CENTER_PAGE;
+			statusCode = ResponseStatus.SUCCESS.getStatusCode();
+    		statusDescription = ResponseStatus.SUCCESS.getStatusDescription();
 		} catch (Exception exception) {
-			returnPage = ERROR_PAGE;
+			statusCode = ResponseStatus.FAILURE.getStatusCode();
+    		statusDescription = ResponseStatus.FAILURE.getStatusDescription();
 		}
-		return new ModelAndView(USER_CENTER_PAGE);
-		// return new Response(statusCode, statusDescription);
+		return new Response(statusCode, statusDescription);
 	}
 	@RequestMapping(value = "showAdminEmployer", method = RequestMethod.GET)
 	public @ResponseBody Map<String,Object> handlePositionObtain(HttpServletRequest request) {

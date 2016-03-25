@@ -92,7 +92,13 @@
                     $("#employerModelTrigger").click();
                 },
                 handleConfirmedSubmit: function(){
-                    $("#employerForm").submit();
+                	$("#employerForm").ajaxSubmit(function(response) {
+                        if (response.statusCode == 1000){
+                            location.href = "user-center";
+                        }else{
+                            return;
+                        }
+                });
                 }
                
                
