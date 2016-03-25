@@ -69,9 +69,14 @@ public class CsvExporter {
 	    		for (Object objectStudent : objectList) {
 	    			Student student = (Student)objectStudent;
 	    			StringBuffer rowStringBuffer = new StringBuffer();
-
+	    			String status=null;
+	    			if(student.getStatus()==0){
+	    				status="International Student";
+	    			}else{
+	    				status="Permanent Resident/Citizen";
+	    			}
 	    			row = rowStringBuffer.append(student.getStudentNo()).append(",").append(student.getFirstName()).append(",").append(student.getMiddleName()).append(",")
-	    				.append(student.getLastName()).append(",").append(student.getGender()).append(",").append(student.getStatus()).append(",")
+	    				.append(student.getLastName()).append(",").append(student.getGender()).append(",").append(status).append(",")
 	    					.append(student.getTelephone()).toString();
 
 	    			csvFileOutputStream.write(row);

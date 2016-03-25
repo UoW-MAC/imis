@@ -5,7 +5,7 @@
 	<div class="container">
 		<hr>
 		<footer>
-			<p>&copy; 2016 University of Windsor</p>
+			<p>University of Windsor &copy; 2016</p>
   		</footer>
 	</div>
 </body>

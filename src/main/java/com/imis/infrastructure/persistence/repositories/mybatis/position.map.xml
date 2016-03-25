@@ -34,6 +34,7 @@
 	    from POSITION p, position_group g,employer e
 	    <where>
 	    	p.position_group_id = g.position_group_id
+	    	and p.employer_id = e.employer_id
 	    <if test="userName!='admin'">
 	    	and e.employer_id = (select employer_id from employer where username=#{userName})
 	    </if>

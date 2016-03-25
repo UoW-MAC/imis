@@ -30,7 +30,7 @@ require(['../main'], function () {
         					url : 'getEmployerGroup',
         					success : function(data) {
         						employerDetail.View.getEmployerGroupView(data);
-        						document.getElementById("inputemployerGroupSelect").options[($('#inputemployerGroupId').val()-1)].selected = true;
+        						document.getElementById("inputemployerGroupSelect").options[($('#inputemployerGroupId').val()-2)].selected = true;
         					}
         				});
         			},

@@ -42,8 +42,10 @@
     <div class="jumbotron">
       <div class="container">
         <div class="col-md-4 home-left">
-            <h1>Project Description</h1>
-	        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+            <h2>Make you easily connect the job with you on Internship Management Information System.</h2>
+            <br>
+	        <p>Student can find the intership more quickly.</p>
+	        <p>Employer can find more appropriate students as internship.</p>
         </div>
         <div class="col-md-4 home-right">
             <h2>Sign Up</h2>
@@ -51,26 +53,21 @@
 		        <div class="input-group">
 				  <input type="text" class="form-control" placeholder="User name" aria-describedby="basic-addon1" id="userName" name="userName">
 				</div>
-				
 				<div class="input-group">
 				  <input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon2" id="email" name="email">
 				</div>
-				
 				<div class="input-group">
 				  <input type="text" class="form-control" placeholder="Re-enter email" aria-describedby="basic-addon2" id="reEmail" name="reEmail">
 				</div>
-				
 				<div class="input-group">
 				  <input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon2" id="password" name="password">
 				</div>
-				
 				<div class="input-group">
 				  <div class="radioRow">
                     <span class="radioCustom"><input type="radio" name="authority" value="ROLE_STUDENT" checked="checked"><label>Student</label></span>
                 	<span class="radioCustom"><input type="radio" name="authority" value="ROLE_ORGANIZATION"><label>Organization</label></span>
                   </div>
 			    </div>
-			    
 			    <div class="input-group">
 			      <p><a class="btn btn-primary btn-lg" role="button" id="registerFormSubmit">Sign Up</a></p>
 			    </div>

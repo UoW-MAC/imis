@@ -68,7 +68,7 @@
         					success : function(data) {
         						employerForm.View.getEmployerGroupView(data);
         						if(data!=null){
-        							document.getElementById("employerGroupSelect").options[($('#employerGroupId').val()-1)].selected = true;
+        							document.getElementById("employerGroupSelect").options[($('#employerGroupId').val()-2)].selected = true;
         					
         						}
         					}
