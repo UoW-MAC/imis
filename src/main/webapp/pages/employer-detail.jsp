@@ -37,57 +37,57 @@
     	<div class="container">
                <sec:authorize access="hasRole('ROLE_ADMIN') and isAuthenticated()">
                   <div id="updateEmployerForm">
-							<form  id="editEmployerForm" role="form" action="makeEmployer" method="post">
+							<form  id="editEmployerForm" class ="col-sm-9 rightBorder equalCol" role="form" action="makeEmployer" method="post">
 								 <div class="row">
-                            <aside class="userFormCol-1">CompanyName</aside>
+                            <aside class="userFormCol-1">Company Name:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="inputemployer_name" name="employerName" value="${employerDetail.employerName}"></aside>
                         </div>
                          <div class="row">
-                            <aside class="userFormCol-1">Address</aside>
+                            <aside class="userFormCol-1">Address:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-200" id="employeraddress" name="employerAddress" value=" ${employerDetail.employerAddress}"></aside>
                         </div>
                          <div class="row">
-                            <aside class="userFormCol-1">City</aside>
+                            <aside class="userFormCol-1">City:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="employercity" name="employerCity" value="${employerDetail.employerCity}"></aside>
                         </div>
                           <div class="row">
-                            <aside class="userFormCol-1">Post Code</aside>
+                            <aside class="userFormCol-1">Post Code:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="employerpost_code" name="employerPostCode" value="${employerDetail.employerPostCode}"></aside>
                         </div>
                           <div class="row">
-                            <aside class="userFormCol-1">COUNTRY</aside>
+                            <aside class="userFormCol-1">Country</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="employercountry" name="employerCountry" value="${employerDetail.employerCountry}"></aside>
                         </div>
                          <div class="row">
-                            <aside class="userFormCol-1">CONTACTOR_FIRST_NAME</aside>
+                            <aside class="userFormCol-1">First Name:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="employercontactor_first_name" name="contactorFirstName" value="${employerDetail.contactorFirstName}"></aside>
                         </div>
                         <div class="row">
-                            <aside class="userFormCol-1">CONTACTOR_LAST_TIME</aside>
+                            <aside class="userFormCol-1">Last Name:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="employercontactor_last_name" name="contactorLastName" value="${employerDetail.contactorLastName}"></aside>
                         </div>
                         <div class="row">
-                            <aside class="userFormCol-1">CONTACTOR_POSITION</aside>
+                            <aside class="userFormCol-1">Contacts Position:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="employercontactor_position" name="contactorPosition" value="${employerDetail.contactorPosition}"></aside>
                         </div>
                          <div class="row">
-                            <aside class="userFormCol-1">Telephone</aside>
+                            <aside class="userFormCol-1">Telephone:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="employertelephone" name="employerTelephone" value="${employerDetail.employerTelephone}"></aside>
                         </div>
                           <div class="row">
-                            <aside class="userFormCol-1">Email</aside>
+                            <aside class="userFormCol-1">Email:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="employeremail" name="employerEmail" value="${employerDetail.employerEmail}"></aside>
                         </div>
                          <div class="row">
-                            <aside class="userFormCol-1">Website</aside>
+                            <aside class="userFormCol-1">Website:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="employerwebsite" name="employerWebsite" value="${employerDetail.employerWebsite}"></aside>
                         </div>
                         <div class="row">
-                            <aside class="userFormCol-1">notes</aside>
+                            <aside class="userFormCol-1">Notes:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="employernotes" name="employerNotes" value=" ${employerDetail.employerNotes}"></aside>
                         </div>
                         <div class="row">
-							<aside class="userFormCol-1">EmployerGroup</aside>
+							<aside class="userFormCol-1">Employer Group:</aside>
 							<aside class="userFormCol-right">				
               					<select id="inputemployerGroupSelect" name="employerGroup.employerGroupId">
              				 	</select>

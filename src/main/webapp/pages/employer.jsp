@@ -32,79 +32,73 @@
     <!-- CONTENT SECTION -->
     <section class="contentSection">
     	<div class="container">
-            <div class="row">
                     <form class="employerForm col-sm-9 rightBorder equalCol" id="employerForm" role="form" action="makeEmployer" method="post">
-                    	<div class="row">
                     	 <div id="employerTable" style="position:relative"class="row" >
                      		  <script	id="employer-list" type="text/x-handlebars-template">
 				   <div class="row">
-                            <aside class="userFormCol-1">CompanyName</aside>
+                            <aside class="userFormCol-1">Company Name:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="employer_name" name="employerName" value="{{employerName}}"></aside>
                         </div>
                          <div class="row">
-                            <aside class="userFormCol-1">Address</aside>
+                            <aside class="userFormCol-1">Address:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-200" id="address" name="employerAddress" value="{{employerAddress}}"></aside>
                         </div>
                          <div class="row">
-                            <aside class="userFormCol-1">City</aside>
+                            <aside class="userFormCol-1">City:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="city" name="employerCity" value="{{employerCity}}"></aside>
                         </div>
                           <div class="row">
-                            <aside class="userFormCol-1">Post Code</aside>
+                            <aside class="userFormCol-1">Post Code:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="post_code" name="employerPostCode" value="{{employerPostCode}}"></aside>
                         </div>
                           <div class="row">
-                            <aside class="userFormCol-1">COUNTRY</aside>
+                            <aside class="userFormCol-1">Country:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="country" name="employerCountry" value="{{employerCountry}}"></aside>
                         </div>
                          <div class="row">
-                            <aside class="userFormCol-1">CONTACTOR_FIRST_NAME</aside>
+                            <aside class="userFormCol-1">First Name:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="contactor_first_name" name="contactorFirstName" value="{{contactorFirstName}}"></aside>
                         </div>
                         <div class="row">
-                            <aside class="userFormCol-1">CONTACTOR_LAST_TIME</aside>
+                            <aside class="userFormCol-1">Last Name:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="contactor_last_time" name="contactorLastName" value="{{contactorLastName}}"></aside>
                         </div>
                         <div class="row">
-                            <aside class="userFormCol-1">CONTACTOR_POSITION</aside>
+                            <aside class="userFormCol-1">Contacts Position:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="contactor_position" name="contactorPosition" value="{{contactorPosition}}"></aside>
                         </div>
                          <div class="row">
-                            <aside class="userFormCol-1">Telephone</aside>
+                            <aside class="userFormCol-1">Telephone:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="telephone" name="employerTelephone" value="{{employerTelephone}}"></aside>
                         </div>
                           <div class="row">
-                            <aside class="userFormCol-1">Email</aside>
+                            <aside class="userFormCol-1">Email:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="email" name="employerEmail" value="{{employerEmail}}"></aside>
                         </div>
                          <div class="row">
-                            <aside class="userFormCol-1">Website</aside>
+                            <aside class="userFormCol-1">Website:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id="website" name="employerWebsite" value="{{employerWebsite}}"></aside>
                         </div>
                         <div class="row">
-                            <aside class="userFormCol-1">notes</aside>
+                            <aside class="userFormCol-1">Notes:</aside>
                             <aside class="userFormCol-right"><input type="text" class="width-330" id=notes name="employerNotes" value="{{employerNotes}}"></aside>
                         </div>
 						<input type ="hidden" id="employerId" name = "employerId" value ="{{employerId}}"/>
 						<input type ="hidden" id="employerGroupId" name = "employerGroupId" value ="{{employerGroup.employerGroupId}}"/>
 						<div class="row">
-							<aside class="userFormCol-1">EmployerGroup</aside>
+							<aside class="userFormCol-1">Employer Group:</aside>
 							<aside class="userFormCol-right">				
               					<select id="employerGroupSelect" name="employerGroup.employerGroupId">
              				 	</select>
 							</aside>
 						</div>	
- 					</script>  
+ 					</script>
  				</div>
- 				</div>
- 				 <div class="row">
- 				<div id="abc" style="position:absolute; bottom:-70px;left:0px">
+ 				<div id="abc" style="position:absolute; bottom:-50px;left:50px">
  					<div class="row">  <input type="button" id="employerForm_submit" value="submit"/>
               		    </div>
- 				</div>
- 				</div>
+ 				</div>  
              </form>
-        	</div>
         	</div>
                  </section>
     <!-- /CONTENT SECTION -->

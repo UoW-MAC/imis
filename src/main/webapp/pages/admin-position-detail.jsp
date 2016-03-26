@@ -45,19 +45,19 @@
                             	<aside class="userFormCol-right"><input type="text" id="inputAdminDetailPositionName" name="positionName" value="${positionDetail.positionName}"/></aside>
                            	</div>
                            	<div class="row">
-                            	<aside class="userFormCol-1">Position Responsibilities</aside>
+                            	<aside class="userFormCol-1">Responsibilities:</aside>
                            		<aside class="userFormCol-right"><input type="text" id="inputAdminDetailResponsibilities" name="responsibilities" value="${positionDetail.responsibilities}"/></aside>
                            	</div>
                            	<div class="row">
-                            	<aside class="userFormCol-1">Position Requirements</aside>
+                            	<aside class="userFormCol-1">Requirements:</aside>
                            		<aside class="userFormCol-right"><input type="text" id="inputAdminDetailRequirements" name="requirements" value="${positionDetail.requirements}"/></aside>
                            	</div>
                            	<div class="row">
-                            	<aside class="userFormCol-1">Position Salary</aside>
+                            	<aside class="userFormCol-1">Salary:</aside>
                            		<aside class="userFormCol-right"><input type="text" id="inputAdminDetailSalary" name="salary" value=" ${positionDetail.salary}"/></aside>
                            	</div>
                            	<div class="row">
-                            	<aside class="userFormCol-1">Position Description</aside>
+                            	<aside class="userFormCol-1">Description:</aside>
                            		<aside class="userFormCol-right"><input type="text" id="inputAdminDetailPositionDescription" name="positionDescription" value="${positionDetail.positionDescription}"/></aside>
                            	</div>
 							<div class="row">

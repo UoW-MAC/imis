@@ -450,14 +450,14 @@ a:hover h4 {
 }
 .userFormCol-1 {
 	float: left;
-	width: 82px;
+	width: 140px;
 	text-align: right;
 	line-height: 32px;
 }
 .userFormCol-right {
 	display: list-item;
 	list-style-type: none;
-	padding: 0 0 0 100px;
+	padding: 0 0 0 150px;
 	line-height: 32px;
 }
 .select-hidden {
