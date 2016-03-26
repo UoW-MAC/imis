@@ -56,7 +56,7 @@ require(['../main'], function () {
                 });
             }
             $("#cancelEmployer").click(function(){
-            	location.href="user-center";
+            	location.href = "user-center?menu=adminEmployer";
             });
             $(function() {
                 registerEventListener();

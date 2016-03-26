@@ -67,7 +67,9 @@ public class PositionController {
 	@RequestMapping(value = "makePosition", method = RequestMethod.POST)
 	public ModelAndView makeApplication(@ModelAttribute("positionForm") Position position) throws Exception {
 		positionService.positionSubmit(position);
-		return new ModelAndView(USER_CENTER_PAGE);
+		Map<String,String> model=new HashMap<String,String>();
+		model.put("menu","adminPosition");
+		return new ModelAndView(USER_CENTER_PAGE,model);
 	}
 	@RequestMapping(value = "deletePosition", method = RequestMethod.GET)
 	public @ResponseBody Response handleDeletePosition(HttpServletRequest request) {
@@ -123,7 +125,7 @@ public class PositionController {
 	        
 	        return new ModelAndView(returnPage, models);
 	    }
-    @RequestMapping(value = "canditateInfo", method = RequestMethod.GET)
+    @RequestMapping(value = "canditateInfo", method = RequestMethod.POST)
     public @ResponseBody Map<String,Object> showCandidateInfo(HttpServletRequest request) {
     	
     	String positionId = request.getParameter("positionId");

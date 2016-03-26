@@ -24,6 +24,33 @@ require(['../main'], function () {
                 	$("#studentProfileMenu").removeClass("active");
                 	$("#positionApplicationTabPane").addClass("active");
                 	$("#studentProfileTabPane").removeClass("active");
+            	}else if($("#menuSwitch").val() == "adminPosition"){
+            		$("#positionManagementMenu").addClass("active");
+            		$("#positionProfileMenu").addClass("active");
+                	$("#studnetManagementMenu").removeClass("active");
+                	$("#applicationManagementMenu").removeClass("active");
+                	$("#employerManagementMenu").removeClass("active");
+                	$("#employerProfileMenu").removeClass("active");
+                	$("#positionManagementTabPane").addClass("active");
+                	$("#positionProfileTabPane").addClass("active");
+                	$("#studentManagementTabPane").removeClass("active");
+                	$("#applicationManagementTabPane").removeClass("active");
+                	$("#employerManagementTabPane").removeClass("active");
+                	$("#employerProfileTabPane").removeClass("active");
+            	}else if($("#menuSwitch").val() == "adminEmployer"){
+            		$("#employerManagementMenu").addClass("active");
+            		$("#positionManagementMenu").removeClass("active");
+                	$("#studnetManagementMenu").removeClass("active");
+                	$("#applicationManagementMenu").removeClass("active");
+                	$("#employerManagementTabPane").addClass("active");
+                	$("#studentManagementTabPane").removeClass("active");
+                	$("#positionManagementTabPane").removeClass("active");
+                	$("#applicationManagementTabPane").removeClass("active");
+            	}else if($("#menuSwitch").val() == "employerCandidate"){
+            		$("#positionProfileMenu").addClass("active");
+            		$("#employerProfileMenu").removeClass("active");
+                	$("#positionProfileTabPane").addClass("active");
+                	$("#employerProfileTabPane").removeClass("active");
             	}
             }
 

@@ -103,7 +103,7 @@ require(['../main'], function () {
                 $('#candidateTest').DataTable({
                 	 ajax:  {
  			        	"url" : "canditateInfo",
- 			        	"type" : "get",
+ 			        	"type" : "post",
  			        	"data" : {"positionId" : b}
  			        },
 			        columns: [
@@ -143,7 +143,7 @@ require(['../main'], function () {
 			        select: true
 			    } );
                 $("#cancelCandidate").click(function(){
-                	location.href = "user-center";
+                	location.href = "user-center?menu=employerCandidate";
                 });
             }
             $(function() {

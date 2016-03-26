@@ -46,15 +46,15 @@
                     <h3>Menu</h3>
                     <ul class="nav nav-tabs-justified" role="tablist">
                         <sec:authorize access="hasRole('ROLE_ADMIN') and isAuthenticated()">
-                            <li class="active"><a id="studnetManagementTab" href="#studentManagementTabPane"  role="tab" data-toggle="tab">Student Management<span></span></a></li>
-                            <li><a id="employerManagementTab" href="#employerManagementTabPane"  role="tab" data-toggle="tab">Employer Management<span></span></a></li>
-                            <li><a id="employerManagementTab" href="#positionManagementTabPane"  role="tab" data-toggle="tab">Position Management<span></span></a></li>
-                            <li><a id="applicationManagementTab" href="#applicationManagementTabPane"  role="tab" data-toggle="tab">Application Condition<span></span></a></li>
+                            <li id="studnetManagementMenu" class="active"><a id="studnetManagementTab" href="#studentManagementTabPane"  role="tab" data-toggle="tab">Student Management<span></span></a></li>
+                            <li id="employerManagementMenu"><a id="employerManagementTab" href="#employerManagementTabPane"  role="tab" data-toggle="tab">Employer Management<span></span></a></li>
+                            <li id="positionManagementMenu"><a id="positionManagementTab" href="#positionManagementTabPane"  role="tab" data-toggle="tab">Position Management<span></span></a></li>
+                            <li id="applicationManagementMenu"><a id="applicationManagementTab" href="#applicationManagementTabPane"  role="tab" data-toggle="tab">Application Condition<span></span></a></li>
                         </sec:authorize>
                         
                         <sec:authorize access="hasRole('ROLE_ORGANIZATION') and isAuthenticated()">
-                            <li class="active"><a id="employerProfileTab" href="#employerProfileTabPane" role="tab" data-toggle="tab">Employer Information<span></span></a></li>
-                            <li><a id="positionProfileTab" href="#positionProfileTabPane" role="tab" data-toggle="tab">Position Information<span></span></a></li>
+                            <li id="employerProfileMenu" class="active"><a id="employerProfileTab" href="#employerProfileTabPane" role="tab" data-toggle="tab">Employer Information<span></span></a></li>
+                            <li id="positionProfileMenu"><a id="positionProfileTab" href="#positionProfileTabPane" role="tab" data-toggle="tab">Position Information<span></span></a></li>
                         </sec:authorize>
                         
                         <sec:authorize access="hasRole('ROLE_STUDENT') and isAuthenticated()">

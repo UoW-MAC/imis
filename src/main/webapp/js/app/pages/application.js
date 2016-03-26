@@ -85,7 +85,7 @@ require(['../main'], function () {
                 });
                 
                 $("#cancleAdminDetailPosition").click(function(){
-                	location.href = "user-center";
+                	location.href = "user-center?menu=adminPosition";
                 });
             }
             

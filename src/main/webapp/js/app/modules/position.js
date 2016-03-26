@@ -216,7 +216,7 @@
             			 $('#adminApplicationTest').DataTable({
                            	 ajax:  {
             			        	"url" : "canditateInfo",
-            			        	"type" : "get",
+            			        	"type" : "post",
             			        	"data" : {"positionId" : 0}
             			        },
             			        columns: [
