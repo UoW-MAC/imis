@@ -51,7 +51,13 @@ require(['../main'], function () {
 				    });
                 },
                 handleConfirmedSubmit: function(){
-                    $("#editForm").submit();
+                    $("#editForm").ajaxSubmit(function(response) {
+                        if (response.statusCode == 1000){
+                        	$("#return").click();
+                        }else{
+                            return;
+                        }
+                    });
                 }
             };
 

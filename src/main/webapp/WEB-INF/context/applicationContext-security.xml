@@ -42,7 +42,7 @@
         <sec:intercept-url pattern="/adminPositionDetail" access="ROLE_ADMIN,ROLE_ORGANIZATION"/>
         <sec:intercept-url pattern="/employerDetail" access="ROLE_ADMIN"/>
         <sec:intercept-url pattern="/candidate" access="ROLE_ORGANIZATION"/>
-        <sec:intercept-url pattern="/canditateInfo" access="ROLE_ORGANIZATION"/>
+        <sec:intercept-url pattern="/canditateInfo" access="ROLE_ORGANIZATION,ROLE_ADMIN"/>
 		<sec:intercept-url pattern="/canditateDetail" access="ROLE_ORGANIZATION"/>
         <sec:custom-filter before="FORM_LOGIN_FILTER" ref="loginFilter" />
 

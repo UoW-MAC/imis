@@ -14,7 +14,7 @@ public class Education implements Serializable {
 	private Long educationId;
 	private String degree;
 	private String major;
-	private float gpa;
+	private String gpa;
 	private String institution;
 	private String country;
 	private String graduationDate;
@@ -52,10 +52,10 @@ public class Education implements Serializable {
 	public void setMajor(String major) {
 		this.major = major;
 	}
-	public float getGpa() {
+	public String getGpa() {
 		return gpa;
 	}
-	public void setGpa(float gpa) {
+	public void setGpa(String gpa) {
 		this.gpa = gpa;
 	}
 	public String getInstitution() {

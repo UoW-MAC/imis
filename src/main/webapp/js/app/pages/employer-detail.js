@@ -38,7 +38,7 @@ require(['../main'], function () {
                 handleAdminEmployerConfirmedSubmit: function(){
                     $("#editEmployerForm").ajaxSubmit(function(response) {
                         if (response.statusCode == 1000){
-                            location.href = "user-center";
+                        	$("#return").click();
                         }else{
                             return;
                         }

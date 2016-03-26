@@ -93,9 +93,10 @@ public class PositionController {
 		return positionMap;
 	}
 	@RequestMapping(value = "updatePosition", method = RequestMethod.POST)
-	public ModelAndView updateApplication(@ModelAttribute("updatePositionForm") Position position) throws Exception {
+	public @ResponseBody Response updateApplication(@ModelAttribute("updatePositionForm") Position position) throws Exception {
 		positionService.positionUpdate(position);
-		return new ModelAndView(USER_CENTER_PAGE);
+		Response rs = new Response(ResponseStatus.SUCCESS.getStatusCode(),ResponseStatus.SUCCESS.getStatusDescription());
+		return rs;
 	}
 	
     @RequestMapping(value = "canditateDetail", method = RequestMethod.GET)
