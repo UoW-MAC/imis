@@ -23,6 +23,8 @@ public class ServiceConstant {
 	public static final String EMP_EMAIL = "Email";
 	public static final String EMP_WEBSITE = "Website";
 	public static final String EMP_NOTES = "Notes";
+	public static final String EMP_GROUP_TYPE = "Employer Type";
+	public static final String EMP_UPDATE_TIME = "Employer Update Time";
 
 	public static final String POSITION_NAME = "Position Name";
 	public static final String POSITION_GROUP = "Position Group";
@@ -30,6 +32,8 @@ public class ServiceConstant {
 	public static final String POSITION_RESPONSIBILITIES = "Position Responsibilities";
 	public static final String POSITION_REQUIREMENTS = "Requirements";
 	public static final String POSITION_SALARY = "Salary";
+	public static final String POSITION_UPDATE_TIME = "Position Update Time";
 	
 	public static final String APPLICATION_STATUS = "Application Status";
+	public static final String APPLICATION_UPDATE_TIME = "Application Update Time";
 }

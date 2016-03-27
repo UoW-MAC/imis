@@ -197,8 +197,8 @@ public class PositionController {
 
     	Response response = new Response();
     	Map<String, Object> models = new HashMap<String, Object>();
-    	
-    	List<Position> positionList = positionService.exportPositionInfo();
+    	String keyword = request.getParameter("keyword");
+    	List<Position> positionList = positionService.exportPositionInfo(keyword);
       
         String filePath = CsvExporter.export(positionList);
 

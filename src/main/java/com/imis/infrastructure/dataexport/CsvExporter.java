@@ -85,10 +85,10 @@ public class CsvExporter {
 
 
 	    	}else if (object instanceof Employer) {
-	    		title = titleStringBuffer.append(ServiceConstant.EMP_NAME).append(",").append(ServiceConstant.EMP_CITY).append(",").append(ServiceConstant.EMP_CONTACTOR_FIRST_NAME)
+	    		title = titleStringBuffer.append(ServiceConstant.EMP_NAME).append(",").append(ServiceConstant.EMP_GROUP_TYPE).append(",").append(ServiceConstant.EMP_CITY).append(",").append(ServiceConstant.EMP_CONTACTOR_FIRST_NAME)
 	    			.append(",").append(ServiceConstant.EMP_CONTACTOR_LAST_NAME).append(",").append(ServiceConstant.EMP_CONTACTOR_POSITION).append(",")
 	    				.append(ServiceConstant.EMP_ADDRESS).append(",").append(ServiceConstant.EMP_TELEPHONE).append(",").append(ServiceConstant.EMP_POST_CODE)
-	    					.append(",").append(ServiceConstant.EMP_WEBSITE).append(",").append(ServiceConstant.EMP_EMAIL).append(",").append(ServiceConstant.EMP_NOTES).toString();
+	    					.append(",").append(ServiceConstant.EMP_WEBSITE).append(",").append(ServiceConstant.EMP_EMAIL).append(",").append(ServiceConstant.EMP_NOTES).append(",").append(ServiceConstant.EMP_UPDATE_TIME).toString();
 
 	    		csvFileOutputStream.write(title);
 	    		csvFileOutputStream.newLine();
@@ -98,10 +98,10 @@ public class CsvExporter {
 	    			StringBuffer rowStringBuffer = new StringBuffer();
 
 
-	    			row = rowStringBuffer.append(employer.getEmployerName()).append(",").append(employer.getEmployerCity()).append(",").append(employer.getContactorFirstName())
+	    			row = rowStringBuffer.append(employer.getEmployerName()).append(",").append(employer.getEmployerGroup().getEmployerGroupType()).append(",").append(employer.getEmployerCity()).append(",").append(employer.getContactorFirstName())
 	    					.append(",").append(employer.getContactorLastName()).append(",").append(employer.getContactorPosition()).append(",").append(employer.getEmployerAddress())
 	    						.append(",").append(employer.getEmployerTelephone()).append(",").append(employer.getEmployerPostCode()).append(",").append(employer.getEmployerWebsite()).append(",")
-	    							.append(employer.getEmployerEmail()).append(",").append(employer.getEmployerNotes()).toString();
+	    							.append(employer.getEmployerEmail()).append(",").append(employer.getEmployerNotes()).append(",").append(employer.getUpdateTime()).toString();
 
 	    			csvFileOutputStream.write(row);
 	    			csvFileOutputStream.newLine();
@@ -110,7 +110,7 @@ public class CsvExporter {
 
 	    		title = titleStringBuffer.append(ServiceConstant.POSITION_NAME).append(",").append(ServiceConstant.POSITION_GROUP).append(",").append(ServiceConstant.EMP_NAME)
 	    			.append(",").append(ServiceConstant.POSITION_DESCRIPTION).append(",").append(ServiceConstant.POSITION_REQUIREMENTS).append(",")
-	    				.append(ServiceConstant.POSITION_RESPONSIBILITIES).append(",").append(ServiceConstant.POSITION_SALARY).toString();
+	    				.append(ServiceConstant.POSITION_RESPONSIBILITIES).append(",").append(ServiceConstant.POSITION_SALARY).append(",").append(ServiceConstant.POSITION_UPDATE_TIME).toString();
 	    		csvFileOutputStream.write(title);
 	    		csvFileOutputStream.newLine();
 
@@ -121,7 +121,7 @@ public class CsvExporter {
 
     			row = rowStringBuffer.append(position.getPositionName()).append(",").append(position.getPositionGroup().getPositionGroupName()).append(",")
 	    					.append(position.getEmployer().getEmployerName()).append(",").append(position.getPositionDescription()).append(",").append(position.getRequirements())
-	    						.append(",").append(position.getResponsibilities()).append(",").append(position.getSalary()).toString();
+	    						.append(",").append(position.getResponsibilities()).append(",").append(position.getSalary()).append(",").append(position.getUpdateTime()).toString();
 
 
 	    			csvFileOutputStream.write(row);
@@ -130,7 +130,7 @@ public class CsvExporter {
 	    	}else if (object instanceof Application) {
 	    		title = titleStringBuffer.append(ServiceConstant.STU_NO).append(",").append(ServiceConstant.STU_FIRST_NAME).append(",").append(ServiceConstant.STU_MIDDLE_NAME)
 	    			.append(",").append(ServiceConstant.STU_LAST_NAME).append(",").append(ServiceConstant.POSITION_NAME).append(",")
-	    				.append(ServiceConstant.EMP_NAME).append(",").append(ServiceConstant.APPLICATION_STATUS).toString();
+	    				.append(ServiceConstant.EMP_NAME).append(",").append(ServiceConstant.APPLICATION_STATUS).append(",").append(ServiceConstant.APPLICATION_UPDATE_TIME).toString();
 
 	    		csvFileOutputStream.write(title);
 	    		csvFileOutputStream.newLine();
@@ -151,7 +151,7 @@ public class CsvExporter {
 	    			row = rowStringBuffer.append(application.getStudent().getStudentNo()).append(",").append(application.getStudent().getFirstName()).append(",")
 	    					.append(application.getStudent().getMiddleName()).append(",").append(application.getStudent().getLastName()).append(",")
 	    						.append(application.getPosition().getPositionName()).append(",").append(application.getEmployer().getEmployerName())
-	    							.append(",").append(applicationStatus).toString();
+	    							.append(",").append(applicationStatus).append(",").append(application.getUpdateTime()).toString();
 
 	    			csvFileOutputStream.write(row);
 	    			csvFileOutputStream.newLine();

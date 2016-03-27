@@ -27,5 +27,5 @@ public interface PositionRepository {
 
 	Position getPositionInfo(int positionId);
 	
-	List<Position> exportPositionInfo();
+	List<Position> exportPositionInfo(Map<String,String> map);
 }

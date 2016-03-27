@@ -20,6 +20,6 @@ public interface EmployerRepository {
 	void updateEmployerInfo(Employer employer);
 	void deleteEmployerInfo(Long employerId);
 	List<Employer> getAdminEmployerInfo();
-	List<Employer> exportAdminEmployerInfo();
+	List<Employer> exportAdminEmployerInfo(Map<String,String> map);
 	Employer getEmployerByEmployerName(String employerName);
 }

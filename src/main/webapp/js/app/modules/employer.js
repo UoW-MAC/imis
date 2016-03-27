@@ -79,6 +79,7 @@
       	 	                        type : "post",
       	 	                        dataType : "json",
       	 	                        url : "exportEmployerCSV",
+      	 	                        data:{"keyword":$("#adminEmployerTest_filter").find("input").val()},
       	 	                        success : function(data) {
       	 	                            location.href = "downloadCsv?csvFileName=" + data.models.fileName;
       	 	                        }

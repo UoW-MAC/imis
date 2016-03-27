@@ -6,7 +6,6 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.imis.domain.entities.Application;
 import com.imis.domain.entities.Student;
 
 /**
@@ -27,8 +26,8 @@ public interface StudentRepository {
 
 	Student getCandidateDetail(int studentId);
 	
-	List<Student> adminStudentInfo();
+	List<Student> adminStudentInfo(Map<String,String> map);
 	
-	Student getStudentByStudentNo(Long studentNo);
+	Student getStudentByStudentNo(Map<String,Object> map);
 	
 }

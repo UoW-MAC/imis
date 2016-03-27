@@ -57,8 +57,14 @@
    				 position_id=#{positionId}
     ]]>
     </update>	
-    <select id="exportPositionInfo" resultMap="positionResultMap">
-			SELECT e.employer_name,p.POSITION_NAME, p.POSITION_DESCRIPTION, p.RESPONSIBILITIES, p.REQUIREMENTS, p.SALARY,g.position_group_name
-			FROM POSITION p,position_group g,employer e WHERE p.position_group_id=g.position_group_id and e.employer_id=p.employer_id
+    <select id="exportPositionInfo" parameterType="Map" resultMap="positionResultMap">
+			SELECT e.employer_name,p.POSITION_NAME, p.POSITION_DESCRIPTION, p.RESPONSIBILITIES, p.REQUIREMENTS, p.SALARY,g.position_group_name,p.update_time
+			FROM POSITION p,position_group g,employer e 
+			<where>
+				p.position_group_id=g.position_group_id and e.employer_id=p.employer_id
+				 <if test="keyword != '%null%'">
+				 		and (upper(e.employer_name) like upper(#{keyword}) or upper(p.POSITION_NAME) like upper(#{keyword}) or upper(g.position_group_name) like upper(#{keyword}))
+				 </if>
+			</where> 
 	</select>
 </mapper>

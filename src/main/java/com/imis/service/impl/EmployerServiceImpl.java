@@ -122,9 +122,11 @@ public class EmployerServiceImpl implements IEmployerService {
 	}
 
 	@Override
-	public List<Employer> exportAdminEmployerInfo() throws Exception {
+	public List<Employer> exportAdminEmployerInfo(String keyword) throws Exception {
+		Map<String,String> map=new HashMap<String,String>();
+		map.put("keyword", "%"+keyword+"%");
 		try {
-			List<Employer> employer = employerRepository.exportAdminEmployerInfo();
+			List<Employer> employer = employerRepository.exportAdminEmployerInfo(map);
 			return employer;
 		} catch (Exception e) {
 			throw e;

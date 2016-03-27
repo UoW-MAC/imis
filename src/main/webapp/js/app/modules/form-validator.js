@@ -288,6 +288,7 @@ define(['jquery', 'imis'], function($, imis) {
             rules: {
             	studentNo: {
                     required: true,
+                    number:true,
                     maxlength: 20,
                     remote:{                                          
                         type:"POST",

@@ -33,7 +33,6 @@ import com.imis.service.IEmployerService;
 public class EmployerController {
 	private static final Logger logger = Logger.getLogger(EmployerController.class);
 	private static final String EMPLOYER_PAGE = "employer";
-	private static final String USER_CENTER_PAGE = "user-center";
 	private static final String EMPLOYER_DETAIL_PAGE="employer-detail";
     private static final String ERROR_PAGE = "error";
 	// private static final String STUDENT_COMPLETION_PAGE =
@@ -144,8 +143,8 @@ public class EmployerController {
 
 	    	Response response = new Response();
 	    	Map<String, Object> models = new HashMap<String, Object>();
-	    	
-	    	List<Employer> employerList = employerService.exportAdminEmployerInfo();
+	    	String keyword = request.getParameter("keyword");
+	    	List<Employer> employerList = employerService.exportAdminEmployerInfo(keyword);
 	      
 	        String filePath = CsvExporter.export(employerList);
 

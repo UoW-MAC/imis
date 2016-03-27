@@ -185,8 +185,9 @@ public class StudentController {
 	public @ResponseBody Map<String,Object> handleStudentObtain(HttpServletRequest request) {
 		Map<String,Object> studentMap = null;
 		List<Student> studentList=null;
+		String keyword=null;
 		try {
-			studentList  = studentService.getAdminStudentInfo();
+			studentList  = studentService.getAdminStudentInfo(keyword);
 			studentMap = new HashMap<String,Object>();
 			studentMap.put("data", studentList);
 		} catch (Exception ex) {
@@ -210,7 +211,7 @@ public class StudentController {
 
     	Response response = new Response();
     	Map<String, Object> models = new HashMap<String, Object>();
-
+    	
     	List<Application> positionStatusList = positionService.getPositionStatusList();
 
         String filePath = CsvExporter.export(positionStatusList);
@@ -283,8 +284,8 @@ public class StudentController {
 
     	Response response = new Response();
     	Map<String, Object> models = new HashMap<String, Object>();
-
-    	List<Student> studentList = studentService.getAdminStudentInfo();
+    	String keyword = request.getParameter("keyword");
+    	List<Student> studentList = studentService.getAdminStudentInfo(keyword);
 
         String filePath = CsvExporter.export(studentList);
 
@@ -302,9 +303,9 @@ public class StudentController {
 
     	Response response = new Response();
     	Map<String, Object> models = new HashMap<String, Object>();
-
+    	String keyword = request.getParameter("keyword");
     	try {
-			List<Application> applicationList = studentService.exportApplicationInfo();
+			List<Application> applicationList = studentService.exportApplicationInfo(keyword);
 			String filePath = CsvExporter.export(applicationList);
 			String[] filePathSplit = filePath.split("/");
 			String fileName = filePathSplit[3];

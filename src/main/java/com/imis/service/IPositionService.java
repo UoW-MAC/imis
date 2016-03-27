@@ -31,6 +31,6 @@ public interface IPositionService {
 
 	public void rejectCandidate(int applicationId) throws Exception;
 	
-	public List<Position> exportPositionInfo() throws Exception;
+	public List<Position> exportPositionInfo(String keyword) throws Exception;
 	
 }

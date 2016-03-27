@@ -85,7 +85,7 @@
 		and
 		s.STUDENT_ID = e.STUDENT_ID AND s.STUDENT_ID = w.STUDENT_ID
 	</select>
-	<select id="adminStudentInfo" resultMap="studentResultMap">
+	<select id="adminStudentInfo" parameterType="Map" resultMap="studentResultMap">
 		SELECT ST.STUDENT_ID,
 		ST.FIRST_NAME,
 		ST.MIDDLE_NAME,
@@ -96,13 +96,21 @@
 		ST.student_no,
 		ST.REGISTERED_YEAR
 		FROM STUDENT ST
+		<where>
+			<if test="keyword != '%null%'">
+				 upper(ST.FIRST_NAME) like upper(#{keyword}) or upper(ST.MIDDLE_NAME) like upper(#{keyword}) or upper(ST.LAST_NAME) like upper(#{keyword}) or upper(ST.SEMESTER_REGISTERED) like upper(#{keyword}) or upper(ST.REGISTERED_YEAR) like upper(#{keyword}) or upper(ST.student_no) like upper(#{keyword})
+			</if>
+		</where>
 	</select>
 	<delete id="deleteStudentInfo" parameterType="Long">
      	<![CDATA[
      		delete from student where student_id = #{studentId}
      	]]>
 	</delete>
-	 <select id="getStudentByStudentNo"  parameterType="Long" resultMap="studentResultMap">  
-	    	select student_no from student where student_no = #{studentNo}
+	 <select id="getStudentByStudentNo"  parameterType="Map" resultMap="studentResultMap">  
+	    	select student_no from student 
+	    	<where>
+	    		student_no = #{studentNo} and student.username!=#{userName}
+	    	</where> 
     </select>
 </mapper>

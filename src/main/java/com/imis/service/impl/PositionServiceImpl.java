@@ -182,10 +182,11 @@ public class PositionServiceImpl implements IPositionService {
 			throw e;
 		}
 	}
-	public List<Position> exportPositionInfo() throws Exception {
-
+	public List<Position> exportPositionInfo(String keyword) throws Exception {
+		Map<String,String> map=new HashMap<String,String>();
+		map.put("keyword", "%"+keyword+"%");
 		try {
-			return positionRepository.exportPositionInfo();
+			return positionRepository.exportPositionInfo(map);
 		} catch (Exception e) {
 			 return null;
 		}

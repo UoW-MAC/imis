@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.imis.domain.entities.Application;
 import com.imis.domain.entities.Education;
-import com.imis.domain.entities.Position;
 import com.imis.domain.entities.Student;
 import com.imis.domain.entities.User;
 import com.imis.domain.entities.Work;
@@ -114,9 +113,11 @@ public class StudentServiceImpl implements IStudentService {
 
 
 	@Override
-	public List<Student> getAdminStudentInfo() throws Exception {
+	public List<Student> getAdminStudentInfo(String keyword) throws Exception {
 		try {
-			List<Student> student = studentRepository.adminStudentInfo();
+			Map<String,String> map=new HashMap<String,String>();
+			map.put("keyword", "%"+keyword+"%");
+			List<Student> student = studentRepository.adminStudentInfo(map);
 			return student;
 		} catch (Exception e) {
 			throw e;
@@ -130,10 +131,11 @@ public class StudentServiceImpl implements IStudentService {
 			throw e;
 		}
 	}
-	public List<Application> exportApplicationInfo() throws Exception {
-
+	public List<Application> exportApplicationInfo(String keyword) throws Exception {
+		Map<String,String> map=new HashMap<String,String>();
+		map.put("keyword", "%"+keyword+"%");
 		try {
-			return applicationRepository.exportApplicationInfo();
+			return applicationRepository.exportApplicationInfo(map);
 		} catch (Exception e) {
 			 return null;
 		}
@@ -142,7 +144,12 @@ public class StudentServiceImpl implements IStudentService {
 
 	@Override
 	public boolean isStudentNumberExisted(Long studentNo) throws Exception {
-		Student student = studentRepository.getStudentByStudentNo(studentNo);
+		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String userName = userDetails.getUsername();
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("userName",userName);
+		map.put("studentNo",studentNo);
+		Student student = studentRepository.getStudentByStudentNo(map);
 		Boolean isUserNameExisted = false;
 		
 		if (student != null) {

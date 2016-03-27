@@ -13,9 +13,9 @@ public interface IStudentService {
 
     Student getStudentInfo(int studentId) throws Exception;
     
-    List<Student> getAdminStudentInfo() throws Exception;
+    List<Student> getAdminStudentInfo(String keyword) throws Exception;
     
-   List<Application> exportApplicationInfo() throws Exception;
+   List<Application> exportApplicationInfo(String keyword) throws Exception;
 
     boolean studentDelete(Long studentId) throws Exception;
     

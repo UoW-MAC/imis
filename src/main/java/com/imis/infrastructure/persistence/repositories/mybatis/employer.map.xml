@@ -62,9 +62,15 @@
      		delete from employer where employer_id = #{employerId}
      	]]>
 	</delete>
-	 <select id="exportAdminEmployerInfo"  resultMap="employerResultMap">  
-	    	select employer_name,employer_address,employer_city,employer_post_code,employer_country,
-	    	contactor_first_name,contactor_last_name,contactor_position,employer_telephone,employer_email,employer_website,employer_notes,create_time,update_time,employer_group_id from employer
+	 <select id="exportAdminEmployerInfo"  parameterType="Map" resultMap="employerResultMap">  
+	    	select e.employer_name,e.employer_address,e.employer_city,e.employer_post_code,e.employer_country,
+	    	e.contactor_first_name,e.contactor_last_name,e.contactor_position,e.employer_telephone,e.employer_email,e.employer_website,e.employer_notes,e.create_time,e.update_time,e.employer_group_id,g.employer_group_type from employer e, employer_group g
+	    	<where>
+	    	g.employer_group_id=e.employer_group_id
+	    		<if test="keyword != '%null%'">
+	    			and ( upper(e.employer_name) like upper(#{keyword})  or upper(g.employer_group_type) like upper(#{keyword}))
+	    		</if>
+	    	</where>
     </select>
      <select id="getEmployerByEmployerName"  parameterType="String" resultMap="employerResultMap">  
 	    	select employer_name from employer where employer_name = #{employerName}

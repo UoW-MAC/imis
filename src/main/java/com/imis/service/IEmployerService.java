@@ -11,7 +11,7 @@ public interface IEmployerService {
 	public Map<String,Employer> employerObtain() throws Exception;
 	public boolean employerInfoUpdate(Employer employer) throws Exception;
 	public List<Employer> getAdminEmployerInfo() throws Exception;
-	public List<Employer> exportAdminEmployerInfo() throws Exception;
+	public List<Employer> exportAdminEmployerInfo(String keyword) throws Exception;
 	public Employer getAdminEmployerDetail(int employerId) throws Exception;
 	public boolean employerDelete(Long employerId) throws Exception;
 	public boolean isEmployerNameExisted(String employerName) throws Exception;

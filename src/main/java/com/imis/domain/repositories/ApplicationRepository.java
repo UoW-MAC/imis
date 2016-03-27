@@ -19,7 +19,7 @@ public interface ApplicationRepository {
 	void deleteApplicationInfo(Long applicationId);
 	void acceptCandidate(int applicationId);
 	void rejectCandidate(int applicationId);
-	List<Application> exportApplicationInfo();
+	List<Application> exportApplicationInfo(Map<String,String> map);
 	List<Application> getPositionList(Map<String, Object> parms);
 	List<Application> getCandidateInfo(Map<String,Integer> positionId);
 }

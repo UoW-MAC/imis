@@ -41,16 +41,22 @@
      		delete from application where application_id = #{applicationId}
      	]]>
 	</delete>
-	<select id="exportApplicationInfo" resultMap="applicationResultMap">
+	<select id="exportApplicationInfo" parameterType="Map" resultMap="applicationResultMap">
       SELECT ST.student_no,
         ST.FIRST_NAME,
         ST.MIDDLE_NAME,
         ST.LAST_NAME,
         a.application_status,
          p.position_name,
-         e.employer_name
+         e.employer_name,
+         a.update_time
         FROM STUDENT ST , application a,position p,employer e
-        where ST.USERNAME=a.username and p.position_id=a.position_id and e.employer_id = p.employer_id
+        <where>
+        	ST.USERNAME=a.username and p.position_id=a.position_id and e.employer_id = p.employer_id
+        	<if test="keyword != '%null%'">
+        		and  (upper(ST.FIRST_NAME) like upper(#{keyword}) or upper(ST.MIDDLE_NAME) like upper(#{keyword}) or upper(ST.LAST_NAME) like upper(#{keyword}) or upper(p.position_name) like upper(#{keyword}) or upper(e.employer_name) like upper(#{keyword}) or upper(a.application_status) like upper(#{keyword}))
+        	</if>
+        </where> 
     </select>
     <select id="getPositionList" parameterType="Map" resultMap="applicationResultMap">
 		SELECT A.POSITION_ID, A.POSITION_NAME, A.APPLICATION_STATUS, e.EMPLOYER_NAME, e.EMPLOYER_CITY, g.POSITION_GROUP_NAME

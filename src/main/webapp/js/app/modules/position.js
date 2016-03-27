@@ -83,6 +83,7 @@
      	 	                        type : "post",
      	 	                        dataType : "json",
      	 	                        url : "exportPositionCSV",
+     	 	                        data:{"keyword":$("#adminPositionTest_filter").find("input").val()},
      	 	                        success : function(data) {
      	 	                            location.href = "downloadCsv?csvFileName=" + data.models.fileName;
      	 	                        }
@@ -260,6 +261,7 @@
           	 	                        type : "post",
           	 	                        dataType : "json",
           	 	                        url : "exportApplicationCSV",
+          	 	                        data:{"keyword":$("#adminApplicationTest_filter").find("input").val()},
           	 	                        success : function(data) {
           	 	                            location.href = "downloadCsv?csvFileName=" + data.models.fileName;
           	 	                        }

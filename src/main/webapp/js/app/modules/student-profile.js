@@ -44,6 +44,7 @@
                         type : "post",
                         dataType : "json",
                         url : "exportStudentCSV",
+                        data:{"keyword":$("#adminStudentTest_filter").find("input").val()},
                         success : function(data) {
                             location.href = "downloadCsv?csvFileName=" + data.models.fileName;
                         }
@@ -127,7 +128,9 @@
 
             function registerEventListener() {
                 $("#studentProfile_submit").click(function () {
-                    studentProfile.Controller.handleFormSubmit();
+                	if (formValidator.getStudentValidator("#studentForm").form() == true){
+                		studentProfile.Controller.handleFormSubmit();
+                	}
                 });
 
                 $("#confirmedSubmit").click(function () {
