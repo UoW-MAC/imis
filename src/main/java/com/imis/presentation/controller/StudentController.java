@@ -59,16 +59,10 @@ public class StudentController {
     }
 
     @RequestMapping(value = "addOrUpdStudent", method = RequestMethod.POST)
-    public @ResponseBody Response makeApplication(@ModelAttribute("studentForm") @Valid Student student, BindingResult result) {
+    public @ResponseBody Response makeApplication(@ModelAttribute("studentForm") Student student) {
 
     	int statusCode;
         String statusDescription;
-
-        if (result.hasErrors()) {
-        	statusCode = ResponseStatus.FAILURE.getStatusCode();
-    		statusDescription = ResponseStatus.FAILURE.getStatusDescription();
-    		return new Response(statusCode, statusDescription);
-        }
 
     	try
     	{

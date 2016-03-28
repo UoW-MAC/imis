@@ -49,7 +49,7 @@
                             <li id="studnetManagementMenu" class="active"><a id="studnetManagementTab" href="#studentManagementTabPane"  role="tab" data-toggle="tab">Student Management<span></span></a></li>
                             <li id="employerManagementMenu"><a id="employerManagementTab" href="#employerManagementTabPane"  role="tab" data-toggle="tab">Employer Management<span></span></a></li>
                             <li id="positionManagementMenu"><a id="positionManagementTab" href="#positionManagementTabPane"  role="tab" data-toggle="tab">Position Management<span></span></a></li>
-                            <li id="applicationManagementMenu"><a id="applicationManagementTab" href="#applicationManagementTabPane"  role="tab" data-toggle="tab">Application Condition<span></span></a></li>
+                            <li id="applicationManagementMenu"><a id="applicationManagementTab" href="#applicationManagementTabPane"  role="tab" data-toggle="tab">Application Management<span></span></a></li>
                         </sec:authorize>
                         
                         <sec:authorize access="hasRole('ROLE_ORGANIZATION') and isAuthenticated()">

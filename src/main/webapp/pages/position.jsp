@@ -32,7 +32,6 @@
 <body>
 	<!-- CONTENT SECTION -->
 	<section class="contentSection">
-		<div class="container">
 <div id="positionTable">
 				 <div class="row">
 			     <a href="javascript:void(0)" id=addDisplay>add position</a>
@@ -100,7 +99,6 @@
 						</div>
 					</form>
 					</div>
-			</div>
 	</section>
 	<!-- /CONTENT SECTION -->
 <!-- Button trigger modal -->

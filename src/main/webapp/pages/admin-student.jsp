@@ -32,7 +32,6 @@
 <body>
 	<!-- CONTENT SECTION -->
 	<section class="contentSection">
-		<div class="container">
 		<div id="adminStudentTable">
 		<button type="button" id="exportStudentCSV" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
    					Export
@@ -50,10 +49,9 @@
 			        </thead>
 			     </table>
     	     </div>
-    	     </div>
 			</div>
 	</section>
-	 <script type="text/javascript"  >
+	 <script type="text/javascript">
 	function delRow () {
 		 var b= $('#adminStudentTest').DataTable().row('.selected').data();
 		 if(b!=null){

@@ -32,7 +32,6 @@
 <body>
 	<!-- CONTENT SECTION -->
 	<section class="contentSection" >
-		<div class="container">
 		<div id="adminPositionTable">
 				   <button type="button" id="exportPositionCSV" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
    					Export
@@ -49,7 +48,6 @@
 			            </tr>
 			        </thead>
 			     </table>
-    	     </div>
     	     </div>
 			</div>
 	</section>

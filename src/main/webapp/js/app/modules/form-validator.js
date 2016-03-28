@@ -136,38 +136,38 @@ define(['jquery', 'imis'], function($, imis) {
               		} 
                 },
                 employerAddress: {
-                    required: true,
+                    required: true
                 },
                 employerCity: {
-                    required: true,
+                    required: true
                 }, 
                 employerPostCode: {
-                    required: true,
+                    required: true
                 }, 
                 employerCountry: {
-                    required: true,
+                    required: true
                 }, 
                 contactorFirstName: {
-                    required: true,
+                    required: true
                 }, 
                 contactorLastName: {
-                    required: true,
+                    required: true
                 }, 
                 contactorPosition: {
-                    required: true,
+                    required: true
                 }, 
                 employerTelephone: {
-                    required: true,
+                    required: true
                 }, 
                 employerEmail: {
                 	email:true,
-                	required: true,
+                	required: true
                 }, 
                 employerWebsite: {
-                    required: true,
+                    required: true
                 },
                 employerGroup: {
-                    required: true,
+                    required: true
                 }
             },
             messages: {
@@ -176,34 +176,34 @@ define(['jquery', 'imis'], function($, imis) {
                     remote: "The user name has existed, please enter a new one."
                 },
                 employerAddress: {
-                	required: "Please enter your Company Address.",
+                	required: "Please enter your Company Address."
                 },
                 employerCity: {
-                	required: "Please enter your Company City.",
+                	required: "Please enter your Company City."
                 },
                 employerPostCode: {
-                	required: "Please enter your Company PostCode.",
+                	required: "Please enter your Company PostCode."
                 },
                 employerCountry: {
-                	required: "Please enter your Company Country.",
+                	required: "Please enter your Company Country."
                 },
                 contactorFirstName: {
-                	required: "Please enter your Contactor FirstName.",
+                	required: "Please enter your Contactor FirstName."
                 },
                 contactorLastName: {
-                	required: "Please enter your Contactor LastName.",
+                	required: "Please enter your Contactor LastName."
                 },
                 contactorPosition: {
-                	required: "Please enter your Contactor Position.",
+                	required: "Please enter your Contactor Position."
                 },
                 employerTelephone: {
-                	required: "Please enter your Company Telephone.",
+                	required: "Please enter your Company Telephone."
                 },
                 employerWebsite: {
-                	required: "Please enter your Company Website.",
+                	required: "Please enter your Company Website."
                 },
                 employerEmail: {
-                	required: "Please enter a valid email.",
+                	required: "Please enter a valid email."
                 },
                 employerGroup: {
                     required: "Please choose your Employer Group."
@@ -229,40 +229,40 @@ define(['jquery', 'imis'], function($, imis) {
             rules: {
                 positionName: {
                     required: true,
-                    maxlength: 100,
+                    maxlength: 100
                 },
                 positionDescription: {
-                    required: true,
+                    required: true
                 },
                 responsibilities: {
-                    required: true,
+                    required: true
                 }, 
                 requirements: {
-                    required: true,
+                    required: true
                 }, 
                 salary: {
                     required: true,
-                    number:true,
+                    number:true
                 }, 
                 positionGroup: {
-                    required: true,
+                    required: true
                 }
             },
             messages: {
             	positionName: {
-                    required: "Please enter your company name.",
+                    required: "Please enter your company name."
                 },
                 positionDescription: {
-                	required: "Please enter your Position Description.",
+                	required: "Please enter your Position Description."
                 },
                 responsibilities: {
-                	required: "Please enter your Position responsibilities.",
+                	required: "Please enter your Position responsibilities."
                 },
                 requirements: {
-                	required: "Please enter your Position requirements.",
+                	required: "Please enter your Position requirements."
                 },
                 salary: {
-                	required: "Please enter a valid Position salary number.",
+                	required: "Please enter a valid Position salary number."
                 },
                 positionGroup: {
                     required: "Please choose your Position Group."
@@ -316,6 +316,7 @@ define(['jquery', 'imis'], function($, imis) {
                 registeredYear: {
                 	number:true,
                     required: true,
+                    maxlength: 4,
                 },
                 gender: {
                     required: true,
@@ -338,19 +339,20 @@ define(['jquery', 'imis'], function($, imis) {
                     remote: "The student number has existed, please enter a new one."
                 },
                 firstName: {
-                	required: "Please enter your first name.",
+                	required: "Please enter your first name."
                 },
                 middleName: {
-                	required: "Please enter your middle name.",
+                	required: "Please enter your middle name."
                 },
                 lastName: {
-                	required: "Please enter your last name.",
+                	required: "Please enter your last name."
                 },
                 semesterRegistered: {
                     required: "Please select your register semester."
                 },
                 registeredYear: {
-                    required: "Please enter your register year."
+                    required: "Please enter your register year.",
+                    maxlength: "Please enter the valid year."
                 },
                 gender: {
                     required: "Please select your gender."

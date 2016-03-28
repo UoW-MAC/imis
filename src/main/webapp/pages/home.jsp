@@ -42,7 +42,7 @@
     <div class="jumbotron">
       <div class="container">
         <div class="col-md-4 home-left">
-            <h2>Make you easily connect the job with you on Internship Management Information System.</h2>
+            <h2>Make you easily connect the job on Internship Management Information System.</h2>
             <br>
 	        <p>Student can find the intership more quickly.</p>
 	        <p>Employer can find more appropriate students as internship.</p>
