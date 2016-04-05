@@ -23,13 +23,15 @@
     </insert> 
     
     <update id="updateWorkInfo"  parameterType="List">
-       <foreach collection="list" item="item" open="begin" close=";end;" separator=";">
-                UPDATE WORKS 
-                <set>
-                company = #{item.company}, dates = #{item.dates}, title = #{item.title}, duties = #{item.duties}, update_time = #{item.updateTime}
-                </set>
-                WHERE STUDENT_ID = #{item.workId}
-       </foreach>
+	       <foreach collection="list" item="item" open="begin" close=";end;" separator=";">
+	           <if test="item.workId != null">
+	                UPDATE WORKS 
+	                <set>
+	                company = #{item.company}, dates = #{item.dates}, title = #{item.title}, duties = #{item.duties}, update_time = #{item.updateTime}
+	                </set>
+	                WHERE WORK_ID = #{item.workId}
+	           </if>
+	       </foreach>
     </update>
    
 </mapper>

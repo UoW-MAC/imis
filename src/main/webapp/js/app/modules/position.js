@@ -230,11 +230,11 @@
             			            	if (data.applicationStatus == 0)
             			            		result = 'New';
             			            	else if (data.applicationStatus == 1)
-            			                	result = 'unread';
+            			                	result = 'Unread';
             			                else if (data.applicationStatus == 2)
-            			                	result = 'accept';
+            			                	result = 'Accepted';
             			                else if (data.applicationStatus == 3)
-            			                    result = 'reject';
+            			                    result = 'Rejected';
             			                return result;
             		                	}
             			            },

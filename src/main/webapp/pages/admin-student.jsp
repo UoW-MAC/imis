@@ -6,18 +6,11 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!--
-        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
-        -->
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Admin-Student</title>
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="js/lib/html5shiv.min.js"></script>
-        <script src="js/lib/respond.min.js"></script>
-        <![endif]-->
+
 
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/custom.css" rel="stylesheet" type="text/css">
@@ -33,9 +26,7 @@
 	<!-- CONTENT SECTION -->
 	<section class="contentSection">
 		<div id="adminStudentTable">
-		<button type="button" id="exportStudentCSV" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
-   					Export
- 				 </button>
+		
 			   <div class="row">
 	    	     <table id="adminStudentTest" class="display" cellspacing="0" width="100%">
 			        <thead>
@@ -48,7 +39,11 @@
 			            </tr>
 			        </thead>
 			     </table>
-    	     </div>
+    	     </div><br>
+    	     <div class="row">
+    	     <button type="button" id="exportStudentCSV" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+   					Export
+ 				 </button></div>
 			</div>
 	</section>
 	 <script type="text/javascript">

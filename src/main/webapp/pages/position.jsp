@@ -32,24 +32,26 @@
 <body>
 	<!-- CONTENT SECTION -->
 	<section class="contentSection">
-<div id="positionTable">
-				 <div class="row">
-			     <a href="javascript:void(0)" id=addDisplay>add position</a>
-				</div>
-			   <div class="row">
-	    	     <table id="positionTest" class="display" cellspacing="0" width="100%">
-			        <thead>
-			            <tr>
-			                <th>positionName</th>
-			                <th>GroupName</th>
-			                <th>updateTime</th>
-			                <th>unread/allApp</th>
-			                <th></th>
-			            </tr>
-			        </thead>
-			     </table>
-    	     </div>
-    	     </div>
+       <div id="positionTable">
+		   <div class="row">
+    	       <table id="positionTest" class="display" cellspacing="0" width="100%">
+		        <thead>
+		            <tr>
+		                <th>Position Name</th>
+		                <th>Group Name</th>
+		                <th>Update Time</th>
+		                <th>Unread/AllApp</th>
+		                <th></th>
+		            </tr>
+		        </thead>
+		       </table>
+	        </div><br>
+	         <div class="row">
+			     <button type="button" id="addDisplay" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+   					Add Position
+ 				 </button>
+ 			 </div>
+       </div>
 				<div id="addForm" style="display:none">
 				<form class="positionForm col-sm-9 rightBorder equalCol" id="positionForm" role="form" action="makePosition" method="post">
 						<div class="row">
@@ -59,35 +61,35 @@
 							</aside>
 						</div>
 						<div class="row">
-							<aside class="userFormCol-1">responsibilities</aside>
+							<aside class="userFormCol-1">Responsibilities</aside>
 							<aside class="userFormCol-right">
 								<input type="text" class="width-330" id="responsibilities"
 									name="responsibilities">
 							</aside>
 						</div>
 						<div class="row">
-							<aside class="userFormCol-1">requirements</aside>
+							<aside class="userFormCol-1">Requirements</aside>
 							<aside class="userFormCol-right">
 								<input type="text" class="width-330" id="requirements"
 									name="requirements">
 							</aside>
 						</div>
 						<div class="row">
-							<aside class="userFormCol-1">salary</aside>
+							<aside class="userFormCol-1">Salary</aside>
 							<aside class="userFormCol-right">
 								<input type="text" class="width-330" id="salary"
 									name="salary">
 							</aside>
 						</div>
 						<div class="row">
-							<aside class="userFormCol-1">positionDescription</aside>
+							<aside class="userFormCol-1">Position Description</aside>
 							<aside class="userFormCol-right">
 								<input type="text" class="width-330" id="positionDescription"
 									name="positionDescription">
 							</aside>
 						</div>
 						<div class="row">
-							<aside class="userFormCol-1">PositionGroup</aside>
+							<aside class="userFormCol-1">Position Group</aside>
 							<aside class="userFormCol-right">								
               					<select id="positionGroupSelect" name="positionGroup.positionGroupId">
              				 	</select>
@@ -95,7 +97,7 @@
 						</div>
 						<div class="row">
 							<input type="button" id="submitPosition" value="Submit"/>
-							<input type="button" value="cancle" class="btn2" id = "addDisplay2"/>
+							<input type="button" value="cancel" class="btn2" id = "addDisplay2"/>
 						</div>
 					</form>
 					</div>

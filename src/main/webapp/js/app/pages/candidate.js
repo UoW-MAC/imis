@@ -107,8 +107,7 @@ require(['../main'], function () {
  			        	"data" : {"positionId" : b}
  			        },
 			        columns: [
-			            { data: "applicationId" },	
-			            { data: "student.studentId" },
+			            { data: "student.studentNo" },
 			            { data:  "position.positionName" },
 			            { data: null, render:
 			                function ( data, type, row ) {
@@ -116,11 +115,11 @@ require(['../main'], function () {
 			            	if (data.applicationStatus == 0)
 			            		result = 'New';
 			            	else if (data.applicationStatus == 1)
-			                	result = 'unread';
+			                	result = 'Unread';
 			                else if (data.applicationStatus == 2)
-			                	result = 'accept';
+			                	result = 'Accepted';
 			                else if (data.applicationStatus == 3)
-			                    result = 'reject';
+			                    result = 'Rejected';
 			                return result;
 		                	}
 			            },
@@ -144,6 +143,11 @@ require(['../main'], function () {
 			    } );
                 $("#cancelCandidate").click(function(){
                 	location.href = "user-center?menu=employerCandidate";
+                });
+                
+                $("#candidateDetailPageCancel").click(function(){
+                	var positionId = $("#positionId").val();
+                	location.href = "candidate?positionId=" + positionId;
                 });
             }
             $(function() {

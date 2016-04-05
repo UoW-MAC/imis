@@ -45,7 +45,8 @@
             <button class="btn btn-lg btn-primary btn-block" id="singleLoginFormSubmit">Log in</button>
        </form>
     </div>
-    
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <jsp:include page='footer.jsp'/>
     <script data-main="js/app/pages/login" src="js/lib/require-2.1.15.min.js"></script>
   </body>
 </html>

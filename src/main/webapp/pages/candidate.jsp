@@ -35,19 +35,18 @@
     <!-- CONTENT SECTION -->
     <section class="contentSection position-detail">
     	<div class="container">
-    	 <input type="hidden" id = "positionId" value="${positionId}"/>
-    	<table id="candidateTest" class="display" cellspacing="0" width="100%">
-			        <thead>
-			            <tr>
-			                <th>Application Id</th>
-			                <th>StudentName</th>
-			                <th>PositionName</th>
-			                <th>applicationStatus</th>
-			                <th>updateTime</th>
-			            </tr>
-			        </thead>
-			     </table>
-			     <input type="button" class="white-bt" id="cancelCandidate" value="cancel" />
+	    	<input type="hidden" id = "positionId" value="${positionId}"/>
+	    	<table id="candidateTest" class="display" cellspacing="0" width="100%">
+		        <thead>
+		            <tr>
+		                <th>Student Number</th>
+		                <th>Student Name</th>
+		                <th>Application Status</th>
+		                <th>Application Time</th>
+		            </tr>
+		        </thead>
+		    </table>
+		    <input type="button" class="white-bt" id="cancelCandidate" value="cancel" />
         </div>
     </section>
     

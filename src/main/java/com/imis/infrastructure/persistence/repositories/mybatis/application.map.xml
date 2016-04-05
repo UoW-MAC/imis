@@ -72,6 +72,7 @@
 	</select>
 	<select id="getCandidateInfo" parameterType="Map" resultMap="applicationResultMap">
 		SELECT ST.STUDENT_ID,
+		ST.STUDENT_NO,
 		ST.FIRST_NAME,
 		ST.MIDDLE_NAME,
 		ST.LAST_NAME,

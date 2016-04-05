@@ -69,7 +69,7 @@
 		                        <div class="row">
 		                            <aside class="userFormCol-1">Telephone</aside>
 		                            <aside class="userFormCol-right"> ${candidateDetail.telephone}</aside>
-		                        </div>
+		                        </div><br>
 	          					<div class="table">
 					                 <table width="750px" border="1" cellspacing="0" cellpadding="0">
 					                     <tr>
@@ -81,8 +81,8 @@
 					                     <td><div class="col-md-1">MM/YY</div></td>
 					                     </tr>
 					                     <tr>
-					                     <td>Undergraduate degree (s)</td>
-					                     <td><aside class="userFormCol-1"> ${candidateDetail.educationList[0].major}</aside></td>
+					                     <td>${candidateDetail.educationList[0].degree}</td>
+					                     <td><aside class="userFormCol-1">${candidateDetail.educationList[0].major}</aside></td>
 					                     <td><aside class="userFormCol-1">${candidateDetail.educationList[0].gpa}</aside></td>
 					                     <td><aside class="userFormCol-2">${candidateDetail.educationList[0].institution}</aside></td>
 					                     <td><aside class="userFormCol-1">${candidateDetail.educationList[0].country} </aside></td>
@@ -90,7 +90,7 @@
 					                     </tr>
 					                     
 					                     <tr>
-					                     <td>Graduate degree(s)</td>
+					                     <td>${candidateDetail.educationList[1].degree}</td>
 					                     <td><aside class="userFormCol-1">${candidateDetail.educationList[1].major}</aside></td>
 					                     <td><aside class="userFormCol-1">${candidateDetail.educationList[1].gpa}</aside></td>
 					                     <td><aside class="userFormCol-2">${candidateDetail.educationList[1].institution}</aside></td>
@@ -98,7 +98,7 @@
 					                     <td><aside class="userFormCol-1">${candidateDetail.educationList[1].graduationDate}</aside></td>
 					                     </tr>
 					                     <tr>
-					                     <td><aside class="userFormCol-5">Other – List any other degrees or certifications you have</aside></td>
+					                     <td><aside class="userFormCol-5">${candidateDetail.educationList[2].degree}</aside></td>
 					                     <td><aside class="userFormCol-1">${candidateDetail.educationList[2].major}</aside></td>
 					                     <td><aside class="userFormCol-1">${candidateDetail.educationList[2].gpa}</aside></td>
 					                     <td><aside class="userFormCol-2">${candidateDetail.educationList[2].institution}</aside></td>
@@ -106,7 +106,7 @@
 					                     <td><aside class="userFormCol-1">${candidateDetail.educationList[2].graduationDate}</aside></td>
 					                     </tr>
 					                     <tr>
-					                     <td>Other</td>
+					                     <td>${candidateDetail.educationList[3].degree}</td>
 					                     <td><aside class="userFormCol-1">${candidateDetail.educationList[3].major}</aside></td>
 					                     <td><aside class="userFormCol-1">${candidateDetail.educationList[3].gpa}</aside></td>
 					                     <td><aside class="userFormCol-2">${candidateDetail.educationList[3].institution}</aside></td>
@@ -151,11 +151,11 @@
 					                     </tr>
 					                 </table>
 				                </div>
-          				      <div class="row">
+          		    <div class="row">
                 	<input type="button" id="candidateAccept" value="Accept"/>
                 	<input type="button" id="candidateReject" value="Reject"/>
-                	<a href="candidate?positionId=${positionId}">Cancel</a>
-                </div>
+                	<input type="button" class="white-bt" id="candidateDetailPageCancel" value="Cancel"/>
+                    </div>
            </div>
     </section>
 

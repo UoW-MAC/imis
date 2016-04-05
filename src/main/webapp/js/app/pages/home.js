@@ -80,6 +80,12 @@ require(['../main'], function () {
                     home.Controller.handleRegisterFormSubmit();
                 });
                 
+                $(document).keyup(function(event){
+				    if(event.keyCode ==13){
+				        home.Controller.handleLoginFormSubmit();
+				    }
+			    });
+                
                 $("#loginFormSubmit").click(function () {
                 	home.Controller.handleLoginFormSubmit();
                 });

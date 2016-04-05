@@ -33,9 +33,7 @@
 	<!-- CONTENT SECTION -->
 	<section class="contentSection">
 		<div id="adminEmployerTable">
-		<button type="button" id="exportEmployerCSV" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
-   					Export
- 				 </button>
+		
 			   <div class="row">
 	    	     <table id="adminEmployerTest" class="display" cellspacing="0" width="100%" >
 			        <thead>
@@ -48,7 +46,10 @@
 			            </tr>
 			        </thead>
 			     </table>
-    	     </div>
+    	     </div><br> <div class="row">
+    	     <button type="button" id="exportEmployerCSV" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+   					Export
+ 				 </button></div>
 			</div>
 	</section>
 </body>

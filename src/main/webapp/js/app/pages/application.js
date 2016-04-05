@@ -33,7 +33,7 @@ require(['../main'], function () {
      					url : 'getPositionGroup',
      					success : function(data) {
      						application.View.getPositionGroupView(data);
-        					document.getElementById("inputAdminDetailPositionGroupSelect").options[($('#inputAdminDetailPositionGroupId').val()-2)].selected = true;
+        					$("#inputAdminDetailPositionGroupSelect option[value=" + $('#inputAdminDetailPositionGroupId').val() + "]").attr("selected", true);
         				}
         			});
         		},

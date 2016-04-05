@@ -80,7 +80,7 @@
 					                     </tr>
 					                     
 					                     <tr>
-					                     <td>Undergraduate degree (s)</td>
+					                     <td>Undergraduate degree(s)</td>
 					                     <td><aside class="userFormCol-1"><input type="text" class="width-330" id="educationList[0].major" name="educationList[0].major" value="{{educationList.0.major}}"></aside></td>
 					                     <td><aside class="userFormCol-1"><input type="text" class="width-330" id="educationList[0].gpa" name="educationList[0].gpa" value="{{educationList.0.gpa}}"></aside></td>
 					                     <td><aside class="userFormCol-2"><input type="text" class="width-330" id="educationList[0].institution" name="educationList[0].institution" value="{{educationList.0.institution}}"></aside></td>
@@ -118,8 +118,8 @@
 					                     <td><aside class="userFormCol-1"><input type="text" class="width-330" id="educationList[3].country" name="educationList[3].country" value="{{educationList.3.country}}"></aside></td>
 					                     <td><aside class="userFormCol-1"><input type="text" class="width-330" id="educationList[3].graduationDate" name="educationList[3].graduationDate" value="{{educationList.3.graduationDate}}"></aside></td>
 					                     </tr>
-					                     <input name="educationList[0].degree" type="hidden" value="undergraduate"/>
-					                     <input name="educationList[1].degree" type="hidden" value="graduate"/>
+					                     <input name="educationList[0].degree" type="hidden" value="Undergraduate degree(s)"/>
+					                     <input name="educationList[1].degree" type="hidden" value="Graduate degree(s)"/>
 					                     <input name="educationList[2].degree" type="hidden" value="other"/>
 					                     <input name="educationList[3].degree" type="hidden" value="other"/>
 					                </table>

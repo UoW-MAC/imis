@@ -301,9 +301,6 @@ define(['jquery', 'imis'], function($, imis) {
                 firstName: {
                     required: true,
                 },
-                middleName: {
-                    required: true,
-                }, 
                 lastName: {
                     required: true,
                 }, 
@@ -340,9 +337,6 @@ define(['jquery', 'imis'], function($, imis) {
                 },
                 firstName: {
                 	required: "Please enter your first name."
-                },
-                middleName: {
-                	required: "Please enter your middle name."
                 },
                 lastName: {
                 	required: "Please enter your last name."

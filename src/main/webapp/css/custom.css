@@ -1,11 +1,14 @@
 @import url('font.css');
 
 .home-left {
-	width: 500px;
+	width: 490px;
 }
 .home-right {
-	margin-left: 220px;
+	margin-left: 225px;
 }
+.col-md-4 {
+	padding-left: 0px;
+}  
 .navbar-brand {
 	color: #fff;
 }
@@ -72,6 +75,9 @@
 	font-weight: bold;
 }
 
+.error {
+	color: red;
+}
 
 html, body {
 	width: auto !important;
@@ -112,6 +118,7 @@ input[type="text"]:focus {
 .width-128 {
 	width: 128px;
 }
+
 img {
 	border: 0;
 }
@@ -457,7 +464,7 @@ a:hover h4 {
 .userFormCol-right {
 	display: list-item;
 	list-style-type: none;
-	padding: 0 0 0 150px;
+	padding: 0 0 0 120px;
 	line-height: 32px;
 }
 .select-hidden {
@@ -1067,6 +1074,10 @@ h3.borderBottom {
 	padding: 20px 0 15px;
 	text-align: center;
 }
+.container {
+	width: 1150px;
+}
+
 .panel-body a {
 	background: url(../images/link_arrow.png) no-repeat scroll left center rgba(0, 0, 0, 0);
 	color: #4c5256;

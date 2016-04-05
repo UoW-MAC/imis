@@ -25,11 +25,13 @@
     
     <update id="updateEducationInfo"  parameterType="List">
        <foreach collection="list" item="item" index="index" open="begin" close=";end;" separator=";">
+           <if test="item.educationId != null">
                 UPDATE EDUCATION
                 <set>
                   degree = #{item.degree}, major = #{item.major}, gpa = #{item.gpa}, institution = #{item.institution}, country = #{item.country}, graduation_date = #{item.graduationDate}, update_time = #{item.updateTime}
                 </set>
-                WHERE education_id = #{item.educationId}  
+                WHERE education_id = #{item.educationId}
+           </if>  
        </foreach>
     </update>
     
