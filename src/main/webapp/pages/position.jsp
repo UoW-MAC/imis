@@ -63,15 +63,15 @@
 						<div class="row">
 							<aside class="userFormCol-1">Responsibilities</aside>
 							<aside class="userFormCol-right">
-								<input type="text" class="width-330" id="responsibilities"
-									name="responsibilities">
+								<textarea row="3" cols="62" class="width-330" id="responsibilities"
+									name="responsibilities"></textarea>
 							</aside>
 						</div>
 						<div class="row">
 							<aside class="userFormCol-1">Requirements</aside>
 							<aside class="userFormCol-right">
-								<input type="text" class="width-330" id="requirements"
-									name="requirements">
+								<textarea row="3" cols="62" id="requirements"
+									name="requirements"></textarea>
 							</aside>
 						</div>
 						<div class="row">
@@ -82,10 +82,10 @@
 							</aside>
 						</div>
 						<div class="row">
-							<aside class="userFormCol-1">Position Description</aside>
+							<aside class="userFormCol-1">Description</aside>
 							<aside class="userFormCol-right">
-								<input type="text" class="width-330" id="positionDescription"
-									name="positionDescription">
+								<textarea row="3" cols="62" class="width-330" id="positionDescription"
+									name="positionDescription"></textarea>
 							</aside>
 						</div>
 						<div class="row">

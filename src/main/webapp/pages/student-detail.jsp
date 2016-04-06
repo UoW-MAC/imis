@@ -20,8 +20,9 @@
     <section class="contentSection position-detail">
     	<div class="container">
             <div class="row">
+            <input type="hidden" id="adminstudentId" name="studentId" value="${studentId}" /> 
                     <form class="studentDetailForm col-sm-9 rightBorder equalCol" id="studentForm" role="form" action="addOrUpdStudent" method="post">
-                      <input type="hidden" id="adminStudentId" name="studentId" value="${studentId}" /> 
+                      <input type="hidden" id="studentId" name="studentId" value="${studentId}" /> 
                         <div class="row">
                         	<div>Status</div>
                         	<div class="radioRow">

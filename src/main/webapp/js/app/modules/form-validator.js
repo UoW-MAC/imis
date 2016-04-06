@@ -375,6 +375,91 @@ define(['jquery', 'imis'], function($, imis) {
         });
         return validator;
     }
+    formValidator.getAdminStudentValidator = function(formName){
+        var validator = $(formName).validate({
+            errorElement:"em",
+            rules: {
+            	studentNo: {
+                    required: true,
+                    number:true,
+                    maxlength: 20
+                },
+                firstName: {
+                    required: true,
+                },
+                lastName: {
+                    required: true,
+                }, 
+                gender: {
+                    required: true,
+                },
+                semesterRegistered: {
+                    required: true,
+                },
+                registeredYear: {
+                	number:true,
+                    required: true,
+                    maxlength: 4,
+                },
+                gender: {
+                    required: true,
+                },
+                status: {
+                    required: true,
+                },
+                email: {
+                	email:true,
+                    required: true,
+                },
+                telephone: {
+                	 number:true,
+                    required: true,
+                },
+            },
+            messages: {
+            	studentNo: {
+                    required: "Please enter your student number."
+                },
+                firstName: {
+                	required: "Please enter your first name."
+                },
+                lastName: {
+                	required: "Please enter your last name."
+                },
+                semesterRegistered: {
+                    required: "Please select your register semester."
+                },
+                registeredYear: {
+                    required: "Please enter your register year.",
+                    maxlength: "Please enter the valid year."
+                },
+                gender: {
+                    required: "Please select your gender."
+                },
+                status: {
+                    required: "Please select your status."
+                },
+                email: {
+                    required: "Please enter your email."
+                },
+                telephone: {
+                    required: "Please enter your telephone number."
+                }
+            },
+            success: function(label) {
+            },
+            errorPlacement:function(error,element) {
+                error.insertAfter(element);
+            },
+            errorContainer: "span.errorMsg",
+            errorLabelContainer: $("#loginForm span.errorMsg"),
+            wrapper: "span",
+            submitHandler:function(form){
+                form.submit();
+            }
+        });
+        return validator;
+    }
     imis.FormValidator = formValidator;
     return formValidator;
 

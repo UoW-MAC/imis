@@ -150,7 +150,7 @@ public class StudentController {
     }
 
     @RequestMapping(value = "getStudentInfo", method = RequestMethod.POST)
-    public @ResponseBody Response getAdminStudentInfo(HttpServletRequest request) {
+    public @ResponseBody Response getAdminStudentInfoPost(HttpServletRequest request) {
     	int studentId=Integer.parseInt(request.getParameter("studentId"));
     	int statusCode=0;
         String statusDescription;
@@ -175,6 +175,13 @@ public class StudentController {
 
         return new Response(statusCode, statusDescription, models);
     }
+    
+    @RequestMapping(value = "getStudentInfo", method = RequestMethod.GET)
+    public @ResponseBody Response getAdminStudentInfo(HttpServletRequest request) {
+    	return getAdminStudentInfoPost(request);
+    }
+    
+    
     @RequestMapping(value = "adminStudentInfo", method = RequestMethod.GET)
 	public @ResponseBody Map<String,Object> handleStudentObtain(HttpServletRequest request) {
 		Map<String,Object> studentMap = null;

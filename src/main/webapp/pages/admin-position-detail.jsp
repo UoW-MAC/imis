@@ -46,11 +46,11 @@
                            	</div>
                            	<div class="row">
                             	<aside class="userFormCol-1">Responsibilities:</aside>
-                           		<aside class="userFormCol-right"><input type="text" id="inputAdminDetailResponsibilities" name="responsibilities" value="${positionDetail.responsibilities}"/></aside>
+                           		<aside class="userFormCol-right"><textarea row="3" cols="82" id="inputAdminDetailResponsibilities" name="responsibilities">${positionDetail.responsibilities}</textarea></aside>
                            	</div>
                            	<div class="row">
                             	<aside class="userFormCol-1">Requirements:</aside>
-                           		<aside class="userFormCol-right"><input type="text" id="inputAdminDetailRequirements" name="requirements" value="${positionDetail.requirements}"/></aside>
+                           		<aside class="userFormCol-right"><textarea row="3" cols="82" id="inputAdminDetailRequirements" name="requirements">${positionDetail.requirements}</textarea></aside>
                            	</div>
                            	<div class="row">
                             	<aside class="userFormCol-1">Salary:</aside>
@@ -58,7 +58,7 @@
                            	</div>
                            	<div class="row">
                             	<aside class="userFormCol-1">Description:</aside>
-                           		<aside class="userFormCol-right"><input type="text" id="inputAdminDetailPositionDescription" name="positionDescription" value="${positionDetail.positionDescription}"/></aside>
+                           		<aside class="userFormCol-right"><textarea row="3" cols="82" id="inputAdminDetailPositionDescription" name="positionDescription">${positionDetail.positionDescription}</textarea></aside>
                            	</div>
 							<div class="row">
 								<aside class="userFormCol-1">Position Type</aside>
