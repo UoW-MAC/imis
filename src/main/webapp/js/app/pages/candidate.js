@@ -108,7 +108,7 @@ require(['../main'], function () {
  			        },
 			        columns: [
 			            { data: "student.studentNo" },
-			            { data:  "position.positionName" },
+			            { data: "student.firstName" },
 			            { data: null, render:
 			                function ( data, type, row ) {
 			            	var result;
@@ -137,7 +137,7 @@ require(['../main'], function () {
 		            },
 			        ],
 			        "rowCallback": function(row, data) { //data是后端返回的数据
-			              $('td:eq(1)', row).html('<a href=canditateDetail?applicationId='+data.applicationId + '&studentId='+data.student.studentId+'&positionId=' +b+ '>' + data.student.firstName +'&nbsp' +data.student.middleName +'&nbsp'+ data.student.lastName + '</a>');
+			              $('td:eq(1)', row).html('<a href=canditateDetail?applicationId='+data.applicationId + '&studentId='+data.student.studentId+'&positionId=' +b+ '>' + data.student.firstName +'&nbsp'+ data.student.lastName + '</a>');
 			        },
 			        select: true
 			    } );

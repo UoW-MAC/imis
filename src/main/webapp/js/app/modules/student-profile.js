@@ -110,13 +110,13 @@
 	   			        },
 	   			        columns: [
 	   			            { data: "studentNo" },
-	   			            { data: "lastName" },
+	   			            { data: "firstName" },
 	   			            { data: "semesterRegistered" },
 	   			            { data: "registeredYear"},
-	   			            { data: "studentId" }
+	   			            { data: "lastName" }   			       
 	   			         ],
 	   			         "rowCallback": function(row, data) { //data是后端返回的数据
-	   			           $('td:eq(1)', row).html('<a href=getAdminStudentInfo?studentId='+data.studentId+ '>' + data.firstName +'&nbsp' +data.middleName +'&nbsp'+ data.lastName + '</a>');
+	   			           $('td:eq(1)', row).html('<a href=getAdminStudentInfo?studentId='+data.studentId+ '>' + data.firstName +'&nbsp'+ data.lastName + '</a>');
 				           $('td:eq(4)', row).html('<a href=javascript:void(0) onclick=delRow()>delete</a>');
 	   			         },
 	   			         "order": [[ 0, "asc" ]],

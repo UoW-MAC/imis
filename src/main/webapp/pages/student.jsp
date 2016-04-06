@@ -133,18 +133,18 @@
 					                     <td><diiv class="col-md-2">Duties</div></td>
 					                     </tr>
 					                     
-					                     <tr>           
-					                     <td><aside class="userFormCol-2"><input type="text" class="width-330" id="workList[1].organization" name="workList[1].company" value="{{workList.1.company}}"></aside></td>
-					                     <td><aside class="userFormCol-4"><input type="text" class="width-330" id="workList[1].dates" name="workList[1].dates" value="{{workList.1.dates}}"></aside></td>
-					                     <td><aside class="userFormCol-2"><input type="text" class="width-330" id="workList[1].title" name="workList[1].title" value="{{workList.1.title}}"></aside></td>
-					                     <td><aside class="userFormCol-2"><input type="text" class="width-330" id="workList[1].duties" name="workList[1].duties" value="{{workList.1.duties}}"></aside></td>                                     
-					                     </tr>
-					                     
 					                     <tr>                    
 					                     <td><aside class="userFormCol-2"><input type="text" class="width-330" id="workList[0].organization" name="workList[0].company" value="{{workList.0.company}}"></aside></td>
 					                     <td><aside class="userFormCol-4"><input type="text" class="width-330" id="workList[0].dates" name="workList[0].dates" value="{{workList.0.dates}}"></aside></td>
 					                     <td><aside class="userFormCol-2"><input type="text" class="width-330" id="workList[0].title" name="workList[0].title" value="{{workList.0.title}}"></aside></td>
 					                     <td><aside class="userFormCol-2"><input type="text" class="width-330" id="workList[0].duties" name="workList[0].duties" value="{{workList.0.duties}}"></aside></td>
+					                     </tr>
+					                     
+					                     <tr>           
+					                     <td><aside class="userFormCol-2"><input type="text" class="width-330" id="workList[1].organization" name="workList[1].company" value="{{workList.1.company}}"></aside></td>
+					                     <td><aside class="userFormCol-4"><input type="text" class="width-330" id="workList[1].dates" name="workList[1].dates" value="{{workList.1.dates}}"></aside></td>
+					                     <td><aside class="userFormCol-2"><input type="text" class="width-330" id="workList[1].title" name="workList[1].title" value="{{workList.1.title}}"></aside></td>
+					                     <td><aside class="userFormCol-2"><input type="text" class="width-330" id="workList[1].duties" name="workList[1].duties" value="{{workList.1.duties}}"></aside></td>                                     
 					                     </tr>
 					                     
 					                     <tr>

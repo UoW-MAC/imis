@@ -461,6 +461,21 @@ a:hover h4 {
 	text-align: right;
 	line-height: 32px;
 }
+
+.userFormCol-2 {
+	float: left;
+	width: 200px;
+	text-align: center;
+	line-height: 32px;
+}
+
+.userFormCol-4 {
+	float: left;
+	width: 230px;
+	text-align: center;
+	line-height: 32px;
+}
+
 .userFormCol-right {
 	display: list-item;
 	list-style-type: none;

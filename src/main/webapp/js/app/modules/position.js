@@ -132,7 +132,7 @@
 					                else if (data.applicationStatus == 2)
 					                	result = 'Success';
 					                else if (data.applicationStatus == 3)
-					                    result = 'Regected';
+					                    result = 'Rejected';
 					                return result;
 				                }  
 				            }
@@ -221,7 +221,7 @@
             			        	"data" : {"positionId" : 0}
             			        },
             			        columns: [
-            			            { data: "student.studentId" },
+            			            { data: "student.lastName" },
             			            { data:  "position.positionName"},
             			            { data:  "employer.employerName"},
             			            { data: null, render:
@@ -247,10 +247,10 @@
             			            	return y+'-'+add0(m)+'-'+add0(d);
             		            	}
             		            },
-            		            { data:  "applicationId"},
+            		            { data:  "student.firstName"},
             			        ],
             			        "rowCallback": function(row, data) { //data是后端返回的数据
-            			              $('td:eq(0)', row).html( data.student.firstName +'&nbsp' +data.student.middleName +'&nbsp'+ data.student.lastName);
+            			              $('td:eq(0)', row).html( data.student.firstName +'&nbsp'+ data.student.lastName);
             			              $('td:eq(5)', row).html('<a href=javascript:void(0) onclick=delApplicationRow()>delete</a>');
             			        },
             			        select: true

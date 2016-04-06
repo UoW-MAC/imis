@@ -77,7 +77,7 @@
 								 </div>	
  					         </script>
  				         </div>
-			 			 <div id="abc" style="position:absolute; bottom:-50px;left:50px">
+			 			 <div id="abc" style="position:absolute; bottom:-50px;left:20px">
 			 			     <div class="row"><input type="button" id="employerForm_submit" value="submit"/></div>
 			 			 </div>  
                      </form>

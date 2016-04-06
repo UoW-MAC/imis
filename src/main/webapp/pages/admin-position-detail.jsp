@@ -61,11 +61,11 @@
                            		<aside class="userFormCol-right"><textarea row="3" cols="82" id="inputAdminDetailPositionDescription" name="positionDescription">${positionDetail.positionDescription}</textarea></aside>
                            	</div>
 							<div class="row">
-								<aside class="userFormCol-1">Position Type</aside>
+								<aside class="userFormCol-1">Position Type:</aside>
 								<aside class="userFormCol-right">				
               						<select id="inputAdminDetailPositionGroupSelect" name="positionGroup.positionGroupId"></select>
 								</aside>
-							</div>	
+							</div>	<br>
 							<div class="row">
 								<input type ="hidden" id="inputAdminDetailPositionId" name = "positionId" value ="${positionDetail.positionId}"/>
 								<input type ="hidden" id="inputAdminDetailPositionGroupId"  value ="${positionDetail.positionGroup.positionGroupId}"/>

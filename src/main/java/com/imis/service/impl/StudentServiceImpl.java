@@ -1,6 +1,7 @@
 package com.imis.service.impl;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +22,8 @@ import com.imis.domain.repositories.EducationRepository;
 import com.imis.domain.repositories.StudentRepository;
 import com.imis.domain.repositories.WorkRepository;
 import com.imis.service.IStudentService;
+
+import oracle.net.aso.w;
 
 @Service
 @Transactional(rollbackFor = Exception.class)
@@ -92,23 +95,51 @@ public class StudentServiceImpl implements IStudentService {
 	public void studentInfoUpdate(Student student) throws Exception {
 		
 		Timestamp updateTime = new Timestamp(System.currentTimeMillis());
-		List<Work> workList = student.getWorkList();
-		List<Education> educationList = student.getEducationList();
+		List<Work> updateWorkList = new ArrayList<Work>();
+		List<Work> insertWorkList = new ArrayList<Work>();
+		List<Education> UpdateEducationList = new ArrayList<Education>();
+		List<Education> insertEducationList = new ArrayList<Education>();
 		
 		student.setUpdateTime(updateTime);
 		studentRepository.updateStudentInfo(student);
 		
 		for (Education education : student.getEducationList()) {
 			education.setUpdateTime(updateTime);
+			
+			if (education.getEducationId() != null) {
+				UpdateEducationList.add(education);
+			}else {
+				Student newStudent = new Student();
+				newStudent.setStudentId(student.getStudentId());
+				education.setStudent(newStudent);
+				education.setCreateTime(updateTime);
+				insertEducationList.add(education);
+			}
 		}
 		
 		for (Work work : student.getWorkList()) {
 			work.setUpdateTime(updateTime);
+			
+			if (work.getWorkId() != null) {
+				updateWorkList.add(work);
+			}else {
+				Student newStudent = new Student();
+				newStudent.setStudentId(student.getStudentId());
+				work.setStudent(newStudent);
+				work.setCreateTime(updateTime);
+				insertWorkList.add(work);
+			}
 		}
-
-		workRepository.updateWorkInfo(workList);
-
-		educationRepository.updateEducationInfo(educationList);
+        
+		if (insertWorkList != null && insertEducationList.size() > 0) {
+			workRepository.addWorkInfo(insertWorkList);
+		}
+		if (insertEducationList != null && insertEducationList.size() > 0) {
+			educationRepository.addEducationInfo(insertEducationList);
+		}
+		
+		workRepository.updateWorkInfo(updateWorkList);
+		educationRepository.updateEducationInfo(UpdateEducationList);
 	}
 
 

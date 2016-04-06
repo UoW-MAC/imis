@@ -47,7 +47,7 @@
                         	<aside class="userFormCol-right">${candidateDetail.gender}</aside>
                         </div>
                         <div class="row">
-	                        <aside class="userFormCol-1">Semester Registered:</aside>
+	                        <aside class="userFormCol-1">Semester:</aside>
 	                        <aside class="userFormCol-right">${candidateDetail.semesterRegistered}</aside>
 	                    </div>
 	                     <div class="row">
@@ -74,11 +74,11 @@
 					                 <table width="750px" border="1" cellspacing="0" cellpadding="0">
 					                     <tr>
 					                     <td></td>
-					                     <td><div class="col-md-1">Major</div></td>
-					                     <td><div class="col-md-1">GPA</div></td>
-					                     <td><div class="col-md-1">University/Organization</div></td>
-					                     <td><div class="col-md-1">Country</div></td>
-					                     <td><div class="col-md-1">MM/YY</div></td>
+					                     <td style="text-align:center"><div>Major</div></td>
+					                     <td style="text-align:center"><div>GPA</div></td>
+					                     <td style="text-align:center"><div>University/Organization</div></td>
+					                     <td style="text-align:center"><div>Country</div></td>
+					                     <td style="text-align:center"><div>MM/YY</div></td>
 					                     </tr>
 					                     <tr>
 					                     <td>${candidateDetail.educationList[0].degree}</td>
@@ -118,36 +118,36 @@
 				                <div class="table">
 					                 <table width="750px" border="1" cellspacing="0" cellpadding="0">
 					                     <tr>
-					                     <td><div class="col-md-1">Company</div></td>
-					                     <td><div class="col-md-4">Dates(MM/YY-MM/YY)</div></td>
-					                     <td><div class="col-md-1">Title</div></td>
-					                     <td><div class="col-md-1">Duties</div></td>
+					                     <td><div style="text-align:center">Company</div></td>
+					                     <td><div style="text-align:center">Dates(MM/YY-MM/YY)</div></td>
+					                     <td><div style="text-align:center">Title</div></td>
+					                     <td><div style="text-align:center">Duties</div></td>
 					                     </tr>
 					                     <tr>                    
-					                     <td><aside class="userFormCol-1">${candidateDetail.workList[0].company}</aside></td>
+					                     <td><aside class="userFormCol-2">${candidateDetail.workList[0].company}</aside></td>
 					                     <td><aside class="userFormCol-4">${candidateDetail.workList[0].dates}</aside></td>
-					                     <td><aside class="userFormCol-1">${candidateDetail.workList[0].title}</aside></td>
-					                     <td><aside class="userFormCol-1">${candidateDetail.workList[0].duties}</aside></td>
+					                     <td><aside class="userFormCol-2">${candidateDetail.workList[0].title}</aside></td>
+					                     <td><aside class="userFormCol-2">${candidateDetail.workList[0].duties}</aside></td>
 					                     </tr>
 					                     
 					                     <tr>           
-					                     <td><aside class="userFormCol-1">${candidateDetail.workList[1].company}</aside></td>
+					                     <td><aside class="userFormCol-2">${candidateDetail.workList[1].company}</aside></td>
 					                     <td><aside class="userFormCol-4">${candidateDetail.workList[1].dates}</aside></td>
-					                     <td><aside class="userFormCol-1">${candidateDetail.workList[1].title}</aside></td>
-					                     <td><aside class="userFormCol-1">${candidateDetail.workList[1].duties}</aside></td>                                     
+					                     <td><aside class="userFormCol-2">${candidateDetail.workList[1].title}</aside></td>
+					                     <td><aside class="userFormCol-2">${candidateDetail.workList[1].duties}</aside></td>                                     
 					                     </tr>
 					                     
 					                     <tr>
-					                     <td><aside class="userFormCol-1">${candidateDetail.workList[2].company}</aside></td>
+					                     <td><aside class="userFormCol-2">${candidateDetail.workList[2].company}</aside></td>
 					                     <td><aside class="userFormCol-4">${candidateDetail.workList[2].dates}</aside></td>
-					                     <td><aside class="userFormCol-1">${candidateDetail.workList[2].title}</aside></td>
-					                     <td><aside class="userFormCol-1">${candidateDetail.workList[2].duties}</aside></td>                    
+					                     <td><aside class="userFormCol-2">${candidateDetail.workList[2].title}</aside></td>
+					                     <td><aside class="userFormCol-2">${candidateDetail.workList[2].duties}</aside></td>                    
 					                     </tr>
 					                     <tr>
-					                     <td><aside class="userFormCol-1">${candidateDetail.workList[3].company}</aside></td>
+					                     <td><aside class="userFormCol-2">${candidateDetail.workList[3].company}</aside></td>
 					                     <td><aside class="userFormCol-4">${candidateDetail.workList[3].dates}</aside></td>                   
-					                     <td><aside class="userFormCol-1">${candidateDetail.workList[3].title}</aside></td>
-					                     <td><aside class="userFormCol-1">${candidateDetail.workList[3].duties}</aside></td>
+					                     <td><aside class="userFormCol-2">${candidateDetail.workList[3].title}</aside></td>
+					                     <td><aside class="userFormCol-2">${candidateDetail.workList[3].duties}</aside></td>
 					                     </tr>
 					                 </table>
 				                </div>

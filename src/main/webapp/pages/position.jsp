@@ -63,14 +63,14 @@
 						<div class="row">
 							<aside class="userFormCol-1">Responsibilities</aside>
 							<aside class="userFormCol-right">
-								<textarea row="3" cols="62" class="width-330" id="responsibilities"
+								<textarea style="background-color:#f7f9fa" row="3" cols="62" class="width-330" id="responsibilities"
 									name="responsibilities"></textarea>
 							</aside>
 						</div>
 						<div class="row">
 							<aside class="userFormCol-1">Requirements</aside>
 							<aside class="userFormCol-right">
-								<textarea row="3" cols="62" id="requirements"
+								<textarea style="background-color:#f7f9fa" row="3" cols="62" id="requirements"
 									name="requirements"></textarea>
 							</aside>
 						</div>
@@ -84,7 +84,7 @@
 						<div class="row">
 							<aside class="userFormCol-1">Description</aside>
 							<aside class="userFormCol-right">
-								<textarea row="3" cols="62" class="width-330" id="positionDescription"
+								<textarea style="background-color:#f7f9fa" row="3" cols="62" class="width-330" id="positionDescription"
 									name="positionDescription"></textarea>
 							</aside>
 						</div>
