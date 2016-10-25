@@ -44,7 +44,7 @@
         <div class="col-md-4 home-left">
             <h2>Make you easily connect the job on Internship Management Information System.</h2>
             <br>
-	        <p>Student can find the intership more quickly.</p>
+	        <p>Student can find the internship more quickly.</p>
 	        <p>Employer can find more appropriate students as internship.</p>
         </div>
         <div class="col-md-4 home-right">
@@ -74,7 +74,7 @@
 		    </form>
         </div>
       </div>
-    </div><br><br><br><br><br>
+    </div>
 
     <jsp:include page='footer.jsp'/>
 

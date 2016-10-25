@@ -244,7 +244,10 @@ header, .topbar, nav, .page-title {
 .right_link a {
 	text-align: center;
 }
-
+.jumbotron {
+	padding-bottom: 230px;
+	margin-bottom: 0px;
+}
 
 .sidebar {
 	/*border-right:1px solid #dedede;*/

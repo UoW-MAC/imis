@@ -70,7 +70,7 @@
 								<input type ="hidden" id="inputAdminDetailPositionId" name = "positionId" value ="${positionDetail.positionId}"/>
 								<input type ="hidden" id="inputAdminDetailPositionGroupId"  value ="${positionDetail.positionGroup.positionGroupId}"/>
 								<input type="button" id="editAdminDetailPosition" value="Edit"/>
-								<input type="button" class="white-bt" id="cancleAdminDetailPosition" value="cancel" />
+								<input type="button" class="white-bt" id="cancleAdminDetailPosition" value="Cancel" />
 							</div>
 						</form>
 					</div>

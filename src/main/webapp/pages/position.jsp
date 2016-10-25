@@ -94,7 +94,7 @@
               					<select id="positionGroupSelect" name="positionGroup.positionGroupId">
              				 	</select>
 							</aside>
-						</div>
+						</div><br>
 						<div class="row">
 							<input type="button" id="submitPosition" value="Submit"/>
 							<input type="button" value="cancel" class="btn2" id = "addDisplay2"/>

@@ -198,7 +198,7 @@
                             </div>
                             <div class="buttonsRow">
                                 <button type="submit" class="orange-bt" id="confirmedSubmit">submit</button>
-                                <button type="button" class="white-bt" data-dismiss="modal">cancel</button>
+                                <button type="button" class="white-bt" data-dismiss="modal" id="studentCancel">cancel</button>
                             </div>
                         </div>
                     </div>

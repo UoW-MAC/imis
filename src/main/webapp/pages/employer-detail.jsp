@@ -92,7 +92,7 @@
               					<select id="inputemployerGroupSelect" name="employerGroup.employerGroupId">
              				 	</select>
 							</aside>
-						</div>	
+						</div>	<br>
 						<div class="row">
 							<input type ="hidden" id="employer_Id" name = "employerId" value ="${employerDetail.employerId}"/>
 							<input type ="hidden" id="inputemployerGroupId" value ="${employerDetail.employerGroup.employerGroupId}"/>

@@ -140,6 +140,7 @@
 				        ],
 				        rowCallback : function(row, data) {
 				        	$('td:eq(0)', row).html('<a href=position-detail?positionId='+ data.position.positionId + '>' + data.position.positionName + '</a >');
+				        	$("table th").css("text-align", "center");
 				        },
 				        select: true
 				       } );

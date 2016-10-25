@@ -33,9 +33,9 @@
                 handleConfirmedSubmit: function(){
                 	$("#studentForm").ajaxSubmit(function(response) {
 	                        if (response.statusCode == 1000){
-	                            location.href = "user-center";
+	                            $("#studentCancel").click();
 	                        }else{
-	                            return;
+	                            $("#studentCancel").click();
 	                        }
                     });
                 },
